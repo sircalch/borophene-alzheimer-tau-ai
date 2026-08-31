@@ -1,0 +1,59 @@
+{
+    "Isolated_Tau_Drugs": {
+        "ExtraTrees": {
+            "R2": 0.6609,
+            "MAPE_pct": 7.29,
+            "RMSE": 0.346,
+            "MAE": 0.317
+        },
+        "XGBoost": {
+            "R2": 0.5811,
+            "MAPE_pct": 7.65,
+            "RMSE": 0.384,
+            "MAE": 0.33
+        },
+        "MLR": {
+            "R2": 0.514,
+            "MAPE_pct": 8.93,
+            "Equation": "MLR_Isolated_Tau_Drugs = -2.9548 -0.0052*MW +0.0040*PSA -0.0012*Polarizability_alpha +0.0002*HBA +0.0002*HBD -0.0001*LogP +0.0001*LogS -0.0001*RBC"
+        }
+    },
+    "Drug_Borophene_Pristine": {
+        "ExtraTrees": {
+            "R2": 0.7719,
+            "MAPE_pct": 3.24,
+            "RMSE": 0.361,
+            "MAE": 0.339
+        },
+        "XGBoost": {
+            "R2": 0.6303,
+            "MAPE_pct": 3.47,
+            "RMSE": 0.46,
+            "MAE": 0.368
+        },
+        "MLR": {
+            "R2": 0.582,
+            "MAPE_pct": 4.46,
+            "Equation": "MLR_Drug_Borophene_Pristine = -8.5405 -0.0068*Polarizability_alpha -0.0040*MW +0.0006*PSA -0.0003*NOR -0.0003*LogP -0.0003*RBC -0.0002*HBA +0.0002*LogS"
+        }
+    },
+    "Drug_Borophene_Functionalized": {
+        "ExtraTrees": {
+            "R2": 0.8153,
+            "MAPE_pct": 2.72,
+            "RMSE": 0.36,
+            "MAE": 0.34
+        },
+        "XGBoost": {
+            "R2": 0.5462,
+            "MAPE_pct": 3.31,
+            "RMSE": 0.564,
+            "MAE": 0.419
+        },
+        "MLR": {
+            "R2": 0.6219,
+            "MAPE_pct": 3.94,
+            "Equation": "MLR_Drug_Borophene_Functionalized = -10.3174 -0.0097*Polarizability_alpha -0.0032*MW -0.0014*PSA -0.0005*HBA -0.0005*NOR -0.0004*RBC -0.0003*LogP +0.0002*LogS"
+        }
+    }
+}
