@@ -1,0 +1,3 @@
+pdb_id,target_desc,resolution_A,probe_ligand,affinity_kcal_mol,n_heavy_atoms,binding_pocket,pose_file
+5O3L,Tau Paired Helical Filament (Cryo-EM),2.9,Methylene Blue,-4.67,20,Cleft residue Asp348/Lys353 (PHF C-terminal beta-sheet),calculations/tau/Methylene_Blue/Methylene_Blue_5O3L_out.pdbqt
+6VHL,Tau Straight Filament (Cryo-EM),3.4,Methylene Blue,-4.62,20,Straight filament cross-beta inter-protofilament junction,calculations/tau/Methylene_Blue/Methylene_Blue_6VHL_out.pdbqt

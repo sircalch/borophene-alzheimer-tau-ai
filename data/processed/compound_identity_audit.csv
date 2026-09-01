@@ -1,0 +1,30 @@
+name,drugbank_id,canonical_smiles,inchikey,formula,molecular_weight,formal_charge,provenance_source
+Methylene Blue,DB09241,CN(C)c1ccc2nc3ccc(N(C)C)cc3[s+]c2c1,RBTBFTRPCNLSDE-UHFFFAOYSA-N,C16H18N3S+,284.408,1,https://go.drugbank.com/drugs/DB09241
+Hydromethylthionine,DB13952,CN(C)c1ccc2c(c1)Sc1cc(N(C)C)ccc1N2,QTWZICCBKBYHDM-UHFFFAOYSA-N,C16H19N3S,285.416,0,https://go.drugbank.com/drugs/DB13952
+Azure A,DB_AzA,CNc1ccc2nc3ccc(N(C)C)cc3[s+]c2c1,VBFJMDUNUIVOMH-UHFFFAOYSA-N,C15H16N3S+,270.381,1,PubChem/Literature
+Toluidine Blue O,DB_TBO,Cc1cc2nc3ccc(N(C)C)cc3[s+]c2cc1N,RQNADZJRELIICT-UHFFFAOYSA-N,C15H16N3S+,270.381,1,PubChem/Literature
+Thioflavin-T,DB_ThT,Cc1ccc(Nc2nc3ccccc3s2)cc1,BZPQYMXZWLYUEY-UHFFFAOYSA-N,C14H12N2S,240.331,0,PubChem/Literature
+Thioflavin-S,DB_ThS,Cc1ccc2nc(-c3ccc(N)cc3)sc2c1,XRTJYEIMLZALBD-UHFFFAOYSA-N,C14H12N2S,240.331,0,PubChem/Literature
+Congo Red,DB_CR,Nc1cc(S(=O)(=O)O)c2ccc(N=Nc3ccc(N)c4ccccc34)cc2c1,PRCXBXJXQLJLJV-UHFFFAOYSA-N,C20H16N4O3S,392.44,0,PubChem/Literature
+Chrysamine G,DB_ChG,O=C(O)c1cc(N=Nc2ccc(-c3ccc(N=Nc4ccc(O)c(C(=O)O)c4)cc3)cc2)ccc1O,XFFSCOOTVXBLCK-UHFFFAOYSA-N,C26H18N4O6,482.452,0,PubChem/Literature
+FDDNP,DB_FDDNP,CCN(CC)c1ccc(/C=C/C=C(C#N)C#N)cc1,MIAHHBOBOAKLDA-AATRIKPKSA-N,C16H17N3,251.333,0,PubChem/Literature
+Curcumin,DB02741,COc1cc(/C=C/C(=O)CC(=O)/C=C/c2ccc(O)c(OC)c2)ccc1O,VFLDPWHFBUODDF-FCXRPNKRSA-N,C21H20O6,368.385,0,https://go.drugbank.com/drugs/DB02741
+EGCG,DB03603,O=C(Oc1cc(O)c(O)c(O)c1)[C@@H]1Oc2cc(O)cc(O)c2[C@@H](O)[C@H]1c1cc(O)c(O)c(O)c1,XASYRHCVYLJPBB-TYCQWZJGSA-N,C22H18O12,474.374,0,https://go.drugbank.com/drugs/DB03603
+Resveratrol,DB02709,Oc1ccc(/C=C/c2cc(O)cc(O)c2)cc1,LUKBXSAWLPMMSZ-OWOJBTEDSA-N,C14H12O3,228.247,0,https://go.drugbank.com/drugs/DB02709
+Quercetin,DB04216,O=c1c(O)c(-c2ccc(O)c(O)c2)oc2cc(O)cc(O)c12,REFJWTPEDVJJIY-UHFFFAOYSA-N,C15H10O7,302.238,0,https://go.drugbank.com/drugs/DB04216
+Myricetin,DB_Myr,O=c1c(O)c(-c2cc(O)c(O)c(O)c2)oc2cc(O)cc(O)c12,IKMDFBPHZNJCSN-UHFFFAOYSA-N,C15H10O8,318.237,0,PubChem/Literature
+Baicalein,DB_Bai,O=c1cc(-c2ccccc2)oc2cc(O)c(O)c(O)c12,FXNFHKRTJBSTCS-UHFFFAOYSA-N,C15H10O5,270.24,0,PubChem/Literature
+Rosmarinic Acid,DB_Ros,O=C(O)/C=C/c1ccc(O)c(O)c1OC(=O)[C@@H](O)Cc1ccc(O)c(O)c1,WVPMHEKYSZBKDV-ZRFDWSJLSA-N,C18H16O9,376.317,0,PubChem/Literature
+Fisetin,DB_Fis,O=c1c(O)c(-c2ccc(O)c(O)c2)oc2ccc(O)cc12,BXPBSBBFPNTFFT-UHFFFAOYSA-N,C15H10O6,286.239,0,PubChem/Literature
+Apigenin,DB_Api,O=c1cc(-c2ccc(O)cc2)oc2cc(O)cc(O)c12,KZNIFHPLKGYRTM-UHFFFAOYSA-N,C15H10O5,270.24,0,PubChem/Literature
+Luteolin,DB_Lut,O=c1cc(-c2ccc(O)c(O)c2)oc2cc(O)cc(O)c12,IQPNAANSBPBGFQ-UHFFFAOYSA-N,C15H10O6,286.239,0,PubChem/Literature
+Honokiol,DB_Hon,C=CCc1ccc(O)c(-c2cc(CC=C)ccc2O)c1,VVOAZFWZEDHOOU-UHFFFAOYSA-N,C18H18O2,266.34,0,PubChem/Literature
+Anle138b,DB_Anle,Brc1ccc(-n2nc(-c3ccccc3)cc2Br)cc1,WPJLVWXJHXQWHQ-UHFFFAOYSA-N,C15H10Br2N2,378.067,0,PubChem/Literature
+Tideglusib,DB12129,O=C1NC(=O)S(=O)(=O)N1c1ccccc1,KYESLOXRKKPJGW-UHFFFAOYSA-N,C8H6N2O4S,226.213,0,https://go.drugbank.com/drugs/DB12129
+AZD1080,DB12488,Cc1nc(Nc2ccc(C#N)c(F)c2)c(C(F)(F)F)n1C,AUDVWYBXEBRIEP-UHFFFAOYSA-N,C13H10F4N4,298.243,0,https://go.drugbank.com/drugs/DB12488
+Bexarotene,DB00396,C=C(c1ccc(C(=O)O)cc1)c1cc2c(cc1C)C(C)(C)CCC2(C)C,NAVMQTYZDKMPEU-UHFFFAOYSA-N,C24H28O2,348.486,0,https://go.drugbank.com/drugs/DB00396
+Donepezil,DB00843,COc1cc2c(cc1OC)C(=O)C(CC1CCN(Cc3ccccc3)CC1)C2,ADEBPBSSDYVVLD-UHFFFAOYSA-N,C24H29NO3,379.5,0,https://go.drugbank.com/drugs/DB00843
+Rivastigmine,DB00989,CCN(C)C(=O)Oc1cccc([C@@H](C)N(C)C)c1,XSVMFMHYUFZWBK-LLVKDONJSA-N,C14H22N2O2,250.342,0,https://go.drugbank.com/drugs/DB00989
+Galantamine,DB00674,COc1ccc2c3c1O[C@H]1CC(=O)C=C[C@]31CCN(C)C2,QENVUHCAYXAROT-WMLDXEAASA-N,C17H19NO3,285.343,0,https://go.drugbank.com/drugs/DB00674
+Memantine,DB00729,CC12CC3CC(C)(C1)CC(N)(C3)C2,BUGYDGFZZOZRHP-UHFFFAOYSA-N,C12H21N,179.307,0,https://go.drugbank.com/drugs/DB00729
+Tacrine,DB00141,Nc1c2c(nc3ccccc13)CCCC2,YLJREFDVOIBQDA-UHFFFAOYSA-N,C13H14N2,198.269,0,https://go.drugbank.com/drugs/DB00141

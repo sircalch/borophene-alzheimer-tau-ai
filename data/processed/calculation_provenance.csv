@@ -1,0 +1,30 @@
+compound,drug_xtb_log,vina_5o3l_log,complex_sp_log
+Methylene Blue,calculations\tau\Methylene_Blue\Methylene_Blue_drug_sp.out,calculations\tau\Methylene_Blue\Methylene_Blue_5O3L_vina.log,calculations\tau\Methylene_Blue\Methylene_Blue_complex_clean_sp.out
+Hydromethylthionine,calculations\tau\Hydromethylthionine\Hydromethylthionine_drug_sp.out,calculations\tau\Hydromethylthionine\Hydromethylthionine_5O3L_vina.log,calculations\tau\Hydromethylthionine\Hydromethylthionine_complex_clean_sp.out
+Azure A,calculations\tau\Azure_A\Azure_A_drug_sp.out,calculations\tau\Azure_A\Azure_A_5O3L_vina.log,calculations\tau\Azure_A\Azure_A_complex_clean_sp.out
+Toluidine Blue O,calculations\tau\Toluidine_Blue_O\Toluidine_Blue_O_drug_sp.out,calculations\tau\Toluidine_Blue_O\Toluidine_Blue_O_5O3L_vina.log,calculations\tau\Toluidine_Blue_O\Toluidine_Blue_O_complex_clean_sp.out
+Thioflavin-T,calculations\tau\Thioflavin_T\Thioflavin_T_drug_sp.out,calculations\tau\Thioflavin_T\Thioflavin_T_5O3L_vina.log,calculations\tau\Thioflavin_T\Thioflavin_T_complex_clean_sp.out
+Thioflavin-S,calculations\tau\Thioflavin_S\Thioflavin_S_drug_sp.out,calculations\tau\Thioflavin_S\Thioflavin_S_5O3L_vina.log,calculations\tau\Thioflavin_S\Thioflavin_S_complex_clean_sp.out
+Congo Red,calculations\tau\Congo_Red\Congo_Red_drug_sp.out,calculations\tau\Congo_Red\Congo_Red_5O3L_vina.log,calculations\tau\Congo_Red\Congo_Red_complex_clean_sp.out
+Chrysamine G,calculations\tau\Chrysamine_G\Chrysamine_G_drug_sp.out,calculations\tau\Chrysamine_G\Chrysamine_G_5O3L_vina.log,calculations\tau\Chrysamine_G\Chrysamine_G_complex_clean_sp.out
+FDDNP,calculations\tau\FDDNP\FDDNP_drug_sp.out,calculations\tau\FDDNP\FDDNP_5O3L_vina.log,calculations\tau\FDDNP\FDDNP_complex_clean_sp.out
+Curcumin,calculations\tau\Curcumin\Curcumin_drug_sp.out,calculations\tau\Curcumin\Curcumin_5O3L_vina.log,calculations\tau\Curcumin\Curcumin_complex_clean_sp.out
+EGCG,calculations\tau\EGCG\EGCG_drug_sp.out,calculations\tau\EGCG\EGCG_5O3L_vina.log,calculations\tau\EGCG\EGCG_complex_clean_sp.out
+Resveratrol,calculations\tau\Resveratrol\Resveratrol_drug_sp.out,calculations\tau\Resveratrol\Resveratrol_5O3L_vina.log,calculations\tau\Resveratrol\Resveratrol_complex_clean_sp.out
+Quercetin,calculations\tau\Quercetin\Quercetin_drug_sp.out,calculations\tau\Quercetin\Quercetin_5O3L_vina.log,calculations\tau\Quercetin\Quercetin_complex_clean_sp.out
+Myricetin,calculations\tau\Myricetin\Myricetin_drug_sp.out,calculations\tau\Myricetin\Myricetin_5O3L_vina.log,calculations\tau\Myricetin\Myricetin_complex_clean_sp.out
+Baicalein,calculations\tau\Baicalein\Baicalein_drug_sp.out,calculations\tau\Baicalein\Baicalein_5O3L_vina.log,calculations\tau\Baicalein\Baicalein_complex_clean_sp.out
+Rosmarinic Acid,calculations\tau\Rosmarinic_Acid\Rosmarinic_Acid_drug_sp.out,calculations\tau\Rosmarinic_Acid\Rosmarinic_Acid_5O3L_vina.log,calculations\tau\Rosmarinic_Acid\Rosmarinic_Acid_complex_clean_sp.out
+Fisetin,calculations\tau\Fisetin\Fisetin_drug_sp.out,calculations\tau\Fisetin\Fisetin_5O3L_vina.log,calculations\tau\Fisetin\Fisetin_complex_clean_sp.out
+Apigenin,calculations\tau\Apigenin\Apigenin_drug_sp.out,calculations\tau\Apigenin\Apigenin_5O3L_vina.log,calculations\tau\Apigenin\Apigenin_complex_clean_sp.out
+Luteolin,calculations\tau\Luteolin\Luteolin_drug_sp.out,calculations\tau\Luteolin\Luteolin_5O3L_vina.log,calculations\tau\Luteolin\Luteolin_complex_clean_sp.out
+Honokiol,calculations\tau\Honokiol\Honokiol_drug_sp.out,calculations\tau\Honokiol\Honokiol_5O3L_vina.log,calculations\tau\Honokiol\Honokiol_complex_clean_sp.out
+Anle138b,calculations\tau\Anle138b\Anle138b_drug_sp.out,calculations\tau\Anle138b\Anle138b_5O3L_vina.log,calculations\tau\Anle138b\Anle138b_complex_clean_sp.out
+Tideglusib,calculations\tau\Tideglusib\Tideglusib_drug_sp.out,calculations\tau\Tideglusib\Tideglusib_5O3L_vina.log,calculations\tau\Tideglusib\Tideglusib_complex_clean_sp.out
+AZD1080,calculations\tau\AZD1080\AZD1080_drug_sp.out,calculations\tau\AZD1080\AZD1080_5O3L_vina.log,calculations\tau\AZD1080\AZD1080_complex_clean_sp.out
+Bexarotene,calculations\tau\Bexarotene\Bexarotene_drug_sp.out,calculations\tau\Bexarotene\Bexarotene_5O3L_vina.log,calculations\tau\Bexarotene\Bexarotene_complex_clean_sp.out
+Donepezil,calculations\tau\Donepezil\Donepezil_drug_sp.out,calculations\tau\Donepezil\Donepezil_5O3L_vina.log,calculations\tau\Donepezil\Donepezil_complex_clean_sp.out
+Rivastigmine,calculations\tau\Rivastigmine\Rivastigmine_drug_sp.out,calculations\tau\Rivastigmine\Rivastigmine_5O3L_vina.log,calculations\tau\Rivastigmine\Rivastigmine_complex_clean_sp.out
+Galantamine,calculations\tau\Galantamine\Galantamine_drug_sp.out,calculations\tau\Galantamine\Galantamine_5O3L_vina.log,calculations\tau\Galantamine\Galantamine_complex_clean_sp.out
+Memantine,calculations\tau\Memantine\Memantine_drug_sp.out,calculations\tau\Memantine\Memantine_5O3L_vina.log,calculations\tau\Memantine\Memantine_complex_clean_sp.out
+Tacrine,calculations\tau\Tacrine\Tacrine_drug_sp.out,calculations\tau\Tacrine\Tacrine_5O3L_vina.log,calculations\tau\Tacrine\Tacrine_complex_clean_sp.out
