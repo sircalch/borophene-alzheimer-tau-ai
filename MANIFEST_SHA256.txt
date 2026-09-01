@@ -1,9 +1,9 @@
 # Tau-Borophene Package Integrity Manifest (SHA-256)
 
-7596438f221fe9edbeb42bff0fe494d19b370c9d8d72bc3686da02bbc31cc515        5227 bytes  data/processed/dataset_drug_borophene_pristine.csv
+502213bfbf99e3eb640e8dab7c129d7f2ba90c8fa183164c18299a85949531c3        5602 bytes  data/processed/dataset_drug_borophene_pristine.csv
 2eabac8b92d32e98dbe181a652afb28d5d91c39604adf63ab516395d975bedd4      952722 bytes  data/raw/5O3L.pdb
 c2652c48fce4543f7beeec165fad55894e42f3d06327ef35a50fc61e5e917b1f      115668 bytes  data/raw/6VHL.pdb
 816231c19d1fd24a0b4e93e7b08862f5df6100d955b5821484bcc63507de9caf      920160 bytes  data/raw/5O3L_receptor.pdbqt
-664fb48709617c1d5ad61e2dda3b79e59057cb232934e0798e543ae4bd894b36     1563682 bytes  manuscript/Tau_Borophene_Full_Q1_Research_Paper_Monreal_Hernandez_et_al.docx
+24682e51b167b90c70c77af6e2ca9cca2a81147cc5e6232acb8a6977d6c4444d     1563767 bytes  manuscript/Tau_Borophene_Full_Q1_Research_Paper_Monreal_Hernandez_et_al.docx
 545d200c38c763088b2143fe952beae71374958d492d37b19408e8b91be417c4      775971 bytes  figures/fig1_graphical_abstract.png
 d8e4d5446bc487f354e0cee0c7b95ef7d753ffecb3e2d5d450f0f5399e87dd6f      756047 bytes  figures/fig9_tau_3d_spatial_binding_modes.png

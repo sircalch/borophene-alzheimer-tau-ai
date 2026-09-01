@@ -63,7 +63,7 @@ print(f"Generated 5O3L_receptor.pdbqt with {len(rec_5o3l_lines)} atom lines.")
 cohort_tau = [
     # Phenothiazines
     ("Methylene Blue", "Phenothiazine", "DB09241", "CN(C)c1ccc2nc3ccc(N(C)C)cc3[s+]c2c1", 319.85, -8.45, -31.50),
-    ("Hydromethylthionine", "Methylthioninium", "DB13952", "CN(C)c1ccc2nc3ccc(N(C)C)cc3sc2c1", 287.42, -8.30, -30.80),
+    ("Hydromethylthionine", "Methylthioninium", "DB13952", "CN(C)C1=CC=C2NC3=CC=C(N(C)C)C=C3SC2=C1", 285.42, -8.30, -30.80),
     ("Azure A", "Phenothiazine", "DB_AzA", "CNc1ccc2nc3ccc(N(C)C)cc3[s+]c2c1", 291.80, -8.10, -29.90),
     ("Toluidine Blue O", "Phenothiazine", "DB_TBO", "Cc1cc2nc3ccc(N(C)C)cc3[s+]c2cc1N", 305.83, -8.20, -30.40),
     
@@ -98,7 +98,7 @@ cohort_tau = [
     ("Rivastigmine", "ChE Inhibitor", "DB00989", "CCN(C)C(=O)Oc1cccc([C@@H](C)N(C)C)c1", 250.34, -6.90, -24.10),
     ("Galantamine", "AChE Inhibitor", "DB00674", "COc1ccc2c3c1O[C@H]1CC(=O)C=C[C@]31CCN(C)C2", 287.35, -7.60, -26.80),
     ("Memantine", "NMDA Antagonist", "DB00729", "CC12CC3CC(C)(C1)CC(N)(C3)C2", 179.30, -6.20, -22.40),
-    ("Tacrine", "AChE Inhibitor", "DB00141", "Nc1c2ccccc2nc2cccc-12", 198.26, -7.40, -25.80)
+    ("Tacrine", "AChE Inhibitor", "DB00141", "Nc1c2ccccc2nc2c1CCCC2", 198.26, -7.40, -25.80)
 ]
 
 rows_tau = []
