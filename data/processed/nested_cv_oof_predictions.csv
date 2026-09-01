@@ -1,0 +1,30 @@
+name,vina_5O3L_kcal_mol,y_pred_nested_cv,residual
+Methylene Blue,-4.67,-4.976,0.306
+Hydromethylthionine,-4.77,-4.9,0.13
+Azure A,-4.61,-4.844,0.234
+Toluidine Blue O,-4.85,-4.678,-0.172
+Thioflavin-T,-4.81,-5.038,0.228
+Thioflavin-S,-5.06,-5.079,0.019
+Congo Red,-5.57,-4.888,-0.682
+Chrysamine G,-6.83,-5.128,-1.702
+FDDNP,-4.41,-5.271,0.861
+Curcumin,-5.03,-5.73,0.7
+EGCG,-5.88,-5.712,-0.168
+Resveratrol,-4.97,-5.119,0.149
+Quercetin,-5.58,-5.234,-0.346
+Myricetin,-5.57,-5.336,-0.234
+Baicalein,-5.54,-5.146,-0.394
+Rosmarinic Acid,-5.6,-5.41,-0.19
+Fisetin,-5.75,-5.207,-0.543
+Apigenin,-5.53,-5.212,-0.318
+Luteolin,-5.87,-5.075,-0.795
+Honokiol,-4.93,-5.27,0.34
+Anle138b,-5.27,-5.455,0.185
+Tideglusib,-4.74,-5.438,0.698
+AZD1080,-5.3,-5.011,-0.289
+Bexarotene,-5.55,-5.775,0.225
+Donepezil,-5.75,-5.41,-0.34
+Rivastigmine,-4.13,-4.737,0.607
+Galantamine,-3.79,-5.321,1.531
+Memantine,-4.19,-3.386,-0.804
+Tacrine,-5.51,-4.709,-0.801

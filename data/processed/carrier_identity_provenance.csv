@@ -1,0 +1,3 @@
+file,sha256,N_B,N_H,total_atoms,formal_charge,multiplicity,energy_Eh,role,parent_structure
+calculations/tau/B48H12_canonical_initial.xyz,dd5fc166dbf83639ec01c200348d8a26f6ef008fbfac683a9c57ab73d3110053,48,12,60,0,1,N/A (Unoptimized),Initial unrelaxed beta12 cluster input,Canonical beta12 borophene 1/6 hole lattice
+calculations/tau/B48H12_optimized.xyz,c0a48438e056ebd6d010f010cde8a9e91f2866f4dbaabb726cbdf3643abbff8f,48,12,60,0,1,-64.267717,Tight-optimized B48H12 carrier reference,calculations/tau/B48H12_canonical_initial.xyz

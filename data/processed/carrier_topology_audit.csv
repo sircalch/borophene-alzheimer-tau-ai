@@ -1,13 +1,11 @@
-metric,value
-Number of Boron Atoms (N_B),53
-Number of Passivating H Atoms (N_H),12
-Total Atoms in Finite Cluster,60
-Cluster Classification,Finite hydrogen-passivated B48H12 cluster (derived from beta12 motif)
-Out-of-Plane Buckling Range (Delta_z),5.128 A
-Root-Mean-Square Buckling (RMS_z),1.233 A
-Mean B-B Bond Length,1.670 A
-Min B-B Bond Length,1.499 A
-Max B-B Bond Length,1.919 A
-Average Boron Coordination Number,3.96
-Coordination Number Range,2 - 6
-Hexagonal Vacancy Motif,Periodic 1/6 hexagonal hole pattern characteristic of beta12 lattice
+metric,initial_value,optimized_value,notes
+Chemical Formula,B48H12,B48H12,Exact matching 48 Boron + 12 Hydrogen
+Total Atoms,60,60,No atom loss or gain during optimization
+Number of Boron Atoms (N_B),48,48,Canonical beta12 planar motif base
+Number of Passivating H Atoms (N_H),12,12,Perimeter B-H edge passivation
+Out-of-Plane Buckling Range (Delta_z),0.000 A,2.189 A,Relaxation yields out-of-plane ripple
+Root-Mean-Square Buckling (RMS_z),0.000 A,0.503 A,Characteristic 2D borophene buckling
+Mean B-B Bond Length,1.700 A,1.655 A,Consistent with GFN2-xTB B-B covalent bond lengths
+Average Boron Coordination Number,3.58,3.67,Preserved 4-6 coordination inside lattice
+Total B-B Bonds (Graph Edges),86,88,Edge difference = 22 bonds reorganized upon relaxation
+Lattice Classification,Ideal planar beta12 lattice,Hydrogen-passivated B48H12 cluster (beta12 motif),Formal topological descriptor
