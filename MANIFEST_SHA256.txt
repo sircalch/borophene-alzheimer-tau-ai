@@ -1,13 +1,14 @@
 # Tau Borophene — SHA-256 Integrity Manifest (AUTHENTIC EXECUTABLE RAW LOGS)
-# Generated: 2026-09-01T05:19:22Z
+# Generated: 2026-09-01T23:24:36Z
 # AutoDock Vina: v1.2.7 | xTB: v6.7.1-pre | ORCA: v6.1.1
-# Total processed compounds: 29 (Vina docking on 5O3L cryo-EM 2.90 A, xTB quantum calculated)
-# Primary Target: Full-length Tau Paired Helical Filament (PDB: 5O3L, 2.90 A Cryo-EM)
-# Secondary Target: Tau Straight Filament (PDB: 6VHL, 3.40 A Cryo-EM)
+# Total processed compounds: 29 (Vina docking on 5O3L & 6VHL, xTB quantum calculated)
+# Primary Target: Full-length Tau Paired Helical Filament (PDB: 5O3L, 3.40 A Cryo-EM)
+# Cross-Structure Target: Tau Paired Helical Filament (PDB: 6VHL, 3.30 A Cryo-EM)
 # Carrier: Finite hydrogen-passivated B48H12 boron cluster (60 atoms, beta12 motif, E_borophene = -67.658968 Eh)
-# Out-of-plane buckling: Delta_z = 5.128 A, RMS buckling = 1.233 A, Mean B-B bond length = 1.670 A
+# Carrier Buckling: Delta_z = 5.128 A, RMS_z = 1.233 A, Mean B-B bond length = 1.670 A
 # Multi-Orientation Relaxed Subset (N=8): Spearman rho = 0.9524 (p=0.0003), MAE = 14.13 kcal/mol
-# Nested Ridge Q2_CV (exploratory): -0.1282, RMSE: 0.667 kcal/mol, MAE: 0.510 kcal/mol, h*: 0.5172
+# Docking Protocol: Cross-structure probe consistency analysis (Exploratory; not crystallographic redocking)
+# Strict Nested Ridge Q2_CV: -0.0418, RMSE: 0.641 kcal/mol, MAE: 0.485 kcal/mol, h*: 0.5172
 #
 # SHA256                                                               bytes  role  path
 #-----------------------------------------------------------------------------------------------
@@ -573,12 +574,13 @@ b73288067131599b04bf338eb33d57589586a68e8d3b78862f0fd197a3ca203a         10315 b
 6bbdbb357b9530d778e6252763e2f376f71f3a0f392ee2a18e69e9cf257fe4fc          5304 bytes  [tau]  calculations\tau\xtbrestart
 3441c2cb73a65eba52885590f8e522d6fdc6c502a7b7459d0a7e927d9c51f1a6          6960 bytes  [tau]  calculations\tau\xtbtopo.mol
 6a5c4ae93f01bd8b65beaeac49eeedbb958d7c39de89226636b31340cad64b6d          5121 bytes  [tau]  data\processed\calculation_provenance.csv
+08761099df8313251062ee6b24eb170adc46b66787114bc3c780b68e2bca71a1           559 bytes  [tau]  data\processed\carrier_topology_audit.csv
 d24c0a250e3cec500e66a5082e0ba26db54a3317c2bb59102126a97d5cbcd917          4023 bytes  [tau]  data\processed\compound_identity_audit.csv
+aa08a8f98f0b7ab6880b30d5d7c255339baac5f594601a5f46237778261fd526           841 bytes  [tau]  data\processed\cross_structure_probe_docking.csv
 154b855ed11094fc6ead4d73b3e215dc2bf32ea2e41c8d52a74774f7a69532aa          7241 bytes  [tau]  data\processed\dataset_drug_borophene_functionalized.csv
 7521eae1ba3f89646b0ec001afc273266078b599fcb96172c3edc19a9bc798de          4995 bytes  [tau]  data\processed\dataset_drug_borophene_pristine.csv
 ba8bd408c959d9fdc73dceb15bb170c3e1b80c0164b5e3e89c619cfb2f1f9583          6625 bytes  [tau]  data\processed\dataset_isolated_tau_drugs.csv
 2b7919635b9ff2d52037a734e2aa2083db01fb3d0752dd450179f136befea8b9          5099 bytes  [tau]  data\processed\dataset_tau_borophene_pristine.csv
-7e31af1ee7a35a1314a89074df98ea544da92cb7f8485b5897b94a2cd4bcba6a           479 bytes  [tau]  data\processed\redocking_validation.csv
 e22f1a37dbd052ffd7b3f434ab0a29cc4bae3134cfef10575aeb9f2e94da7ff2           366 bytes  [tau]  data\processed\relaxed_adsorption_subset.csv
 e888f3ae61c9002ec39dc76f03e2b8ee81ae286e845d89e651481e1fa09b7b48          6392 bytes  [tau]  data\processed\tau_isolated_descriptors.csv
 2eabac8b92d32e98dbe181a652afb28d5d91c39604adf63ab516395d975bedd4        952722 bytes  [tau]  data\raw\5O3L.pdb
@@ -616,7 +618,7 @@ cd3aa8b8251fa5303ff0a288482efe9eee36c241173f92850919d0913289ac5f          3297 b
 99079c1a9dfa3b9b3081040f83166ef56fa756533c1b7fb8d3533ed966319596          2775 bytes  [tau]  data\raw\ligands_pdbqt\Verubecestat.pdbqt
 520eeaa06493364d3ee5c39f41cf1740cd41958b26b938c3f6656ba415147064          3480 bytes  [tau]  data\raw\tau_drug_library.csv
 2b27442a94c28846d32acfd6bcb282791e03731b5c0624dccf6cbf7e15e2893d          3891 bytes  [tau]  eval_tau_relaxed.py
-8c861ae1c3f2ec3897827956252aeabda340c90248f1b5b91f3158ca706082e9          2653 bytes  [tau]  eval_tau_summary.py
+c99c78163674d764d01f54982b91ff0cd6c0298437382479fca003dbed31d732          8876 bytes  [tau]  eval_tau_summary.py
 545d200c38c763088b2143fe952beae71374958d492d37b19408e8b91be417c4        775971 bytes  [tau]  figures\fig1_graphical_abstract.png
 e386d2b2472f1e3f38c7aaec3fe29ecf6f5338fcac82ff48fb8133efe3766b7f        693247 bytes  [tau]  figures\fig1_tau_workflow_methodology.png
 852eea3d7ed475c142981f96ac9503d53005aa6406e493e58bf5d13a31104cdb        215845 bytes  [tau]  figures\fig2_tau_quantum_cdft_architecture.png

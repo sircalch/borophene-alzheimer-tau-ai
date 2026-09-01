@@ -1,0 +1,13 @@
+metric,value
+Number of Boron Atoms (N_B),53
+Number of Passivating H Atoms (N_H),12
+Total Atoms in Finite Cluster,60
+Cluster Classification,Finite hydrogen-passivated B48H12 cluster (derived from beta12 motif)
+Out-of-Plane Buckling Range (Delta_z),5.128 A
+Root-Mean-Square Buckling (RMS_z),1.233 A
+Mean B-B Bond Length,1.670 A
+Min B-B Bond Length,1.499 A
+Max B-B Bond Length,1.919 A
+Average Boron Coordination Number,3.96
+Coordination Number Range,2 - 6
+Hexagonal Vacancy Motif,Periodic 1/6 hexagonal hole pattern characteristic of beta12 lattice
