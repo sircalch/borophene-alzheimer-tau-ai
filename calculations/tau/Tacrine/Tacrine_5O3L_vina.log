@@ -1,0 +1,49 @@
+AutoDock Vina v1.2.7
+#################################################################
+# If you used AutoDock Vina in your work, please cite:          #
+#                                                               #
+# J. Eberhardt, D. Santos-Martins, A. F. Tillack, and S. Forli  #
+# AutoDock Vina 1.2.0: New Docking Methods, Expanded Force      #
+# Field, and Python Bindings, J. Chem. Inf. Model. (2021)       #
+# DOI 10.1021/acs.jcim.1c00203                                  #
+#                                                               #
+# O. Trott, A. J. Olson,                                        #
+# AutoDock Vina: improving the speed and accuracy of docking    #
+# with a new scoring function, efficient optimization and       #
+# multithreading, J. Comp. Chem. (2010)                         #
+# DOI 10.1002/jcc.21334                                         #
+#                                                               #
+# Please see https://github.com/ccsb-scripps/AutoDock-Vina for  #
+# more information.                                             #
+#################################################################
+
+Scoring function : vina
+Rigid receptor: c:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\data\raw\5O3L_receptor.pdbqt
+Ligand: c:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\calculations\tau\Tacrine\Tacrine_ligand.pdbqt
+Grid center: X 180.159 Y 140.642 Z 145.947
+Grid size  : X 26 Y 26 Z 26
+Grid space : 0.375
+Exhaustiveness: 8
+CPU: 0
+Verbosity: 1
+
+Computing Vina grid ... done.
+WARNING: At low exhaustiveness, it may be impossible to utilize all CPUs.
+Performing docking (random seed: 801273323) ... 
+0%   10   20   30   40   50   60   70   80   90   100%
+|----|----|----|----|----|----|----|----|----|----|
+***************************************************
+
+mode |   affinity | dist from best mode
+     | (kcal/mol) | rmsd l.b.| rmsd u.b.
+-----+------------+----------+----------
+   1       -5.508          0          0
+   2       -5.432     0.2689      4.726
+   3       -4.561      23.87      24.57
+   4       -4.545      1.655      2.623
+   5       -4.456      1.995      2.883
+   6       -4.344      24.71      25.81
+   7       -4.338      2.057      4.276
+   8       -4.333      25.11      26.08
+   9       -4.124      24.78      25.97
+# Command: c:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\src\docking\vina.exe --receptor c:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\data\raw\5O3L_receptor.pdbqt --ligand c:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\calculations\tau\Tacrine\Tacrine_ligand.pdbqt --center_x 180.159 --center_y 140.642 --center_z 145.947 --size_x 26.0 --size_y 26.0 --size_z 26.0 --num_modes 9 --exhaustiveness 8 --out c:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\calculations\tau\Tacrine\Tacrine_5O3L_out.pdbqt
