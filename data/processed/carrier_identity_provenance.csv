@@ -1,3 +1,3 @@
 file,sha256,N_B,N_H,total_atoms,formal_charge,multiplicity,energy_Eh,role,parent_structure
-calculations/tau/B48H12_canonical_initial.xyz,dd5fc166dbf83639ec01c200348d8a26f6ef008fbfac683a9c57ab73d3110053,48,12,60,0,1,N/A (Unoptimized),Initial unrelaxed beta12 cluster input,Canonical beta12 borophene 1/6 hole lattice
-calculations/tau/B48H12_optimized.xyz,c0a48438e056ebd6d010f010cde8a9e91f2866f4dbaabb726cbdf3643abbff8f,48,12,60,0,1,-64.267717,Tight-optimized B48H12 carrier reference,calculations/tau/B48H12_canonical_initial.xyz
+calculations/tau/beta12_carrier_initial.xyz,6fd26f3924cc7efbf413689650de0b9875c583016a94d97035a5f39c89374248,40,15,55,0,1,N/A (Unrelaxed),Initial unrelaxed 4x2 beta12 supercell cluster,Mannix et al. Science 2015 (DOI: 10.1126/science.aad1080)
+calculations/tau/beta12_carrier_optimized.xyz,80024c029e446e24b41b543ebc86f2d5a3a1a36f402577c4bd9d6b09ef94eef7,40,15,55,0,1,-56.192156,Tight-optimized canonical beta12 B40H15 carrier reference,calculations/tau/beta12_carrier_initial.xyz

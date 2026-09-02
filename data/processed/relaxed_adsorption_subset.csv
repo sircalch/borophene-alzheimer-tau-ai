@@ -1,9 +1,2 @@
-name,delta_Eint_SP_kcal_mol,delta_Eint_relaxed_kcal_mol
-Hydromethylthionine,-3.129,-12.400712755913124
-Curcumin,-12.936,-23.790145599268733
-EGCG,-9.56,-20.765886297542398
-Resveratrol,-5.749,-15.042549938667626
-Quercetin,-10.513,-21.449362832137822
-Baicalein,-7.362,-15.114378436572249
-Honokiol,-1.907,-8.086204153384807
-Donepezil,-5.675,-15.819125020015823
+name,best_orientation_deg,delta_Eint_SP_kcal_mol,delta_Eint_relaxed_kcal_mol,convergence_status,gradient_norm_Eh_a0,optimization_cycles,output_file,final_pose_file,sha256
+Resveratrol,0,-2.302,-26.197,CONVERGED (*** convergence criteria satisfied ***),0.000680597359,108,calculations\tau\Resveratrol\Resveratrol_opt_0deg.out,calculations\tau\Resveratrol\Resveratrol_orientation_0deg_final.xyz,b5c369a772b117332aca50fffb92725e444c4a6f8dfbf2699f88d06da0a0df64

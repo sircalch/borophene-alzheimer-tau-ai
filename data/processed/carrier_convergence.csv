@@ -1,0 +1,2 @@
+carrier_name,formula,total_atoms,N_B,N_H,vacancy_density_eta,formal_charge,multiplicity,final_energy_Eh,gradient_norm_Eh_a0,optimization_cycles,convergence_status,initial_file_sha256,optimized_file_sha256,output_file
+beta12_borophene_nanoflake,B40H15,55,40,15,1/6 (8 vacancies / 48 lattice sites),0,1,-56.192156,0.000976219986,216,CONVERGED (*** convergence criteria satisfied ***),6fd26f3924cc7efbf413689650de0b9875c583016a94d97035a5f39c89374248,80024c029e446e24b41b543ebc86f2d5a3a1a36f402577c4bd9d6b09ef94eef7,calculations/tau/beta12_carrier_opt.out
