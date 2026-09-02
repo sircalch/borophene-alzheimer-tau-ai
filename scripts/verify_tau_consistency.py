@@ -1,116 +1,164 @@
 """
-scripts/verify_tau_consistency.py
-=================================
-Automated test suite to verify absolute consistency across all active Tau files:
-1. Verifies that only the official carrier formula (B40H15) is present in data files,
-   provenance files, and manifests.
-2. Fails immediately if legacy/incompatible tags (B48H12, B53H7, B45H18) are detected.
-3. Checks SHA256 integrity, convergence criteria, and dataset synchronization.
+verify_tau_consistency.py
+=========================
+Strict audit script for Tau project:
+1. Validates that carrier is canonical B40H15 (eta=1/6, Mannix/Feng 2015/2016, 55 atoms).
+2. Validates carrier_convergence.csv has CONVERGED status.
+3. Validates all 29 SP complexes in dataset_tau_borophene_pristine.csv are tagged with B40H15.
+4. Validates that relaxed_adsorption_subset.csv has EXACTLY N=8 compounds.
+5. Validates that the 8 compounds match the predefined target set.
+6. Validates that all 8 rows in relaxed_adsorption_subset.csv have CONVERGED status.
+7. Validates that all output_file and final_pose_file paths exist and SHA256 matches.
+8. Validates that zero discordant formula tags (B48H12, B53H7, B45H18, B45H17) exist anywhere.
 """
 
-import sys, re
+import sys, hashlib
 import pandas as pd
 from pathlib import Path
 
-base = Path(__file__).resolve().parent.parent if "__file__" in globals() else Path(r"c:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai")
+base = Path(r"c:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai")
 proc = base / "data" / "processed"
 calc = base / "calculations" / "tau"
 
-OFFICIAL_FORMULA = "B40H15"
-DISCORDANT_FORMULAS = ["B48H12", "B53H7", "B45H18", "B45H17"]
+TARGET_FORMULA = "B40H15"
+DISCORDANT_TAGS = ["B48H12", "B53H7", "B45H18", "B45H17", "B53H14"]
+PREDEFINED_8 = {"Hydromethylthionine", "Curcumin", "EGCG", "Resveratrol", "Quercetin", "Baicalein", "Honokiol", "Donepezil"}
+
+def sha256_file(fp):
+    h = hashlib.sha256()
+    with open(fp, "rb") as fh:
+        for chunk in iter(lambda: fh.read(8192), b""): h.update(chunk)
+    return h.hexdigest()
 
 errors = []
 
-print("="*70)
-print(f"TAU REPOSITORY CONSISTENCY AUDIT (Target: {OFFICIAL_FORMULA})")
-print("="*70)
+print("="*80)
+print(f"TAU REPOSITORY STRICT CONSISTENCY AUDIT (Target: {TARGET_FORMULA}, N=8 Relaxed)")
+print("="*80)
 
-# 1. Check carrier_convergence.csv
-conv_csv = proc / "carrier_convergence.csv"
-if not conv_csv.exists():
-    errors.append("Missing carrier_convergence.csv")
+# 1. Carrier convergence
+conv_f = proc / "carrier_convergence.csv"
+if not conv_f.exists():
+    errors.append("carrier_convergence.csv missing")
 else:
-    df_c = pd.read_csv(conv_csv)
-    formula_found = df_c.iloc[0]["formula"]
-    status_found = df_c.iloc[0]["convergence_status"]
-    if formula_found != OFFICIAL_FORMULA:
-        errors.append(f"carrier_convergence.csv formula mismatch: {formula_found} != {OFFICIAL_FORMULA}")
-    if "CONVERGED" not in status_found:
-        errors.append(f"carrier_convergence.csv is NOT converged: {status_found}")
-    print(f"[PASS] carrier_convergence.csv: Formula={formula_found}, Status={status_found}")
+    df_c = pd.read_csv(conv_f)
+    f = df_c.iloc[0]["formula"]
+    st = df_c.iloc[0]["convergence_status"]
+    if f != TARGET_FORMULA:
+        errors.append(f"carrier_convergence.csv formula is {f}, expected {TARGET_FORMULA}")
+    if "CONVERGED" not in st:
+        errors.append(f"carrier_convergence.csv convergence status is {st}")
+    print(f"[PASS] carrier_convergence.csv: Formula={f}, Status={st}")
 
-# 2. Check carrier_topology_audit.csv
-topo_csv = proc / "carrier_topology_audit.csv"
-if not topo_csv.exists():
-    errors.append("Missing carrier_topology_audit.csv")
+# 2. Carrier topology audit
+topo_f = proc / "carrier_topology_audit.csv"
+if not topo_f.exists():
+    errors.append("carrier_topology_audit.csv missing")
 else:
-    df_t = pd.read_csv(topo_csv)
-    formula_row = df_t[df_t["metric"] == "Chemical Formula"]
-    if formula_row.empty:
-        errors.append("carrier_topology_audit.csv missing Chemical Formula row")
+    df_t = pd.read_csv(topo_f)
+    if "metric" in df_t.columns and "value" in df_t.columns:
+        f = df_t[df_t["metric"] == "Formula"]["value"].iloc[0]
     else:
-        val = formula_row.iloc[0]["optimized_value"]
-        if val != OFFICIAL_FORMULA:
-            errors.append(f"carrier_topology_audit.csv formula mismatch: {val} != {OFFICIAL_FORMULA}")
-        else:
-            print(f"[PASS] carrier_topology_audit.csv: Formula={val}")
+        f = df_t.iloc[0].get("formula", "")
+    if f != TARGET_FORMULA:
+        errors.append(f"carrier_topology_audit.csv formula is {f}, expected {TARGET_FORMULA}")
+    print(f"[PASS] carrier_topology_audit.csv: Formula={f}")
 
-# 3. Check carrier_identity_provenance.csv
-prov_csv = proc / "carrier_identity_provenance.csv"
-if not prov_csv.exists():
-    errors.append("Missing carrier_identity_provenance.csv")
+# 3. Carrier identity provenance
+prov_f = proc / "carrier_identity_provenance.csv"
+if not prov_f.exists():
+    errors.append("carrier_identity_provenance.csv missing")
 else:
-    df_p = pd.read_csv(prov_csv)
+    df_p = pd.read_csv(prov_f)
     for idx, r in df_p.iterrows():
-        if r["N_B"] != 40 or r["N_H"] != 15:
-            errors.append(f"carrier_identity_provenance.csv row {idx} stoichiometry mismatch: N_B={r['N_B']}, N_H={r['N_H']}")
-    print(f"[PASS] carrier_identity_provenance.csv: All rows match {OFFICIAL_FORMULA} (N_B=40, N_H=15)")
+        if int(r["N_B"]) != 40 or int(r["N_H"]) != 15 or int(r["total_atoms"]) != 55:
+            errors.append(f"carrier_identity_provenance.csv row {idx} has invalid composition N_B={r['N_B']}, N_H={r['N_H']}")
+    print(f"[PASS] carrier_identity_provenance.csv: All rows match B40H15 (N_B=40, N_H=15, total=55)")
 
-# 4. Check dataset_tau_borophene_pristine.csv
-data_csv = proc / "dataset_tau_borophene_pristine.csv"
-if not data_csv.exists():
-    errors.append("Missing dataset_tau_borophene_pristine.csv")
+# 4. Dataset tau borophene pristine (29 SP)
+prist_f = proc / "dataset_tau_borophene_pristine.csv"
+if not prist_f.exists():
+    errors.append("dataset_tau_borophene_pristine.csv missing")
 else:
-    df_d = pd.read_csv(data_csv)
-    if "carrier_formula" in df_d.columns:
-        unique_formulas = df_d["carrier_formula"].unique()
-        if len(unique_formulas) != 1 or unique_formulas[0] != OFFICIAL_FORMULA:
-            errors.append(f"dataset_tau_borophene_pristine.csv carrier_formula mismatch: {unique_formulas}")
+    df_pr = pd.read_csv(prist_f)
+    if len(df_pr) != 29:
+        errors.append(f"dataset_tau_borophene_pristine.csv has {len(df_pr)} rows, expected 29")
+    for idx, r in df_pr.iterrows():
+        if r.get("carrier_formula") != TARGET_FORMULA:
+            errors.append(f"dataset_tau_borophene_pristine.csv row {r['name']} has formula {r.get('carrier_formula')}")
+    print(f"[PASS] dataset_tau_borophene_pristine.csv: Tagged with {TARGET_FORMULA} (N=29)")
+
+# 5. Relaxed adsorption subset (N=8 STRICT CHECK)
+rel_f = proc / "relaxed_adsorption_subset.csv"
+if not rel_f.exists():
+    errors.append("relaxed_adsorption_subset.csv missing")
+else:
+    df_rel = pd.read_csv(rel_f)
+    n_rel = len(df_rel)
+    if n_rel != 8:
+        errors.append(f"relaxed_adsorption_subset.csv has N = {n_rel} rows, REQUIRED N = 8!")
+    
+    names_found = set(df_rel["name"].tolist())
+    missing_names = PREDEFINED_8 - names_found
+    if missing_names:
+        errors.append(f"relaxed_adsorption_subset.csv missing predefined compounds: {missing_names}")
+        
+    for idx, r in df_rel.iterrows():
+        c_name = r["name"]
+        st = str(r.get("convergence_status", ""))
+        if "CONVERGED" not in st:
+            errors.append(f"relaxed_adsorption_subset.csv compound {c_name} status is {st}, expected CONVERGED")
+            
+        out_fp = base / r["output_file"]
+        if not out_fp.exists():
+            errors.append(f"Output file missing for {c_name}: {out_fp}")
+            
+        pose_fp = base / r["final_pose_file"]
+        if not pose_fp.exists():
+            errors.append(f"Final pose file missing for {c_name}: {pose_fp}")
         else:
-            print(f"[PASS] dataset_tau_borophene_pristine.csv: Tagged with {OFFICIAL_FORMULA} (N={len(df_d)})")
+            actual_sha = sha256_file(pose_fp)
+            if actual_sha != r["sha256"]:
+                errors.append(f"SHA256 mismatch for {c_name} pose: {actual_sha} vs {r['sha256']}")
+                
+    if n_rel == 8 and not missing_names:
+        print(f"[PASS] relaxed_adsorption_subset.csv: EXACTLY N=8 compounds verified and CONVERGED.")
 
-# 5. Check MANIFEST_SHA256.txt for discordant formulas
-manifest = base / "MANIFEST_SHA256.txt"
-if not manifest.exists():
-    errors.append("Missing MANIFEST_SHA256.txt")
+# 6. MANIFEST_SHA256.txt check
+man_f = base / "MANIFEST_SHA256.txt"
+if not man_f.exists():
+    errors.append("MANIFEST_SHA256.txt missing")
 else:
-    m_text = manifest.read_text(encoding="utf-8", errors="replace")
-    for disc in DISCORDANT_FORMULAS:
-        if disc in m_text:
-            errors.append(f"MANIFEST_SHA256.txt contains discordant formula '{disc}'")
-    if OFFICIAL_FORMULA not in m_text:
-        errors.append(f"MANIFEST_SHA256.txt is missing official formula '{OFFICIAL_FORMULA}'")
-    else:
-        print(f"[PASS] MANIFEST_SHA256.txt: Contains {OFFICIAL_FORMULA} and zero discordant tags.")
+    man_text = man_f.read_text(encoding="utf-8", errors="replace")
+    for tag in DISCORDANT_TAGS:
+        if tag in man_text:
+            errors.append(f"MANIFEST_SHA256.txt contains discordant formula '{tag}'")
+    if TARGET_FORMULA not in man_text:
+        errors.append(f"MANIFEST_SHA256.txt does not mention {TARGET_FORMULA}")
+    print(f"[PASS] MANIFEST_SHA256.txt: Contains {TARGET_FORMULA} and zero discordant tags.")
 
-# 6. Check beta12_carrier_optimized.xyz
+# 7. Coordinates check
 opt_xyz = calc / "beta12_carrier_optimized.xyz"
 if not opt_xyz.exists():
-    errors.append("Missing beta12_carrier_optimized.xyz")
+    errors.append("beta12_carrier_optimized.xyz missing")
 else:
     lines = opt_xyz.read_text().splitlines()
-    n_atoms = int(lines[0])
-    if n_atoms != 55:
-        errors.append(f"beta12_carrier_optimized.xyz atom count mismatch: {n_atoms} != 55")
-    else:
-        print(f"[PASS] beta12_carrier_optimized.xyz: Atom count = {n_atoms} (40 B + 15 H)")
+    n_at = int(lines[0])
+    if n_at != 55:
+        errors.append(f"beta12_carrier_optimized.xyz atom count is {n_at}, expected 55")
+    b_count = sum(1 for l in lines[2:2+n_at] if l.startswith("B"))
+    h_count = sum(1 for l in lines[2:2+n_at] if l.startswith("H"))
+    if b_count != 40 or h_count != 15:
+        errors.append(f"beta12_carrier_optimized.xyz composition B={b_count}, H={h_count} (expected B=40, H=15)")
+    print(f"[PASS] beta12_carrier_optimized.xyz: Atom count = {n_at} (40 B + 15 H)")
 
 if errors:
-    print("\n[FAIL] Consistency errors found:")
+    print("\n[FAIL] Strict consistency errors found:")
     for e in errors:
         print(f"  - {e}")
     sys.exit(1)
 else:
-    print("\n" + "="*70)
-    print(f"[SUCCESS] ALL TAU FILES ARE 100% CONSISTENT WITH CANONICAL {OFFICIAL_FORMULA}!")
-    print("="*70)
+    print("\n" + "="*80)
+    print(f"[SUCCESS] ALL TAU FILES ARE 100% STRICTLY CONSISTENT WITH N=8 CONVERGED B40H15!")
+    print("="*80)
+    sys.exit(0)

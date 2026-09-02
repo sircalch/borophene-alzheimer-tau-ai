@@ -1,12 +1,14 @@
-metric,initial_value,optimized_value,notes
-Crystallographic Source Model,Mannix Science 2015 / Feng Nat Chem 2016,GFN2-xTB relaxed minimum,"Rectangular beta12 primitive cell (a=2.9271 A, b=5.0700 A)"
-Vacancy Density (eta),1/6 = 0.1667 (8 holes / 48 lattice sites),1/6 = 0.1667,Strict beta12 vacancy concentration (not chi3)
-Chemical Formula,B40H15,B40H15,"Exact 40 Boron + 15 Hydrogen atoms (55 total, nearly square 11.7 x 10.1 A)"
-Number of Boron Atoms (N_B),40,40,Derived from 4x2 supercell of 5-atom unit cells
-Number of Passivating H Atoms (N_H),15,15,1 H per perimeter undercoordinated B atom (CN < 4)
-Out-of-Plane Buckling Range (Delta_z),0.000 A,3.676 A,Relaxation out-of-plane corrugation
-Root-Mean-Square Buckling (RMS_z),0.000 A,0.820 A,Characteristic 2D borophene buckling amplitude
-Mean B-B Bond Length,1.690 A,1.666 A,Covalent B-B bonding distribution (initial min = 1.690 A)
-Average Boron Coordination Number,3.65,3.70,Preserved 4-6 coordination within flake interior
-Total B-B Bonds (Graph Edges),73,74,Reorganization of 7 bonds during relaxation
-Convergence Status,Unrelaxed starting structure,CONVERGED (*** convergence criteria satisfied ***),"Energy = -56.192156 Eh, GradNorm = 0.000976219986"
+metric,value
+Formula,B40H15
+Number of Boron Atoms (N_B),40
+Number of Passivating H Atoms (N_H),15
+Total Atoms in Finite Cluster,55
+Cluster Classification,"Canonical beta12-borophene cluster (B40H15, eta=1/6, 55 atoms, Mannix 2015 / Feng 2016)"
+Out-of-Plane Buckling Range (Delta_z),3.676 A
+Root-Mean-Square Buckling (RMS_z),0.820 A
+Mean B-B Bond Length,1.666 A
+Min B-B Bond Length,1.546 A
+Max B-B Bond Length,1.914 A
+Average Boron Coordination Number,3.70
+Coordination Number Range,2 - 6
+Hollow-Hexagon Vacancy Ratio (eta),"1/6 (eta = 0.167, authentic beta12 sheet topology)"
