@@ -1,10 +1,33 @@
 import pandas as pd
 from pathlib import Path
+
+
+def _project_root(marker="MANIFEST_SHA256.txt"):
+    from pathlib import Path as _P
+    here = _P(__file__).resolve()
+    for anc in [here.parent, *here.parents]:
+        if (anc / marker).exists() or ((anc / "data").is_dir() and (anc / "README.md").exists()):
+            return anc
+    return here.parent
+
+
+def _find_xtb():
+    import shutil
+    from pathlib import Path as _P
+    w = shutil.which("xtb") or shutil.which("xtb.exe")
+    if w:
+        return _P(w)
+    for anc in [_P(__file__).resolve().parent, *_P(__file__).resolve().parents]:
+        hits = list(anc.glob("**/xtb-*/bin/xtb.exe")) or list(anc.glob("**/xtb-*/bin/xtb"))
+        if hits:
+            return hits[0]
+    return _P("xtb")
+
+
 import re, numpy as np
 
-proc = Path(r"c:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\data\processed")
-calc = Path(r"c:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\calculations\tau")
-
+proc = _project_root() / "data" / "processed"
+calc = _project_root() / "calculations" / "tau"
 # Extract Methylene Blue pose
 mb_pdbqt = calc / "Methylene_Blue" / "Methylene_Blue_5O3L_out.pdbqt"
 n_heavy = 20 # C16H18N3S+ -> 20 heavy atoms (16 C, 3 N, 1 S)

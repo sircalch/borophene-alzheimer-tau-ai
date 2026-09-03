@@ -12,13 +12,37 @@ Calculates and updates master validation files for the Tau Borophene project:
 import time, hashlib
 import numpy as np, pandas as pd
 from pathlib import Path
+
+
+def _project_root(marker="MANIFEST_SHA256.txt"):
+    from pathlib import Path as _P
+    here = _P(__file__).resolve()
+    for anc in [here.parent, *here.parents]:
+        if (anc / marker).exists() or ((anc / "data").is_dir() and (anc / "README.md").exists()):
+            return anc
+    return here.parent
+
+
+def _find_xtb():
+    import shutil
+    from pathlib import Path as _P
+    w = shutil.which("xtb") or shutil.which("xtb.exe")
+    if w:
+        return _P(w)
+    for anc in [_P(__file__).resolve().parent, *_P(__file__).resolve().parents]:
+        hits = list(anc.glob("**/xtb-*/bin/xtb.exe")) or list(anc.glob("**/xtb-*/bin/xtb"))
+        if hits:
+            return hits[0]
+    return _P("xtb")
+
+
 from scipy.stats import spearmanr
 from sklearn.metrics import mean_absolute_error, r2_score, mean_squared_error
 from sklearn.model_selection import KFold
 from sklearn.linear_model import RidgeCV
 from sklearn.preprocessing import StandardScaler
 
-base = Path(r"c:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai")
+base = _project_root()
 proc = base / "data" / "processed"
 calc = base / "calculations" / "tau"
 

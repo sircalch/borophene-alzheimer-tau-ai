@@ -8,6 +8,30 @@ Runs fully leak-free nested CV and 1,000 Y-scramblings.
 import subprocess, re, time, hashlib
 import numpy as np, pandas as pd
 from pathlib import Path
+
+
+def _project_root(marker="MANIFEST_SHA256.txt"):
+    from pathlib import Path as _P
+    here = _P(__file__).resolve()
+    for anc in [here.parent, *here.parents]:
+        if (anc / marker).exists() or ((anc / "data").is_dir() and (anc / "README.md").exists()):
+            return anc
+    return here.parent
+
+
+def _find_xtb():
+    import shutil
+    from pathlib import Path as _P
+    w = shutil.which("xtb") or shutil.which("xtb.exe")
+    if w:
+        return _P(w)
+    for anc in [_P(__file__).resolve().parent, *_P(__file__).resolve().parents]:
+        hits = list(anc.glob("**/xtb-*/bin/xtb.exe")) or list(anc.glob("**/xtb-*/bin/xtb"))
+        if hits:
+            return hits[0]
+    return _P("xtb")
+
+
 from scipy.stats import spearmanr
 from sklearn.pipeline import Pipeline
 from sklearn.linear_model import Ridge
@@ -15,11 +39,10 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import KFold, GridSearchCV
 from sklearn.metrics import r2_score, mean_squared_error, mean_absolute_error
 
-base = Path(r"c:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai")
+base = _project_root()
 calc = base / "calculations" / "tau"
 proc = base / "data" / "processed"
-xtb = Path(r"c:\Users\Andre\Proyectos doctorado\kras-pancreatic-gC3N4-ai\tools\xtb\xtb-6.7.1\bin\xtb.exe")
-
+xtb = _find_xtb()
 # 1. Load canonical B48H12 carrier
 E_BOROPHENE_OPT = -64.267717178335
 b_lines = (calc / "B48H12_optimized.xyz").read_text().splitlines()
