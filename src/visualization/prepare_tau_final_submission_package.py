@@ -96,6 +96,11 @@ def build_tau_submission_bundle():
     dst_docx = os.path.join(sub_dir, "02_Main_Manuscript_Tau_Borophene_Monreal_Hernandez_et_al.docx")
     if os.path.exists(src_docx):
         shutil.copyfile(src_docx, dst_docx)
+
+    src_si = os.path.join(base_dir, "manuscript", "Tau_Borophene_Supporting_Information.docx")
+    dst_si = os.path.join(sub_dir, "03_Supporting_Information_Tau_Borophene_Monreal_Hernandez_et_al.docx")
+    if os.path.exists(src_si):
+        shutil.copyfile(src_si, dst_si)
         
     zip_path = os.path.join(base_dir, "borophene-alzheimer-tau-ai-FINAL-SUBMISSION-READY.zip")
     with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zip_f:
