@@ -173,7 +173,7 @@ def generate_tau_word_manuscript():
     )
     
     add_image_if_exists(doc, os.path.join(fig_dir, "fig2_tau_quantum_cdft_architecture.png"),
-                        "Figure 2: Quantum CDFT Architecture & Electronic Reactivity for 2D Borophene Systems: (a) HOMO/LUMO frontier orbital alignment; (b) Chemical hardness and electrophilicity index.")
+                        "Figure 2: Real Quantum CDFT Electronic Reactivity of the Isolated Tau Therapeutics (real GFN2-xTB single points, n=29): (a) HOMO/LUMO frontier orbital distribution; (b) Chemical hardness vs. electrophilicity index. No real complex-level frontier-orbital calculation exists for either borophene variant.")
     
     add_heading_styled(doc, "3. Results and Discussion", level=1)
     
@@ -183,10 +183,23 @@ def generate_tau_word_manuscript():
     add_image_if_exists(doc, os.path.join(fig_dir, "fig4_tau_residue_contact_frequency.png"),
                         "Figure 4: Residue-Level Interaction Fingerprints on Human Tau Filaments: Contact frequency analysis demonstrating dominant interactions with cross-beta core residues Gly335, Leu357, Gln336, and Val337.")
     
-    # Table 1: Descriptors
+    # Table 1: Descriptors. MW/LogP/PSA are real RDKit descriptors (always
+    # computed from SMILES). E_HOMO/omega previously came from
+    # tau_isolated_descriptors.csv, whose E_HOMO was an empirical-formula
+    # placeholder ("-5.20 - 0.18*LogP - ...") never overwritten with real
+    # data; merged here with real GFN2-xTB frontier orbitals parsed from
+    # calculations/tau/*/*_drug_sp.out.
     desc_csv = os.path.join(base_dir, "data", "processed", "tau_isolated_descriptors.csv")
+    homo_lumo_csv = os.path.join(base_dir, "data", "processed", "tau_isolated_real_homo_lumo.csv")
     if os.path.exists(desc_csv):
         df_desc = pd.read_csv(desc_csv)
+        if os.path.exists(homo_lumo_csv):
+            df_real = pd.read_csv(homo_lumo_csv)
+            df_desc = df_desc.merge(df_real, on="name", how="inner")
+            df_desc["E_HOMO"] = df_desc["E_HOMO_real_eV"]
+            gap = df_desc["E_LUMO_real_eV"] - df_desc["E_HOMO_real_eV"]
+            mu = -(df_desc["E_HOMO_real_eV"] + df_desc["E_LUMO_real_eV"]) / 2.0
+            df_desc["Electrophilicity_omega"] = mu ** 2 / (2.0 * (gap / 2.0))
         doc.add_paragraph()
         p_t1 = doc.add_paragraph()
         r_t1 = p_t1.add_run("Table 1: Physicochemical, Topological, and Quantum CDFT Descriptors for Representative Alzheimer/Tau Therapeutics.")

@@ -85,40 +85,43 @@ def make_fig1_workflow(base_dir, fig_dir):
     print(f"Generated Figure 1: {out_p}")
 
 def make_fig2_quantum(base_dir, fig_dir):
+    # Was entirely hardcoded arrays (homo/lumo/eta/omega for 3 "systems"),
+    # never computed from any real calculation -- and no real complex-level
+    # FMO calculation exists for either borophene variant (the pristine
+    # dataset's E_HOMO_eV/E_LUMO_eV are the isolated-drug orbitals, reused;
+    # the chi3-PEG-Tf functionalized carrier has no real data at all). Now
+    # shows the real per-compound GFN2-xTB frontier orbital distribution and
+    # CDFT indices for the 29-compound isolated cohort (real *_drug_sp.out
+    # single points, zero new computation).
+    homo_lumo_csv = os.path.join(base_dir, "data", "processed", "tau_isolated_real_homo_lumo.csv")
+    df = pd.read_csv(homo_lumo_csv)
+    homo = df["E_HOMO_real_eV"].values
+    lumo = df["E_LUMO_real_eV"].values
+    gap = lumo - homo
+    mu = -(homo + lumo) / 2.0
+    eta = gap / 2.0
+    omega = mu ** 2 / (2.0 * eta)
+
     fig, axes = plt.subplots(1, 2, figsize=(14, 6), dpi=300)
     plt.subplots_adjust(top=0.86, wspace=0.28)
-    
+
     ax0 = axes[0]
-    systems = ["Isolated Drugs", "Borophene beta12", "Borophene chi3-PEG-Tf"]
-    homo = [-5.85, -6.42, -6.18]
-    lumo = [-2.05, -2.78, -2.49]
-    
-    x = np.arange(len(systems))
-    ax0.bar(x - 0.15, homo, width=0.28, color='#4A148C', label='E_HOMO (eV)', edgecolor='k')
-    ax0.bar(x + 0.15, lumo, width=0.28, color='#D81B60', label='E_LUMO (eV)', edgecolor='k')
-    ax0.set_xticks(x)
-    ax0.set_xticklabels(systems, fontweight='bold')
-    ax0.set_ylabel("Electronic Energy (eV)", fontsize=11)
-    ax0.set_title("(a) Frontier Molecular Orbital (FMO) Alignment", fontsize=11.5, fontweight='bold', pad=10)
+    ax0.hist(homo, bins=10, color='#4A148C', alpha=0.75, edgecolor='k', label=f'E_HOMO (mean={homo.mean():.2f} eV)')
+    ax0.hist(lumo, bins=10, color='#D81B60', alpha=0.75, edgecolor='k', label=f'E_LUMO (mean={lumo.mean():.2f} eV)')
+    ax0.set_xlabel("Electronic Energy (eV)", fontsize=11)
+    ax0.set_ylabel("Compound Count", fontsize=11)
+    ax0.set_title(f"(a) Real GFN2-xTB Frontier Molecular Orbitals (n={len(df)})", fontsize=11.5, fontweight='bold', pad=10)
     ax0.grid(True, linestyle=':', alpha=0.6)
-    ax0.legend(loc='lower right', frameon=True)
-    
+    ax0.legend(loc='upper left', frameon=True, fontsize=9)
+
     ax1 = axes[1]
-    eta = [1.90, 1.82, 1.84]
-    omega = [4.10, 5.45, 4.98]
-    
-    ax1_twin = ax1.twinx()
-    b1 = ax1.bar(x - 0.15, eta, width=0.28, color='#00796B', label=r'Chemical Hardness $\eta$ (eV)', edgecolor='k')
-    b2 = ax1_twin.bar(x + 0.15, omega, width=0.28, color='#E65100', label=r'Electrophilicity $\omega$ (eV)', edgecolor='k')
-    
-    ax1.set_xticks(x)
-    ax1.set_xticklabels(systems, fontweight='bold')
-    ax1.set_ylabel(r"Chemical Hardness $\eta$ (eV)", color='#00796B', fontsize=11)
-    ax1_twin.set_ylabel(r"Electrophilicity Index $\omega$ (eV)", color='#E65100', fontsize=11)
-    ax1.set_title("(b) Conceptual DFT Global Reactivity Indices", fontsize=11.5, fontweight='bold', pad=10)
+    ax1.scatter(eta, omega, color='#00796B', s=70, edgecolor='k', alpha=0.85)
+    ax1.set_xlabel(r"Chemical Hardness $\eta$ (eV)", fontsize=11)
+    ax1.set_ylabel(r"Electrophilicity Index $\omega$ (eV)", fontsize=11)
+    ax1.set_title("(b) Real Conceptual DFT Global Reactivity Indices", fontsize=11.5, fontweight='bold', pad=10)
     ax1.grid(True, linestyle=':', alpha=0.6)
-    
-    plt.suptitle("Figure 2: Quantum CDFT Architecture & Electronic Reactivity for 2D Borophene Systems", fontsize=13, fontweight='bold', y=0.96)
+
+    plt.suptitle("Figure 2: Real Quantum CDFT Electronic Reactivity of the Isolated Tau Therapeutics Cohort", fontsize=12.5, fontweight='bold', y=0.98)
     out_p = os.path.join(fig_dir, "fig2_tau_quantum_cdft_architecture.png")
     plt.savefig(out_p, bbox_inches='tight')
     plt.close()
@@ -310,7 +313,7 @@ def make_fig9_3d_spatial(base_dir, fig_dir):
     modes = [
         ("EGCG @ Tau Fibril PHF", "-5.23 kcal/mol", "#4A148C", "Key contacts: Gly335, Leu357, Gln336, Val337"),
         ("LMTX @ Tau Fibril PHF", "-4.54 kcal/mol", "#00695C", "Key contacts: Pro332, Asn359, Gly333, Lys331"),
-        ("EGCG @ 2D Borophene (beta12)", "-5.23 kcal/mol", "#C2185B", "Key contacts: Multicenter B-pi coordination, Delta_E = -74.5 kcal/mol")
+        ("EGCG @ 2D Borophene (beta12)", "-5.23 kcal/mol", "#C2185B", "Key contacts: Multicenter B-pi coordination, real GFN2-xTB Delta_E_int,SP = -5.28 kcal/mol")
     ]
     
     for ax_idx, (title, score, col, contacts) in enumerate(modes):
