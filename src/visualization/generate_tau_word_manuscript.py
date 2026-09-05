@@ -136,10 +136,12 @@ def generate_tau_word_manuscript():
         "PDB ID: 6VHL, 2.3 Å), and Explainable Machine Learning Nano-QSAR pipeline investigating 2D Borophene nanosheets (beta12 and chi3 allotropes) "
         "engineered for receptor-mediated transcytosis across the blood-brain barrier (BBB). A curated cohort of 29 clinical-stage and experimental "
         "Tau therapeutics (including Hydromethylthionine/LMTX, EGCG, Curcumin, Memantine, Donepezil, and Tideglusib) was systematically screened. "
-        "Quantum adsorption modeling demonstrated exceptionally robust binding (Delta_E_ads = -24.0 to -82.5 kcal/mol) driven by boron's multicenter electron-deficient "
-        "coordination with aromatic pharmacophores. Physical docking revealed strong fibril intercalation (-2.79 to -5.47 kcal/mol) engaging key cross-beta packing "
-        "residues (Gly335, Leu357, Gln336, Val337, Pro332). Machine Learning algorithms (ExtraTrees and XGBoost) achieved outstanding generalization accuracy "
-        "(test MAPE = 2.72%–3.24%, R2 = 0.815), rigorously validated via SHAP interpretability and OECD Principle 3 Williams leverage analysis. "
+        "Real GFN2-xTB single-point interaction energies on the pristine beta12 borophene (all 29 compounds) ranged from -13.8 to -0.9 kcal/mol for most "
+        "compounds, with three phenothiazine-class dyes (Methylene Blue, Azure A, Toluidine Blue O) showing highly positive, sterically clashing single-point "
+        "energies flagged as anomalous; no real structural or quantum data exists yet for the chi3-PEG-Tf functionalized allotrope, which would require new "
+        "complex-geometry modeling beyond the present scope. Physical docking revealed strong fibril intercalation (-2.79 to -5.47 kcal/mol) engaging key cross-beta packing "
+        "residues (Gly335, Leu357, Gln336, Val337, Pro332). A leak-free nested 5x5 cross-validated Ridge surrogate achieved modest, non-overfit predictive accuracy on the "
+        "real data (Q2_CV = 0.460 isolated drugs, 0.071 pristine borophene), corroborated by exploratory feature-importance ranking and OECD Principle 3 Williams leverage analysis. "
         "This study provides unprecedented atomistic insights into 2D boron nanoplatforms for non-invasive disaggregation of neurofibrillary tangles in AD."
     )
     
@@ -217,24 +219,25 @@ def generate_tau_word_manuscript():
                     r.font.size = Pt(8.5)
                     
     add_image_if_exists(doc, os.path.join(fig_dir, "fig5_tau_parity_models_evaluation.png"),
-                        "Figure 5: Parity Plots (Predicted vs Observed Delta_G) for Machine Learning Nano-QSAR Models on 2D Borophene Systems.")
-    
+                        "Figure 5: Leak-free nested 5x5 CV parity plots (real observed vs out-of-fold predicted) for Isolated and Pristine-Borophene systems. No real structural/quantum data exists for the chi3-PEG-Tf functionalized system, so it is not shown.")
+
     add_image_if_exists(doc, os.path.join(fig_dir, "fig6_tau_shap_xai_importance_rankings.png"),
-                        "Figure 6: Explainable AI (SHAP) Feature Importance Rankings for 2D Borophene Delivery.")
+                        "Figure 6: Exploratory Feature Importance Rankings on the real GFN2-xTB pristine-borophene interaction energy.")
     
     add_image_if_exists(doc, os.path.join(fig_dir, "fig7_tau_descriptor_correlation_matrix.png"),
                         "Figure 7: Pearson Inter-Descriptor Correlation Heatmap (20 Descriptors across 29 Alzheimer/Tau Therapeutics).")
     
     add_image_if_exists(doc, os.path.join(fig_dir, "fig8_tau_williams_applicability_domain.png"),
-                        "Figure 8: OECD Principle 3: Williams Plots Defining the Applicability Domain for Tau Therapeutics on 2D Borophene.")
+                        "Figure 8: OECD Principle 3: Williams Plots Defining the Applicability Domain for Tau Therapeutics on 2D Borophene (real data only).")
     
     add_image_if_exists(doc, os.path.join(fig_dir, "fig9_tau_3d_spatial_binding_modes.png"),
                         "Figure 9: Atomistic 3D Spatial Binding Modes: (a) EGCG intercalated in the Tau protofilament cleft; (b) Hydromethylthionine (LMTX) binding mode; (c) EGCG interfacial multicenter coordination on 2D Borophene monolayer.")
     
     add_heading_styled(doc, "4. Conclusions", level=1)
     doc.add_paragraph(
-        "This multi-scale investigation demonstrates that functionalized 2D Borophene nanosheets exhibit superior multicenter bonding, "
-        "favorable BBB transcytosis potential, and optimal delivery energetics for the targeted disaggregation of neurofibrillary Tau tangles in Alzheimer's disease."
+        "This multi-scale investigation demonstrates that the pristine beta12 borophene allotrope exhibits real, favorable multicenter bonding with most "
+        "screened Tau therapeutics; extending this to a chi3-PEG-Tf functionalized allotrope for enhanced BBB transcytosis will require new structural "
+        "modeling and quantum calculations beyond the present real-data scope."
     )
     
     add_heading_styled(doc, "Acknowledgements & Data Availability", level=1)

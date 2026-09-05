@@ -9,32 +9,35 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 def compute_williams_domain():
+    # Panels for pristine/functionalized borophene were fit on FABRICATED
+    # Target_DeltaG_bind (see generate_tau_master_figures.py). No real
+    # structural/quantum data exists for the chi3-PEG-Tf functionalized
+    # carrier, so that panel is omitted. The pristine panel now uses the real
+    # GFN2-xTB delta_Eint_SP_kcal_mol for all 29 compounds.
     base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-    files = {
-        "Isolated Tau Therapeutics": os.path.join(base_dir, "data", "processed", "dataset_isolated_tau_drugs.csv"),
-        "Drug + Borophene Pristine": os.path.join(base_dir, "data", "processed", "dataset_drug_borophene_pristine.csv"),
-        "Drug + Borophene Functionalized": os.path.join(base_dir, "data", "processed", "dataset_drug_borophene_functionalized.csv")
-    }
-    
-    feature_cols = [
-        "MW", "LogP", "LogS", "WS_mg_mL", "HBA", "HBD", "PSA", "RBC", "NOR",
-        "AromRings", "Polarizability_alpha", "Fraction_Csp3",
-        "E_HOMO", "E_LUMO", "Gap_eV", "Hardness_eta", "Softness_S",
-        "Electronegativity_chi", "Chemical_Potential_mu", "Electrophilicity_omega"
+    systems = [
+        ("Isolated Tau Therapeutics", os.path.join(base_dir, "data", "processed", "dataset_isolated_tau_drugs.csv"),
+         ["MW", "LogP", "LogS", "WS_mg_mL", "HBA", "HBD", "PSA", "RBC", "NOR", "AromRings",
+          "Polarizability_alpha", "Fraction_Csp3", "E_HOMO", "E_LUMO", "Gap_eV", "Hardness_eta",
+          "Softness_S", "Electronegativity_chi", "Chemical_Potential_mu", "Electrophilicity_omega"],
+         "Real_Vina_Docking_Score_kcal_mol"),
+        ("Drug + Borophene Pristine (real xTB)", os.path.join(base_dir, "data", "processed", "dataset_tau_borophene_pristine.csv"),
+         ["MolWt", "MolMR", "E_HOMO_eV", "E_LUMO_eV", "Gap_eV", "Eta_eV", "Mu_eV", "Omega_eV"],
+         "delta_Eint_SP_kcal_mol"),
     ]
-    
-    fig, axes = plt.subplots(1, 3, figsize=(18, 5.5), dpi=300)
-    plt.subplots_adjust(top=0.82, wspace=0.25, bottom=0.15)
-    
-    colors = ["#4A148C", "#00695C", "#C2185B"]
-    
-    for ax_idx, (sys_name, f_path) in enumerate(files.items()):
+
+    fig, axes = plt.subplots(1, 2, figsize=(12.5, 5.5), dpi=300)
+    plt.subplots_adjust(top=0.80, wspace=0.28, bottom=0.15)
+
+    colors = ["#4A148C", "#00695C"]
+
+    for ax_idx, (sys_name, f_path, feature_cols, target_col) in enumerate(systems):
         if not os.path.exists(f_path):
             continue
-        df = pd.read_csv(f_path)
+        df = pd.read_csv(f_path).dropna(subset=feature_cols + [target_col])
         X = df[feature_cols].values
-        y = df['Target_DeltaG_bind'].values
-        
+        y = df[target_col].values
+
         n, p = X.shape
         X_design = np.hstack([np.ones((n, 1)), X])
         p_eff = p + 1
@@ -69,7 +72,7 @@ def compute_williams_domain():
         ax.grid(True, linestyle=':', alpha=0.6)
         ax.legend(loc='lower left', fontsize=8.5, frameon=True)
         
-    plt.suptitle("OECD Principle 3: Williams Plots Defining the Applicability Domain for Alzheimer's Tau Therapeutics on Borophene", fontsize=13, fontweight='bold', y=0.96)
+    plt.suptitle("OECD Principle 3: Williams Plots Defining the Applicability Domain for Alzheimer's Tau Therapeutics on Borophene (real data only)", fontsize=12, fontweight='bold', y=0.98)
     out_fig = os.path.join(base_dir, "figures", "fig8_tau_williams_applicability_domain.png")
     plt.savefig(out_fig, bbox_inches='tight')
     plt.close()
