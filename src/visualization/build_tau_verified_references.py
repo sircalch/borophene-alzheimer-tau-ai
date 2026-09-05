@@ -14,9 +14,8 @@ TAU_VERIFIED_REFERENCES = [
         "doi": "10.1016/s0140-6736(20)32205-4",
     },
     {
-        "citation": "Gao, Y. L.; Wang, N.; Sun, F. R.; Cao, X. P.; Dang, W.; Jiang, T.; Yu, J. T. Tau in Alzheimer's disease: Mechanisms and clinical implications. Transl. Neurodegener. 2018, 7 (1), 1–18.",
-        "doi": "",
-        "needs_review": True,
+        "citation": "Gao, Y.; Tan, L.; Yu, J. T.; Tan, L. Tau in Alzheimer's Disease: Mechanisms and Therapeutic Strategies. Current Alzheimer Research 2018, 15 (3), 283-300.",
+        "doi": "10.2174/1567205014666170417111859",
     },
     {
         "citation": "Braak, H.; Braak, E. Neuropathological stageing of Alzheimer-related changes. Acta Neuropathologica 1991, 82 (4), 239-259.",
@@ -59,9 +58,8 @@ TAU_VERIFIED_REFERENCES = [
         "doi": "10.1124/jpet.114.219352",
     },
     {
-        "citation": "Gygax, D.; Schibli, R.; Ametamey, S. M. Development of tau radiotracers for positron emission tomography: Chemical and pharmacological perspectives. J. Med. Chem. 2020, 63 (14), 7439–7458.",
-        "doi": "",
-        "needs_review": True,
+        "citation": "Gobbi, L. C.; Knust, H.; Körner, M.; Honer, M.; Czech, C.; Belli, S.; Muri, D.; Edelmann, M. R.; Hartung, T.; Erbsmehl, I.; et al. Identification of Three Novel Radiotracers for Imaging Aggregated Tau in Alzheimer’s Disease with Positron Emission Tomography. Journal of Medicinal Chemistry 2017, 60 (17), 7350-7370.",
+        "doi": "10.1021/acs.jmedchem.7b00632",
     },
     {
         "citation": "Bieschke, J.; Russ, J.; Friedrich, R. P.; Ehrnhoefer, D. E.; Wobst, H.; Neugebauer, K.; Wanker, E. E. EGCG remodels mature α-synuclein and amyloid-β fibrils and reduces cellular toxicity. Proceedings of the National Academy of Sciences 2010, 107 (17), 7710-7715.",
@@ -160,9 +158,8 @@ TAU_VERIFIED_REFERENCES = [
         "doi": "10.1021/ci700157b",
     },
     {
-        "citation": "Lundberg, S. M.; Lee, S.-I. A unified approach to interpreting model predictions. In Advances in Neural Information Processing Systems 30; Guyon, I. et al., Eds.; Curran Associates, Inc., 2017; pp 4765–4774.",
+        "citation": "Lundberg, S. M.; Lee, S.-I. A unified approach to interpreting model predictions. In Advances in Neural Information Processing Systems 30; Guyon, I. et al., Eds.; Curran Associates, Inc., 2017; pp 4765–4774. arXiv:1705.07874.",
         "doi": "",
-        "needs_review": True,
     },
     {
         "citation": "Parr, R. G.; Pearson, R. G. Absolute hardness: companion parameter to absolute electronegativity. Journal of the American Chemical Society 1983, 105 (26), 7512-7516.",
