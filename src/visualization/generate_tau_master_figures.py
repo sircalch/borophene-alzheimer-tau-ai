@@ -33,9 +33,9 @@ def make_graphical_abstract(base_dir, fig_dir):
             ha='center', va='center', fontsize=13, fontweight='bold', color='white', transform=ax.transAxes)
     
     panels = [
-        ("A. 2D Borophene Allotropes\n(Pristine beta12 & chi3-PEG-Tf)\n- Multicenter electron-deficient bonding\n- Transferrin-mediated BBB transcytosis\n- High drug loading & photothermal capability", 0.04, 0.12, 0.28, 0.70, "#F3E5F5", "#6A1B9A"),
-        ("B. Physical Docking (AutoDock Vina)\nHuman Cryo-EM Tau PHF (PDB: 6VHL, 2.3 Å)\n- 29 Alzheimer/Tau Drugs Screened\n- EGCG Delta_G = -5.23 kcal/mol\n- LMTX Delta_G = -4.54 kcal/mol", 0.36, 0.12, 0.28, 0.70, "#EDE7F6", "#4527A0"),
-        ("C. Explainable AI & OECD QSAR\nLeak-free nested 5x5 Ridge CV\n- Q2_CV = 0.46 (isolated), 0.07 (pristine)\n- Top feature: E_HOMO\n- 100% inside Williams Domain (h*)", 0.68, 0.12, 0.28, 0.70, "#FCE4EC", "#C2185B")
+        ("A. 2D beta-12 Borophene\n(pristine B40H15 cluster)\n- Multicenter electron-deficient B-B bonding\n- Peptide-functionalized route: future work\n- (no real data for functionalized carrier)", 0.04, 0.12, 0.28, 0.70, "#F3E5F5", "#6A1B9A"),
+        ("B. Physical Docking (AutoDock Vina)\nCryo-EM Tau filament core (PDB 5O3L)\n- 29 Alzheimer/Tau Drugs Screened\n- Real Vina -3.8 to -6.8 kcal/mol\n- EGCG -5.88; LMTX -4.77 kcal/mol", 0.36, 0.12, 0.28, 0.70, "#EDE7F6", "#4527A0"),
+        ("C. Explainable AI & OECD QSAR\nLeak-free nested 5x5 Ridge CV\n- Q2_CV = 0.46 (isolated), 0.07 (pristine)\n- Top feature: E_HOMO (exploratory)\n- 28/29 inside Williams Domain", 0.68, 0.12, 0.28, 0.70, "#FCE4EC", "#C2185B")
     ]
     
     for text, x, y, w, h, bg_c, border_c in panels:
@@ -58,9 +58,9 @@ def make_fig1_workflow(base_dir, fig_dir):
     ax.axis('off')
     
     boxes = [
-        ("1. 2D Borophene Allotropes\n(Pristine beta12 & Transferrin-PEG chi3)", 0.05, 0.55, 0.25, 0.35, "#F3E5F5", "#6A1B9A"),
-        ("2. Blood-Brain Barrier (BBB)\nReceptor-Mediated Transcytosis\n(Transferrin / LRP-1 Targeting)", 0.38, 0.55, 0.25, 0.35, "#EDE7F6", "#4527A0"),
-        ("3. Cryo-EM Crystal Target\nHuman Alzheimer's Tau PHF Fibrils\n(PDB ID: 6VHL, 2.3 Å)", 0.70, 0.55, 0.25, 0.35, "#FCE4EC", "#AD1457"),
+        ("1. 2D beta-12 Borophene\n(pristine B40H15 cluster)", 0.05, 0.55, 0.25, 0.35, "#F3E5F5", "#6A1B9A"),
+        ("2. Blood-Brain Barrier (BBB)\nReceptor-mediated transcytosis route\n(proposed; not modelled here)", 0.38, 0.55, 0.25, 0.35, "#EDE7F6", "#4527A0"),
+        ("3. Cryo-EM Target\nAlzheimer Tau filament core\n(PDB 5O3L)", 0.70, 0.55, 0.25, 0.35, "#FCE4EC", "#AD1457"),
         ("4. Quantum Tight-Binding & DFT\nAdsorption Dynamics & CDFT Indices\n(real Delta_Eint_SP = -13.8 to -0.9 kcal/mol, pristine)", 0.05, 0.10, 0.25, 0.35, "#E0F7FA", "#00838F"),
         ("5. 100% Real Physical Docking\nAutoDock Vina v1.2.7 (Cross-Beta)\n(29 Alzheimer Therapeutics Screened)", 0.38, 0.10, 0.25, 0.35, "#E8F5E9", "#2E7D32"),
         ("6. Explainable Machine Learning\nLeak-free nested Ridge CV\n(Q2_CV up to 0.46, Williams Domain)", 0.70, 0.10, 0.25, 0.35, "#FFF3E0", "#E65100"),
@@ -142,7 +142,7 @@ def make_fig3_docking_profiles(base_dir, fig_dir):
                 label=f"Mean Delta_G = {df['Real_Vina_Docking_Score_kcal_mol'].mean():.2f} kcal/mol")
     ax0.set_xlabel("AutoDock Vina Real Binding Energy (kcal/mol)", fontsize=10.5, fontweight='bold')
     ax0.set_ylabel("Therapeutic Compound Count", fontsize=10.5, fontweight='bold')
-    ax0.set_title("(a) Binding Affinity Distribution on Tau PHF (PDB: 6VHL)", fontsize=11.5, fontweight='bold', pad=10)
+    ax0.set_title("(a) Vina score distribution on the Tau filament core (PDB 5O3L)", fontsize=11.5, fontweight='bold', pad=10)
     ax0.legend(loc='upper left', frameon=True)
     ax0.grid(True, linestyle=':', alpha=0.6)
     
@@ -177,7 +177,7 @@ def make_fig4_residues(base_dir, fig_dir):
     colors = sns.color_palette("flare", n_colors=len(df))
     bars = ax.bar(df['Residue'], df['Contact_Frequency'], color=colors, edgecolor='k', lw=1.2)
     
-    ax.set_xlabel("Human Tau PHF Cross-Beta Residue (PDB ID: 6VHL)", fontsize=11, fontweight='bold')
+    ax.set_xlabel("Tau filament core cross-beta residue (PDB 5O3L)", fontsize=11, fontweight='bold')
     ax.set_ylabel("Atomic Contact Frequency (d <= 3.8 Å)", fontsize=11, fontweight='bold')
     ax.set_title("Figure 4: Residue-Level Interaction Fingerprints on Human Tau Paired Helical Filaments", fontsize=12.5, fontweight='bold', pad=12)
     ax.grid(True, linestyle=':', alpha=0.6)
@@ -311,9 +311,9 @@ def make_fig9_3d_spatial(base_dir, fig_dir):
     plt.subplots_adjust(top=0.82, wspace=0.25, bottom=0.15)
     
     modes = [
-        ("EGCG @ Tau Fibril PHF", "-5.23 kcal/mol", "#4A148C", "Key contacts: Gly335, Leu357, Gln336, Val337"),
-        ("LMTX @ Tau Fibril PHF", "-4.54 kcal/mol", "#00695C", "Key contacts: Pro332, Asn359, Gly333, Lys331"),
-        ("EGCG @ 2D Borophene (beta12)", "-5.23 kcal/mol", "#C2185B", "Key contacts: Multicenter B-pi coordination, real GFN2-xTB Delta_E_int,SP = -5.28 kcal/mol")
+        ("EGCG @ Tau filament core (PDB 5O3L)", "real Vina -5.88 kcal/mol", "#4A148C", "cross-beta contacts: Gly335, Leu357, Gln336, Val337, Pro332"),
+        ("Hydromethylthionine/LMTX @ Tau filament core", "real Vina -4.77 kcal/mol", "#00695C", "cross-beta contacts: Pro332, Gly333, Lys331"),
+        ("EGCG @ pristine beta-12 borophene", "real GFN2-xTB Delta_E_int,SP = -5.28 kcal/mol", "#C2185B", "flat multicentre physisorption on the boron lattice")
     ]
     
     for ax_idx, (title, score, col, contacts) in enumerate(modes):
@@ -327,7 +327,7 @@ def make_fig9_3d_spatial(base_dir, fig_dir):
         ax.text(0.5, 0.85, title, ha='center', va='center', fontsize=12, fontweight='bold', color=col, transform=ax.transAxes)
         ax.text(0.5, 0.70, f"Affinity / Adsorption: {score}", ha='center', va='center', fontsize=11, fontweight='bold', color='#212121', transform=ax.transAxes)
         ax.text(0.5, 0.45, f"Spatial Interaction Mode:\n{contacts}", ha='center', va='center', fontsize=10, color='#424242', transform=ax.transAxes)
-        ax.text(0.5, 0.20, "[High-Resolution 3D Atomistic Coordinate Rendering\nAutoDock Vina Pose mapped to PDB 6VHL]", ha='center', va='center', fontsize=8.5, style='italic', color='#757575', transform=ax.transAxes)
+        ax.text(0.5, 0.20, "[Schematic binding-mode rendering; AutoDock Vina pose on PDB 5O3L]", ha='center', va='center', fontsize=8.5, style='italic', color='#757575', transform=ax.transAxes)
         
     plt.suptitle("Figure 9: Atomistic 3D Spatial Binding Modes & Interfacial Geometries on Tau PHF Filaments", fontsize=13, fontweight='bold', y=0.96)
     out_p = os.path.join(fig_dir, "fig9_tau_3d_spatial_binding_modes.png")

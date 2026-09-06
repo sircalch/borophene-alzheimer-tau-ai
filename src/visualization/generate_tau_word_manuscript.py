@@ -130,19 +130,19 @@ def generate_tau_word_manuscript():
     p_abs.paragraph_format.space_after = Pt(8)
     p_abs.paragraph_format.line_spacing = 1.15
     p_abs.add_run(
-        "Pathological hyperphosphorylation and hierarchical aggregation of microtubule-associated protein Tau into paired helical filaments (PHFs) "
-        "represent the definitive neuropathological hallmark correlating directly with cognitive decline in Alzheimer's disease (AD). Here, we establish "
-        "a multi-scale quantum chemical (DFTB3-D4), physical molecular docking (AutoDock Vina v1.2.7 against human Cryo-EM Tau PHF crystal structure, "
-        "PDB ID: 6VHL, 2.3 Å), and Explainable Machine Learning Nano-QSAR pipeline investigating 2D Borophene nanosheets (beta12 and chi3 allotropes) "
-        "engineered for receptor-mediated transcytosis across the blood-brain barrier (BBB). A curated cohort of 29 clinical-stage and experimental "
-        "Tau therapeutics (including Hydromethylthionine/LMTX, EGCG, Curcumin, Memantine, Donepezil, and Tideglusib) was systematically screened. "
-        "Real GFN2-xTB single-point interaction energies on the pristine beta12 borophene (all 29 compounds) ranged from -13.8 to -0.9 kcal/mol for most "
-        "compounds, with three phenothiazine-class dyes (Methylene Blue, Azure A, Toluidine Blue O) showing highly positive, sterically clashing single-point "
-        "energies flagged as anomalous; no real structural or quantum data exists yet for the chi3-PEG-Tf functionalized allotrope, which would require new "
-        "complex-geometry modeling beyond the present scope. Physical docking revealed strong fibril intercalation (-2.79 to -5.47 kcal/mol) engaging key cross-beta packing "
-        "residues (Gly335, Leu357, Gln336, Val337, Pro332). A leak-free nested 5x5 cross-validated Ridge surrogate achieved modest, non-overfit predictive accuracy on the "
-        "real data (Q2_CV = 0.460 isolated drugs, 0.071 pristine borophene), corroborated by exploratory feature-importance ranking and OECD Principle 3 Williams leverage analysis. "
-        "This study provides unprecedented atomistic insights into 2D boron nanoplatforms for non-invasive disaggregation of neurofibrillary tangles in AD."
+        "Hyperphosphorylation and aggregation of microtubule-associated protein Tau into paired helical filaments (PHFs) is a defining neuropathological "
+        "hallmark of Alzheimer's disease (AD) and correlates closely with cognitive decline [1,3,6]. Here we present a computational framework combining "
+        "GFN2-xTB tight-binding quantum chemistry (with D4 dispersion) [24,26], physical molecular docking (AutoDock Vina v1.2.7 [31,32] against the "
+        "cryo-EM Alzheimer Tau filament core, PDB ID: 5O3L [7]), and a leak-free cross-validated explainable Nano-QSAR surrogate, for a curated cohort "
+        "of 29 clinical-stage and experimental Tau-directed therapeutics (including hydromethylthionine/LMTX, EGCG, curcumin, tideglusib and AZD1080). "
+        "Real GFN2-xTB single-point interaction energies of the 26 non-anomalous compounds on the pristine beta-12 borophene cluster (B40H15) span "
+        "-13.8 to -0.9 kcal/mol; three cationic phenothiazine dyes (methylene blue, azure A, toluidine blue O) give large positive single-point energies "
+        "from steric clash and are reported as such and flagged out-of-domain. An Angiopep-2 or chi3-PEG-Tf functionalized borophene for BBB transcytosis "
+        "is discussed only as future work, since no real structural or quantum data for it exist in this study. Docking against the Tau filament core gave "
+        "Vina scores of -3.79 to -6.83 kcal/mol (mean -5.17), with recurrent contacts at the cross-beta residues Gly335, Leu357, Gln336, Val337 and Pro332. "
+        "A leak-free nested 5x5 cross-validated RidgeCV surrogate on the real data reached Q2_CV = 0.46 (isolated descriptors) and 0.07 (pristine-borophene "
+        "interaction energy); the feature-importance analysis is reported as exploratory. Every value is computed from the deposited pipeline; no descriptor "
+        "or energy is estimated from an empirical formula."
     )
     
     p_kw = doc.add_paragraph()
@@ -154,34 +154,67 @@ def generate_tau_word_manuscript():
     # Sections
     add_heading_styled(doc, "1. Introduction", level=1)
     doc.add_paragraph(
-        "Alzheimer's disease (AD) is the primary neurodegenerative disorder globally. While amyloid-beta plaques develop decades before symptom onset, "
-        "neurofibrillary tangles (NFTs) composed of hyperphosphorylated Tau filaments exhibit a strict spatiotemporal correlation with clinical dementia severity. "
-        "The recent Cryo-EM elucidation of patient-derived Tau filament cores (PDB ID: 6VHL) has unlocked the atomic blueprint for structure-based disaggregator design."
+        "Alzheimer's disease (AD) is the most common neurodegenerative disorder worldwide [1]. Neurofibrillary tangles built from hyperphosphorylated Tau "
+        "filaments follow a stereotyped spatiotemporal progression (Braak staging) that tracks clinical severity more tightly than amyloid burden [2,3,6]. "
+        "Cryo-electron microscopy of patient-derived filament cores [7-10] has provided an atomic template for structure-based design of Tau ligands and "
+        "aggregation modulators, of which the phenothiazine leuco-methylthioninium (hydromethylthionine / LMTX) is the most clinically advanced [11,12]; "
+        "natural polyphenols such as EGCG and curcumin also remodel or inhibit Tau assembly in vitro [14,15]."
     )
-    
+    doc.add_paragraph(
+        "Two-dimensional boron (borophene), synthesized as several polymorphs including the beta-12 lattice [21-23], is metallic, strongly polarizable and "
+        "forms delocalized multicentre B-B bonds, motivating its evaluation as a drug-loading surface. In this study the carrier is a hydrogen-terminated "
+        "beta-12 borophene cluster (B40H15); a peptide-functionalized allotrope for receptor-mediated BBB transcytosis is considered only as a prospective "
+        "extension (Conclusions), and all quantum results refer to the pristine surface."
+    )
+
     add_image_if_exists(doc, os.path.join(fig_dir, "fig1_tau_workflow_methodology.png"),
-                        "Figure 1: Multi-Scale Computational Workflow: Integrating Quantum Chemical CDFT, Real AutoDock Vina Docking (PDB 6VHL), and Explainable Machine Learning for 2D Borophene Alzheimer's Therapeutics.")
-    
+                        "Figure 1: Multi-scale computational workflow: GFN2-xTB quantum-chemical adsorption on pristine beta-12 borophene (B40H15), real AutoDock Vina docking against the cryo-EM Tau filament core (PDB 5O3L), and a leak-free cross-validated explainable Nano-QSAR surrogate.")
+
     add_heading_styled(doc, "2. Computational and Experimental Section", level=1)
     doc.add_paragraph(
-        "2.1 Quantum Chemical Modeling of 2D Borophene Allotropes: Quantum adsorption of therapeutics on beta12 and chi3 borophene monolayers was performed with DFTB3-D4. "
-        "Frontier orbital energies and Conceptual DFT reactivity indices were rigorously extracted."
+        "2.1 Quantum-chemical framework: Each isolated drug, the pristine beta-12 borophene cluster (B40H15), and every drug-borophene complex were "
+        "geometry-optimized and evaluated at single point with GFN2-xTB (xtb v6.7.1) including the D4 dispersion correction [24,26]. The standardized "
+        "single-point interaction energy is Delta_E_int,SP = E(complex) - E(borophene) - E(drug), both fragments taken at the complex geometry. "
+        "Frontier-orbital energies and conceptual-DFT global reactivity indices (hardness eta = gap/2, softness, electronegativity, electrophilicity "
+        "omega = mu^2/2eta) [39,40] were read directly from the xtb output; no descriptor is estimated from an empirical formula."
     )
     doc.add_paragraph(
-        "2.2 Physical Molecular Docking on Cryo-EM Tau PHF Core: Docking was performed using AutoDock Vina v1.2.7 on the high-resolution Cryo-EM structure "
-        "of human Alzheimer's Tau paired helical filaments (PDB ID: 6VHL, 2.3 Å)."
+        "2.2 Molecular docking: Docking used AutoDock Vina v1.2.7 [31,32] against the cryo-EM structure of the Alzheimer Tau filament core (PDB ID: 5O3L [7]), "
+        "with ligands protonated at pH 7.4 and prepared with Meeko. Because the paired-helical-filament core is a cross-beta assembly rather than a globular "
+        "pocket, the Vina scores are reported as a relative ranking of surface / cleft affinity rather than an absolute binding free energy."
+    )
+    doc.add_paragraph(
+        "2.3 Surrogate model and applicability domain: A StandardScaler + RidgeCV model was trained inside a leak-free nested 5x5 cross-validation on the "
+        "real observed data (four descriptors: MolWt, MolMR, E_HOMO, omega). Feature importance was inspected with an ExtraTrees estimator and SHAP [38] "
+        "and is reported as exploratory only. The applicability domain follows OECD Principle 3 [34-36] via Williams hat-matrix leverage."
     )
     
     add_image_if_exists(doc, os.path.join(fig_dir, "fig2_tau_quantum_cdft_architecture.png"),
-                        "Figure 2: Real Quantum CDFT Electronic Reactivity of the Isolated Tau Therapeutics (real GFN2-xTB single points, n=29): (a) HOMO/LUMO frontier orbital distribution; (b) Chemical hardness vs. electrophilicity index. No real complex-level frontier-orbital calculation exists for either borophene variant.")
+                        "Figure 2: Real quantum conceptual-DFT electronic reactivity of the isolated Tau therapeutics (real GFN2-xTB single points, n=29): (a) HOMO/LUMO frontier-orbital distribution; (b) chemical hardness vs. electrophilicity index. No real complex-level frontier-orbital calculation exists for the borophene surface.")
     
     add_heading_styled(doc, "3. Results and Discussion", level=1)
-    
+
+    add_heading_styled(doc, "3.1 Quantum interaction energies on pristine beta-12 borophene", level=2)
+    doc.add_paragraph(
+        "Real GFN2-xTB single-point interaction energies for the 26 non-anomalous therapeutics on the B40H15 cluster range from -0.9 to -13.8 kcal/mol "
+        "(curcumin -7.8; EGCG -5.3 kcal/mol), consistent with dispersion-assisted physisorption of the drug pi-systems on the polarizable metallic boron "
+        "lattice. Three cationic phenothiazine dyes (methylene blue, azure A, toluidine blue O) return large positive single-point energies (up to "
+        "+190 kcal/mol): at the fixed complex geometry the rigid planar cation is forced into steric overlap with the lattice, so these points are "
+        "physically meaningless and are excluded from the model and flagged out-of-domain rather than removed silently."
+    )
+
+    add_heading_styled(doc, "3.2 Docking against the cryo-EM Tau filament core", level=2)
+    doc.add_paragraph(
+        "AutoDock Vina scores against the Tau filament core (PDB 5O3L) span -3.79 to -6.83 kcal/mol (mean -5.17). The highest-ranked ligands are "
+        "chrysamine G (-6.83), EGCG (-5.88), luteolin (-5.87), fisetin (-5.75) and donepezil (-5.75 kcal/mol); hydromethylthionine/LMTX scores -4.77 kcal/mol. "
+        "The cross-beta assembly offers no deep pocket, so these values rank relative surface / cleft affinity rather than absolute binding free energy."
+    )
+
     add_image_if_exists(doc, os.path.join(fig_dir, "fig3_tau_docking_vina_statistical_profiles.png"),
-                        "Figure 3: Physical Molecular Docking Statistical Profiles on Human Cryo-EM Tau Filaments: (a) Binding energy distributions; (b) Ranking of top 10 high-affinity Tau PHF disaggregators (highlighting EGCG at -5.23 kcal/mol and LMTX at -4.54 kcal/mol).")
-    
+                        "Figure 3: Molecular docking statistical profiles against the cryo-EM Tau filament core (PDB 5O3L): (a) distribution of real Vina scores; (b) ranking of the top-10 compounds (chrysamine G -6.83, EGCG -5.88 kcal/mol; hydromethylthionine/LMTX -4.77 kcal/mol).")
+
     add_image_if_exists(doc, os.path.join(fig_dir, "fig4_tau_residue_contact_frequency.png"),
-                        "Figure 4: Residue-Level Interaction Fingerprints on Human Tau Filaments: Contact frequency analysis demonstrating dominant interactions with cross-beta core residues Gly335, Leu357, Gln336, and Val337.")
+                        "Figure 4: Residue-level contact frequencies on the Tau filament core (real Vina poses, contact distance <= 3.8 A): most frequent contacts are the cross-beta residues Gly335, Leu357, Gln336, Val337 and Pro332.")
     
     # Table 1: Descriptors. MW/LogP/PSA are real RDKit descriptors (always
     # computed from SMILES). E_HOMO/omega previously came from
@@ -231,26 +264,44 @@ def generate_tau_word_manuscript():
                 for r in row_cells[c_idx].paragraphs[0].runs:
                     r.font.size = Pt(8.5)
                     
+    add_heading_styled(doc, "3.3 Nano-QSAR surrogate model", level=2)
+    doc.add_paragraph(
+        "A StandardScaler + RidgeCV surrogate evaluated by leak-free nested 5x5 cross-validation reached Q2_CV = 0.46 for the isolated-descriptor model and "
+        "0.07 for the pristine-borophene interaction-energy model (n = 29, four descriptors: MolWt, MolMR, E_HOMO, omega). The borophene model is therefore "
+        "essentially non-predictive; the exploratory ExtraTrees / SHAP ranking (Figure 6), led by E_HOMO, is reported only as a qualitative indication and "
+        "not as a validated structure-property relationship [42,43]."
+    )
+
     add_image_if_exists(doc, os.path.join(fig_dir, "fig5_tau_parity_models_evaluation.png"),
-                        "Figure 5: Leak-free nested 5x5 CV parity plots (real observed vs out-of-fold predicted) for Isolated and Pristine-Borophene systems. No real structural/quantum data exists for the chi3-PEG-Tf functionalized system, so it is not shown.")
+                        "Figure 5: Leak-free nested 5x5 CV parity plots (real observed vs out-of-fold predicted) for the isolated and pristine-borophene systems. The chi3-PEG-Tf functionalized system has no real data and is not shown.")
 
     add_image_if_exists(doc, os.path.join(fig_dir, "fig6_tau_shap_xai_importance_rankings.png"),
-                        "Figure 6: Exploratory Feature Importance Rankings on the real GFN2-xTB pristine-borophene interaction energy.")
-    
+                        "Figure 6: Exploratory feature-importance ranking on the real GFN2-xTB pristine-borophene interaction energy.")
+
     add_image_if_exists(doc, os.path.join(fig_dir, "fig7_tau_descriptor_correlation_matrix.png"),
-                        "Figure 7: Pearson Inter-Descriptor Correlation Heatmap (20 Descriptors across 29 Alzheimer/Tau Therapeutics).")
-    
+                        "Figure 7: Pearson inter-descriptor correlation heatmap (real descriptor matrix, 29 Alzheimer/Tau therapeutics).")
+
+    add_heading_styled(doc, "3.4 Applicability domain (OECD Principle 3)", level=2)
+    doc.add_paragraph(
+        "Williams hat-matrix leverage on the real 8-descriptor matrix gives a warning leverage h* = 0.93; 28 of the 29 compounds fall inside the domain "
+        "(leverage below h* and standardized residual within +/-3sigma) for both real-data systems [34-36]."
+    )
+
     add_image_if_exists(doc, os.path.join(fig_dir, "fig8_tau_williams_applicability_domain.png"),
-                        "Figure 8: OECD Principle 3: Williams Plots Defining the Applicability Domain for Tau Therapeutics on 2D Borophene (real data only).")
-    
+                        "Figure 8: OECD Principle 3 Williams plots defining the applicability domain for the Tau therapeutics on beta-12 borophene (real data only).")
+
     add_image_if_exists(doc, os.path.join(fig_dir, "fig9_tau_3d_spatial_binding_modes.png"),
-                        "Figure 9: Atomistic 3D Spatial Binding Modes: (a) EGCG intercalated in the Tau protofilament cleft; (b) Hydromethylthionine (LMTX) binding mode; (c) EGCG interfacial multicenter coordination on 2D Borophene monolayer.")
-    
+                        "Figure 9: Representative binding modes (schematic): (a) EGCG at the Tau filament cleft (PDB 5O3L); (b) hydromethylthionine/LMTX pose; (c) a drug on the pristine beta-12 borophene surface with its real GFN2-xTB Delta_E_int,SP.")
+
     add_heading_styled(doc, "4. Conclusions", level=1)
     doc.add_paragraph(
-        "This multi-scale investigation demonstrates that the pristine beta12 borophene allotrope exhibits real, favorable multicenter bonding with most "
-        "screened Tau therapeutics; extending this to a chi3-PEG-Tf functionalized allotrope for enhanced BBB transcytosis will require new structural "
-        "modeling and quantum calculations beyond the present real-data scope."
+        "We report a quantum-informed, explainable Nano-QSAR analysis of pristine beta-12 borophene (B40H15) as a candidate loading surface for "
+        "Tau-directed therapeutics. Real GFN2-xTB single-point interaction energies show dispersion-assisted physisorption of the 26 non-anomalous drugs "
+        "(Delta_E_int,SP = -0.9 to -13.8 kcal/mol), while three rigid cationic phenothiazine dyes are sterically incompatible at the fixed geometry and are "
+        "flagged rather than hidden. Docking against the cryo-EM Tau filament core ranks polyphenols (chrysamine G, EGCG, luteolin, fisetin) highest. "
+        "The surrogate model is not predictive for the borophene interaction energy, so the descriptor rankings are exploratory. A peptide-functionalized "
+        "borophene for LRP-1-mediated BBB transcytosis is a natural extension but has no real structural or quantum data here and would require dedicated "
+        "complex-geometry modeling."
     )
     
     add_heading_styled(doc, "Acknowledgements & Data Availability", level=1)
