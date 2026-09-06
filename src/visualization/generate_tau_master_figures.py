@@ -327,63 +327,67 @@ def make_fig6_shap(base_dir, fig_dir):
     plt.close()
     print(f"Generated Figure 6: {out_p}")
 
-def _mol_ax(ax, specs, title=None, subtitle=None, **rkw):
+try:
+    import _pymol
+except Exception:
+    _pymol = None
+
+
+def _pm_panel(ax, png, title=None, subtitle=None):
+    import matplotlib.image as mpimg
     ax.set_xticks([]); ax.set_yticks([])
     for s in ax.spines.values():
         s.set_visible(False)
-    if _mol3d is None:
-        ax.text(0.5, 0.5, "3D renderer unavailable", ha="center", va="center",
-                transform=ax.transAxes); return
-    ax.imshow(_mol3d.render_array(specs, **rkw))
+    if png and os.path.exists(png):
+        ax.imshow(mpimg.imread(png))
+    else:
+        ax.text(0.5, 0.5, "render unavailable", ha="center", va="center", transform=ax.transAxes)
     if title:
-        ax.set_title(title, fontsize=9.5, fontweight="bold", pad=6)
+        ax.set_title(title, fontsize=9.5, fontweight="bold", pad=5)
     if subtitle:
-        ax.text(0.5, -0.04, subtitle, ha="center", va="top", fontsize=8.0,
+        ax.text(0.5, -0.03, subtitle, ha="center", va="top", fontsize=8.0,
                 color=_pubstyle.MUTED, transform=ax.transAxes)
 
 
 def make_fig9_3d_spatial(base_dir, fig_dir):
-    """Figure 9 - real 3D renders of the borophene adsorption modes (GFN2-xTB)."""
+    """Figure 9 - PyMOL ray-traced renders of the borophene adsorption modes."""
     df = pd.read_csv(os.path.join(base_dir, "data", "processed",
                      "dataset_tau_borophene_pristine.csv")).set_index("name")
     v = df["vina_5O3L_kcal_mol"]
     ads = df["delta_Eint_SP_kcal_mol"]
-    top_vina = v.idxmin()
-    fav = ads[ads > 0].index.tolist()          # exclude the 3 clash dyes
-    strong = ads.drop(fav).idxmin()
+    strong = ads[ads < 0].idxmin()
     calc = os.path.join(base_dir, "calculations", "tau")
+    C = os.path.join(fig_dir, "_pm_cache"); os.makedirs(C, exist_ok=True)
 
     def cdir(name):
         return name.replace(" ", "_").replace("/", "_")
 
-    fig, axes = plt.subplots(1, 3, figsize=(11.4, 4.1))
-    fig.subplots_adjust(wspace=0.05, top=0.85, bottom=0.15, left=0.02, right=0.98)
-
-    panels = [
-        (axes[0], os.path.join(calc, "beta12_carrier_optimized.xyz"),
-         "(a)  Pristine beta-12 borophene (B$_{40}$H$_{15}$)", "face",
-         "GFN2-xTB optimised carrier model"),
-        (axes[1], os.path.join(calc, cdir(strong), f"{cdir(strong)}_B40H15_clean_complex.xyz"),
-         f"(b)  {strong} on beta-12 borophene", "3q",
+    jobs = [
+        (os.path.join(calc, "beta12_carrier_optimized.xyz"), os.path.join(C, "t9_a.png"),
+         "(a)  Pristine $\\beta$-12 borophene (B$_{40}$H$_{15}$)", "GFN2-xTB optimised carrier model"),
+        (os.path.join(calc, cdir(strong), f"{cdir(strong)}_B40H15_clean_complex.xyz"), os.path.join(C, "t9_b.png"),
+         f"(b)  {strong} on $\\beta$-12 borophene",
          f"strongest GFN2-xTB interaction · $\\Delta E_{{int,SP}}$ = {ads[strong]:.2f} kcal/mol"),
-        (axes[2], os.path.join(calc, "EGCG", "EGCG_B40H15_clean_complex.xyz"),
-         "(c)  EGCG on beta-12 borophene", "3q",
+        (os.path.join(calc, "EGCG", "EGCG_B40H15_clean_complex.xyz"), os.path.join(C, "t9_c.png"),
+         "(c)  EGCG on $\\beta$-12 borophene",
          f"$\\Delta E_{{int,SP}}$ = {ads['EGCG']:.2f} kcal/mol · Tau Vina (5O3L) {v['EGCG']:.2f} kcal/mol"),
     ]
-    for ax, path, title, view, sub in panels:
-        try:
-            s, x = _mol3d.load(path)
-            _mol_ax(ax, [{"sym": s, "xyz": x, "carbon": "#5b6470"}],
-                    title=title, subtitle=sub, view=view, zoom=1.4, size=(1400, 1200))
-        except Exception as exc:
-            ax.text(0.5, 0.5, f"[render failed: {exc}]", transform=ax.transAxes, ha="center")
-            ax.axis("off")
+    if _pymol and _pymol.AVAILABLE:
+        for src, png, _, _ in jobs:
+            try:
+                _pymol.complex_figure(src, png, size=(1400, 1150), carbon="grey55", tilt=22)
+            except Exception as exc:
+                print(f"[fig9 PyMOL {os.path.basename(src)}] {exc}")
 
-    fig.suptitle("Figure 9. Representative drug-carrier adsorption modes on 2D beta-12 borophene (real GFN2-xTB geometries)",
+    fig, axes = plt.subplots(1, 3, figsize=(11.4, 4.1))
+    fig.subplots_adjust(wspace=0.05, top=0.85, bottom=0.15, left=0.02, right=0.98)
+    for ax, (_, png, title, sub) in zip(axes, jobs):
+        _pm_panel(ax, png, title, sub)
+    fig.suptitle("Figure 9. Representative drug-carrier adsorption modes on 2D $\\beta$-12 borophene (real GFN2-xTB geometries)",
                  fontsize=10.5, fontweight="bold", y=0.99)
     out_p = os.path.join(fig_dir, "fig9_tau_3d_spatial_binding_modes.png")
     _pubstyle.save(fig, out_p, also_pdf=False)
-    print(f"Generated Figure 9 (real 3D): {out_p}")
+    print(f"Generated Figure 9 (PyMOL ray-traced): {out_p}")
 
 
 def make_fig7_correlation(base_dir, fig_dir):
