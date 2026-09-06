@@ -5,6 +5,7 @@ Alzheimer's Disease Tau Fibril Disaggregation & 2D Borophene Nanosheets.
 """
 
 import os
+import sys
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -13,10 +14,13 @@ import seaborn as sns
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import ExtraTreesRegressor
 
-sns.set_theme(style="ticks")
-plt.rcParams['font.family'] = 'DejaVu Sans'
-plt.rcParams['font.size'] = 9.5
-plt.rcParams['axes.linewidth'] = 1.0
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import _pubstyle
+_pubstyle.apply()
+try:
+    import _mol3d
+except Exception:
+    _mol3d = None
 
 def get_dirs():
     base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -323,41 +327,88 @@ def make_fig6_shap(base_dir, fig_dir):
     plt.close()
     print(f"Generated Figure 6: {out_p}")
 
+def _mol_ax(ax, specs, title=None, subtitle=None, **rkw):
+    ax.set_xticks([]); ax.set_yticks([])
+    for s in ax.spines.values():
+        s.set_visible(False)
+    if _mol3d is None:
+        ax.text(0.5, 0.5, "3D renderer unavailable", ha="center", va="center",
+                transform=ax.transAxes); return
+    ax.imshow(_mol3d.render_array(specs, **rkw))
+    if title:
+        ax.set_title(title, fontsize=9.5, fontweight="bold", pad=6)
+    if subtitle:
+        ax.text(0.5, -0.04, subtitle, ha="center", va="top", fontsize=8.0,
+                color=_pubstyle.MUTED, transform=ax.transAxes)
+
+
 def make_fig9_3d_spatial(base_dir, fig_dir):
-    fig, axes = plt.subplots(1, 3, figsize=(18, 5.5), dpi=300)
-    plt.subplots_adjust(top=0.82, wspace=0.25, bottom=0.15)
-    
-    df = pd.read_csv(os.path.join(base_dir, "data", "processed", "dataset_tau_borophene_pristine.csv")).set_index("name")
+    """Figure 9 - real 3D renders of the borophene adsorption modes (GFN2-xTB)."""
+    df = pd.read_csv(os.path.join(base_dir, "data", "processed",
+                     "dataset_tau_borophene_pristine.csv")).set_index("name")
     v = df["vina_5O3L_kcal_mol"]
     ads = df["delta_Eint_SP_kcal_mol"]
-    lmtx = "Hydromethylthionine" if "Hydromethylthionine" in v.index else v.index[0]
-    modes = [
-        ("EGCG @ Tau filament core (PDB 5O3L)", f"real Vina {v['EGCG']:.2f} kcal/mol", "#4A148C",
-         "cross-beta groove of the R3-R4 core (docked pose)"),
-        (f"LMTX / {lmtx} @ Tau filament core", f"real Vina {v[lmtx]:.2f} kcal/mol", "#00695C",
-         "cross-beta groove of the R3-R4 core (docked pose)"),
-        ("EGCG @ pristine beta-12 borophene", f"real GFN2-xTB Delta_E_int,SP = {ads['EGCG']:.2f} kcal/mol", "#C2185B",
-         "flat multicentre physisorption on the boron lattice"),
+    top_vina = v.idxmin()
+    fav = ads[ads > 0].index.tolist()          # exclude the 3 clash dyes
+    strong = ads.drop(fav).idxmin()
+    calc = os.path.join(base_dir, "calculations", "tau")
+
+    def cdir(name):
+        return name.replace(" ", "_").replace("/", "_")
+
+    fig, axes = plt.subplots(1, 3, figsize=(11.4, 4.1))
+    fig.subplots_adjust(wspace=0.05, top=0.85, bottom=0.15, left=0.02, right=0.98)
+
+    panels = [
+        (axes[0], os.path.join(calc, "beta12_carrier_optimized.xyz"),
+         "(a)  Pristine beta-12 borophene (B$_{40}$H$_{15}$)", "face",
+         "GFN2-xTB optimised carrier model"),
+        (axes[1], os.path.join(calc, cdir(strong), f"{cdir(strong)}_B40H15_clean_complex.xyz"),
+         f"(b)  {strong} on beta-12 borophene", "3q",
+         f"strongest GFN2-xTB interaction · $\\Delta E_{{int,SP}}$ = {ads[strong]:.2f} kcal/mol"),
+        (axes[2], os.path.join(calc, "EGCG", "EGCG_B40H15_clean_complex.xyz"),
+         "(c)  EGCG on beta-12 borophene", "3q",
+         f"$\\Delta E_{{int,SP}}$ = {ads['EGCG']:.2f} kcal/mol · Tau Vina (5O3L) {v['EGCG']:.2f} kcal/mol"),
     ]
+    for ax, path, title, view, sub in panels:
+        try:
+            s, x = _mol3d.load(path)
+            _mol_ax(ax, [{"sym": s, "xyz": x, "carbon": "#5b6470"}],
+                    title=title, subtitle=sub, view=view, zoom=1.4, size=(1400, 1200))
+        except Exception as exc:
+            ax.text(0.5, 0.5, f"[render failed: {exc}]", transform=ax.transAxes, ha="center")
+            ax.axis("off")
 
-    for ax_idx, (title, score, col, contacts) in enumerate(modes):
-        ax = axes[ax_idx]
-        ax.axis('off')
-
-        rect = patches.FancyBboxPatch((0.05, 0.05), 0.90, 0.90, boxstyle="round,pad=0.03",
-                                      facecolor='#FAFAFA', edgecolor=col, lw=2.5, transform=ax.transAxes)
-        ax.add_patch(rect)
-
-        ax.text(0.5, 0.85, title, ha='center', va='center', fontsize=11.5, fontweight='bold', color=col, transform=ax.transAxes)
-        ax.text(0.5, 0.68, f"Affinity / Adsorption: {score}", ha='center', va='center', fontsize=11, fontweight='bold', color='#212121', transform=ax.transAxes)
-        ax.text(0.5, 0.45, f"{contacts}", ha='center', va='center', fontsize=10, color='#424242', transform=ax.transAxes)
-        ax.text(0.5, 0.18, "[Schematic summary card - not a rendered structure.\nValues are real; see Fig. 3 and the SI for the underlying data.]", ha='center', va='center', fontsize=8.5, style='italic', color='#757575', transform=ax.transAxes)
-
-    plt.suptitle("Figure 9: Summary of Representative Binding / Adsorption Modes on Tau PHF Filaments (schematic)", fontsize=13, fontweight='bold', y=0.96)
+    fig.suptitle("Figure 9. Representative drug-carrier adsorption modes on 2D beta-12 borophene (real GFN2-xTB geometries)",
+                 fontsize=10.5, fontweight="bold", y=0.99)
     out_p = os.path.join(fig_dir, "fig9_tau_3d_spatial_binding_modes.png")
-    plt.savefig(out_p, bbox_inches='tight')
-    plt.close()
-    print(f"Generated Figure 9: {out_p}")
+    _pubstyle.save(fig, out_p, also_pdf=False)
+    print(f"Generated Figure 9 (real 3D): {out_p}")
+
+
+def make_fig7_correlation(base_dir, fig_dir):
+    csv_p = os.path.join(base_dir, "data", "processed", "tau_isolated_descriptors.csv")
+    if not os.path.exists(csv_p):
+        return
+    df = pd.read_csv(csv_p)
+    cols = [c for c in ["MW", "LogP", "LogS", "WS_mg_mL", "HBA", "HBD", "PSA",
+                        "RBC", "NOR", "AromRings", "Polarizability_alpha",
+                        "Fraction_Csp3", "E_HOMO", "E_LUMO", "Gap_eV",
+                        "Hardness_eta", "Softness_S", "Electronegativity_chi",
+                        "Chemical_Potential_mu", "Electrophilicity_omega"]
+            if c in df.columns]
+    corr = df[cols].corr()
+    fig, ax = plt.subplots(figsize=(9.6, 8.0))
+    sns.heatmap(corr, annot=True, fmt=".2f", cmap="vlag", center=0, vmin=-1, vmax=1,
+                cbar_kws={"label": "Pearson correlation $r$", "shrink": 0.8}, ax=ax,
+                annot_kws={"size": 6.0}, linewidths=0.4, linecolor="white", square=True)
+    ax.set_title(f"Pearson inter-descriptor correlation ({len(cols)} descriptors, "
+                 f"{len(df)} Tau therapeutics)")
+    ax.tick_params(labelsize=6.5)
+    out_p = os.path.join(fig_dir, "fig7_tau_descriptor_correlation_matrix.png")
+    _pubstyle.save(fig, out_p, also_pdf=False)
+    print(f"Generated Figure 7: {out_p}")
+
 
 def generate_master_suite():
     base_dir, fig_dir = get_dirs()
@@ -368,8 +419,9 @@ def generate_master_suite():
     make_fig4_residues(base_dir, fig_dir)
     make_fig5_parity(base_dir, fig_dir)
     make_fig6_shap(base_dir, fig_dir)
+    make_fig7_correlation(base_dir, fig_dir)
     make_fig9_3d_spatial(base_dir, fig_dir)
-    print("Master 9-Figure Suite for Article 4 (Tau/Borophene) generated successfully at 300+ DPI!")
+    print("Master figure suite for Article 4 (Tau/Borophene) generated successfully.")
 
 if __name__ == "__main__":
     generate_master_suite()

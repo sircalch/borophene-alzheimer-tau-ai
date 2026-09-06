@@ -4,15 +4,15 @@ Generates the complete 9-Figure Q1 Scientific Visual Suite for the Alzheimer's T
 """
 
 import os
+import sys
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-sns.set_theme(style="ticks")
-plt.rcParams['font.family'] = 'DejaVu Sans'
-plt.rcParams['font.size'] = 9.5
-plt.rcParams['axes.linewidth'] = 1.0
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import _pubstyle
+_pubstyle.apply()
 
 def generate_figure1_workflow(base_dir):
     fig, ax = plt.subplots(figsize=(14, 7), dpi=300)
@@ -114,4 +114,9 @@ def generate_all_figures():
     generate_figure7_correlation(base_dir)
 
 if __name__ == "__main__":
-    generate_all_figures()
+    raise SystemExit(
+        "DEPRECATED: local generate_figure1_workflow / generate_figure2_quantum_cdft "
+        "are stale and fabricated (PDB 6VHL wrong receptor, DFTB3-D4, chi3 as done, "
+        "hardcoded HOMO/LUMO for fictitious systems). Canonical figures come from "
+        "generate_tau_master_figures.generate_master_suite()."
+    )
