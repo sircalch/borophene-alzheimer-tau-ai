@@ -33,20 +33,32 @@ def make_graphical_abstract(base_dir, fig_dir):
             ha='center', va='center', fontsize=13, fontweight='bold', color='white', transform=ax.transAxes)
     
     panels = [
-        ("A. 2D beta-12 Borophene\n(pristine B40H15 cluster)\n- Multicenter electron-deficient B-B bonding\n- Peptide-functionalized route: future work\n- (no real data for functionalized carrier)", 0.04, 0.12, 0.28, 0.70, "#F3E5F5", "#6A1B9A"),
-        ("B. Physical Docking (AutoDock Vina)\nCryo-EM Tau filament core (PDB 5O3L)\n- 29 Alzheimer/Tau Drugs Screened\n- Real Vina -3.8 to -6.8 kcal/mol\n- EGCG -5.88; LMTX -4.77 kcal/mol", 0.36, 0.12, 0.28, 0.70, "#EDE7F6", "#4527A0"),
-        ("C. Explainable AI & OECD QSAR\nLeak-free nested 5x5 Ridge CV\n- Q2_CV = 0.46 (isolated), 0.07 (pristine)\n- Top feature: E_HOMO (exploratory)\n- 28/29 inside Williams Domain", 0.68, 0.12, 0.28, 0.70, "#FCE4EC", "#C2185B")
+        ("A. 2D beta-12 Borophene\n\n"
+         "Pristine B40H15 cluster\n"
+         "Multicenter electron-\ndeficient B-B bonding\n"
+         "Peptide-functionalized\nroute: future work\n"
+         "(no real data for the\nfunctionalized carrier)", 0.03, 0.12, 0.29, 0.70, "#F3E5F5", "#6A1B9A"),
+        ("B. Physical Docking\n(AutoDock Vina v1.2.7)\n\n"
+         "Cryo-EM Tau filament\ncore (PDB ID: 5O3L)\n"
+         "29 Alzheimer / Tau drugs\n"
+         "Real Vina -3.8 to -6.8\nkcal/mol (exploratory)\n"
+         "EGCG -5.88; LMTX -4.77", 0.355, 0.12, 0.29, 0.70, "#EDE7F6", "#4527A0"),
+        ("C. Explainable AI & OECD QSAR\n\n"
+         "Leak-free nested 5x5\nRidge CV\n"
+         "Q2_CV = 0.46 (isolated),\n0.07 (pristine borophene)\n"
+         "Top feature: E_HOMO\n(exploratory)\n"
+         "28/29 inside the\nWilliams domain", 0.68, 0.12, 0.29, 0.70, "#FCE4EC", "#C2185B"),
     ]
-    
+
     for text, x, y, w, h, bg_c, border_c in panels:
-        rect = patches.FancyBboxPatch((x, y), w, h, boxstyle="round,pad=0.02", 
+        rect = patches.FancyBboxPatch((x, y), w, h, boxstyle="round,pad=0.02",
                                       facecolor=bg_c, edgecolor=border_c, lw=2.0, transform=ax.transAxes)
         ax.add_patch(rect)
-        ax.text(x + w/2, y + h/2, text, ha='center', va='center', fontsize=10.5, fontweight='bold', color='#311B92', transform=ax.transAxes)
-        
+        ax.text(x + w/2, y + h/2, text, ha='center', va='center', fontsize=8.5, fontweight='bold', color='#311B92', transform=ax.transAxes)
+
     arrow_props = dict(facecolor='#4A148C', edgecolor='#4A148C', width=3.0, headwidth=10, shrink=0.05)
-    ax.annotate('', xy=(0.35, 0.47), xytext=(0.325, 0.47), xycoords='axes fraction', arrowprops=arrow_props)
-    ax.annotate('', xy=(0.67, 0.47), xytext=(0.645, 0.47), xycoords='axes fraction', arrowprops=arrow_props)
+    ax.annotate('', xy=(0.352, 0.47), xytext=(0.322, 0.47), xycoords='axes fraction', arrowprops=arrow_props)
+    ax.annotate('', xy=(0.678, 0.47), xytext=(0.648, 0.47), xycoords='axes fraction', arrowprops=arrow_props)
     
     out_p = os.path.join(fig_dir, "fig1_graphical_abstract.png")
     plt.savefig(out_p, bbox_inches='tight')
@@ -61,15 +73,15 @@ def make_fig1_workflow(base_dir, fig_dir):
         ("1. 2D beta-12 Borophene\n(pristine B40H15 cluster)", 0.05, 0.55, 0.25, 0.35, "#F3E5F5", "#6A1B9A"),
         ("2. Blood-Brain Barrier (BBB)\nReceptor-mediated transcytosis route\n(proposed; not modelled here)", 0.38, 0.55, 0.25, 0.35, "#EDE7F6", "#4527A0"),
         ("3. Cryo-EM Target\nAlzheimer Tau filament core\n(PDB 5O3L)", 0.70, 0.55, 0.25, 0.35, "#FCE4EC", "#AD1457"),
-        ("4. Quantum Tight-Binding & DFT\nAdsorption Dynamics & CDFT Indices\n(real Delta_Eint_SP = -13.8 to -0.9 kcal/mol, pristine)", 0.05, 0.10, 0.25, 0.35, "#E0F7FA", "#00838F"),
-        ("5. 100% Real Physical Docking\nAutoDock Vina v1.2.7 (Cross-Beta)\n(29 Alzheimer Therapeutics Screened)", 0.38, 0.10, 0.25, 0.35, "#E8F5E9", "#2E7D32"),
-        ("6. Explainable Machine Learning\nLeak-free nested Ridge CV\n(Q2_CV up to 0.46, Williams Domain)", 0.70, 0.10, 0.25, 0.35, "#FFF3E0", "#E65100"),
+        ("4. Quantum tight-binding (GFN2-xTB)\nInteraction energies + CDFT indices\n(real Delta_Eint,SP -13.8 to -0.9 kcal/mol\nfor 26/29; 3 phenothiazine dyes clash)", 0.04, 0.10, 0.27, 0.35, "#E0F7FA", "#00838F"),
+        ("5. Real physical docking\nAutoDock Vina v1.2.7 (cross-beta)\n(29 Alzheimer / Tau drugs; exploratory)", 0.375, 0.10, 0.25, 0.35, "#E8F5E9", "#2E7D32"),
+        ("6. Explainable machine learning\nLeak-free nested Ridge CV\n(Q2_CV up to 0.46; Williams domain)", 0.70, 0.10, 0.25, 0.35, "#FFF3E0", "#E65100"),
     ]
     
     for title, x, y, w, h, bg_c, border_c in boxes:
         rect = patches.Rectangle((x, y), w, h, facecolor=bg_c, edgecolor=border_c, lw=2.0, transform=ax.transAxes, zorder=2)
         ax.add_patch(rect)
-        ax.text(x + w/2, y + h/2, title, ha='center', va='center', fontsize=10.5, fontweight='bold', color='#311B92', transform=ax.transAxes, zorder=3)
+        ax.text(x + w/2, y + h/2, title, ha='center', va='center', fontsize=9.0, fontweight='bold', color='#311B92', transform=ax.transAxes, zorder=3)
         
     arrow_props = dict(facecolor='#37474F', edgecolor='#37474F', width=2.5, headwidth=8, shrink=0.05)
     ax.annotate('', xy=(0.37, 0.72), xytext=(0.31, 0.72), xycoords='axes fraction', arrowprops=arrow_props)
@@ -128,24 +140,29 @@ def make_fig2_quantum(base_dir, fig_dir):
     print(f"Generated Figure 2: {out_p}")
 
 def make_fig3_docking_profiles(base_dir, fig_dir):
-    vina_csv = os.path.join(base_dir, "results", "docking", "real_vina_docking_summary.csv")
+    # Use the same real docking column the manuscript body, SI, Figure 5 and
+    # Figure 9 use (dataset_tau_borophene_pristine.csv / vina_5O3L_kcal_mol),
+    # NOT results/docking/real_vina_docking_summary.csv, which is a stale run
+    # over a different (BACE/gamma-secretase) cohort inconsistent with the paper.
+    vina_csv = os.path.join(base_dir, "data", "processed", "dataset_tau_borophene_pristine.csv")
     if not os.path.exists(vina_csv):
         return
-    df = pd.read_csv(vina_csv)
-    
+    df = pd.read_csv(vina_csv).rename(columns={"vina_5O3L_kcal_mol": "Real_Vina_Docking_Score_kcal_mol"})
+    df = df.dropna(subset=["Real_Vina_Docking_Score_kcal_mol"])
+
     fig, axes = plt.subplots(1, 2, figsize=(14, 5.8), dpi=300)
     plt.subplots_adjust(top=0.86, wspace=0.30, bottom=0.15)
-    
+
     ax0 = axes[0]
     sns.histplot(df['Real_Vina_Docking_Score_kcal_mol'], kde=True, color='#4A148C', bins=12, ax=ax0, edgecolor='k')
-    ax0.axvline(df['Real_Vina_Docking_Score_kcal_mol'].mean(), color='r', linestyle='--', lw=2.0, 
+    ax0.axvline(df['Real_Vina_Docking_Score_kcal_mol'].mean(), color='r', linestyle='--', lw=2.0,
                 label=f"Mean Delta_G = {df['Real_Vina_Docking_Score_kcal_mol'].mean():.2f} kcal/mol")
     ax0.set_xlabel("AutoDock Vina Real Binding Energy (kcal/mol)", fontsize=10.5, fontweight='bold')
     ax0.set_ylabel("Therapeutic Compound Count", fontsize=10.5, fontweight='bold')
     ax0.set_title("(a) Vina score distribution on the Tau filament core (PDB 5O3L)", fontsize=11.5, fontweight='bold', pad=10)
     ax0.legend(loc='upper left', frameon=True)
     ax0.grid(True, linestyle=':', alpha=0.6)
-    
+
     ax1 = axes[1]
     df_sorted = df.sort_values(by='Real_Vina_Docking_Score_kcal_mol', ascending=True).head(10)
     colors = sns.color_palette("plasma", n_colors=10)
@@ -310,26 +327,33 @@ def make_fig9_3d_spatial(base_dir, fig_dir):
     fig, axes = plt.subplots(1, 3, figsize=(18, 5.5), dpi=300)
     plt.subplots_adjust(top=0.82, wspace=0.25, bottom=0.15)
     
+    df = pd.read_csv(os.path.join(base_dir, "data", "processed", "dataset_tau_borophene_pristine.csv")).set_index("name")
+    v = df["vina_5O3L_kcal_mol"]
+    ads = df["delta_Eint_SP_kcal_mol"]
+    lmtx = "Hydromethylthionine" if "Hydromethylthionine" in v.index else v.index[0]
     modes = [
-        ("EGCG @ Tau filament core (PDB 5O3L)", "real Vina -5.88 kcal/mol", "#4A148C", "cross-beta contacts: Gly335, Leu357, Gln336, Val337, Pro332"),
-        ("Hydromethylthionine/LMTX @ Tau filament core", "real Vina -4.77 kcal/mol", "#00695C", "cross-beta contacts: Pro332, Gly333, Lys331"),
-        ("EGCG @ pristine beta-12 borophene", "real GFN2-xTB Delta_E_int,SP = -5.28 kcal/mol", "#C2185B", "flat multicentre physisorption on the boron lattice")
+        ("EGCG @ Tau filament core (PDB 5O3L)", f"real Vina {v['EGCG']:.2f} kcal/mol", "#4A148C",
+         "cross-beta groove of the R3-R4 core (docked pose)"),
+        (f"LMTX / {lmtx} @ Tau filament core", f"real Vina {v[lmtx]:.2f} kcal/mol", "#00695C",
+         "cross-beta groove of the R3-R4 core (docked pose)"),
+        ("EGCG @ pristine beta-12 borophene", f"real GFN2-xTB Delta_E_int,SP = {ads['EGCG']:.2f} kcal/mol", "#C2185B",
+         "flat multicentre physisorption on the boron lattice"),
     ]
-    
+
     for ax_idx, (title, score, col, contacts) in enumerate(modes):
         ax = axes[ax_idx]
         ax.axis('off')
-        
-        rect = patches.FancyBboxPatch((0.05, 0.05), 0.90, 0.90, boxstyle="round,pad=0.03", 
+
+        rect = patches.FancyBboxPatch((0.05, 0.05), 0.90, 0.90, boxstyle="round,pad=0.03",
                                       facecolor='#FAFAFA', edgecolor=col, lw=2.5, transform=ax.transAxes)
         ax.add_patch(rect)
-        
-        ax.text(0.5, 0.85, title, ha='center', va='center', fontsize=12, fontweight='bold', color=col, transform=ax.transAxes)
-        ax.text(0.5, 0.70, f"Affinity / Adsorption: {score}", ha='center', va='center', fontsize=11, fontweight='bold', color='#212121', transform=ax.transAxes)
-        ax.text(0.5, 0.45, f"Spatial Interaction Mode:\n{contacts}", ha='center', va='center', fontsize=10, color='#424242', transform=ax.transAxes)
-        ax.text(0.5, 0.20, "[Schematic binding-mode rendering; AutoDock Vina pose on PDB 5O3L]", ha='center', va='center', fontsize=8.5, style='italic', color='#757575', transform=ax.transAxes)
-        
-    plt.suptitle("Figure 9: Atomistic 3D Spatial Binding Modes & Interfacial Geometries on Tau PHF Filaments", fontsize=13, fontweight='bold', y=0.96)
+
+        ax.text(0.5, 0.85, title, ha='center', va='center', fontsize=11.5, fontweight='bold', color=col, transform=ax.transAxes)
+        ax.text(0.5, 0.68, f"Affinity / Adsorption: {score}", ha='center', va='center', fontsize=11, fontweight='bold', color='#212121', transform=ax.transAxes)
+        ax.text(0.5, 0.45, f"{contacts}", ha='center', va='center', fontsize=10, color='#424242', transform=ax.transAxes)
+        ax.text(0.5, 0.18, "[Schematic summary card - not a rendered structure.\nValues are real; see Fig. 3 and the SI for the underlying data.]", ha='center', va='center', fontsize=8.5, style='italic', color='#757575', transform=ax.transAxes)
+
+    plt.suptitle("Figure 9: Summary of Representative Binding / Adsorption Modes on Tau PHF Filaments (schematic)", fontsize=13, fontweight='bold', y=0.96)
     out_p = os.path.join(fig_dir, "fig9_tau_3d_spatial_binding_modes.png")
     plt.savefig(out_p, bbox_inches='tight')
     plt.close()
