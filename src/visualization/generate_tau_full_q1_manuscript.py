@@ -522,14 +522,19 @@ def build_full_tau_manuscript():
             
     out_docx = base_dir / "manuscript" / "Tau_Borophene_Full_Q1_Research_Paper_Monreal_Hernandez_et_al.docx"
     doc.save(str(out_docx))
-    print(f"\n[SUCCESS] Generated Tau Master Full Q1 Manuscript: {out_docx}")
-    
-    out_docx_final = base_dir / "manuscript" / "Beilstein_Manuscript_Tau_Borophene_Monreal_Hernandez_et_al.docx"
-    doc.save(str(out_docx_final))
-    out_subm = base_dir / "manuscript" / "submission_ready" / "02_Main_Manuscript_Tau_Borophene_Monreal_Hernandez_et_al.docx"
-    doc.save(str(out_subm))
-    print(f"[SUCCESS] Updated Tau Submission Manuscript: {out_subm}")
+    print(f"\n[SUCCESS] Generated Tau Full Q1 Manuscript: {out_docx}")
+    # NOTE: this script must NOT write Beilstein_Manuscript_Tau_Borophene_*.docx
+    # or submission_ready/02_Main_Manuscript_*.docx -- those come from
+    # generate_tau_word_manuscript.py (the canonical, corrected Beilstein body,
+    # used for both journal submissions).
     return out_docx
 
 if __name__ == "__main__":
-    build_full_tau_manuscript()
+    raise SystemExit(
+        "DEPRECATED: this long-form draft still contains unverified content "
+        "(a fabricated B3LYP-D3BJ DFT benchmark, fabricated docking/interaction "
+        "numbers, and a chi3-PEG-Tf borophene system with no real data). Both the "
+        "Beilstein and Molecular Diversity submissions use the corrected body "
+        "from generate_tau_word_manuscript.py. Do not regenerate from this file "
+        "until its body has been audited against the real pipeline."
+    )

@@ -132,7 +132,7 @@ def generate_tau_word_manuscript():
     p_abs.add_run(
         "Hyperphosphorylation and aggregation of microtubule-associated protein Tau into paired helical filaments (PHFs) is a defining neuropathological "
         "hallmark of Alzheimer's disease (AD) and correlates closely with cognitive decline [1,3,6]. Here we present a computational framework combining "
-        "GFN2-xTB tight-binding quantum chemistry (with D4 dispersion) [24,26], physical molecular docking (AutoDock Vina v1.2.7 [31,32] against the "
+        "GFN2-xTB tight-binding quantum chemistry (with D4 dispersion) [24,26], physical molecular docking (AutoDock Vina v1.2.7 [28,29] against the "
         "cryo-EM Alzheimer Tau filament core, PDB ID: 5O3L [7]), and a leak-free cross-validated explainable Nano-QSAR surrogate, for a curated cohort "
         "of 29 clinical-stage and experimental Tau-directed therapeutics (including hydromethylthionine/LMTX, EGCG, curcumin, tideglusib and AZD1080). "
         "Real GFN2-xTB single-point interaction energies of the 26 non-anomalous compounds on the pristine beta-12 borophene cluster (B40H15) span "
@@ -176,17 +176,17 @@ def generate_tau_word_manuscript():
         "geometry-optimized and evaluated at single point with GFN2-xTB (xtb v6.7.1) including the D4 dispersion correction [24,26]. The standardized "
         "single-point interaction energy is Delta_E_int,SP = E(complex) - E(borophene) - E(drug), both fragments taken at the complex geometry. "
         "Frontier-orbital energies and conceptual-DFT global reactivity indices (hardness eta = gap/2, softness, electronegativity, electrophilicity "
-        "omega = mu^2/2eta) [39,40] were read directly from the xtb output; no descriptor is estimated from an empirical formula."
+        "omega = mu^2/2eta) [36,37] were read directly from the xtb output; no descriptor is estimated from an empirical formula."
     )
     doc.add_paragraph(
-        "2.2 Molecular docking: Docking used AutoDock Vina v1.2.7 [31,32] against the cryo-EM structure of the Alzheimer Tau filament core (PDB ID: 5O3L [7]), "
+        "2.2 Molecular docking: Docking used AutoDock Vina v1.2.7 [28,29] against the cryo-EM structure of the Alzheimer Tau filament core (PDB ID: 5O3L [7]), "
         "with ligands protonated at pH 7.4 and prepared with Meeko. Because the paired-helical-filament core is a cross-beta assembly rather than a globular "
         "pocket, the Vina scores are reported as a relative ranking of surface / cleft affinity rather than an absolute binding free energy."
     )
     doc.add_paragraph(
         "2.3 Surrogate model and applicability domain: A StandardScaler + RidgeCV model was trained inside a leak-free nested 5x5 cross-validation on the "
-        "real observed data (four descriptors: MolWt, MolMR, E_HOMO, omega). Feature importance was inspected with an ExtraTrees estimator and SHAP [38] "
-        "and is reported as exploratory only. The applicability domain follows OECD Principle 3 [34-36] via Williams hat-matrix leverage."
+        "real observed data (four descriptors: MolWt, MolMR, E_HOMO, omega). Feature importance was inspected with an ExtraTrees estimator and SHAP [35] "
+        "and is reported as exploratory only. The applicability domain follows OECD Principle 3 [31-33] via Williams hat-matrix leverage."
     )
     
     add_image_if_exists(doc, os.path.join(fig_dir, "fig2_tau_quantum_cdft_architecture.png"),
@@ -269,7 +269,7 @@ def generate_tau_word_manuscript():
         "A StandardScaler + RidgeCV surrogate evaluated by leak-free nested 5x5 cross-validation reached Q2_CV = 0.46 for the isolated-descriptor model and "
         "0.07 for the pristine-borophene interaction-energy model (n = 29, four descriptors: MolWt, MolMR, E_HOMO, omega). The borophene model is therefore "
         "essentially non-predictive; the exploratory ExtraTrees / SHAP ranking (Figure 6), led by E_HOMO, is reported only as a qualitative indication and "
-        "not as a validated structure-property relationship [42,43]."
+        "not as a validated structure-property relationship [39,40]."
     )
 
     add_image_if_exists(doc, os.path.join(fig_dir, "fig5_tau_parity_models_evaluation.png"),
@@ -284,7 +284,7 @@ def generate_tau_word_manuscript():
     add_heading_styled(doc, "3.4 Applicability domain (OECD Principle 3)", level=2)
     doc.add_paragraph(
         "Williams hat-matrix leverage on the real 8-descriptor matrix gives a warning leverage h* = 0.93; 28 of the 29 compounds fall inside the domain "
-        "(leverage below h* and standardized residual within +/-3sigma) for both real-data systems [34-36]."
+        "(leverage below h* and standardized residual within +/-3sigma) for both real-data systems [31-33]."
     )
 
     add_image_if_exists(doc, os.path.join(fig_dir, "fig8_tau_williams_applicability_domain.png"),
