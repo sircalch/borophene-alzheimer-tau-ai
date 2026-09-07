@@ -477,7 +477,7 @@ def make_fig10_deltarho(base_dir, fig_dir):
                                          turn=(8, -18, 0))
     out_p = os.path.join(fig_dir, "fig10_tau_charge_density_difference.png")
     _drho_fig.compose(out_p, render, 10,
-                      "Interfacial charge redistribution on the $\\beta$-12 borophene carrier",
+                      "Covalent charge transfer in the curcumin / $\\beta$-12 borophene chemisorption complex",
                       "curcumin", "$\\beta$-12 borophene", 0.005, dEint_kcal=dEint)
     print(f"Generated Figure 10 (charge-density difference): {out_p}")
 
