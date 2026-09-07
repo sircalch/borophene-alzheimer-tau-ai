@@ -23,15 +23,11 @@ def compute_williams_domain():
     # carrier, so that panel is omitted. The pristine panel now uses the real
     # GFN2-xTB delta_Eint_SP_kcal_mol for all 29 compounds.
     base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    _mt = os.path.join(base_dir, "data", "processed", "dataset_tau_borophene_pristine.csv")
+    _feat = ["MolWt", "MolMR", "E_HOMO_eV", "E_LUMO_eV", "Gap_eV", "Eta_eV", "Mu_eV", "Omega_eV"]
     systems = [
-        ("Isolated Tau Therapeutics", os.path.join(base_dir, "data", "processed", "dataset_isolated_tau_drugs.csv"),
-         ["MW", "LogP", "LogS", "WS_mg_mL", "HBA", "HBD", "PSA", "RBC", "NOR", "AromRings",
-          "Polarizability_alpha", "Fraction_Csp3", "E_HOMO", "E_LUMO", "Gap_eV", "Hardness_eta",
-          "Softness_S", "Electronegativity_chi", "Chemical_Potential_mu", "Electrophilicity_omega"],
-         "Real_Vina_Docking_Score_kcal_mol"),
-        ("Drug + Borophene Pristine (real xTB)", os.path.join(base_dir, "data", "processed", "dataset_tau_borophene_pristine.csv"),
-         ["MolWt", "MolMR", "E_HOMO_eV", "E_LUMO_eV", "Gap_eV", "Eta_eV", "Mu_eV", "Omega_eV"],
-         "delta_Eint_SP_kcal_mol"),
+        ("Tau-filament docking (Vina 5O3L)", _mt, _feat, "vina_5O3L_kcal_mol"),
+        ("Borophene physisorption (GFN2-xTB)", _mt, _feat, "delta_Eint_SP_kcal_mol"),
     ]
 
     fig, axes = plt.subplots(1, 2, figsize=(12.5, 5.5), dpi=300)

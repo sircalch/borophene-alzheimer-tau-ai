@@ -142,8 +142,9 @@ def generate_tau_word_manuscript():
         "stacked flat at 2.6-3.7 Angstrom with Delta_E_int,SP = -8 to -44 kcal/mol. Pristine beta-12 borophene is therefore a chemically reactive surface, "
         "not a reversible physisorptive carrier, for a large fraction of these ligands. Docking against the Tau filament core gave "
         "Vina scores of -3.79 to -6.83 kcal/mol (mean -5.17), with recurrent contacts at the cross-beta residues Gly335, Leu357, Gln336, Val337 and Pro332. "
-        "A leak-free nested 5x5 cross-validated RidgeCV surrogate reached Q2_CV = 0.46 for the isolated-drug docking score but only Q2_CV = 0.06 for the "
-        "17-point physisorption interaction energy - descriptor-based prediction fails for this quantity. A peptide-functionalized borophene for BBB "
+        "A leak-free nested 5x5 cross-validated RidgeCV surrogate on four descriptors reached only Q2_CV = 0.30 for the Tau-filament Vina docking score "
+        "(n = 29) and Q2_CV = 0.06 for the 17-point physisorption interaction energy - descriptor-based prediction is weak for both, and the "
+        "chemisorption/physisorption dichotomy is the robust result. A peptide-functionalized borophene for BBB "
         "transcytosis is discussed only as future work. Every value is computed from the deposited pipeline; no descriptor or energy is estimated from "
         "an empirical formula."
     )
@@ -283,16 +284,18 @@ def generate_tau_word_manuscript():
                     
     add_heading_styled(doc, "3.3 Nano-QSAR surrogate model", level=2)
     doc.add_paragraph(
-        "The chemisorbed and physisorbed groups are governed by different physics (covalent bond strength vs dispersion), so the surrogate is fit on the "
-        "17 physisorbers only. A StandardScaler + RidgeCV model evaluated by leak-free nested 5x5 cross-validation reached Q2_CV = 0.46 for the isolated-drug "
-        "docking score (n = 29) but only Q2_CV = 0.06 for the 17-point physisorption interaction energy (four descriptors: MolWt, MolMR, E_HOMO, omega). "
-        "Descriptor-based prediction of the physisorption energy on this small, chemically narrow surface therefore fails; the exploratory ExtraTrees / SHAP "
+        "The chemisorbed and physisorbed groups are governed by different physics (covalent bond strength vs dispersion), so the physisorption surrogate is "
+        "fit on the 17 physisorbers only. Both endpoints use the single 29-compound master table (Figure 5). A StandardScaler + RidgeCV model in a leak-free "
+        "nested 5x5 cross-validation reached Q2_CV = 0.30 for the Tau-filament Vina docking score (n = 29) and Q2_CV = 0.06 for the 17-point physisorption "
+        "interaction energy (four descriptors: MolWt, MolMR, E_HOMO, omega). "
+        "Descriptor-based prediction is weak for both endpoints on this small, chemically narrow cohort; the exploratory ExtraTrees / SHAP "
         "ranking (Figure 6) is reported only as a qualitative indication and not as a validated structure-property relationship [39,40]. The chemisorption/"
         "physisorption outcome itself (Figure 11) is the robust, model-free result of this work."
     )
 
     add_image_if_exists(doc, os.path.join(fig_dir, "fig5_tau_parity_models_evaluation.png"),
-                        "Figure 5: Leak-free nested 5x5 CV parity plots (real observed vs out-of-fold predicted) for the isolated and pristine-borophene systems. The chi3-PEG-Tf functionalized system has no real data and is not shown.")
+                        "Figure 5: Leak-free nested 5x5 CV parity plots (real observed vs out-of-fold predicted), both on the 29-compound master table: "
+                        "(a) Tau-filament Vina docking score (n = 29, Q2_CV = 0.30); (b) GFN2-xTB physisorption interaction energy (17 physisorbers, Q2_CV = 0.06).")
 
     add_image_if_exists(doc, os.path.join(fig_dir, "fig6_tau_shap_xai_importance_rankings.png"),
                         "Figure 6: Exploratory feature-importance ranking on the real GFN2-xTB pristine-borophene interaction energy.")
@@ -302,9 +305,9 @@ def generate_tau_word_manuscript():
 
     add_heading_styled(doc, "3.4 Applicability domain (OECD Principle 3)", level=2)
     doc.add_paragraph(
-        "For the 17-compound physisorption set, Williams hat-matrix leverage on the 8-descriptor matrix gives a warning leverage h* = 1.59 with all 17 "
-        "compounds below h* and within +/-3sigma standardised residual (Figure 8) [31-33]. Given n = 17 and the near-zero cross-validated Q2, the domain "
-        "statement is a formality; the small physisorber set does not support a quantitative structure-property model."
+        "Williams hat-matrix leverage on the 8-descriptor matrix (Figure 8) gives h* = 0.93 with 28/29 compounds inside the domain for the docking endpoint, "
+        "and h* = 1.59 with all 17 inside for the physisorption endpoint [31-33]. Given the near-zero cross-validated Q2 for the physisorption model, its "
+        "domain statement is a formality; neither small cohort supports a quantitative structure-property model."
     )
 
     add_image_if_exists(doc, os.path.join(fig_dir, "fig8_tau_williams_applicability_domain.png"),

@@ -233,10 +233,14 @@ def make_fig5_parity(base_dir, fig_dir):
     from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 
     alpha_grid = np.array([0.001, 0.01, 0.1, 0.3, 1.0, 3.0, 10.0, 30.0, 100.0, 300.0, 1000.0])
+    # Both panels use the single master table dataset_tau_borophene_pristine.csv
+    # (29 aggregation-inhibitor / imaging-ligand cohort). (a) Tau-filament Vina
+    # docking score; (b) GFN2-xTB physisorption interaction energy on B40H15.
+    _mt = os.path.join(base_dir, "data", "processed", "dataset_tau_borophene_pristine.csv")
     systems = [
-        ("Isolated Tau Drugs", os.path.join(base_dir, "data", "processed", "dataset_isolated_tau_drugs.csv"),
-         ["MW", "LogP", "Polarizability_alpha", "Electrophilicity_omega"], "Real_Vina_Docking_Score_kcal_mol"),
-        ("Borophene beta12 (real xTB)", os.path.join(base_dir, "data", "processed", "dataset_tau_borophene_pristine.csv"),
+        ("Tau-filament docking (Vina, 5O3L)", _mt,
+         ["MolWt", "MolMR", "E_HOMO_eV", "Omega_eV"], "vina_5O3L_kcal_mol"),
+        ("Borophene physisorption (GFN2-xTB)", _mt,
          ["MolWt", "MolMR", "E_HOMO_eV", "Omega_eV"], "delta_Eint_SP_kcal_mol"),
     ]
 

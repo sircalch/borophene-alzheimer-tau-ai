@@ -7,6 +7,17 @@ Quantum CDFT descriptors for 3 systems:
 3. Drug + Functionalized 2D Borophene (chi3-PEG-Tf)
 """
 
+import sys
+raise SystemExit(
+    "DEPRECATED (2026-09-06): also wrote a FABRICATED Target_DeltaG_bind "
+    "(Vina - 4.20 + 0.045*Delta_E_ads, with Delta_E_ads an empirical formula over "
+    "RDKit descriptors) and an XGBoost benchmark. The real borophene endpoint is the "
+    "GFN2-xTB delta_Eint_SP in dataset_tau_borophene_pristine.csv "
+    "(recompute_tau_adsorption.py); the isolated-drug table is built by "
+    "src/ml_models/build_tau_ml_datasets.py; the leak-free nested CV lives in "
+    "scripts/run_nested_cv_leakfree.py and generate_tau_master_figures.py."
+)
+
 import os
 import json
 import numpy as np

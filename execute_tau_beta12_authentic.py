@@ -11,6 +11,16 @@ Executes authentic calculations for Tau on the canonical beta12 borophene cluste
 7. Generates carrier_topology_audit.csv, carrier_identity_provenance.csv, and MANIFEST_SHA256.txt
 """
 
+import sys
+raise SystemExit(
+    "DEPRECATED (2026-09-06): this script placed each drug a fixed offset above the "
+    "B40H15 sheet and took a GFN2-xTB SINGLE POINT without geometry optimisation. Because "
+    "the offset was measured from z_max of a buckled edge atom, the drug ended up 5-6 A "
+    "off the sheet, and the resulting delta_Eint_SP values (-0.9 to -13.8 kcal/mol) are "
+    "artefacts. Use recompute_tau_adsorption.py, which relaxes every complex and finds "
+    "12/29 ligands chemisorb (-81 to -233 kcal/mol) and 17 physisorb (-8 to -44)."
+)
+
 import subprocess, re, time, hashlib
 import numpy as np, pandas as pd
 from pathlib import Path

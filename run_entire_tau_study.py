@@ -1,55 +1,57 @@
 """
 run_entire_tau_study.py
-Master End-to-End Pipeline Runner for 100% Reproducibility of Article 4:
-Alzheimer's Disease Tau Fibril Disaggregation & 2D Borophene Nanosheets.
-"""
+Master end-to-end pipeline for Article 4 (Alzheimer Tau / 2D beta-12 borophene).
 
+Reproduces every real number and figure in the manuscript. Steps 1-4 curate the
+cohort, compute real descriptors and run the real Tau-filament docking; step 5
+is the corrected adsorption screening (relaxed complexes - see the module
+docstring for why the earlier single-point version was wrong); steps 6-10 build
+the leak-free QSPR, applicability domain, figures, manuscript and SI.
+"""
 import os
 import sys
 import time
 
-def run_step(step_num, title, script_rel_path):
-    base_dir = os.path.dirname(os.path.abspath(__file__))
-    script_path = os.path.join(base_dir, script_rel_path)
-    print(f"\n=======================================================")
-    print(f"  [Step {step_num}/8] {title}")
-    print(f"=======================================================")
+BASE = os.path.dirname(os.path.abspath(__file__))
+
+
+def run_step(n, total, title, rel_path, args=""):
+    script = os.path.join(BASE, rel_path)
+    print(f"\n{'='*70}\n  [Step {n}/{total}] {title}\n{'='*70}")
     t0 = time.time()
-    ret = os.system(f'python "{script_path}"')
-    t_elapsed = time.time() - t0
+    ret = os.system(f'python "{script}" {args}')
     if ret != 0:
-        print(f"[ERROR] Step {step_num}: {title} (Exit Code: {ret})")
+        print(f"[ERROR] Step {n}: {title} (exit {ret})")
         return False
-    print(f"[OK] Step {step_num} completed in {t_elapsed:.2f} seconds.")
+    print(f"[OK] Step {n} in {time.time()-t0:.1f}s")
     return True
 
+
 def main():
-    print("=" * 65)
-    print("  BOROPHENE-ALZHEIMER-TAU-AI: MASTER REPRODUCIBILITY PIPELINE")
-    print("  Authors: Andrés Monreal Hernández et al.")
-    print("=" * 65)
-    
+    print("=" * 70)
+    print("  BOROPHENE-ALZHEIMER-TAU-AI : MASTER REPRODUCIBILITY PIPELINE")
+    print("=" * 70)
     steps = [
-        (1, "Tau Drug Library Curation", "src/descriptors/curate_tau_dataset.py"),
-        (2, "20-Descriptor RDKit & Quantum Calculation", "src/descriptors/compute_tau_descriptors.py"),
-        (3, "Parallel Real AutoDock Vina Docking (PDB 6VHL)", "src/docking/run_tau_real_docking.py"),
-        (4, "Residue-Level Contact Analysis", "src/docking/analyze_tau_interactions.py"),
-        (5, "Machine Learning Training & SHAP XAI", "src/ml_models/train_tau_qsar_models.py"),
-        (6, "OECD Applicability Domain (Williams Plot)", "src/ml_models/compute_tau_oecd_applicability_domain.py"),
-        (7, "Publication-Grade Figures Suite (300+ DPI)", "src/visualization/generate_tau_q1_figures.py"),
-        (8, "Word Manuscript Compilation & Submission Packaging", "src/visualization/generate_tau_word_manuscript.py")
+        ("Tau drug-library curation", "src/descriptors/curate_tau_dataset.py", ""),
+        ("RDKit + GFN2-xTB descriptors", "src/descriptors/compute_tau_descriptors.py", ""),
+        ("Real AutoDock Vina docking (Tau filament, PDB 5O3L)", "src/docking/run_tau_real_docking.py", ""),
+        ("Residue-level contact analysis", "src/docking/analyze_tau_interactions.py", ""),
+        ("Adsorption screening on B40H15 (relaxed complexes)", "recompute_tau_adsorption.py", "--commit-datasets"),
+        ("Isolated-drug ML table", "src/ml_models/build_tau_ml_datasets.py", ""),
+        ("Leak-free nested 5x5 CV + Y-scrambling", "scripts/run_nested_cv_leakfree.py", ""),
+        ("OECD applicability domain (Williams)", "src/ml_models/compute_tau_oecd_applicability_domain.py", ""),
+        ("Master figure suite", "src/visualization/generate_tau_master_figures.py", ""),
+        ("Word manuscript", "src/visualization/generate_tau_word_manuscript.py", ""),
+        ("Supporting information", "src/visualization/generate_supporting_information.py", ""),
     ]
-    
-    for s_num, title, path in steps:
-        success = run_step(s_num, title, path)
-        if not success:
+    for i, (title, path, args) in enumerate(steps, 1):
+        if not run_step(i, len(steps), title, path, args):
             sys.exit(1)
-            
-    print("\n" + "=" * 65)
-    print(">>> FULL REPRODUCIBILITY PIPELINE EXECUTED SUCCESSFULLY! <<<")
-    print("  Manuscript Word File: manuscript/Beilstein_Manuscript_Tau_Borophene_Monreal_Hernandez_et_al.docx")
-    print("  Submission ZIP File:  borophene-alzheimer-tau-ai-FINAL-SUBMISSION-READY.zip")
-    print("=" * 65)
+    print("\n" + "=" * 70)
+    print(">>> PIPELINE COMPLETE <<<")
+    print("  manuscript/Beilstein_Manuscript_Tau_Borophene_Monreal_Hernandez_et_al.docx")
+    print("=" * 70)
+
 
 if __name__ == "__main__":
     main()
