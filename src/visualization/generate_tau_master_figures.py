@@ -414,6 +414,33 @@ def make_fig7_correlation(base_dir, fig_dir):
     print(f"Generated Figure 7: {out_p}")
 
 
+def make_fig10_deltarho(base_dir, fig_dir):
+    """Figure 10 - charge-density difference for the curcumin / beta-12 borophene
+    chemisorption complex (best-orientation relaxed pose, real GFN2-xTB
+    densities). Cube + build script in results/quantum/drho/."""
+    try:
+        import _drho_fig
+    except Exception as exc:
+        print(f"[fig10 drho] helper unavailable: {exc}")
+        return
+    drho_dir = os.path.join(base_dir, "results", "quantum", "drho")
+    dEint = None
+    try:
+        df = pd.read_csv(os.path.join(base_dir, "data", "processed",
+                         "relaxed_adsorption_subset.csv")).set_index("name")
+        dEint = float(df.loc["Curcumin", "delta_Eint_SP_kcal_mol"])
+    except Exception:
+        pass
+    render = os.path.join(drho_dir, "tau_deltarho_render.png")
+    render = _drho_fig.render_isosurface(drho_dir, "tau", render, level=0.005,
+                                         turn=(8, -18, 0))
+    out_p = os.path.join(fig_dir, "fig10_tau_charge_density_difference.png")
+    _drho_fig.compose(out_p, render, 10,
+                      "Interfacial charge redistribution on the $\\beta$-12 borophene carrier",
+                      "curcumin", "$\\beta$-12 borophene", 0.005, dEint_kcal=dEint)
+    print(f"Generated Figure 10 (charge-density difference): {out_p}")
+
+
 def generate_master_suite():
     base_dir, fig_dir = get_dirs()
     make_graphical_abstract(base_dir, fig_dir)
@@ -425,6 +452,7 @@ def generate_master_suite():
     make_fig6_shap(base_dir, fig_dir)
     make_fig7_correlation(base_dir, fig_dir)
     make_fig9_3d_spatial(base_dir, fig_dir)
+    make_fig10_deltarho(base_dir, fig_dir)
     print("Master figure suite for Article 4 (Tau/Borophene) generated successfully.")
 
 if __name__ == "__main__":

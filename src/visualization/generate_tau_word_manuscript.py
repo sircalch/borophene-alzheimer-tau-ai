@@ -293,6 +293,21 @@ def generate_tau_word_manuscript():
     add_image_if_exists(doc, os.path.join(fig_dir, "fig9_tau_3d_spatial_binding_modes.png"),
                         "Figure 9: Representative binding modes (schematic): (a) EGCG at the Tau filament cleft (PDB 5O3L); (b) hydromethylthionine/LMTX pose; (c) a drug on the pristine beta-12 borophene surface with its real GFN2-xTB Delta_E_int,SP.")
 
+    add_heading_styled(doc, "3.5 Interfacial charge redistribution", level=2)
+    doc.add_paragraph(
+        "For the most strongly interacting system, the charge-density difference Delta_rho = rho(complex) - rho(carrier) - rho(drug) "
+        "was computed from the real GFN2-xTB densities of the curcumin / beta-12 borophene complex in its best-orientation relaxed pose, "
+        "all fragments taken at the bound geometry on a common grid (Figure 10). A single compact pair of accumulation (yellow) and "
+        "depletion (blue) lobes forms where the curcumin enol/methine carbon approaches the borophene sheet (nearest-atom separation "
+        "1.4 Angstrom), i.e. the interaction here is a short-range, orbital-mediated contact rather than pure dispersion. Weaker "
+        "adsorbates in the set show no comparable interfacial feature. The Delta_rho cube and its build script are in "
+        "results/quantum/drho/."
+    )
+    add_image_if_exists(doc, os.path.join(fig_dir, "fig10_tau_charge_density_difference.png"),
+                        "Figure 10: Charge-density difference (real GFN2-xTB densities) for the curcumin / beta-12 borophene complex "
+                        "(best-orientation relaxed pose). Isovalue +/-0.005 e bohr^-3; yellow = electron accumulation, blue = depletion. "
+                        "Delta_E_int,SP = -7.8 kcal/mol.")
+
     add_heading_styled(doc, "4. Conclusions", level=1)
     doc.add_paragraph(
         "We report a quantum-informed, explainable Nano-QSAR analysis of pristine beta-12 borophene (B40H15) as a candidate loading surface for "
