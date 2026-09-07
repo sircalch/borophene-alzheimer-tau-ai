@@ -1,0 +1,19 @@
+{
+  "name": "Toluidine Blue O",
+  "formal_charge": 1,
+  "smiles": "Cc1cc2nc3ccc(N(C)C)cc3[s+]c2cc1N",
+  "E_drug_Eh": -51.920432334932,
+  "drug_formula": "CHNS",
+  "n_drug": 35,
+  "status": "OK",
+  "best_orientation_deg": 270,
+  "min_contact_A": 1.448,
+  "E_complex_Eh": -108.298985765665,
+  "E_carrier_frozen_Eh": -56.157835361661,
+  "E_drug_frozen_Eh": -51.875575936461,
+  "delta_Eint_SP_kcal_mol": -166.65,
+  "delta_Eads_kcal_mol": -116.966,
+  "final_pose_file": "calculations\\tau_recompute\\Toluidine_Blue_O\\complex_opt.xyz",
+  "sha256": "27a74ed2462dba4020d4ecab8c6b5e14ebf934de6f5ddac046b36f919e0b592e",
+  "seconds": 418.3
+}

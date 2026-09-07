@@ -1,0 +1,19 @@
+{
+  "name": "AZD1080",
+  "formal_charge": 0,
+  "smiles": "Cc1nc(Nc2ccc(C#N)c(F)c2)c(C(F)(F)F)n1C",
+  "E_drug_Eh": -63.577212629301,
+  "drug_formula": "CFHN",
+  "n_drug": 31,
+  "status": "OK",
+  "best_orientation_deg": 270,
+  "min_contact_A": 3.173,
+  "E_complex_Eh": -119.906454264001,
+  "E_carrier_frozen_Eh": -56.311904812638,
+  "E_drug_frozen_Eh": -63.576675038563,
+  "delta_Eint_SP_kcal_mol": -11.216,
+  "delta_Eads_kcal_mol": -86.023,
+  "final_pose_file": "calculations\\tau_recompute\\AZD1080\\complex_opt.xyz",
+  "sha256": "036ed04b4f3a03171ca3aec0de3866b357601fb29d297c48f0a6a93d0ab007c0",
+  "seconds": 539.2
+}

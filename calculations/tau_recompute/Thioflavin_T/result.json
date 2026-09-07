@@ -1,0 +1,19 @@
+{
+  "name": "Thioflavin-T",
+  "formal_charge": 0,
+  "smiles": "Cc1ccc(Nc2nc3ccccc3s2)cc1",
+  "E_drug_Eh": -45.213171041641,
+  "drug_formula": "CHNS",
+  "n_drug": 29,
+  "status": "OK",
+  "best_orientation_deg": 90,
+  "min_contact_A": 3.367,
+  "E_complex_Eh": -101.498506443115,
+  "E_carrier_frozen_Eh": -56.27031300422,
+  "E_drug_frozen_Eh": -45.212544326421,
+  "delta_Eint_SP_kcal_mol": -9.82,
+  "delta_Eads_kcal_mol": -58.471,
+  "final_pose_file": "calculations\\tau_recompute\\Thioflavin_T\\complex_opt.xyz",
+  "sha256": "97ae2b32884d83b95087443d513152393ef8de2f09295bf705c402b56fe6a9a8",
+  "seconds": 313.1
+}

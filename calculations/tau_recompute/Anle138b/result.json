@@ -1,0 +1,19 @@
+{
+  "name": "Anle138b",
+  "formal_charge": 0,
+  "smiles": "BrC1=CC(=NN1C2=CC=C(C=C2)Br)C3=CC=CC=C3",
+  "E_drug_Eh": -51.21994599103,
+  "drug_formula": "BrCHN",
+  "n_drug": 29,
+  "status": "OK",
+  "best_orientation_deg": 0,
+  "min_contact_A": 3.552,
+  "E_complex_Eh": -107.520256859812,
+  "E_carrier_frozen_Eh": -56.280262699291,
+  "E_drug_frozen_Eh": -51.21970756595,
+  "delta_Eint_SP_kcal_mol": -12.73,
+  "delta_Eads_kcal_mol": -67.868,
+  "final_pose_file": "calculations\\tau_recompute\\Anle138b\\complex_opt.xyz",
+  "sha256": "ce9df56e7851d410ddd1c3d78dc592c3277e49b2779d1f02a8599e09bd138fa8",
+  "seconds": 458.8
+}

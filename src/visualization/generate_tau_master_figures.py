@@ -248,6 +248,12 @@ def make_fig5_parity(base_dir, fig_dir):
         if not os.path.exists(f_path):
             continue
         df = pd.read_csv(f_path).dropna(subset=desc_cols + [target_col])
+        # The GFN2-xTB screening shows 12/29 ligands CHEMISORB on pristine
+        # borophene (covalent B-C/B-O, dEint -81 to -233 kcal/mol); those are a
+        # different physical regime and are excluded from the physisorption
+        # QSPR. Model is fit on the 17 genuine physisorbers only.
+        if "adsorption_mode" in df.columns and target_col == "delta_Eint_SP_kcal_mol":
+            df = df[df["adsorption_mode"] == "physisorption"]
         X = df[desc_cols].values
         y = df[target_col].values
         n, p = X.shape
@@ -295,6 +301,8 @@ def make_fig6_shap(base_dir, fig_dir):
     df = pd.read_csv(f_path)
     feature_cols = ["MolWt", "MolMR", "E_HOMO_eV", "E_LUMO_eV", "Gap_eV", "Eta_eV", "Mu_eV", "Omega_eV"]
     df = df.dropna(subset=feature_cols + ["delta_Eint_SP_kcal_mol"])
+    if "adsorption_mode" in df.columns:
+        df = df[df["adsorption_mode"] == "physisorption"]   # physisorption QSPR only
     X = df[feature_cols]
     y = df['delta_Eint_SP_kcal_mol']
 
@@ -350,27 +358,31 @@ def _pm_panel(ax, png, title=None, subtitle=None):
 
 
 def make_fig9_3d_spatial(base_dir, fig_dir):
-    """Figure 9 - PyMOL ray-traced renders of the borophene adsorption modes."""
+    """Figure 9 - PyMOL ray-traced renders of the two real adsorption regimes on
+    pristine beta-12 borophene: chemisorption (covalent B-C/B-O) vs physisorption.
+    Geometries are the GFN2-xTB relaxed complexes from calculations/tau_recompute/
+    (copied to calculations/tau/<Drug>/<Drug>_B40H15_bound_complex.xyz)."""
     df = pd.read_csv(os.path.join(base_dir, "data", "processed",
                      "dataset_tau_borophene_pristine.csv")).set_index("name")
-    v = df["vina_5O3L_kcal_mol"]
     ads = df["delta_Eint_SP_kcal_mol"]
-    strong = ads[ads < 0].idxmin()
+    mode = df["adsorption_mode"] if "adsorption_mode" in df.columns else None
     calc = os.path.join(base_dir, "calculations", "tau")
     C = os.path.join(fig_dir, "_pm_cache"); os.makedirs(C, exist_ok=True)
 
     def cdir(name):
-        return name.replace(" ", "_").replace("/", "_")
+        return name.replace(" ", "_").replace("-", "_").replace("/", "_")
 
+    chem = "Curcumin"                     # covalent B-C, dEint ~ -92
+    phys = "Thioflavin-T"                 # physisorbed at ~3.4 A, dEint ~ -10
     jobs = [
         (os.path.join(calc, "beta12_carrier_optimized.xyz"), os.path.join(C, "t9_a.png"),
          "(a)  Pristine $\\beta$-12 borophene (B$_{40}$H$_{15}$)", "GFN2-xTB optimised carrier model"),
-        (os.path.join(calc, cdir(strong), f"{cdir(strong)}_B40H15_clean_complex.xyz"), os.path.join(C, "t9_b.png"),
-         f"(b)  {strong} on $\\beta$-12 borophene",
-         f"strongest GFN2-xTB interaction · $\\Delta E_{{int,SP}}$ = {ads[strong]:.2f} kcal/mol"),
-        (os.path.join(calc, "EGCG", "EGCG_B40H15_clean_complex.xyz"), os.path.join(C, "t9_c.png"),
-         "(c)  EGCG on $\\beta$-12 borophene",
-         f"$\\Delta E_{{int,SP}}$ = {ads['EGCG']:.2f} kcal/mol · Tau Vina (5O3L) {v['EGCG']:.2f} kcal/mol"),
+        (os.path.join(calc, cdir(chem), f"{cdir(chem)}_B40H15_bound_complex.xyz"), os.path.join(C, "t9_b.png"),
+         f"(b)  {chem} - chemisorption",
+         f"covalent B-C contact 1.4 A · $\\Delta E_{{int,SP}}$ = {ads[chem]:.0f} kcal/mol"),
+        (os.path.join(calc, cdir(phys), f"{cdir(phys)}_B40H15_bound_complex.xyz"), os.path.join(C, "t9_c.png"),
+         f"(c)  {phys} - physisorption",
+         f"stacked at 3.4 A · $\\Delta E_{{int,SP}}$ = {ads[phys]:.0f} kcal/mol"),
     ]
     if _pymol and _pymol.AVAILABLE:
         for src, png, _, _ in jobs:
@@ -380,14 +392,43 @@ def make_fig9_3d_spatial(base_dir, fig_dir):
                 print(f"[fig9 PyMOL {os.path.basename(src)}] {exc}")
 
     fig, axes = plt.subplots(1, 3, figsize=(11.4, 4.1))
-    fig.subplots_adjust(wspace=0.05, top=0.85, bottom=0.15, left=0.02, right=0.98)
+    fig.subplots_adjust(wspace=0.05, top=0.83, bottom=0.15, left=0.02, right=0.98)
     for ax, (_, png, title, sub) in zip(axes, jobs):
         _pm_panel(ax, png, title, sub)
-    fig.suptitle("Figure 9. Representative drug-carrier adsorption modes on 2D $\\beta$-12 borophene (real GFN2-xTB geometries)",
-                 fontsize=10.5, fontweight="bold", y=0.99)
+    n_chem = int((mode == "chemisorption").sum()) if mode is not None else 12
+    fig.suptitle(f"Figure 9. Two adsorption regimes on pristine $\\beta$-12 borophene: "
+                 f"{n_chem}/29 ligands chemisorb (covalent B-C/B-O), the rest physisorb",
+                 fontsize=10.0, fontweight="bold", y=0.985)
     out_p = os.path.join(fig_dir, "fig9_tau_3d_spatial_binding_modes.png")
     _pubstyle.save(fig, out_p, also_pdf=False)
     print(f"Generated Figure 9 (PyMOL ray-traced): {out_p}")
+
+
+def make_fig11_adsorption_landscape(base_dir, fig_dir):
+    """Figure 11 - the real GFN2-xTB adsorption landscape: closest drug-carrier
+    contact vs interaction energy, one point per ligand, coloured by regime.
+    This is the central corrected result (replaces the fabricated/unrelaxed
+    delta_Eint_SP column of earlier drafts)."""
+    p = os.path.join(base_dir, "data", "processed", "dataset_tau_borophene_pristine.csv")
+    df = pd.read_csv(p)
+    if "min_contact_A" not in df.columns:
+        print("[fig11] dataset lacks min_contact_A - run recompute_tau_adsorption.py")
+        return
+    fig, ax = plt.subplots(figsize=(7.6, 5.4))
+    for m, col, lab in [("chemisorption", getattr(_pubstyle, "WARN", "#d55e00"), "chemisorption (B-C / B-O)"),
+                        ("physisorption", getattr(_pubstyle, "ACCENT", "#0072b2"), "physisorption")]:
+        s = df[df["adsorption_mode"] == m]
+        ax.scatter(s["min_contact_A"], s["delta_Eint_SP_kcal_mol"], s=55,
+                   color=col, edgecolor="k", linewidth=0.5, label=f"{lab}  (n={len(s)})", zorder=3)
+    ax.axvspan(1.2, 1.9, color="0.9", zorder=0)
+    ax.set_xlabel("closest drug-carrier heavy-atom contact (Å)")
+    ax.set_ylabel("$\\Delta E_{int,SP}$ (kcal mol$^{-1}$, GFN2-xTB)")
+    ax.set_yscale("symlog")
+    ax.legend(frameon=True, fontsize=8.5, loc="lower right")
+    ax.set_title("Figure 11. Adsorption landscape of 29 Tau-directed ligands on pristine $\\beta$-12 borophene",
+                 fontsize=10, fontweight="bold", pad=8)
+    _pubstyle.save(fig, os.path.join(fig_dir, "fig11_tau_adsorption_landscape.png"), also_pdf=False)
+    print("Generated Figure 11 (adsorption landscape)")
 
 
 def make_fig7_correlation(base_dir, fig_dir):
@@ -453,6 +494,7 @@ def generate_master_suite():
     make_fig7_correlation(base_dir, fig_dir)
     make_fig9_3d_spatial(base_dir, fig_dir)
     make_fig10_deltarho(base_dir, fig_dir)
+    make_fig11_adsorption_landscape(base_dir, fig_dir)
     print("Master figure suite for Article 4 (Tau/Borophene) generated successfully.")
 
 if __name__ == "__main__":

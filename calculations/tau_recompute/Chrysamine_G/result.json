@@ -1,0 +1,19 @@
+{
+  "name": "Chrysamine G",
+  "formal_charge": 0,
+  "smiles": "O=C(O)c1cc(N=Nc2ccc(-c3ccc(N=Nc4cc(C(=O)O)c(O)cc4)cc3)cc2)ccc1O",
+  "E_drug_Eh": -100.878001832612,
+  "drug_formula": "CHNO",
+  "n_drug": 54,
+  "status": "OK",
+  "best_orientation_deg": 90,
+  "min_contact_A": 1.685,
+  "E_complex_Eh": -157.337595174005,
+  "E_carrier_frozen_Eh": -56.375031214727,
+  "E_drug_frozen_Eh": -100.834225009312,
+  "delta_Eint_SP_kcal_mol": -80.534,
+  "delta_Eads_kcal_mol": -167.819,
+  "final_pose_file": "calculations\\tau_recompute\\Chrysamine_G\\complex_opt.xyz",
+  "sha256": "56e9e3dbda2f20bac6b90fc359ad3df84f39431261f4e250c36da990361f2801",
+  "seconds": 1079.3
+}

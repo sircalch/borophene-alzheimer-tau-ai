@@ -1,0 +1,19 @@
+{
+  "name": "Myricetin",
+  "formal_charge": 0,
+  "smiles": "O=C1C(O)=C(c2cc(O)c(O)c(O)c2)Oc2cc(O)cc(O)c21",
+  "E_drug_Eh": -69.793377802551,
+  "drug_formula": "CHO",
+  "n_drug": 33,
+  "status": "OK",
+  "best_orientation_deg": 90,
+  "min_contact_A": 3.134,
+  "E_complex_Eh": -126.083757149799,
+  "E_carrier_frozen_Eh": -56.269180370542,
+  "E_drug_frozen_Eh": -69.792876823661,
+  "delta_Eint_SP_kcal_mol": -13.617,
+  "delta_Eads_kcal_mol": -61.636,
+  "final_pose_file": "calculations\\tau_recompute\\Myricetin\\complex_opt.xyz",
+  "sha256": "8e638362418691eaeb032210f7c0d8ea765060bdae822206a029158d0ff6fd2a",
+  "seconds": 442.2
+}

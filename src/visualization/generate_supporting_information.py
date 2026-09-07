@@ -22,13 +22,14 @@ DATASET = os.path.join(BASE, "data", "processed", "dataset_tau_borophene_pristin
 
 TITLE = ("SUPPORTING INFORMATION\nMachine Learning-Driven Nano-QSAR and Quantum Chemical Design of "
          "2D Borophene Nanosheets for Alzheimer's Tau-Targeted Therapeutics")
-S1 = ("The borophene nanocarrier is modeled as a planar monolayer cluster of the beta-12 "
-      "polymorph (triangular boron lattice with 1/6 hexagonal hollow-site vacancy fraction). "
-      "Drug-borophene complexes were relaxed with GFN2-xTB. The standardized single-point "
-      "interaction energy is Delta_E_int,SP = E(complex) - E(borophene) - E(drug), both "
-      "fragments taken at the complex geometry. Three phenothiazine dyes (Methylene Blue, "
-      "Azure A, Toluidine Blue O) show large positive Delta_E_int,SP from cationic steric "
-      "clash and are flagged as out-of-domain in the manuscript.")
+S1 = ("The borophene nanocarrier is modeled as a hydrogen-terminated monolayer cluster of the "
+      "beta-12 polymorph (B40H15). Each drug-borophene complex was built by offsetting the drug "
+      "3.2 Angstrom above the sheet in four in-plane orientations and relaxing every orientation "
+      "with GFN2-xTB; the lowest-energy converged pose with a drug-carrier contact of 1.25-4.0 "
+      "Angstrom is retained. The standardized interaction energy Delta_E_int,SP = E(complex) - "
+      "E(borophene) - E(drug) is evaluated with both fragments frozen at the complex geometry. "
+      "Contacts below 1.9 Angstrom are chemisorption (covalent B-C/B-O); 12 of the 29 ligands "
+      "fall in this regime and are excluded from the physisorption QSPR.")
 REPO = "https://github.com/sircalch/borophene-alzheimer-tau-ai"
 ZEN = "https://doi.org/10.5281/zenodo.22187835"
 VINA_COLS = [("vina_5O3L_kcal_mol", "Vina 5O3L (kcal/mol)")]
@@ -140,7 +141,8 @@ def generate_supporting_information():
 
     _h(doc, "Table S3: OECD Principles 1–5 Checklist.")
     feats = [c for c in ["MolWt", "MolMR", "Omega_eV", "E_HOMO_eV"] if c in df.columns]
-    hstar, inside, n = _williams(df, feats, "delta_Eint_SP_kcal_mol")
+    df_qspr = df[df["adsorption_mode"] == "physisorption"] if "adsorption_mode" in df.columns else df
+    hstar, inside, n = _williams(df_qspr, feats, "delta_Eint_SP_kcal_mol")
     s3 = [
         ("1. Defined endpoint", ENDPOINT),
         ("2. Unambiguous algorithm",

@@ -1,0 +1,19 @@
+{
+  "name": "Hydromethylthionine",
+  "formal_charge": 0,
+  "smiles": "CN(C)C1=CC=C2NC3=CC=C(N(C)C)C=C3SC2=C1",
+  "E_drug_Eh": -55.985012226302,
+  "drug_formula": "CHNS",
+  "n_drug": 39,
+  "status": "OK",
+  "best_orientation_deg": 270,
+  "min_contact_A": 3.637,
+  "E_complex_Eh": -112.268974196617,
+  "E_carrier_frozen_Eh": -56.270528349405,
+  "E_drug_frozen_Eh": -55.984859753674,
+  "delta_Eint_SP_kcal_mol": -8.525,
+  "delta_Eads_kcal_mol": -57.609,
+  "final_pose_file": "calculations\\tau_recompute\\Hydromethylthionine\\complex_opt.xyz",
+  "sha256": "469115544bdf43f8bc0d35b99c15c9aa97f5ff366b3de290dda804d4e0ee607c",
+  "seconds": 358.1
+}

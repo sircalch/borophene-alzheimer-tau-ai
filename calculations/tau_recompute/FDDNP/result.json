@@ -1,0 +1,19 @@
+{
+  "name": "FDDNP",
+  "formal_charge": 0,
+  "smiles": "CCN(CC)c1ccc(/C=C/C=C(\\C#N)C#N)cc1",
+  "E_drug_Eh": -51.591497242536,
+  "drug_formula": "CHN",
+  "n_drug": 36,
+  "status": "OK",
+  "best_orientation_deg": 0,
+  "min_contact_A": 1.362,
+  "E_complex_Eh": -107.928873202768,
+  "E_carrier_frozen_Eh": -56.131736346823,
+  "E_drug_frozen_Eh": -51.514932513809,
+  "delta_Eint_SP_kcal_mol": -177.086,
+  "delta_Eads_kcal_mol": -91.127,
+  "final_pose_file": "calculations\\tau_recompute\\FDDNP\\complex_opt.xyz",
+  "sha256": "c052ba7151e529c2f71a6e427b934884ee70e8d69947e3528ef335dc0ab48a72",
+  "seconds": 487.5
+}

@@ -1,0 +1,19 @@
+{
+  "name": "Tideglusib",
+  "formal_charge": 0,
+  "smiles": "O=C1SC(=O)N(Cc2ccccc2)N1c1cccc2ccccc12",
+  "E_drug_Eh": -65.075072657661,
+  "drug_formula": "CHNOS",
+  "n_drug": 38,
+  "status": "OK",
+  "best_orientation_deg": 90,
+  "min_contact_A": 3.309,
+  "E_complex_Eh": -121.298120555166,
+  "E_carrier_frozen_Eh": -56.191198311746,
+  "E_drug_frozen_Eh": -65.073934858634,
+  "delta_Eint_SP_kcal_mol": -20.7,
+  "delta_Eads_kcal_mol": -19.385,
+  "final_pose_file": "calculations\\tau_recompute\\Tideglusib\\complex_opt.xyz",
+  "sha256": "c8f3196eb32a64f12795198a41311c83473fc38850710a4d11b98f3b24556119",
+  "seconds": 373.3
+}

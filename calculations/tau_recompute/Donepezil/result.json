@@ -1,0 +1,19 @@
+{
+  "name": "Donepezil",
+  "formal_charge": 0,
+  "smiles": "COc1cc2c(cc1OC)C(=O)C(CC1CCN(Cc3ccccc3)CC1)C2",
+  "E_drug_Eh": -81.324903853114,
+  "drug_formula": "CHNO",
+  "n_drug": 57,
+  "status": "OK",
+  "best_orientation_deg": 180,
+  "min_contact_A": 3.69,
+  "E_complex_Eh": -137.655412893923,
+  "E_carrier_frozen_Eh": -56.311929354405,
+  "E_drug_frozen_Eh": -81.324730994245,
+  "delta_Eint_SP_kcal_mol": -11.767,
+  "delta_Eads_kcal_mol": -86.818,
+  "final_pose_file": "calculations\\tau_recompute\\Donepezil\\complex_opt.xyz",
+  "sha256": "5aea3ae579bc7ac92fd83a5f84e4fd397ffe944f8101aeb4b5dd49b98bda4d6f",
+  "seconds": 818.2
+}

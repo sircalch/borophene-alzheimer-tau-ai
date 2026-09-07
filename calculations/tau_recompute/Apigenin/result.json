@@ -1,0 +1,19 @@
+{
+  "name": "Apigenin",
+  "formal_charge": 0,
+  "smiles": "O=C1C=C(c2ccc(O)cc2)Oc2cc(O)cc(O)c21",
+  "E_drug_Eh": -57.57097435201,
+  "drug_formula": "CHO",
+  "n_drug": 30,
+  "status": "OK",
+  "best_orientation_deg": 90,
+  "min_contact_A": 1.369,
+  "E_complex_Eh": -113.871544506984,
+  "E_carrier_frozen_Eh": -56.158510882802,
+  "E_drug_frozen_Eh": -57.546715469936,
+  "delta_Eint_SP_kcal_mol": -104.366,
+  "delta_Eads_kcal_mol": -68.031,
+  "final_pose_file": "calculations\\tau_recompute\\Apigenin\\complex_opt.xyz",
+  "sha256": "05b147dbd06fb7da13b8a07cc46f49af7fdb4faeb9889597fef3206d9754baa5",
+  "seconds": 321.3
+}

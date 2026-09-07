@@ -1,0 +1,19 @@
+{
+  "name": "Methylene Blue",
+  "formal_charge": 1,
+  "smiles": "CN(C)c1ccc2nc3ccc(N(C)C)cc3[s+]c2c1",
+  "E_drug_Eh": -55.085213851713,
+  "drug_formula": "CHNS",
+  "n_drug": 38,
+  "status": "OK",
+  "best_orientation_deg": 180,
+  "min_contact_A": 1.474,
+  "E_complex_Eh": -111.46612794902,
+  "E_carrier_frozen_Eh": -56.178770649705,
+  "E_drug_frozen_Eh": -55.048780992603,
+  "delta_Eint_SP_kcal_mol": -149.709,
+  "delta_Eads_kcal_mol": -118.447,
+  "final_pose_file": "calculations\\tau_recompute\\Methylene_Blue\\complex_opt.xyz",
+  "sha256": "dcbbad67afa29775b5dc0c9aca543772714a14666221ae39586dd4f7a5456288",
+  "seconds": 591.7
+}

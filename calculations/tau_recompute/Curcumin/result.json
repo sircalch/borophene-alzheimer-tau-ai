@@ -1,0 +1,19 @@
+{
+  "name": "Curcumin",
+  "formal_charge": 0,
+  "smiles": "COc1cc(/C=C/C(=O)CC(=O)/C=C/c2ccc(O)c(OC)c2)ccc1O",
+  "E_drug_Eh": -79.508930529951,
+  "drug_formula": "CHO",
+  "n_drug": 47,
+  "status": "OK",
+  "best_orientation_deg": 180,
+  "min_contact_A": 1.409,
+  "E_complex_Eh": -135.810394524367,
+  "E_carrier_frozen_Eh": -56.178674430495,
+  "E_drug_frozen_Eh": -79.484419517335,
+  "delta_Eint_SP_kcal_mol": -92.433,
+  "delta_Eads_kcal_mol": -68.592,
+  "final_pose_file": "calculations\\tau_recompute\\Curcumin\\complex_opt.xyz",
+  "sha256": "d9d89dfac5ea9034c6f4e9d9190e73ba3beff7edc51fb605354aed8e0445d2a7",
+  "seconds": 641.7
+}

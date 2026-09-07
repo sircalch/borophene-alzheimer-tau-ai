@@ -1,0 +1,19 @@
+{
+  "name": "Fisetin",
+  "formal_charge": 0,
+  "smiles": "O=C1C(O)=C(c2ccc(O)c(O)c2)Oc2ccc(O)cc21",
+  "E_drug_Eh": -61.632962122616,
+  "drug_formula": "CHO",
+  "n_drug": 31,
+  "status": "OK",
+  "best_orientation_deg": 180,
+  "min_contact_A": 1.465,
+  "E_complex_Eh": -117.926015633377,
+  "E_carrier_frozen_Eh": -56.177671501753,
+  "E_drug_frozen_Eh": -61.6128343093,
+  "delta_Eint_SP_kcal_mol": -85.034,
+  "delta_Eads_kcal_mol": -63.314,
+  "final_pose_file": "calculations\\tau_recompute\\Fisetin\\complex_opt.xyz",
+  "sha256": "35332b33da585dedad6d7dd63449d0905a0f702e3fc00453e1bdecb2d8cb7041",
+  "seconds": 438.1
+}

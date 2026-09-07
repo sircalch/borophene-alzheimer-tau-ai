@@ -1,0 +1,19 @@
+{
+  "name": "Azure A",
+  "formal_charge": 1,
+  "smiles": "CNc1ccc2nc3ccc(N(C)C)cc3[s+]c2c1",
+  "E_drug_Eh": -51.916683360699,
+  "drug_formula": "CHNS",
+  "n_drug": 35,
+  "status": "OK",
+  "best_orientation_deg": 0,
+  "min_contact_A": 1.472,
+  "E_complex_Eh": -108.300230068188,
+  "E_carrier_frozen_Eh": -56.178339227649,
+  "E_drug_frozen_Eh": -51.877686231716,
+  "delta_Eint_SP_kcal_mol": -153.241,
+  "delta_Eads_kcal_mol": -120.099,
+  "final_pose_file": "calculations\\tau_recompute\\Azure_A\\complex_opt.xyz",
+  "sha256": "420307e4c080db3b5a0c243e571fc427e168f077f38d4235eaec53562121a0b4",
+  "seconds": 441.7
+}

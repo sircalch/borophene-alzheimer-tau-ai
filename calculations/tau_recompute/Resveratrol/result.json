@@ -1,0 +1,19 @@
+{
+  "name": "Resveratrol",
+  "formal_charge": 0,
+  "smiles": "Oc1ccc(/C=C/c2cc(O)cc(O)c2)cc1",
+  "E_drug_Eh": -48.271969716065,
+  "drug_formula": "CHO",
+  "n_drug": 29,
+  "status": "OK",
+  "best_orientation_deg": 270,
+  "min_contact_A": 3.202,
+  "E_complex_Eh": -104.604130829729,
+  "E_carrier_frozen_Eh": -56.311949231119,
+  "E_drug_frozen_Eh": -48.271462120533,
+  "delta_Eint_SP_kcal_mol": -13.002,
+  "delta_Eads_kcal_mol": -87.855,
+  "final_pose_file": "calculations\\tau_recompute\\Resveratrol\\complex_opt.xyz",
+  "sha256": "45dc0ab89993690434daa2942c2316d58f3d2ae935af89315347a9500353e738",
+  "seconds": 410.1
+}

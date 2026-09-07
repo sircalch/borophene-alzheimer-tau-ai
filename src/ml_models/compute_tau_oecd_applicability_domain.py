@@ -43,6 +43,8 @@ def compute_williams_domain():
         if not os.path.exists(f_path):
             continue
         df = pd.read_csv(f_path).dropna(subset=feature_cols + [target_col])
+        if "adsorption_mode" in df.columns and target_col == "delta_Eint_SP_kcal_mol":
+            df = df[df["adsorption_mode"] == "physisorption"]  # physisorption QSPR only
         X = df[feature_cols].values
         y = df[target_col].values
 

@@ -1,0 +1,19 @@
+{
+  "name": "Quercetin",
+  "formal_charge": 0,
+  "smiles": "O=C1C(O)=C(c2ccc(O)c(O)c2)Oc2cc(O)cc(O)c21",
+  "E_drug_Eh": -65.720431243939,
+  "drug_formula": "CHO",
+  "n_drug": 32,
+  "status": "OK",
+  "best_orientation_deg": 180,
+  "min_contact_A": 2.924,
+  "E_complex_Eh": -121.974464619688,
+  "E_carrier_frozen_Eh": -56.188540793127,
+  "E_drug_frozen_Eh": -65.716334661895,
+  "delta_Eint_SP_kcal_mol": -43.668,
+  "delta_Eads_kcal_mol": -38.829,
+  "final_pose_file": "calculations\\tau_recompute\\Quercetin\\complex_opt.xyz",
+  "sha256": "3a9198e804bc59902cf5d61a4a1ba9031f3d1d95336b338eca8805f02883e23b",
+  "seconds": 474.0
+}

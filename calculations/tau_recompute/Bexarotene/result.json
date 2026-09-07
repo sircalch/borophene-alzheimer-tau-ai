@@ -1,0 +1,19 @@
+{
+  "name": "Bexarotene",
+  "formal_charge": 0,
+  "smiles": "C=C(c1ccc(C(=O)O)cc1)c1cc2c(cc1C)C(C)(C)CCC2(C)C",
+  "E_drug_Eh": -73.835602469501,
+  "drug_formula": "CHO",
+  "n_drug": 54,
+  "status": "OK",
+  "best_orientation_deg": 0,
+  "min_contact_A": 3.423,
+  "E_complex_Eh": -130.156029915613,
+  "E_carrier_frozen_Eh": -56.297473213586,
+  "E_drug_frozen_Eh": -73.834252588712,
+  "delta_Eint_SP_kcal_mol": -15.251,
+  "delta_Eads_kcal_mol": -80.492,
+  "final_pose_file": "calculations\\tau_recompute\\Bexarotene\\complex_opt.xyz",
+  "sha256": "cf0eb294a2ef193fe37aca03d2f367155f70b4e515fb71e999ad778ba6e2b23e",
+  "seconds": 452.1
+}

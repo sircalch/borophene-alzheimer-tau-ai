@@ -1,0 +1,19 @@
+{
+  "name": "Galantamine",
+  "formal_charge": 0,
+  "smiles": "COc1ccc2c3c1O[C@H]1CC(=O)C=C[C@]31CCN(C)C2",
+  "E_drug_Eh": -61.199976211531,
+  "drug_formula": "CHNO",
+  "n_drug": 40,
+  "status": "OK",
+  "best_orientation_deg": 90,
+  "min_contact_A": 2.934,
+  "E_complex_Eh": -117.523842839674,
+  "E_carrier_frozen_Eh": -56.300059941882,
+  "E_drug_frozen_Eh": -61.198504625814,
+  "delta_Eint_SP_kcal_mol": -15.862,
+  "delta_Eads_kcal_mol": -82.65,
+  "final_pose_file": "calculations\\tau_recompute\\Galantamine\\complex_opt.xyz",
+  "sha256": "f5d47c9bd74bc7ed465c2a07f0f09958a5e96f2e9511d59a9dfca95ca51856c3",
+  "seconds": 455.6
+}

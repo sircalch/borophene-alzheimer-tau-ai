@@ -1,0 +1,19 @@
+{
+  "name": "Tacrine",
+  "formal_charge": 0,
+  "smiles": "Nc1c2ccccc2nc2c1CCCC2",
+  "E_drug_Eh": -40.847135774335,
+  "drug_formula": "CHN",
+  "n_drug": 29,
+  "status": "OK",
+  "best_orientation_deg": 180,
+  "min_contact_A": 3.279,
+  "E_complex_Eh": -97.15168027408,
+  "E_carrier_frozen_Eh": -56.278751699842,
+  "E_drug_frozen_Eh": -40.846996938318,
+  "delta_Eint_SP_kcal_mol": -16.272,
+  "delta_Eads_kcal_mol": -70.525,
+  "final_pose_file": "calculations\\tau_recompute\\Tacrine\\complex_opt.xyz",
+  "sha256": "6c9dfd29a67833292f1dd1c11f74c91fe8738819ad61e836f443aededa5ed655",
+  "seconds": 300.0
+}

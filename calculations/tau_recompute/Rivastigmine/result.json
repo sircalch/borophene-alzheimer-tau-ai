@@ -1,0 +1,19 @@
+{
+  "name": "Rivastigmine",
+  "formal_charge": 0,
+  "smiles": "CCN(C)C(=O)Oc1cccc([C@@H](C)N(C)C)c1",
+  "E_drug_Eh": -55.215660941798,
+  "drug_formula": "CHNO",
+  "n_drug": 40,
+  "status": "OK",
+  "best_orientation_deg": 180,
+  "min_contact_A": 3.478,
+  "E_complex_Eh": -111.543584995905,
+  "E_carrier_frozen_Eh": -56.312085259304,
+  "E_drug_frozen_Eh": -55.215042719955,
+  "delta_Eint_SP_kcal_mol": -10.327,
+  "delta_Eads_kcal_mol": -85.196,
+  "final_pose_file": "calculations\\tau_recompute\\Rivastigmine\\complex_opt.xyz",
+  "sha256": "62756f01d322ef8b248510bb90ba9aac225d6d6ced6e681bf6cc2965f04a71f0",
+  "seconds": 392.2
+}

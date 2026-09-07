@@ -1,0 +1,19 @@
+{
+  "name": "EGCG",
+  "formal_charge": 0,
+  "smiles": "O=C(Oc1cc(O)c(O)c(O)c1)[C@@H]1Oc2cc(O)cc(O)c2[C@@H](O)[C@H]1c1cc(O)c(O)c(O)c1",
+  "E_drug_Eh": -105.144932218353,
+  "drug_formula": "CHO",
+  "n_drug": 52,
+  "status": "OK",
+  "best_orientation_deg": 180,
+  "min_contact_A": 3.091,
+  "E_complex_Eh": -161.490500660551,
+  "E_carrier_frozen_Eh": -56.298015188551,
+  "E_drug_frozen_Eh": -105.139337474218,
+  "delta_Eint_SP_kcal_mol": -33.351,
+  "delta_Eads_kcal_mol": -96.268,
+  "final_pose_file": "calculations\\tau_recompute\\EGCG\\complex_opt.xyz",
+  "sha256": "f8d9bc6b8e276431826501f6c67f3dc6fd3f838ed425fc536f1b064ea2d90d02",
+  "seconds": 723.9
+}

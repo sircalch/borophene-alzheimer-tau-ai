@@ -1,0 +1,19 @@
+{
+  "name": "Rosmarinic Acid",
+  "formal_charge": 0,
+  "smiles": "O=C(O)/C=C/c1ccc(O)c(O)c1OC(=O)[C@H](Cc1ccc(O)c(O)c1)O",
+  "E_drug_Eh": -83.323539425424,
+  "drug_formula": "CHO",
+  "n_drug": 43,
+  "status": "OK",
+  "best_orientation_deg": 270,
+  "min_contact_A": 1.405,
+  "E_complex_Eh": -139.758125147619,
+  "E_carrier_frozen_Eh": -56.22747365247,
+  "E_drug_frozen_Eh": -83.160091308633,
+  "delta_Eint_SP_kcal_mol": -232.53,
+  "delta_Eads_kcal_mol": -152.127,
+  "final_pose_file": "calculations\\tau_recompute\\Rosmarinic_Acid\\complex_opt.xyz",
+  "sha256": "19d8b572bbabcc86e8bbb995cdfe0ed398c3a8a015205c832c4657dcb585081b",
+  "seconds": 748.2
+}

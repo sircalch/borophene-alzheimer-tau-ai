@@ -1,0 +1,19 @@
+{
+  "name": "Memantine",
+  "formal_charge": 0,
+  "smiles": "CC12CC3CC(C)(C1)CC(N)(C3)C2",
+  "E_drug_Eh": -39.401207715284,
+  "drug_formula": "CHN",
+  "n_drug": 34,
+  "status": "OK",
+  "best_orientation_deg": 90,
+  "min_contact_A": 3.592,
+  "E_complex_Eh": -95.726068985296,
+  "E_carrier_frozen_Eh": -56.311951989176,
+  "E_drug_frozen_Eh": -39.401174167414,
+  "delta_Eint_SP_kcal_mol": -8.122,
+  "delta_Eads_kcal_mol": -83.274,
+  "final_pose_file": "calculations\\tau_recompute\\Memantine\\complex_opt.xyz",
+  "sha256": "8af056f9066a489c86adcd2aba314db80f7fe4e1daffcf5e876e81b76346a7a4",
+  "seconds": 315.6
+}

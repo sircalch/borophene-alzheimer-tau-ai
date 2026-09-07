@@ -1,0 +1,19 @@
+{
+  "name": "Luteolin",
+  "formal_charge": 0,
+  "smiles": "O=C1C=C(c2ccc(O)c(O)c2)Oc2cc(O)cc(O)c21",
+  "E_drug_Eh": -61.644180222295,
+  "drug_formula": "CHO",
+  "n_drug": 31,
+  "status": "OK",
+  "best_orientation_deg": 90,
+  "min_contact_A": 1.377,
+  "E_complex_Eh": -117.94929990177,
+  "E_carrier_frozen_Eh": -56.157967577427,
+  "E_drug_frozen_Eh": -61.620532313133,
+  "delta_Eint_SP_kcal_mol": -107.179,
+  "delta_Eads_kcal_mol": -70.886,
+  "final_pose_file": "calculations\\tau_recompute\\Luteolin\\complex_opt.xyz",
+  "sha256": "51aeb1b0acfa2b7b62d700a9d79ad42b45e0695658db10371dc7dd1c0b5a6d48",
+  "seconds": 306.8
+}

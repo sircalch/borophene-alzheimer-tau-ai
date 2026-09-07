@@ -1,0 +1,19 @@
+{
+  "name": "Baicalein",
+  "formal_charge": 0,
+  "smiles": "O=C1C=C(c2ccccc2)Oc2cc(O)c(O)c(O)c21",
+  "E_drug_Eh": -57.568620288404,
+  "drug_formula": "CHO",
+  "n_drug": 30,
+  "status": "OK",
+  "best_orientation_deg": 0,
+  "min_contact_A": 1.454,
+  "E_complex_Eh": -113.847391008001,
+  "E_carrier_frozen_Eh": -56.163120514636,
+  "E_drug_frozen_Eh": -57.551461585143,
+  "delta_Eint_SP_kcal_mol": -83.339,
+  "delta_Eads_kcal_mol": -54.352,
+  "final_pose_file": "calculations\\tau_recompute\\Baicalein\\complex_opt.xyz",
+  "sha256": "a257ed760b76f270e25d85ca6fe8836b8d054038b5cc8f3784cd2c2d2888094f",
+  "seconds": 503.0
+}

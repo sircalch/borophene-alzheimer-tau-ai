@@ -1,9 +1,30 @@
-name,best_orientation_deg,delta_Eint_SP_kcal_mol,delta_Eint_relaxed_kcal_mol,convergence_status,gradient_norm_Eh_a0,optimization_cycles,output_file,final_pose_file,sha256
-Hydromethylthionine,90,-1.676,-19.781,CONVERGED (*** convergence criteria satisfied ***),0.00207619546,122,calculations\tau\Hydromethylthionine\Hydromethylthionine_opt_90deg.out,calculations\tau\Hydromethylthionine\Hydromethylthionine_orientation_90deg_final.xyz,94f547833cdab0f38c1818796c897eb88fccbbdf0361234a2e6ed3ef54c54b73
-Curcumin,180,-7.777,-67.34,CONVERGED (*** convergence criteria satisfied ***),0.002865517818,152,calculations\tau\Curcumin\Curcumin_opt_180deg.out,calculations\tau\Curcumin\Curcumin_orientation_180deg_final.xyz,5a3f9e9b553648e26b5bc27c770ff3289e0af9e637518702c558969f4dd077c8
-EGCG,90,-5.278,-98.507,CONVERGED (*** convergence criteria satisfied ***),0.003218164236,182,calculations\tau\EGCG\EGCG_opt_90deg.out,calculations\tau\EGCG\EGCG_orientation_90deg_final.xyz,7e6d8c781d48ba1a4cf435f2c40b01b66f6635f463363e8d52452b56cb789331
-Resveratrol,0,-2.302,-7.001,CONVERGED (*** convergence criteria satisfied ***),0.003440963978,16,calculations\tau\Resveratrol\Resveratrol_opt_0deg.out,calculations\tau\Resveratrol\Resveratrol_orientation_0deg_final.xyz,3cca5e2a1e37fe4e46cf1ca4121d70a1bae4af14ddc87593917ec1e835f53f44
-Quercetin,0,-5.295,-30.308,CONVERGED (*** convergence criteria satisfied ***),0.003701255074,96,calculations\tau\Quercetin\Quercetin_opt_0deg.out,calculations\tau\Quercetin\Quercetin_orientation_0deg_final.xyz,2d67483ba470f01f70af9f8817076256d60912b58c2e1b033ba545958eff48b3
-Baicalein,90,-4.277,-10.402,CONVERGED (*** convergence criteria satisfied ***),0.002645841032,18,calculations\tau\Baicalein\Baicalein_opt_90deg.out,calculations\tau\Baicalein\Baicalein_orientation_90deg_final.xyz,b1385c3a51b0c3af4c9bb20a1ee51959d681f86280cf4f03aab7fd417281ef91
-Honokiol,90,-1.193,-6.345,CONVERGED (*** convergence criteria satisfied ***),0.002108615118,22,calculations\tau\Honokiol\Honokiol_opt_90deg.out,calculations\tau\Honokiol\Honokiol_orientation_90deg_final.xyz,6582aad22a8576120ed1071302eca87cb14a5ed29b680ac865ea9238be2de318
-Donepezil,180,-2.724,-50.289,CONVERGED (*** convergence criteria satisfied ***),0.00221640855,199,calculations\tau\Donepezil\Donepezil_opt_180deg.out,calculations\tau\Donepezil\Donepezil_orientation_180deg_final.xyz,66b034da188e2384623ba22f3f76b0f10b9c530ba24a367f113de7d51e1bb230
+name,best_orientation_deg,delta_Eint_SP_kcal_mol,delta_Eads_kcal_mol,min_contact_A,convergence_status,final_pose_file,sha256
+Methylene Blue,180,-149.709,-118.447,1.474,CONVERGED,calculations\tau_recompute\Methylene_Blue\complex_opt.xyz,dcbbad67afa29775b5dc0c9aca543772714a14666221ae39586dd4f7a5456288
+Hydromethylthionine,270,-8.525,-57.609,3.637,CONVERGED,calculations\tau_recompute\Hydromethylthionine\complex_opt.xyz,469115544bdf43f8bc0d35b99c15c9aa97f5ff366b3de290dda804d4e0ee607c
+Azure A,0,-153.241,-120.099,1.472,CONVERGED,calculations\tau_recompute\Azure_A\complex_opt.xyz,420307e4c080db3b5a0c243e571fc427e168f077f38d4235eaec53562121a0b4
+Toluidine Blue O,270,-166.65,-116.966,1.448,CONVERGED,calculations\tau_recompute\Toluidine_Blue_O\complex_opt.xyz,27a74ed2462dba4020d4ecab8c6b5e14ebf934de6f5ddac046b36f919e0b592e
+Thioflavin-T,90,-9.82,-58.471,3.367,CONVERGED,calculations\tau_recompute\Thioflavin_T\complex_opt.xyz,97ae2b32884d83b95087443d513152393ef8de2f09295bf705c402b56fe6a9a8
+Thioflavin-S,270,-12.873,-61.398,3.141,CONVERGED,calculations\tau_recompute\Thioflavin_S\complex_opt.xyz,3d08b879390dc103dd77f9b3d9212efe02c91ada9edaa5a57ae19f59429fd939
+Congo Red,0,-132.886,-87.525,1.479,CONVERGED,calculations\tau_recompute\Congo_Red\complex_opt.xyz,b38c620f723cfd77cd39c7bd4facf12b2d731bbfb849272812aec0d47ff7fe54
+Chrysamine G,90,-80.534,-167.819,1.685,CONVERGED,calculations\tau_recompute\Chrysamine_G\complex_opt.xyz,56e9e3dbda2f20bac6b90fc359ad3df84f39431261f4e250c36da990361f2801
+FDDNP,0,-177.086,-91.127,1.362,CONVERGED,calculations\tau_recompute\FDDNP\complex_opt.xyz,c052ba7151e529c2f71a6e427b934884ee70e8d69947e3528ef335dc0ab48a72
+Curcumin,180,-92.433,-68.592,1.409,CONVERGED,calculations\tau_recompute\Curcumin\complex_opt.xyz,d9d89dfac5ea9034c6f4e9d9190e73ba3beff7edc51fb605354aed8e0445d2a7
+EGCG,180,-33.351,-96.268,3.091,CONVERGED,calculations\tau_recompute\EGCG\complex_opt.xyz,f8d9bc6b8e276431826501f6c67f3dc6fd3f838ed425fc536f1b064ea2d90d02
+Resveratrol,270,-13.002,-87.855,3.202,CONVERGED,calculations\tau_recompute\Resveratrol\complex_opt.xyz,45dc0ab89993690434daa2942c2316d58f3d2ae935af89315347a9500353e738
+Quercetin,180,-43.668,-38.829,2.924,CONVERGED,calculations\tau_recompute\Quercetin\complex_opt.xyz,3a9198e804bc59902cf5d61a4a1ba9031f3d1d95336b338eca8805f02883e23b
+Myricetin,90,-13.617,-61.636,3.134,CONVERGED,calculations\tau_recompute\Myricetin\complex_opt.xyz,8e638362418691eaeb032210f7c0d8ea765060bdae822206a029158d0ff6fd2a
+Baicalein,0,-83.339,-54.352,1.454,CONVERGED,calculations\tau_recompute\Baicalein\complex_opt.xyz,a257ed760b76f270e25d85ca6fe8836b8d054038b5cc8f3784cd2c2d2888094f
+Rosmarinic Acid,270,-232.53,-152.127,1.405,CONVERGED,calculations\tau_recompute\Rosmarinic_Acid\complex_opt.xyz,19d8b572bbabcc86e8bbb995cdfe0ed398c3a8a015205c832c4657dcb585081b
+Fisetin,180,-85.034,-63.314,1.465,CONVERGED,calculations\tau_recompute\Fisetin\complex_opt.xyz,35332b33da585dedad6d7dd63449d0905a0f702e3fc00453e1bdecb2d8cb7041
+Apigenin,90,-104.366,-68.031,1.369,CONVERGED,calculations\tau_recompute\Apigenin\complex_opt.xyz,05b147dbd06fb7da13b8a07cc46f49af7fdb4faeb9889597fef3206d9754baa5
+Luteolin,90,-107.179,-70.886,1.377,CONVERGED,calculations\tau_recompute\Luteolin\complex_opt.xyz,51aeb1b0acfa2b7b62d700a9d79ad42b45e0695658db10371dc7dd1c0b5a6d48
+Honokiol,180,-13.454,-79.53,2.638,CONVERGED,calculations\tau_recompute\Honokiol\complex_opt.xyz,9ae11d7aff309f90c08b063f1e4cebf928cd8bb97652b7522b4ee4934a8e58b9
+Anle138b,0,-12.73,-67.868,3.552,CONVERGED,calculations\tau_recompute\Anle138b\complex_opt.xyz,ce9df56e7851d410ddd1c3d78dc592c3277e49b2779d1f02a8599e09bd138fa8
+Tideglusib,90,-20.7,-19.385,3.309,CONVERGED,calculations\tau_recompute\Tideglusib\complex_opt.xyz,c8f3196eb32a64f12795198a41311c83473fc38850710a4d11b98f3b24556119
+AZD1080,270,-11.216,-86.023,3.173,CONVERGED,calculations\tau_recompute\AZD1080\complex_opt.xyz,036ed04b4f3a03171ca3aec0de3866b357601fb29d297c48f0a6a93d0ab007c0
+Bexarotene,0,-15.251,-80.492,3.423,CONVERGED,calculations\tau_recompute\Bexarotene\complex_opt.xyz,cf0eb294a2ef193fe37aca03d2f367155f70b4e515fb71e999ad778ba6e2b23e
+Donepezil,180,-11.767,-86.818,3.69,CONVERGED,calculations\tau_recompute\Donepezil\complex_opt.xyz,5aea3ae579bc7ac92fd83a5f84e4fd397ffe944f8101aeb4b5dd49b98bda4d6f
+Rivastigmine,180,-10.327,-85.196,3.478,CONVERGED,calculations\tau_recompute\Rivastigmine\complex_opt.xyz,62756f01d322ef8b248510bb90ba9aac225d6d6ced6e681bf6cc2965f04a71f0
+Galantamine,90,-15.862,-82.65,2.934,CONVERGED,calculations\tau_recompute\Galantamine\complex_opt.xyz,f5d47c9bd74bc7ed465c2a07f0f09958a5e96f2e9511d59a9dfca95ca51856c3
+Memantine,90,-8.122,-83.274,3.592,CONVERGED,calculations\tau_recompute\Memantine\complex_opt.xyz,8af056f9066a489c86adcd2aba314db80f7fe4e1daffcf5e876e81b76346a7a4
+Tacrine,180,-16.272,-70.525,3.279,CONVERGED,calculations\tau_recompute\Tacrine\complex_opt.xyz,6c9dfd29a67833292f1dd1c11f74c91fe8738819ad61e836f443aededa5ed655

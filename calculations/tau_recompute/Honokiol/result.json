@@ -1,0 +1,19 @@
+{
+  "name": "Honokiol",
+  "formal_charge": 0,
+  "smiles": "C=CCc1ccc(O)c(-c2cc(CC=C)ccc2O)c1",
+  "E_drug_Eh": -55.796484226528,
+  "drug_formula": "CHO",
+  "n_drug": 38,
+  "status": "OK",
+  "best_orientation_deg": 180,
+  "min_contact_A": 2.638,
+  "E_complex_Eh": -112.115379944348,
+  "E_carrier_frozen_Eh": -56.298693272969,
+  "E_drug_frozen_Eh": -55.79524627975,
+  "delta_Eint_SP_kcal_mol": -13.454,
+  "delta_Eads_kcal_mol": -79.53,
+  "final_pose_file": "calculations\\tau_recompute\\Honokiol\\complex_opt.xyz",
+  "sha256": "9ae11d7aff309f90c08b063f1e4cebf928cd8bb97652b7522b4ee4934a8e58b9",
+  "seconds": 391.6
+}

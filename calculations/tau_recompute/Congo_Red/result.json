@@ -1,0 +1,19 @@
+{
+  "name": "Congo Red",
+  "formal_charge": 0,
+  "smiles": "OS(=O)(=O)c1cc2ccc(N=Nc3ccc(-c4ccc(N=Nc5ccc6cc(S(=O)(=O)O)c(N)cc6c5)cc4)cc3)cc2c(N)c1",
+  "E_drug_Eh": -129.114381248083,
+  "drug_formula": "CHNOS",
+  "n_drug": 70,
+  "status": "OK",
+  "best_orientation_deg": 0,
+  "min_contact_A": 1.479,
+  "E_complex_Eh": -185.44601697594,
+  "E_carrier_frozen_Eh": -56.161369483859,
+  "E_drug_frozen_Eh": -129.072879829891,
+  "delta_Eint_SP_kcal_mol": -132.886,
+  "delta_Eads_kcal_mol": -87.525,
+  "final_pose_file": "calculations\\tau_recompute\\Congo_Red\\complex_opt.xyz",
+  "sha256": "b38c620f723cfd77cd39c7bd4facf12b2d731bbfb849272812aec0d47ff7fe54",
+  "seconds": 1211.3
+}
