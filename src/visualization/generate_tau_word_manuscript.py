@@ -174,35 +174,9 @@ def generate_tau_word_manuscript():
     add_image_if_exists(doc, os.path.join(fig_dir, "fig1_tau_workflow_methodology.png"),
                         "Figure 1: Multi-scale computational workflow: GFN2-xTB quantum-chemical adsorption on pristine beta-12 borophene (B40H15), real AutoDock Vina docking against the cryo-EM Tau filament core (PDB 5O3L), and a leak-free cross-validated explainable Nano-QSAR surrogate.")
 
-    add_heading_styled(doc, "2. Computational and Experimental Section", level=1)
-    doc.add_paragraph(
-        "2.1 Quantum-chemical framework: All calculations use GFN2-xTB (xtb v6.7.1) with its default D4 dispersion treatment [24,26]. The isolated drugs "
-        "(RDKit ETKDG + MMFF, then GFN2-xTB) and the hydrogen-terminated beta-12 borophene cluster (B40H15, C1) were geometry-optimised. Each drug-borophene "
-        "complex was assembled by centring the drug over the sheet, offsetting it 3.2 Angstrom along the surface normal in four in-plane orientations "
-        "(0, 90, 180, 270 deg) and optimising every orientation; the lowest-energy converged pose whose closest drug-carrier heavy-atom contact lies "
-        "between 1.25 and 4.0 Angstrom is retained. The standardised interaction energy Delta_E_int,SP = E(complex) - E(borophene) - E(drug) is then "
-        "evaluated with both fragments frozen at the complex geometry. Contacts below 1.9 Angstrom are classified as chemisorption (covalent B-C/B-O), "
-        "the rest as physisorption. Conceptual-DFT global reactivity indices (hardness eta = gap/2, softness, electronegativity, electrophilicity "
-        "omega = mu^2/2eta) [36,37] were read from the xtb output. The full driver (recompute_tau_adsorption.py) is in the repository; no descriptor or "
-        "energy is estimated from an empirical formula."
-    )
-    doc.add_paragraph(
-        "2.2 Molecular docking: Docking used AutoDock Vina v1.2.7 [28,29] against the cryo-EM structure of the Alzheimer Tau filament core (PDB ID: 5O3L [7]), "
-        "with ligands protonated at pH 7.4 and prepared with Meeko. Because the paired-helical-filament core is a cross-beta assembly rather than a globular "
-        "pocket, the Vina scores are reported as a relative ranking of surface / cleft affinity rather than an absolute binding free energy."
-    )
-    doc.add_paragraph(
-        "2.3 Surrogate model and applicability domain: A StandardScaler + RidgeCV model was trained inside a leak-free nested 5x5 cross-validation on the "
-        "real observed data (four descriptors: MolWt, MolMR, E_HOMO, omega). Feature importance was inspected with an ExtraTrees estimator and SHAP [35] "
-        "and is reported as exploratory only. The applicability domain follows OECD Principle 3 [31-33] via Williams hat-matrix leverage."
-    )
-    
-    add_image_if_exists(doc, os.path.join(fig_dir, "fig2_tau_quantum_cdft_architecture.png"),
-                        "Figure 2: Real quantum conceptual-DFT electronic reactivity of the isolated Tau therapeutics (real GFN2-xTB single points, n=29): (a) HOMO/LUMO frontier-orbital distribution; (b) chemical hardness vs. electrophilicity index. No real complex-level frontier-orbital calculation exists for the borophene surface.")
-    
-    add_heading_styled(doc, "3. Results and Discussion", level=1)
+    add_heading_styled(doc, "2. Results and Discussion", level=1)
 
-    add_heading_styled(doc, "3.1 Two adsorption regimes on pristine beta-12 borophene", level=2)
+    add_heading_styled(doc, "2.1 Two adsorption regimes on pristine beta-12 borophene", level=2)
     doc.add_paragraph(
         "After full GFN2-xTB relaxation of every drug/borophene complex, the 29 ligands separate into two well-defined groups (Figure 9, Figure 11). "
         "Twelve ligands CHEMISORB: the drug forms a new covalent bond to a surface boron atom (closest contact 1.36-1.69 Angstrom) and the interaction "
@@ -214,6 +188,9 @@ def generate_tau_word_manuscript():
         "EGCG (-33) and the weakest memantine (-8) and hydromethylthionine (-9). The physisorbers are the sterically shielded rigid aromatics "
         "(thioflavin-T/-S, resveratrol, the acridine tacrine, the aminopyrazole Anle138b) and the aliphatic-amine cholinergics."
     )
+
+    add_image_if_exists(doc, os.path.join(fig_dir, "fig2_tau_quantum_cdft_architecture.png"),
+                        "Figure 2: Real quantum conceptual-DFT electronic reactivity of the isolated Tau therapeutics (real GFN2-xTB single points, n=29): (a) HOMO/LUMO frontier-orbital distribution; (b) chemical hardness vs. electrophilicity index. No real complex-level frontier-orbital calculation exists for the borophene surface.")
     doc.add_paragraph(
         "The practical consequence is that pristine beta-12 borophene is a chemically reactive surface, not an inert physisorptive scaffold, for the "
         "pi-rich phenolic and dye-type Tau ligands: adsorption of those molecules would be effectively irreversible and would alter the drug covalently. "
@@ -221,7 +198,7 @@ def generate_tau_word_manuscript():
         "quenches the boron Lewis acidity; that surface was not modelled here."
     )
 
-    add_heading_styled(doc, "3.2 Docking against the cryo-EM Tau filament core", level=2)
+    add_heading_styled(doc, "2.2 Docking against the cryo-EM Tau filament core", level=2)
     doc.add_paragraph(
         "AutoDock Vina scores against the Tau filament core (PDB 5O3L) span -3.79 to -6.83 kcal/mol (mean -5.17). The highest-ranked ligands are "
         "chrysamine G (-6.83), EGCG (-5.88), luteolin (-5.87), fisetin (-5.75) and donepezil (-5.75 kcal/mol); hydromethylthionine/LMTX scores -4.77 kcal/mol. "
@@ -282,7 +259,7 @@ def generate_tau_word_manuscript():
                 for r in row_cells[c_idx].paragraphs[0].runs:
                     r.font.size = Pt(8.5)
                     
-    add_heading_styled(doc, "3.3 Nano-QSAR surrogate model", level=2)
+    add_heading_styled(doc, "2.3 Nano-QSAR surrogate model", level=2)
     doc.add_paragraph(
         "The chemisorbed and physisorbed groups are governed by different physics (covalent bond strength vs dispersion), so the physisorption surrogate is "
         "fit on the 17 physisorbers only. Both endpoints use the single 29-compound master table (Figure 5). A StandardScaler + RidgeCV model in a leak-free "
@@ -303,7 +280,7 @@ def generate_tau_word_manuscript():
     add_image_if_exists(doc, os.path.join(fig_dir, "fig7_tau_descriptor_correlation_matrix.png"),
                         "Figure 7: Pearson inter-descriptor correlation heatmap (real descriptor matrix, 29 Alzheimer/Tau therapeutics).")
 
-    add_heading_styled(doc, "3.4 Applicability domain (OECD Principle 3)", level=2)
+    add_heading_styled(doc, "2.4 Applicability domain (OECD Principle 3)", level=2)
     doc.add_paragraph(
         "Williams hat-matrix leverage on the 8-descriptor matrix (Figure 8) gives h* = 0.93 with 28/29 compounds inside the domain for the docking endpoint, "
         "and h* = 1.59 with all 17 inside for the physisorption endpoint [31-33]. Given the near-zero cross-validated Q2 for the physisorption model, its "
@@ -318,7 +295,7 @@ def generate_tau_word_manuscript():
                         "(a) pristine B40H15 carrier; (b) curcumin chemisorbed via a covalent B-C bond (contact 1.4 A, Delta_E_int,SP = -92 kcal/mol); "
                         "(c) thioflavin-T physisorbed, stacked flat at 3.4 A (Delta_E_int,SP = -10 kcal/mol).")
 
-    add_heading_styled(doc, "3.5 Interfacial charge redistribution", level=2)
+    add_heading_styled(doc, "2.5 Interfacial charge redistribution", level=2)
     doc.add_paragraph(
         "For the most strongly interacting system, the charge-density difference Delta_rho = rho(complex) - rho(carrier) - rho(drug) "
         "was computed from the real GFN2-xTB densities of the curcumin / beta-12 borophene complex in its best-orientation relaxed pose, "
@@ -338,7 +315,7 @@ def generate_tau_word_manuscript():
                         "drug-carrier heavy-atom contact vs Delta_E_int,SP. The two regimes are cleanly separated: 12 chemisorbers (grey band, "
                         "covalent B-C/B-O at ~1.4 A, -81 to -233 kcal/mol) and 17 physisorbers (2.6-3.7 A, -8 to -44 kcal/mol).")
 
-    add_heading_styled(doc, "4. Conclusions", level=1)
+    add_heading_styled(doc, "3. Conclusions", level=1)
     doc.add_paragraph(
         "We screened 29 Tau-directed therapeutics against pristine beta-12 borophene (B40H15) with GFN2-xTB, relaxing every drug-surface complex. The "
         "central result is that the pristine sheet does not behave as an inert physisorptive carrier: 12 of the 29 ligands - the pi-rich phenols "
@@ -351,6 +328,31 @@ def generate_tau_word_manuscript():
         "relative surface-affinity ranking only."
     )
     
+    add_heading_styled(doc, "4. Experimental", level=1)
+    doc.add_paragraph(
+        "4.1 Quantum-chemical framework: All calculations use GFN2-xTB (xtb v6.7.1) with its default D4 dispersion treatment [24,26]. The isolated drugs "
+        "(RDKit ETKDG + MMFF, then GFN2-xTB) and the hydrogen-terminated beta-12 borophene cluster (B40H15, C1) were geometry-optimised. Each drug-borophene "
+        "complex was assembled by centring the drug over the sheet, offsetting it 3.2 Angstrom along the surface normal in four in-plane orientations "
+        "(0, 90, 180, 270 deg) and optimising every orientation; the lowest-energy converged pose whose closest drug-carrier heavy-atom contact lies "
+        "between 1.25 and 4.0 Angstrom is retained. The standardised interaction energy Delta_E_int,SP = E(complex) - E(borophene) - E(drug) is then "
+        "evaluated with both fragments frozen at the complex geometry. Contacts below 1.9 Angstrom are classified as chemisorption (covalent B-C/B-O), "
+        "the rest as physisorption. Conceptual-DFT global reactivity indices (hardness eta = gap/2, softness, electronegativity, electrophilicity "
+        "omega = mu^2/2eta) [36,37] were read from the xtb output. The full driver (recompute_tau_adsorption.py) is in the repository; no descriptor or "
+        "energy is estimated from an empirical formula."
+    )
+    doc.add_paragraph(
+        "4.2 Molecular docking: Docking used AutoDock Vina v1.2.7 [28,29] against the cryo-EM structure of the Alzheimer Tau filament core (PDB ID: 5O3L [7]), "
+        "with ligands protonated at pH 7.4 and prepared with Meeko. Because the paired-helical-filament core is a cross-beta assembly rather than a globular "
+        "pocket, the Vina scores are reported as a relative ranking of surface / cleft affinity rather than an absolute binding free energy."
+    )
+    doc.add_paragraph(
+        "4.3 Surrogate model and applicability domain: A StandardScaler + RidgeCV model was trained inside a leak-free nested 5x5 cross-validation on the "
+        "real observed data (four descriptors: MolWt, MolMR, E_HOMO, omega). Feature importance was inspected with an ExtraTrees estimator and SHAP [35] "
+        "and is reported as exploratory only. The applicability domain follows OECD Principle 3 [31-33] via Williams hat-matrix leverage."
+    )
+    
+    
+
     add_heading_styled(doc, "Data Availability", level=1)
     doc.add_paragraph("All code, the curated dataset, the real GFN2-xTB adsorption outputs (including the relaxed complexes and the recompute_tau_adsorption.py "
                       "driver), the real AutoDock Vina outputs and the figure/manuscript generators are in the public repository "
