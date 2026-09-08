@@ -64,13 +64,16 @@ def create_tau_cover_letter(sub_dir):
     )
     
     doc.add_paragraph(
-        "The study integrates GFN2-xTB quantum-chemical single-point interaction energies of 29 Alzheimer's / Tau "
-        "therapeutics on a pristine beta-12 borophene cluster, physical AutoDock Vina docking against the human "
-        "Tau filament cryo-EM structure, and a leak-free cross-validated surrogate model. A chi3-PEG-Tf "
-        "functionalized allotrope is discussed only as future work (no real structural or quantum data for it "
-        "exist). Three cationic phenothiazine dyes show anomalous positive interaction energies from steric clash "
-        "and are reported as such and flagged out-of-domain; every value in the manuscript is computed from the "
-        "deposited pipeline."
+        "We screened 29 Alzheimer's / Tau-directed therapeutics against a pristine beta-12 borophene cluster with "
+        "GFN2-xTB, relaxing every drug-surface complex, and combined this with real AutoDock Vina docking against "
+        "the cryo-EM Tau filament core (PDB 5O3L) and a leak-free nested cross-validated surrogate. The central "
+        "result is that pristine beta-12 borophene is not an inert physisorptive carrier for this chemotype: 12 of "
+        "the 29 ligands chemisorb, forming a covalent B-C or B-O bond (Delta_E_int,SP = -81 to -233 kcal/mol), "
+        "while the remaining 17 physisorb at -8 to -44 kcal/mol. A descriptor-based QSPR of the physisorption "
+        "energy is not predictive (Q2_CV = 0.06), so the model-free chemisorption/physisorption dichotomy is the "
+        "contribution. A peptide-functionalized borophene is discussed only as future work. Every value in the "
+        "manuscript is computed from the deposited pipeline; no descriptor or energy is estimated from an "
+        "empirical formula."
     )
     
     doc.add_paragraph(
@@ -109,14 +112,16 @@ def create_tau_cover_letter_md(sub_dir):
     r.font.bold = True; r.font.color.rgb = RGBColor(74, 20, 140)
     doc.add_paragraph("Real, pipeline-traceable results:").runs[0].font.bold = True
     for h in [
-        "GFN2-xTB single-point interaction energies for 29 Alzheimer's / Tau therapeutics on a pristine beta-12 "
-        "borophene cluster; frontier-orbital and conceptual-DFT indices taken from the xtb output.",
-        "Physical AutoDock Vina v1.2.7 docking against the human Tau filament cryo-EM structure.",
-        "Leak-free nested 5x5 cross-validated surrogate model on the real interaction energies; the "
-        "feature-importance analysis is presented as exploratory.",
-        "Three cationic phenothiazine dyes show anomalous positive interaction energies (steric clash) and are "
-        "reported as such and flagged out-of-domain.",
-        "The chi3-PEG-Tf functionalized allotrope is proposed as future work; it has no real data in this study.",
+        "GFN2-xTB adsorption of 29 Alzheimer's / Tau therapeutics on a pristine beta-12 borophene cluster, with "
+        "every drug-surface complex relaxed (4 orientations); frontier-orbital and conceptual-DFT indices taken "
+        "from the xtb output.",
+        "Central result: 12 of the 29 ligands chemisorb (covalent B-C/B-O, Delta_E_int,SP -81 to -233 kcal/mol); "
+        "17 physisorb (-8 to -44). Pristine borophene is a reactive surface, not a reversible carrier, for the "
+        "pi-rich phenol/dye chemotype.",
+        "Physical AutoDock Vina v1.2.7 docking against the cryo-EM Tau filament core (PDB 5O3L).",
+        "Leak-free nested 5x5 cross-validated surrogate: Q2_CV = 0.30 (docking) and 0.06 (physisorption energy) - "
+        "descriptor-based prediction is weak; the chemi/physisorption dichotomy is the model-free contribution.",
+        "A peptide-functionalized borophene is proposed as future work; it has no real data in this study.",
         "Full open-source pipeline and data archive (Zenodo 10.5281/zenodo.22187835).",
     ]:
         p = doc.add_paragraph(h); p.paragraph_format.left_indent = Inches(0.3)
