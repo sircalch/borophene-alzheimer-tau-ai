@@ -74,6 +74,39 @@ def add_image_if_exists(doc, img_path, caption_text, width=Inches(6.2)):
 def generate_tau_word_manuscript():
     base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     fig_dir = os.path.join(base_dir, "figures")
+
+    # Docking / QSPR statistics computed from the single reproducible run
+    # (run_tau_real_docking.py docks the Tau PHF core 5O3L and writes
+    # vina_5O3L_kcal_mol into the master table).
+    import pandas as _pd
+    import numpy as _np
+    _mt = _pd.read_csv(os.path.join(base_dir, "data", "processed", "dataset_tau_borophene_pristine.csv"))
+    _vv = _mt.dropna(subset=["vina_5O3L_kcal_mol"])
+    VINA_MIN, VINA_MAX = _vv["vina_5O3L_kcal_mol"].min(), _vv["vina_5O3L_kcal_mol"].max()
+    VINA_MEAN, VINA_N = _vv["vina_5O3L_kcal_mol"].mean(), len(_vv)
+    VINA_RANGE = f"{VINA_MAX:.2f} to {VINA_MIN:.2f}"
+    _top = _vv.nsmallest(5, "vina_5O3L_kcal_mol")
+    VINA_TOP5 = ", ".join(f"{r['name']} ({r['vina_5O3L_kcal_mol']:.2f})" for _, r in _top.iterrows())
+    try:
+        _lmtx = _vv[_vv["name"].str.contains("methylthion", case=False, na=False)]["vina_5O3L_kcal_mol"].iloc[0]
+        VINA_LMTX = f"{_lmtx:.2f}"
+    except Exception:
+        VINA_LMTX = "n/a"
+    try:
+        from sklearn.pipeline import Pipeline as _P
+        from sklearn.preprocessing import StandardScaler as _S
+        from sklearn.linear_model import RidgeCV as _R
+        from sklearn.model_selection import KFold as _K, cross_val_predict as _cvp
+        from sklearn.metrics import r2_score as _r2
+        _d = _mt.dropna(subset=["MolWt", "MolMR", "E_HOMO_eV", "Omega_eV", "vina_5O3L_kcal_mol"])
+        _ag = _np.array([.001, .01, .1, .3, 1, 3, 10, 30, 100, 300, 1000])
+        _X = _d[["MolWt", "MolMR", "E_HOMO_eV", "Omega_eV"]].values
+        _y = _d["vina_5O3L_kcal_mol"].values
+        _pipe = _P([("s", _S()), ("r", _R(alphas=_ag, cv=_K(5, shuffle=True, random_state=42)))])
+        Q2_VINA_S = f"{_r2(_y, _cvp(_pipe, _X, _y, cv=_K(5, shuffle=True, random_state=42))):.2f}".replace("-0.00", "0.00")
+    except Exception:
+        Q2_VINA_S = "n/a"
+
     doc = Document()
     
     for s in doc.sections:
@@ -141,9 +174,9 @@ def generate_tau_word_manuscript():
         "luteolin, apigenin, fisetin and baicalein, the azo dyes Congo red and Chrysamine G, and the phenothiazine dyes; the remaining 17 physisorb, "
         "stacked flat at 2.6-3.7 Angstrom with Delta_E_int,SP = -8 to -44 kcal/mol. Pristine beta-12 borophene is therefore a chemically reactive surface, "
         "not a reversible physisorptive carrier, for a large fraction of these ligands. Docking against the Tau filament core gave "
-        "Vina scores of -3.79 to -6.83 kcal/mol (mean -5.17), with recurrent contacts at the cross-beta residues Gly335, Leu357, Gln336, Val337 and Pro332. "
-        "A leak-free nested 5x5 cross-validated RidgeCV surrogate on four descriptors reached only Q2_CV = 0.30 for the Tau-filament Vina docking score "
-        "(n = 29) and Q2_CV = 0.06 for the 17-point physisorption interaction energy - descriptor-based prediction is weak for both, and the "
+        f"Vina scores of {VINA_RANGE} kcal/mol (mean {VINA_MEAN:.2f}), with recurrent contacts at the cross-beta residues Pro332, Gln336, Asn359, Gly333 and Gly335. "
+        f"A leak-free nested 5x5 cross-validated RidgeCV surrogate on four descriptors reached Q2_CV = {Q2_VINA_S} for the Tau-filament Vina docking score "
+        "(n = 29; a stricter nested protocol with Y-scrambling gives Q2 approximately 0.15, p = 0.009) and Q2_CV = 0.06 for the 17-point physisorption interaction energy - descriptor-based prediction is weak for both, and the "
         "chemisorption/physisorption dichotomy is the robust result. A peptide-functionalized borophene for BBB "
         "transcytosis is discussed only as future work. Every value is computed from the deposited pipeline; no descriptor or energy is estimated from "
         "an empirical formula."
@@ -200,16 +233,16 @@ def generate_tau_word_manuscript():
 
     add_heading_styled(doc, "2.2 Docking against the cryo-EM Tau filament core", level=2)
     doc.add_paragraph(
-        "AutoDock Vina scores against the Tau filament core (PDB 5O3L) span -3.79 to -6.83 kcal/mol (mean -5.17). The highest-ranked ligands are "
-        "chrysamine G (-6.83), EGCG (-5.88), luteolin (-5.87), fisetin (-5.75) and donepezil (-5.75 kcal/mol); hydromethylthionine/LMTX scores -4.77 kcal/mol. "
+        f"AutoDock Vina scores against the Tau filament core (PDB 5O3L) span {VINA_RANGE} kcal/mol (mean {VINA_MEAN:.2f}). The highest-ranked ligands are "
+        f"{VINA_TOP5} kcal/mol; hydromethylthionine/LMTX scores {VINA_LMTX} kcal/mol. "
         "The cross-beta assembly offers no deep pocket, so these values rank relative surface / cleft affinity rather than absolute binding free energy."
     )
 
     add_image_if_exists(doc, os.path.join(fig_dir, "fig3_tau_docking_vina_statistical_profiles.png"),
-                        "Figure 3: Molecular docking statistical profiles against the cryo-EM Tau filament core (PDB 5O3L): (a) distribution of real Vina scores; (b) ranking of the top-10 compounds (chrysamine G -6.83, EGCG -5.88 kcal/mol; hydromethylthionine/LMTX -4.77 kcal/mol).")
+                        f"Figure 3: Molecular docking statistical profiles against the cryo-EM Tau filament core (PDB 5O3L): (a) distribution of real Vina scores (n = {VINA_N}, mean {VINA_MEAN:.2f} kcal/mol); (b) ranking of the top-10 compounds.")
 
     add_image_if_exists(doc, os.path.join(fig_dir, "fig4_tau_residue_contact_frequency.png"),
-                        "Figure 4: Residue-level contact frequencies on the Tau filament core (real Vina poses, contact distance <= 3.8 A): most frequent contacts are the cross-beta residues Gly335, Leu357, Gln336, Val337 and Pro332.")
+                        "Figure 4: Residue-level contact frequencies on the Tau filament core (real Vina poses, contact distance <= 3.8 A): most frequent contacts are the cross-beta residues Pro332, Gln336, Asn359, Gly333 and Gly335.")
     
     # Table 1: Descriptors. MW/LogP/PSA are real RDKit descriptors (always
     # computed from SMILES). E_HOMO/omega previously came from
@@ -263,7 +296,7 @@ def generate_tau_word_manuscript():
     doc.add_paragraph(
         "The chemisorbed and physisorbed groups are governed by different physics (covalent bond strength vs dispersion), so the physisorption surrogate is "
         "fit on the 17 physisorbers only. Both endpoints use the single 29-compound master table (Figure 5). A StandardScaler + RidgeCV model in a leak-free "
-        "nested 5x5 cross-validation reached Q2_CV = 0.30 for the Tau-filament Vina docking score (n = 29) and Q2_CV = 0.06 for the 17-point physisorption "
+        f"nested 5x5 cross-validation reached Q2_CV = {Q2_VINA_S} for the Tau-filament Vina docking score (n = {VINA_N}) and Q2_CV = 0.06 for the 17-point physisorption "
         "interaction energy (four descriptors: MolWt, MolMR, E_HOMO, omega). "
         "Descriptor-based prediction is weak for both endpoints on this small, chemically narrow cohort; the exploratory ExtraTrees / SHAP "
         "ranking (Figure 6) is reported only as a qualitative indication and not as a validated structure-property relationship [39,40]. The chemisorption/"
@@ -272,7 +305,7 @@ def generate_tau_word_manuscript():
 
     add_image_if_exists(doc, os.path.join(fig_dir, "fig5_tau_parity_models_evaluation.png"),
                         "Figure 5: Leak-free nested 5x5 CV parity plots (real observed vs out-of-fold predicted), both on the 29-compound master table: "
-                        "(a) Tau-filament Vina docking score (n = 29, Q2_CV = 0.30); (b) GFN2-xTB physisorption interaction energy (17 physisorbers, Q2_CV = 0.06).")
+                        f"(a) Tau-filament Vina docking score (n = {VINA_N}, Q2_CV = {Q2_VINA_S}); (b) GFN2-xTB physisorption interaction energy (17 physisorbers, Q2_CV = 0.06).")
 
     add_image_if_exists(doc, os.path.join(fig_dir, "fig6_tau_shap_xai_importance_rankings.png"),
                         "Figure 6: Exploratory feature-importance ranking on the real GFN2-xTB pristine-borophene interaction energy.")

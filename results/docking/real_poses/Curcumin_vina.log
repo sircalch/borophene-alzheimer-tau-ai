@@ -18,9 +18,9 @@ AutoDock Vina v1.2.7
 #################################################################
 
 Scoring function : vina
-Rigid receptor: c:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\data\raw\6VHL_receptor.pdbqt
-Ligand: c:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\data\raw\ligands_pdbqt\Curcumin.pdbqt
-Grid center: X 140.293 Y 140.714 Z 139.389
+Rigid receptor: C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\data\raw\5O3L_receptor.pdbqt
+Ligand: C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\data\raw\ligands_pdbqt\Curcumin.pdbqt
+Grid center: X 174.8 Y 138.3 Z 152.6
 Grid size  : X 22 Y 22 Z 22
 Grid space : 0.375
 Exhaustiveness: 4
@@ -28,7 +28,7 @@ CPU: 2
 Verbosity: 1
 
 Computing Vina grid ... done.
-Performing docking (random seed: 74180969) ... 
+Performing docking (random seed: 42) ... 
 0%   10   20   30   40   50   60   70   80   90   100%
 |----|----|----|----|----|----|----|----|----|----|
 ***************************************************
@@ -36,8 +36,8 @@ Performing docking (random seed: 74180969) ...
 mode |   affinity | dist from best mode
      | (kcal/mol) | rmsd l.b.| rmsd u.b.
 -----+------------+----------+----------
-   1       -4.605          0          0
-   2       -4.501     0.5332      6.148
-   3       -4.497      1.258      6.438
-   4       -4.446      7.409      11.81
-   5       -4.422      14.01      18.36
+   1       -5.143          0          0
+   2       -5.103     0.5244      10.89
+   3       -4.912      6.354      10.01
+   4       -4.872      5.391      10.53
+   5       -4.805      3.338      9.692

@@ -1,7 +1,7 @@
 """
 analyze_tau_interactions.py
 Analyzes residue-level physical atomic contacts (<3.8 A) between the 35 real docked 
-therapeutics and the human Alzheimer's Tau paired helical filament structure (PDB 6VHL).
+therapeutics and the human Alzheimer's Tau paired helical filament structure (PDB 5O3L).
 """
 
 import os
@@ -47,7 +47,7 @@ def parse_pdbqt_top_pose(pdbqt_file):
 
 def analyze_contacts():
     base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-    pdb_path = os.path.join(base_dir, "data", "raw", "6VHL.pdb")
+    pdb_path = os.path.join(base_dir, "data", "raw", "5O3L.pdb")
     poses_dir = os.path.join(base_dir, "results", "docking", "real_poses")
     
     protein_atoms = parse_pdb_residues(pdb_path)

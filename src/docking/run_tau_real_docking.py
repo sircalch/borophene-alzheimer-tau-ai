@@ -1,7 +1,13 @@
 """
 run_tau_real_docking.py
 Parallel 100% REAL Physical Molecular Docking using AutoDock Vina v1.2.7 
-against the Cryo-EM structure of human Alzheimer's Tau paired helical filament (PDB ID: 6VHL, 2.3 Å).
+against the cryo-EM structure of the human Alzheimer Tau paired-helical-filament
+core, PDB ID 5O3L (3.40 A) -- the primary receptor cited throughout the
+manuscript. The best score per drug is written straight into
+data/processed/dataset_tau_borophene_pristine.csv as vina_5O3L_kcal_mol, so
+Table 1 / Fig 3-4 / the applicability domain all trace back to this one run.
+Set TAU_DOCK_REBUILD=1 to force a re-dock; by default the deposited
+vina_5O3L_kcal_mol column is kept.
 """
 
 import os
@@ -15,28 +21,17 @@ from rdkit.Chem import AllChem
 from meeko import MoleculePreparation, PDBQTWriterLegacy
 
 def prepare_receptor_6vhl(pdb_file, out_pdbqt):
-    coords = []
     cleaned_lines = []
-    
     with open(pdb_file, 'r', encoding='utf-8') as f:
         for line in f:
             if line.startswith("ATOM"):
                 cleaned_lines.append(line)
-                res_seq = int(line[22:26].strip())
-                # Focus on the cross-beta sheet catalytic packing core (residues 306-330)
-                if 306 <= res_seq <= 330:
-                    x = float(line[30:38])
-                    y = float(line[38:46])
-                    z = float(line[46:54])
-                    coords.append((x, y, z))
-                    
-    if coords:
-        coords_arr = np.array(coords)
-        center = coords_arr.mean(axis=0)
-    else:
-        center = np.array([125.0, 130.0, 140.0])
-        
-    print(f"Alzheimer's Tau Fibril Cross-Beta Core Pocket Center: X={center[0]:.3f}, Y={center[1]:.3f}, Z={center[2]:.3f}", flush=True)
+
+    # 5O3L PHF inter-protofilament cross-beta cleft: box centre taken from the
+    # centroid of the deposited docked poses (calculations/tau/*/*_5O3L_out.pdbqt),
+    # a genuine cleft with receptor walls on multiple sides (~425 atoms within 11 A).
+    center = np.array([174.8, 138.3, 152.6])
+    print(f"Tau PHF cleft (5O3L) box centre: X={center[0]:.2f}, Y={center[1]:.2f}, Z={center[2]:.2f}", flush=True)
     
     with open(out_pdbqt, 'w', encoding='utf-8') as f:
         for line in cleaned_lines:
@@ -159,7 +154,7 @@ def dock_single_compound(row, vina_exe, receptor_pdbqt, lig_dir, poses_dir, cent
     ]
     
     try:
-        res = subprocess.run(cmd, capture_output=True, text=True, timeout=900)
+        res = subprocess.run(cmd, capture_output=True, text=True, timeout=300)
         with open(log_file, 'w', encoding='utf-8') as f_log:
             f_log.write(res.stdout)
             
@@ -190,27 +185,33 @@ def dock_single_compound(row, vina_exe, receptor_pdbqt, lig_dir, poses_dir, cent
 def run_real_vina_docking():
     base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     out_summary = os.path.join(base_dir, "results", "docking", "real_vina_docking_summary.csv")
-    if os.path.exists(out_summary) and os.path.getsize(out_summary) > 200:
-        df_existing = pd.read_csv(out_summary)
-        if len(df_existing) >= 30:
-            print(f"Real docking summary already present with {len(df_existing)} compounds: {out_summary}")
-            return
-            
-    pdb_path = os.path.join(base_dir, "data", "raw", "6VHL.pdb")
-    receptor_pdbqt = os.path.join(base_dir, "data", "raw", "6VHL_receptor.pdbqt")
+    master_csv = os.path.join(base_dir, "data", "processed", "dataset_tau_borophene_pristine.csv")
+    rebuild = bool(os.environ.get("TAU_DOCK_REBUILD"))
+
+    mt = pd.read_csv(master_csv)
+    if not rebuild and "vina_5O3L_kcal_mol" in mt.columns and mt["vina_5O3L_kcal_mol"].notna().sum() >= 25 \
+            and os.path.exists(out_summary) and os.path.getsize(out_summary) > 200:
+        print(f"[REUSE] deposited vina_5O3L_kcal_mol column ({mt['vina_5O3L_kcal_mol'].notna().sum()} drugs) "
+              f"and {out_summary} kept; set TAU_DOCK_REBUILD=1 to re-dock against 5O3L.")
+        return
+
+    pdb_path = os.path.join(base_dir, "data", "raw", "5O3L.pdb")
+    receptor_pdbqt = os.path.join(base_dir, "data", "raw", "5O3L_receptor.pdbqt")
     vina_exe = os.path.join(base_dir, "src", "docking", "vina.exe")
     lig_dir = os.path.join(base_dir, "data", "raw", "ligands_pdbqt")
     poses_dir = os.path.join(base_dir, "results", "docking", "real_poses")
-    drugs_csv = os.path.join(base_dir, "data", "raw", "tau_drug_library.csv")
-    
+
     os.makedirs(lig_dir, exist_ok=True)
     os.makedirs(poses_dir, exist_ok=True)
-    
+
     center = prepare_receptor_6vhl(pdb_path, receptor_pdbqt)
-    df_drugs = pd.read_csv(drugs_csv)
-    
+    # Dock the exact cohort the manuscript reports (the master table).
+    df_drugs = pd.read_csv(master_csv).rename(columns={"drug_class": "class"})
+    if "drugbank_id" not in df_drugs.columns:
+        df_drugs["drugbank_id"] = ""
+
     print("\n=======================================================")
-    print(f"  Starting Parallel Real AutoDock Vina Execution on {len(df_drugs)} Alzheimer/Tau Drugs")
+    print(f"  Starting Parallel Real AutoDock Vina Execution on {len(df_drugs)} Alzheimer/Tau Drugs (5O3L)")
     print("=======================================================")
     
     results = []
@@ -228,6 +229,13 @@ def run_real_vina_docking():
     df_res.to_csv(out_summary, index=False)
     print(f"\nParallel Real Docking Completed: {len(df_res)}/{len(df_drugs)} compounds successfully docked.")
     print(f"Saved to: {out_summary}")
+
+    # Unify: write this run straight into the master table.
+    score = dict(zip(df_res["name"], df_res["Real_Vina_Docking_Score_kcal_mol"]))
+    mt["vina_5O3L_kcal_mol"] = mt["name"].map(score)
+    mt.to_csv(master_csv, index=False)
+    print(f"master table vina_5O3L_kcal_mol updated from this run "
+          f"({mt['vina_5O3L_kcal_mol'].notna().sum()}/{len(mt)} scored)")
 
 if __name__ == "__main__":
     run_real_vina_docking()

@@ -45,13 +45,12 @@ def make_graphical_abstract(base_dir, fig_dir):
         ("B. Physical Docking\n(AutoDock Vina v1.2.7)\n\n"
          "Cryo-EM Tau filament\ncore (PDB ID: 5O3L)\n"
          "29 Alzheimer / Tau drugs\n"
-         "Real Vina -3.8 to -6.8\nkcal/mol (exploratory)\n"
-         "EGCG -5.88; LMTX -4.77", 0.355, 0.12, 0.29, 0.70, "#EDE7F6", "#4527A0"),
+         "Real Vina docking on\n5O3L (exploratory\nsurface ranking)", 0.355, 0.12, 0.29, 0.70, "#EDE7F6", "#4527A0"),
         ("C. Explainable AI & OECD QSAR\n\n"
          "Leak-free nested 5x5\nRidge CV\n"
-         "Q2_CV = 0.46 (isolated),\n0.07 (pristine borophene)\n"
-         "Top feature: E_HOMO\n(exploratory)\n"
-         "28/29 inside the\nWilliams domain", 0.68, 0.12, 0.29, 0.70, "#FCE4EC", "#C2185B"),
+         "Descriptor QSPR weak on\nboth endpoints\n"
+         "(exploratory only)\n"
+         "Williams domain checked", 0.68, 0.12, 0.29, 0.70, "#FCE4EC", "#C2185B"),
     ]
 
     for text, x, y, w, h, bg_c, border_c in panels:
@@ -79,7 +78,7 @@ def make_fig1_workflow(base_dir, fig_dir):
         ("3. Cryo-EM Target\nAlzheimer Tau filament core\n(PDB 5O3L)", 0.70, 0.55, 0.25, 0.35, "#FCE4EC", "#AD1457"),
         ("4. Quantum tight-binding (GFN2-xTB)\nInteraction energies + CDFT indices\n(real Delta_Eint,SP -13.8 to -0.9 kcal/mol\nfor 26/29; 3 phenothiazine dyes clash)", 0.04, 0.10, 0.27, 0.35, "#E0F7FA", "#00838F"),
         ("5. Real physical docking\nAutoDock Vina v1.2.7 (cross-beta)\n(29 Alzheimer / Tau drugs; exploratory)", 0.375, 0.10, 0.25, 0.35, "#E8F5E9", "#2E7D32"),
-        ("6. Explainable machine learning\nLeak-free nested Ridge CV\n(Q2_CV up to 0.46; Williams domain)", 0.70, 0.10, 0.25, 0.35, "#FFF3E0", "#E65100"),
+        ("6. Explainable machine learning\nLeak-free nested Ridge CV\n(descriptor QSPR weak; Williams domain)", 0.70, 0.10, 0.25, 0.35, "#FFF3E0", "#E65100"),
     ]
     
     for title, x, y, w, h, bg_c, border_c in boxes:
