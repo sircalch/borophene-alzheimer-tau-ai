@@ -389,7 +389,7 @@ def generate_tau_word_manuscript():
     add_heading_styled(doc, "Data Availability", level=1)
     doc.add_paragraph("All code, the curated dataset, the real GFN2-xTB adsorption outputs (including the relaxed complexes and the recompute_tau_adsorption.py "
                       "driver), the real AutoDock Vina outputs and the figure/manuscript generators are in the public repository "
-                      "https://github.com/sircalch/borophene-alzheimer-tau-ai and the Zenodo deposit 10.5281/zenodo.22187835. run_entire_tau_study.py "
+                      "https://github.com/sircalch/borophene-alzheimer-tau-ai and the Zenodo deposit 10.5281/zenodo.22187834. run_entire_tau_study.py "
                       "reproduces every value and figure.")
 
     import _backmatter

@@ -125,7 +125,7 @@ def create_tau_cover_letter_md(sub_dir):
         "docking score (about 0.15 under a stricter Y-scrambled protocol) - descriptor-based prediction is weak; "
         "the chemi/physisorption dichotomy is the model-free contribution.",
         "A peptide-functionalized borophene is proposed as future work; it has no real data in this study.",
-        "Full open-source pipeline and data archive (Zenodo 10.5281/zenodo.22187835).",
+        "Full open-source pipeline and data archive (Zenodo 10.5281/zenodo.22187834).",
     ]:
         p = doc.add_paragraph(h); p.paragraph_format.left_indent = Inches(0.3)
     doc.add_paragraph("The manuscript is original, not under consideration elsewhere, and all authors approve the "

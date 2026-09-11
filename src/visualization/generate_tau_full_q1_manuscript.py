@@ -494,7 +494,7 @@ def build_full_tau_manuscript():
         "All computational scripts, raw docking coordinates (PDBQT), quantum chemistry inputs and logs (GFN2-xTB and ORCA 6.1.1), descriptor matrices, and surrogate QSAR models "
         "are fully open-source and reproducible under the MIT license via the project repository:\n"
         "• Primary Public Repository: https://github.com/sircalch/borophene-alzheimer-tau-ai (Release v1.0.0, Git commit SHA: c4ea967)\n"
-        "• Permanent Archival DOI: Zenodo Repository DOI: 10.5281/zenodo.22187835"
+        "• Permanent Archival DOI: Zenodo Repository DOI: 10.5281/zenodo.22187834"
     )
     
     add_heading_styled(doc, "Conflict of Interest", level=1)

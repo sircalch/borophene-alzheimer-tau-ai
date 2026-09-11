@@ -31,7 +31,7 @@ S1 = ("The borophene nanocarrier is modeled as a hydrogen-terminated monolayer c
       "Contacts below 1.9 Angstrom are chemisorption (covalent B-C/B-O); 12 of the 29 ligands "
       "fall in this regime and are excluded from the physisorption QSPR.")
 REPO = "https://github.com/sircalch/borophene-alzheimer-tau-ai"
-ZEN = "https://doi.org/10.5281/zenodo.22187835"
+ZEN = "https://doi.org/10.5281/zenodo.22187834"
 VINA_COLS = [("vina_5O3L_kcal_mol", "Vina 5O3L (kcal/mol)")]
 ENDPOINT = ("GFN2-xTB single-point interaction energy Delta_E_int,SP (kcal/mol) of each drug "
             "on the pristine beta-12 borophene cluster.")

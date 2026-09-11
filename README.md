@@ -1,6 +1,6 @@
 # Machine Learning-Driven Nano-QSAR and Quantum Chemical Design of Functionalized 2D Borophene Nanocarriers for Alzheimer's Tau-Targeted Therapeutics
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22187835.svg)](https://doi.org/10.5281/zenodo.22187835)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22187834.svg)](https://doi.org/10.5281/zenodo.22187834)
 [![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)](https://github.com/sircalch/borophene-alzheimer-tau-ai/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-teal.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.12](https://img.shields.io/badge/Python-3.12-blue.svg)](https://www.python.org/)
@@ -91,7 +91,7 @@ python run_entire_tau_study.py
   journal={Beilstein Journal of Nanotechnology / Submitted},
   year={2026},
   version={2.0.0},
-  doi={10.5281/zenodo.22187835},
+  doi={10.5281/zenodo.22187834},
   url={https://github.com/sircalch/borophene-alzheimer-tau-ai}
 }
 ```
