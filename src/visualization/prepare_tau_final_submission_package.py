@@ -140,6 +140,69 @@ def create_tau_cover_letter_md(sub_dir):
     print("Generated Tau Molecular Diversity Cover Letter")
 
 
+def create_tau_cover_letter_jmm(sub_dir):
+    """Journal of Molecular Modeling (Springer) edition, 2026-09-12.
+
+    Third in the Q3/no-APC retargeting series after KRAS and GBM -- see
+    [[feedback_prioritize_q3_no_apc_journals]]. Tau's model-free chemisorption/
+    physisorption dichotomy is the real contribution here; the QSPR itself is
+    weak for both endpoints (Q2_CV=0.06 physisorption, 0.35 falling to ~0.15
+    docking under Y-scrambling), disclosed honestly.
+    """
+    doc = Document()
+    for s in doc.sections:
+        s.top_margin = s.bottom_margin = Inches(1.0)
+        s.left_margin = s.right_margin = Inches(1.0)
+    fo = doc.styles['Normal'].font
+    fo.name = 'Times New Roman'; fo.size = Pt(11); fo.color.rgb = RGBColor(33, 33, 33)
+
+    doc.add_paragraph("Andrés Monreal Hernández, Ph.D.\nUniversidad Estatal de Sonora, Hermosillo, Sonora, Mexico\n"
+                      "Email: andres.monreal@ues.mx | ORCID: 0009-0009-1207-8597").runs[0].font.bold = True
+    doc.add_paragraph("To: The Editor-in-Chief, Journal of Molecular Modeling (Springer Nature)")
+    doc.add_paragraph("Subject: Submission of Original Research Article for Peer Review").runs[0].font.bold = True
+    doc.add_paragraph("Dear Editor,")
+    doc.add_paragraph(
+        "On behalf of my co-authors (Sara Lizbeth Franco Amaya, Carlos Ivanhoe Martínez Osorio, and myself), "
+        "I am pleased to submit our original research manuscript for consideration as a Full Research Article "
+        "in the Journal of Molecular Modeling:"
+    )
+    r = doc.add_paragraph().add_run(
+        "“Machine Learning-Driven Nano-QSAR and Quantum Chemical Design of Functionalized 2D Borophene "
+        "Nanosheets for Targeted Disaggregation of Pathological Tau Fibrils in Alzheimer's Disease”"
+    )
+    r.font.bold = True; r.font.color.rgb = RGBColor(74, 20, 140)
+    doc.add_paragraph(
+        "The study integrates GFN2-xTB quantum-chemical adsorption modeling of 29 Alzheimer's/Tau-directed "
+        "therapeutics on a pristine β12 borophene cluster, AutoDock Vina docking against the cryo-EM Tau "
+        "filament core (PDB ID: 5O3L), and a leak-free nested cross-validated surrogate -- squarely within the "
+        "journal's scope in computational and theoretical chemistry."
+    )
+    doc.add_paragraph("Real, pipeline-traceable results:").runs[0].font.bold = True
+    for h in [
+        "GFN2-xTB adsorption of 29 therapeutics on a pristine β12 borophene cluster, every drug-surface complex "
+        "relaxed (4 orientations); frontier-orbital and conceptual-DFT indices taken directly from the xtb output.",
+        "Central result: 12 of the 29 ligands chemisorb (covalent B-C/B-O, ΔE_int,SP -81 to -233 kcal/mol); 17 "
+        "physisorb (-8 to -44 kcal/mol). Pristine borophene is a reactive surface, not a reversible carrier, "
+        "for the π-rich phenol/dye chemotype.",
+        "A single reproducible AutoDock Vina v1.2.7 docking run against the cryo-EM Tau filament core "
+        "(PDB 5O3L): -3.8 to -6.8 kcal/mol, mean -4.7.",
+        "Leak-free nested 5x5 cross-validated surrogate: Q2_CV = 0.06 (physisorption energy) and 0.35 for the "
+        "docking score (falling to ~0.15 under a stricter Y-scrambled protocol) -- descriptor-based prediction "
+        "is weak; the chemisorption/physisorption dichotomy is the model-free contribution, disclosed as such.",
+        "Full open-source pipeline and data archive (Zenodo DOI 10.5281/zenodo.22187834), reproducing every "
+        "value and figure in the manuscript.",
+    ]:
+        p = doc.add_paragraph(h); p.paragraph_format.left_indent = Inches(0.3)
+    doc.add_paragraph(
+        "The manuscript is original, not under consideration elsewhere, and all authors approve the submission "
+        "and declare no competing interests."
+    )
+    doc.add_paragraph("Sincerely,\nAndrés Monreal Hernández, Ph.D. (Corresponding Author)\nUniversidad Estatal de Sonora, Mexico")
+    out_docx = os.path.join(sub_dir, "01_Cover_Letter_JMM.docx")
+    doc.save(out_docx)
+    print(f"Generated Tau Journal of Molecular Modeling Cover Letter: {out_docx}")
+
+
 def build_tau_submission_bundle():
     base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     sub_dir = os.path.join(base_dir, "manuscript", "submission_ready")
@@ -147,7 +210,14 @@ def build_tau_submission_bundle():
     
     create_tau_cover_letter(sub_dir)
     create_tau_cover_letter_md(sub_dir)
-    
+    create_tau_cover_letter_jmm(sub_dir)
+
+    # JMM manuscript is built separately (post-processes the canonical Beilstein
+    # body: structured Context/Methods abstract + section reorder) -- run it
+    # here so the bundle always picks up a fresh copy.
+    import generate_tau_jmm_manuscript
+    generate_tau_jmm_manuscript.generate_tau_jmm_manuscript()
+
     src_docx = os.path.join(base_dir, "manuscript", "Beilstein_Manuscript_Tau_Borophene_Monreal_Hernandez_et_al.docx")
     dst_docx = os.path.join(sub_dir, "02_Main_Manuscript_Tau_Borophene_Monreal_Hernandez_et_al.docx")
     if os.path.exists(src_docx):
