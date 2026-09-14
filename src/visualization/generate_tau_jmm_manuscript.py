@@ -112,6 +112,16 @@ def generate_tau_jmm_manuscript():
 
     abstract_para._element.getparent().remove(abstract_para._element)
 
+    # --- Trim keywords to JMM's 4-6 limit (original has 8) ---
+    for run in list(keywords_para.runs):
+        run.text = ""
+    keywords_para.runs[0].text = "Keywords: "
+    keywords_para.runs[0].font.bold = True
+    keywords_para.add_run(
+        "2D Borophene; Alzheimer's Disease; Tau Paired Helical Filaments; "
+        "Blood-Brain Barrier; AutoDock Vina; Explainable AI (SHAP)."
+    )
+
     # ---------------------------------------------------------------
     # 2) Move "4. Experimental" (+ its 3 paragraphs) to right after Introduction
     # ---------------------------------------------------------------
