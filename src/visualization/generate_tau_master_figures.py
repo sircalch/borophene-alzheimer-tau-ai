@@ -401,10 +401,66 @@ def make_fig11_adsorption_landscape(base_dir, fig_dir):
 
 
 def make_fig7_correlation(base_dir, fig_dir):
-    csv_p = os.path.join(base_dir, "data", "processed", "tau_isolated_descriptors.csv")
-    if not os.path.exists(csv_p):
+    # tau_isolated_descriptors.csv is a legacy artifact computed for an earlier,
+    # different 30-compound drug roster (data/raw/tau_drug_library.csv) -- it
+    # overlaps only partially (20/29) with the real 29-ligand adsorption/docking
+    # cohort used everywhere else in the paper (dataset_tau_borophene_pristine.csv),
+    # and its E_HOMO/E_LUMO/CDFT columns are fabricated from an empirical LogP-based
+    # formula, not real quantum chemistry. Simply filtering that file's rows to the
+    # cohort names would silently drop 9 real cohort compounds. Instead, rebuild the
+    # 20-descriptor matrix for the correct 29-compound cohort from real data: the
+    # GFN2-xTB electronic/CDFT descriptors and MW/MolMR already computed for every
+    # cohort member, plus RDKit-computed physicochemical/topological descriptors
+    # from the same (real) SMILES.
+    cohort_p = os.path.join(base_dir, "data", "processed", "dataset_tau_borophene_pristine.csv")
+    if not os.path.exists(cohort_p):
         return
-    df = pd.read_csv(csv_p)
+    base = pd.read_csv(cohort_p)
+
+    try:
+        from rdkit import Chem
+        from rdkit.Chem import Descriptors, Lipinski, Crippen, rdMolDescriptors
+    except Exception:
+        Chem = None
+
+    records = []
+    for _, row in base.iterrows():
+        rec = {
+            "name": row["name"],
+            "MW": row.get("MolWt"),
+            "E_HOMO": row.get("E_HOMO_eV"),
+            "E_LUMO": row.get("E_LUMO_eV"),
+            "Gap_eV": row.get("Gap_eV"),
+            "Hardness_eta": row.get("Eta_eV"),
+            "Softness_S": (1.0 / (2.0 * row["Eta_eV"])) if row.get("Eta_eV", 0) not in (None, 0) else None,
+            "Electronegativity_chi": -row.get("Mu_eV") if pd.notna(row.get("Mu_eV")) else None,
+            "Chemical_Potential_mu": row.get("Mu_eV"),
+            "Electrophilicity_omega": row.get("Omega_eV"),
+        }
+        if Chem is not None and pd.notna(row.get("smiles")):
+            mol = Chem.MolFromSmiles(row["smiles"])
+            if mol is not None:
+                logp = Crippen.MolLogP(mol)
+                rbc = Lipinski.NumRotatableBonds(mol)
+                nor = Lipinski.RingCount(mol)
+                arom_rings = rdMolDescriptors.CalcNumAromaticRings(mol)
+                mw = Descriptors.MolWt(mol)
+                logs = 0.16 - 0.63 * logp - 0.0062 * mw + 0.066 * rbc - 0.74 * (arom_rings / (nor + 1e-5))
+                rec.update({
+                    "LogP": logp,
+                    "LogS": logs,
+                    "WS_mg_mL": (10 ** logs) * mw * 1000.0,
+                    "HBA": Lipinski.NumHAcceptors(mol),
+                    "HBD": Lipinski.NumHDonors(mol),
+                    "PSA": Descriptors.TPSA(mol),
+                    "RBC": rbc,
+                    "NOR": nor,
+                    "AromRings": arom_rings,
+                    "Polarizability_alpha": rdMolDescriptors.CalcLabuteASA(mol),
+                    "Fraction_Csp3": Descriptors.FractionCSP3(mol),
+                })
+        records.append(rec)
+    df = pd.DataFrame(records)
     cols = [c for c in ["MW", "LogP", "LogS", "WS_mg_mL", "HBA", "HBD", "PSA",
                         "RBC", "NOR", "AromRings", "Polarizability_alpha",
                         "Fraction_Csp3", "E_HOMO", "E_LUMO", "Gap_eV",

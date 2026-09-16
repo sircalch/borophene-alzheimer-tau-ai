@@ -157,6 +157,13 @@ def generate_tau_jmm_manuscript():
     _, concl_head = _find_heading(doc, text_exact="3. Conclusions")
     concl_head.runs[0].text = "4. Summary"
 
+    # In-text cross-reference to the final section must follow the JMM rename
+    # above (Beilstein calls it "Conclusions"; JMM calls it "Summary").
+    for p in doc.paragraphs:
+        for run in p.runs:
+            if "(Conclusions)" in run.text:
+                run.text = run.text.replace("(Conclusions)", "(Summary)")
+
     label_renumber = {
         "4.1 Quantum-chemical framework": "2.1 Quantum-chemical framework",
         "4.2 Molecular docking": "2.2 Molecular docking",

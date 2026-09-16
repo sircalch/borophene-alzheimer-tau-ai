@@ -86,11 +86,10 @@ def _williams(df, feats, target):
     Xd = np.hstack([np.ones((n, 1)), X])
     h = np.diag(Xd @ np.linalg.pinv(Xd.T @ Xd) @ Xd.T)
     hstar = 3.0 * (p + 1) / n
-    y = d[target].values
-    b = np.linalg.pinv(Xd.T @ Xd) @ Xd.T @ y
-    res = y - Xd @ b
-    sr = res / (np.std(res) * np.sqrt(np.maximum(1e-4, 1.0 - h)))
-    return hstar, int(((h <= hstar) & (np.abs(sr) <= 3.0)).sum()), n
+    # "Inside the domain" (OECD Principle 3 / Williams plot) is defined by the
+    # leverage criterion alone (h_i <= h*), matching the manuscript body
+    # (Section 2.4) and Figure 8 (src/ml_models/compute_tau_oecd_applicability_domain.py).
+    return hstar, int((h <= hstar).sum()), n
 
 
 def generate_supporting_information():
@@ -140,17 +139,24 @@ def generate_supporting_information():
     _table(doc, ["Compound", "Class", "Formal charge (pH 7.4)"], s2)
 
     _h(doc, "Table S3: OECD Principles 1–5 Checklist.")
-    feats = [c for c in ["MolWt", "MolMR", "Omega_eV", "E_HOMO_eV"] if c in df.columns]
+    # 8-descriptor Williams-plot feature set used for Figure 8 (see
+    # src/ml_models/compute_tau_oecd_applicability_domain.py) — reported for both
+    # endpoints, matching the manuscript body (Section 2.4).
+    ad_feats = [c for c in ["MolWt", "MolMR", "E_HOMO_eV", "E_LUMO_eV", "Gap_eV",
+                             "Eta_eV", "Mu_eV", "Omega_eV"] if c in df.columns]
+    hstar_dock, inside_dock, n_dock = _williams(df, ad_feats, "vina_5O3L_kcal_mol")
     df_qspr = df[df["adsorption_mode"] == "physisorption"] if "adsorption_mode" in df.columns else df
-    hstar, inside, n = _williams(df_qspr, feats, "delta_Eint_SP_kcal_mol")
+    hstar_phys, inside_phys, n_phys = _williams(df_qspr, ad_feats, "delta_Eint_SP_kcal_mol")
     s3 = [
         ("1. Defined endpoint", ENDPOINT),
         ("2. Unambiguous algorithm",
          "StandardScaler + regularized linear regression inside a leak-free nested 5x5 "
          "cross-validation."),
         ("3. Applicability domain",
-         f"Williams hat-matrix leverage, {len(feats)} descriptors, n={n}: h* = {hstar:.3f}; "
-         f"{inside}/{n} compounds inside the domain."),
+         f"Williams hat-matrix leverage on the {len(ad_feats)}-descriptor matrix (Figure 8): "
+         f"h* = {hstar_dock:.2f} with {inside_dock}/{n_dock} compounds inside the domain for the "
+         f"docking endpoint, and h* = {hstar_phys:.2f} with {inside_phys}/{n_phys} inside for the "
+         f"physisorption endpoint."),
         ("4. Goodness-of-fit / robustness", Q2_NOTE),
         ("5. Mechanistic interpretation",
          "Feature importance dominated by molecular size (MW), molar refractivity, "
