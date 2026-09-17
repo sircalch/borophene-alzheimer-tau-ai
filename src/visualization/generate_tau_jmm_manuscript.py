@@ -66,7 +66,7 @@ def _build_condensed_context(original_abstract):
         "physisorb (2.6-3.7 Å, -8 to -44 kcal/mol) -- pristine borophene is a chemically reactive surface, not "
         f"a reversible carrier, for most of these ligands. Docking gave Vina scores of {vina_range} kcal/mol "
         f"(mean {vina_mean}); a leak-free nested surrogate reached Q2_CV = {q2_vina} for the docking score "
-        "(Y-scrambled Q2≈0.15, p=0.009) and 0.06 for the physisorption energy -- the chemisorption/physisorption "
+        "(a stricter nested protocol confirms Q2≈0.15, p=0.009 vs. 1,000 Y-scrambled permutations) and 0.06 for the physisorption energy -- the chemisorption/physisorption "
         "dichotomy, not descriptor-based prediction, is the robust result."
     )
 

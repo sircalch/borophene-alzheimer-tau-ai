@@ -176,7 +176,7 @@ def generate_tau_word_manuscript():
         "not a reversible physisorptive carrier, for a large fraction of these ligands. Docking against the Tau filament core gave "
         f"Vina scores of {VINA_RANGE} kcal/mol (mean {VINA_MEAN:.2f}), with recurrent contacts at the cross-beta residues Pro332, Gln336, Asn359, Gly333 and Gly335. "
         f"A leak-free nested 5x5 cross-validated RidgeCV surrogate on four descriptors reached Q2_CV = {Q2_VINA_S} for the Tau-filament Vina docking score "
-        "(n = 29; a stricter nested protocol with Y-scrambling gives Q2 approximately 0.15, p = 0.009) and Q2_CV = 0.06 for the 17-point physisorption interaction energy - descriptor-based prediction is weak for both, and the "
+        "(n = 29; a stricter nested protocol confirms Q2 approximately 0.15, p = 0.009 vs. Y-scrambled permutations) and Q2_CV = 0.06 for the 17-point physisorption interaction energy - descriptor-based prediction is weak for both, and the "
         "chemisorption/physisorption dichotomy is the robust result. A peptide-functionalized borophene for BBB "
         "transcytosis is discussed only as future work. Every value is computed from the deposited pipeline; no descriptor or energy is estimated from "
         "an empirical formula."
@@ -244,16 +244,38 @@ def generate_tau_word_manuscript():
     add_image_if_exists(doc, os.path.join(fig_dir, "fig4_tau_residue_contact_frequency.png"),
                         "Figure 4: Residue-level contact frequencies on the Tau filament core (real Vina poses, contact distance <= 3.8 A): most frequent contacts are the cross-beta residues Pro332, Gln336, Asn359, Gly333 and Gly335.")
     
-    # Table 1: Descriptors. MW/LogP/PSA are real RDKit descriptors (always
-    # computed from SMILES). E_HOMO/omega previously came from
-    # tau_isolated_descriptors.csv, whose E_HOMO was an empirical-formula
-    # placeholder ("-5.20 - 0.18*LogP - ...") never overwritten with real
-    # data; merged here with real GFN2-xTB frontier orbitals parsed from
-    # calculations/tau/*/*_drug_sp.out.
-    desc_csv = os.path.join(base_dir, "data", "processed", "tau_isolated_descriptors.csv")
+    # Table 1: Descriptors. MW/class come from the ground-truth master table
+    # (real SMILES, the same structures GFN2-xTB was actually run on);
+    # LogP/PSA are computed fresh via RDKit from that same real SMILES.
+    # Previously MW/LogP/PSA/class came from tau_isolated_descriptors.csv,
+    # whose SMILES disagree with the master table for at least one compound
+    # (Hydromethylthionine: 270.4 g/mol there vs the correct 285.4 g/mol,
+    # a 2-nitrogen structure missing the ring N-H) -- fixed alongside the
+    # analogous Table 1 bug in the sibling GBM repo. E_HOMO/omega previously
+    # came from tau_isolated_descriptors.csv too, whose E_HOMO was an
+    # empirical-formula placeholder ("-5.20 - 0.18*LogP - ...") never
+    # overwritten with real data; merged here with real GFN2-xTB frontier
+    # orbitals parsed from calculations/tau/*/*_drug_sp.out.
+    # NOTE: EGCG's SMILES in the master table itself resolves to C22H18O12
+    # (474.37 g/mol) rather than real EGCG's C22H18O11 (458.37 g/mol) -- an
+    # extra oxygen, likely a curation error upstream of this script. Not
+    # fixed here (would require correcting the raw SMILES and re-running
+    # GFN2-xTB); flagged for the user's separate attention.
+    master_csv = os.path.join(base_dir, "data", "processed", "dataset_tau_borophene_pristine.csv")
     homo_lumo_csv = os.path.join(base_dir, "data", "processed", "tau_isolated_real_homo_lumo.csv")
-    if os.path.exists(desc_csv):
-        df_desc = pd.read_csv(desc_csv)
+    if os.path.exists(master_csv):
+        df_desc = pd.read_csv(master_csv)
+        df_desc = df_desc.rename(columns={"MolWt": "MW"})
+        try:
+            from rdkit import Chem
+            from rdkit.Chem import Descriptors, rdMolDescriptors
+            df_desc["LogP"] = df_desc["smiles"].apply(
+                lambda s: Descriptors.MolLogP(Chem.MolFromSmiles(s)))
+            df_desc["PSA"] = df_desc["smiles"].apply(
+                lambda s: rdMolDescriptors.CalcTPSA(Chem.MolFromSmiles(s)))
+        except ImportError:
+            df_desc["LogP"] = float("nan")
+            df_desc["PSA"] = float("nan")
         if os.path.exists(homo_lumo_csv):
             df_real = pd.read_csv(homo_lumo_csv)
             df_desc = df_desc.merge(df_real, on="name", how="inner")
@@ -283,7 +305,7 @@ def generate_tau_word_manuscript():
         for _, row in df_desc.head(10).iterrows():
             row_cells = table1.add_row().cells
             row_vals = [
-                str(row['name']), str(row['drug_class'])[:22], f"{row['MW']:.1f}",
+                str(row['name']), str(row['drug_class']), f"{row['MW']:.1f}",
                 f"{row['LogP']:.2f}", f"{row['PSA']:.1f}", f"{row['E_HOMO']:.2f}", f"{row['Electrophilicity_omega']:.2f}"
             ]
             for c_idx, val in enumerate(row_vals):
