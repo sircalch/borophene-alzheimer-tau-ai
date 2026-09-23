@@ -288,6 +288,17 @@ def generate_tau_word_manuscript():
         r_t1 = p_t1.add_run("Table 1: Physicochemical, Topological, and Quantum CDFT Descriptors for Representative Alzheimer/Tau Therapeutics.")
         r_t1.font.bold = True
         r_t1.font.size = Pt(10)
+        p_t1b = doc.add_paragraph()
+        r_t1b = p_t1b.add_run(
+            "Note: the curated SMILES for EGCG resolves to C22H18O12 (MW 474.4 g/mol) rather than "
+            "authentic epigallocatechin gallate, C22H18O11 (458.4 g/mol) -- an extra hydroxyl/oxygen "
+            "introduced during structure curation. All GFN2-xTB and docking results reported for this "
+            "entry (a physisorber, Delta_E_int,SP = -33 kcal/mol) were computed on the curated structure; "
+            "they should be read as characterizing a close catechin-gallate analogue rather than authentic "
+            "EGCG, and do not affect the chemisorption/physisorption dichotomy that is this study's main finding."
+        )
+        r_t1b.font.italic = True
+        r_t1b.font.size = Pt(8.0)
         
         table1 = doc.add_table(rows=1, cols=7)
         table1.alignment = WD_TABLE_ALIGNMENT.CENTER

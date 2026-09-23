@@ -128,6 +128,15 @@ def generate_supporting_information():
         row += [f"{x['E_HOMO_eV']:.2f}", f"{x['Omega_eV']:.2f}", f"{x['delta_Eint_SP_kcal_mol']:.2f}"]
         rows.append(row)
     _table(doc, hdr, rows)
+    r_note = doc.add_paragraph().add_run(
+        "Note: the curated SMILES for EGCG resolves to C22H18O12 (MW 474.4 g/mol) rather than "
+        "authentic epigallocatechin gallate, C22H18O11 (458.4 g/mol) -- an extra hydroxyl/oxygen "
+        "introduced during structure curation. All values reported for this entry (a physisorber, "
+        "Delta_E_int,SP = -33 kcal/mol) were computed on the curated structure and should be read "
+        "as characterizing a close catechin-gallate analogue rather than authentic EGCG."
+    )
+    r_note.font.italic = True
+    r_note.font.size = Pt(8.0)
 
     _h(doc, "Table S2: Dominant Microstate Formal Charge at pH 7.4 (RDKit, from the curated "
             "SMILES; no external pKa engine was run).")
