@@ -1,0 +1,40 @@
+{
+  "name": "Thioflavin-T",
+  "carrier": "beta12_supported",
+  "poses": [
+    {
+      "angle": 0,
+      "E_Eh": -116.433549406625,
+      "min_contact_A": 3.303
+    },
+    {
+      "angle": 90,
+      "E_Eh": -116.424324477923,
+      "min_contact_A": 3.312
+    },
+    {
+      "angle": 180,
+      "E_Eh": -116.433453252629,
+      "min_contact_A": 3.287
+    },
+    {
+      "angle": 270,
+      "E_Eh": -116.424359981916,
+      "min_contact_A": 3.304
+    }
+  ],
+  "drug_bonds_broken": [],
+  "drug_bonds_formed": [],
+  "drug_intact": true,
+  "drug_carrier_bonds": [],
+  "status": "OK",
+  "best_orientation_deg": 0,
+  "min_contact_A": 3.303,
+  "E_complex_Eh": -116.441171144247,
+  "E_carrier_frozen_Eh": -61.502699054898,
+  "E_drug_frozen_Eh": -54.827470714794,
+  "delta_Eint_kcal_mol": -69.654,
+  "delta_Eads_kcal_mol": -59.776,
+  "adsorption_mode": "physisorption",
+  "seconds": 989.6
+}

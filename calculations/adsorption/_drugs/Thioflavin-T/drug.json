@@ -1,0 +1,9 @@
+{
+  "name": "Thioflavin-T",
+  "charge": 1,
+  "E_drug_Eh": -54.835386799951,
+  "E_HOMO_eV": -12.8573,
+  "E_LUMO_eV": -11.1542,
+  "alpha_au": 216.513676,
+  "xyz": "C:\\Users\\Andre\\Proyectos doctorado\\borophene-alzheimer-tau-ai\\calculations\\adsorption\\_drugs\\Thioflavin-T\\drug_opt.xyz"
+}

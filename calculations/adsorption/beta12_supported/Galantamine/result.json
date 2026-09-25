@@ -1,0 +1,40 @@
+{
+  "name": "Galantamine",
+  "carrier": "beta12_supported",
+  "poses": [
+    {
+      "angle": 0,
+      "E_Eh": -123.784017961445,
+      "min_contact_A": 3.265
+    },
+    {
+      "angle": 90,
+      "E_Eh": -123.78003405578,
+      "min_contact_A": 3.237
+    },
+    {
+      "angle": 180,
+      "E_Eh": -123.782151153902,
+      "min_contact_A": 3.345
+    },
+    {
+      "angle": 270,
+      "E_Eh": -123.779840620944,
+      "min_contact_A": 3.289
+    }
+  ],
+  "drug_bonds_broken": [],
+  "drug_bonds_formed": [],
+  "drug_intact": true,
+  "drug_carrier_bonds": [],
+  "status": "OK",
+  "best_orientation_deg": 0,
+  "min_contact_A": 3.265,
+  "E_complex_Eh": -123.790412749719,
+  "E_carrier_frozen_Eh": -61.502348765604,
+  "E_drug_frozen_Eh": -62.245264572858,
+  "delta_Eint_kcal_mol": -26.857,
+  "delta_Eads_kcal_mol": -21.223,
+  "adsorption_mode": "physisorption",
+  "seconds": 440.8
+}

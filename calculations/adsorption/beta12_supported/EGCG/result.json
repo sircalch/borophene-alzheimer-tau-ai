@@ -1,0 +1,40 @@
+{
+  "name": "EGCG",
+  "carrier": "beta12_supported",
+  "poses": [
+    {
+      "angle": 0,
+      "E_Eh": -162.658117886796,
+      "min_contact_A": 2.919
+    },
+    {
+      "angle": 90,
+      "E_Eh": -162.657817566718,
+      "min_contact_A": 2.927
+    },
+    {
+      "angle": 180,
+      "E_Eh": -162.657534194813,
+      "min_contact_A": 2.826
+    },
+    {
+      "angle": 270,
+      "E_Eh": -162.657963318869,
+      "min_contact_A": 2.903
+    }
+  ],
+  "drug_bonds_broken": [],
+  "drug_bonds_formed": [],
+  "drug_intact": true,
+  "drug_carrier_bonds": [],
+  "status": "OK",
+  "best_orientation_deg": 0,
+  "min_contact_A": 2.919,
+  "E_complex_Eh": -162.664123509375,
+  "E_carrier_frozen_Eh": -61.502094121428,
+  "E_drug_frozen_Eh": -101.078126100862,
+  "delta_Eint_kcal_mol": -52.65,
+  "delta_Eads_kcal_mol": -40.644,
+  "adsorption_mode": "physisorption",
+  "seconds": 752.1
+}

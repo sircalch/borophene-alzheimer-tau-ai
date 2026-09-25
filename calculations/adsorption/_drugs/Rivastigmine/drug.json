@@ -1,0 +1,9 @@
+{
+  "name": "Rivastigmine",
+  "charge": 0,
+  "E_drug_Eh": -55.215021479162,
+  "E_HOMO_eV": -9.4315,
+  "E_LUMO_eV": -6.0285,
+  "alpha_au": 186.130388,
+  "xyz": "C:\\Users\\Andre\\Proyectos doctorado\\borophene-alzheimer-tau-ai\\calculations\\adsorption\\_drugs\\Rivastigmine\\drug_opt.xyz"
+}

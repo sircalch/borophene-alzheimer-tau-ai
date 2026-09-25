@@ -1,0 +1,4 @@
+$constrain
+   force constant=5.0
+   atoms: 1-44
+$end

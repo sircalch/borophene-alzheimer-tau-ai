@@ -1,0 +1,9 @@
+{
+  "name": "Apigenin",
+  "charge": 0,
+  "E_drug_Eh": -57.57097435201,
+  "E_HOMO_eV": -10.4996,
+  "E_LUMO_eV": -7.7814,
+  "alpha_au": 179.431971,
+  "xyz": "C:\\Users\\Andre\\Proyectos doctorado\\borophene-alzheimer-tau-ai\\calculations\\adsorption\\_drugs\\Apigenin\\drug_opt.xyz"
+}

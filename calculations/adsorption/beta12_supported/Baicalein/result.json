@@ -1,0 +1,40 @@
+{
+  "name": "Baicalein",
+  "carrier": "beta12_supported",
+  "poses": [
+    {
+      "angle": 0,
+      "E_Eh": -119.141914817235,
+      "min_contact_A": 3.156
+    },
+    {
+      "angle": 90,
+      "E_Eh": -119.137567826781,
+      "min_contact_A": 3.159
+    },
+    {
+      "angle": 180,
+      "E_Eh": -119.141996286066,
+      "min_contact_A": 3.161
+    },
+    {
+      "angle": 270,
+      "E_Eh": -119.137577000312,
+      "min_contact_A": 3.158
+    }
+  ],
+  "drug_bonds_broken": [],
+  "drug_bonds_formed": [],
+  "drug_intact": true,
+  "drug_carrier_bonds": [],
+  "status": "OK",
+  "best_orientation_deg": 180,
+  "min_contact_A": 3.161,
+  "E_complex_Eh": -119.149096263149,
+  "E_carrier_frozen_Eh": -61.502604362485,
+  "E_drug_frozen_Eh": -57.562170550385,
+  "delta_Eint_kcal_mol": -52.912,
+  "delta_Eads_kcal_mol": -43.894,
+  "adsorption_mode": "physisorption",
+  "seconds": 275.2
+}

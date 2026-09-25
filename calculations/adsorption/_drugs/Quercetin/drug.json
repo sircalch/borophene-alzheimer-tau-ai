@@ -1,0 +1,9 @@
+{
+  "name": "Quercetin",
+  "charge": 0,
+  "E_drug_Eh": -65.720431243939,
+  "E_HOMO_eV": -10.1808,
+  "E_LUMO_eV": -7.8924,
+  "alpha_au": 188.515321,
+  "xyz": "C:\\Users\\Andre\\Proyectos doctorado\\borophene-alzheimer-tau-ai\\calculations\\adsorption\\_drugs\\Quercetin\\drug_opt.xyz"
+}

@@ -1,0 +1,40 @@
+{
+  "name": "Fisetin",
+  "carrier": "beta12_supported",
+  "poses": [
+    {
+      "angle": 0,
+      "E_Eh": -123.211187552915,
+      "min_contact_A": 3.122
+    },
+    {
+      "angle": 90,
+      "E_Eh": -123.205076921035,
+      "min_contact_A": 3.063
+    },
+    {
+      "angle": 180,
+      "E_Eh": -123.211205261703,
+      "min_contact_A": 3.121
+    },
+    {
+      "angle": 270,
+      "E_Eh": -123.205100400373,
+      "min_contact_A": 3.052
+    }
+  ],
+  "drug_bonds_broken": [],
+  "drug_bonds_formed": [],
+  "drug_intact": true,
+  "drug_carrier_bonds": [],
+  "status": "OK",
+  "best_orientation_deg": 180,
+  "min_contact_A": 3.121,
+  "E_complex_Eh": -123.217530346462,
+  "E_carrier_frozen_Eh": -61.503317520112,
+  "E_drug_frozen_Eh": -61.627727979036,
+  "delta_Eint_kcal_mol": -54.27,
+  "delta_Eads_kcal_mol": -44.926,
+  "adsorption_mode": "physisorption",
+  "seconds": 273.0
+}

@@ -1,0 +1,9 @@
+{
+  "name": "Luteolin",
+  "charge": 0,
+  "E_drug_Eh": -61.644180222295,
+  "E_HOMO_eV": -10.4765,
+  "E_LUMO_eV": -7.7848,
+  "alpha_au": 183.988945,
+  "xyz": "C:\\Users\\Andre\\Proyectos doctorado\\borophene-alzheimer-tau-ai\\calculations\\adsorption\\_drugs\\Luteolin\\drug_opt.xyz"
+}

@@ -1,0 +1,29 @@
+{
+  "name": "beta12_supported",
+  "formula": "B44H16",
+  "xyz": "calculations/tau/beta12_flat/u0.xtbopt.xyz",
+  "E_Eh": -61.510526017192,
+  "uhf": 0,
+  "xtb_args": [
+    "--etemp",
+    "1500"
+  ],
+  "fix_elements": [
+    "B"
+  ],
+  "HOMO_eV": -6.5444,
+  "LUMO_eV": -6.5444,
+  "E_singlet_Eh": -61.477074910831,
+  "E_triplet_Eh": -61.473713411408,
+  "lattice_A": {
+    "a": 2.93,
+    "b": 5.07,
+    "d_BB": 1.69
+  },
+  "note": "planar beta12 flake, B fixed (substrate-supported model), H relaxed",
+  "exclude_drugs": [
+    "Thioflavin-S"
+  ],
+  "E_build_Eh": -61.477074910831,
+  "E_ref_source": "lowest restrained re-relaxation of the carrier from 25 physisorbed complexes (best: FDDNP)"
+}

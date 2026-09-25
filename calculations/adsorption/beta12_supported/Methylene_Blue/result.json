@@ -1,0 +1,40 @@
+{
+  "name": "Methylene Blue",
+  "carrier": "beta12_supported",
+  "poses": [
+    {
+      "angle": 0,
+      "E_Eh": -116.717752938216,
+      "min_contact_A": 3.194
+    },
+    {
+      "angle": 90,
+      "E_Eh": -116.709680428826,
+      "min_contact_A": 3.345
+    },
+    {
+      "angle": 180,
+      "E_Eh": -116.717761145009,
+      "min_contact_A": 3.195
+    },
+    {
+      "angle": 270,
+      "E_Eh": -116.709662198433,
+      "min_contact_A": 3.345
+    }
+  ],
+  "drug_bonds_broken": [],
+  "drug_bonds_formed": [],
+  "drug_intact": true,
+  "drug_carrier_bonds": [],
+  "status": "OK",
+  "best_orientation_deg": 180,
+  "min_contact_A": 3.195,
+  "E_complex_Eh": -116.725558045202,
+  "E_carrier_frozen_Eh": -61.499614191883,
+  "E_drug_frozen_Eh": -55.074528552964,
+  "delta_Eint_kcal_mol": -95.015,
+  "delta_Eads_kcal_mol": -81.468,
+  "adsorption_mode": "physisorption",
+  "seconds": 327.6
+}

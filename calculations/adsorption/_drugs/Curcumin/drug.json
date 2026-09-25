@@ -1,0 +1,9 @@
+{
+  "name": "Curcumin",
+  "charge": 0,
+  "E_drug_Eh": -79.508930530311,
+  "E_HOMO_eV": -10.284,
+  "E_LUMO_eV": -8.0547,
+  "alpha_au": 255.435726,
+  "xyz": "C:\\Users\\Andre\\Proyectos doctorado\\borophene-alzheimer-tau-ai\\calculations\\adsorption\\_drugs\\Curcumin\\drug_opt.xyz"
+}

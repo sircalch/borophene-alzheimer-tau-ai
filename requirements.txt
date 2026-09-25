@@ -1,0 +1,16 @@
+# Python 3.12; external programs: xtb 6.7.1 (GFN2-xTB), AutoDock Vina 1.2.7 (src/docking/vina.exe on Windows),
+# PyMOL (open source) for the molecular renders.
+numpy>=1.26
+pandas>=2.1
+scipy>=1.11
+scikit-learn>=1.4
+rdkit>=2024.3
+meeko>=0.5
+pdbfixer>=1.9
+openmm>=8.1
+gemmi>=0.6
+matplotlib>=3.8
+adjustText>=1.1
+pillow>=10.0
+python-docx>=1.1
+requests>=2.31

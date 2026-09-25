@@ -1,0 +1,40 @@
+{
+  "name": "Memantine",
+  "carrier": "beta12_supported",
+  "poses": [
+    {
+      "angle": 0,
+      "E_Eh": -100.912419875707,
+      "min_contact_A": 3.56
+    },
+    {
+      "angle": 90,
+      "E_Eh": -100.914972557547,
+      "min_contact_A": 3.576
+    },
+    {
+      "angle": 180,
+      "E_Eh": -100.912422883787,
+      "min_contact_A": 3.562
+    },
+    {
+      "angle": 270,
+      "E_Eh": -100.914989673995,
+      "min_contact_A": 3.578
+    }
+  ],
+  "drug_bonds_broken": [],
+  "drug_bonds_formed": [],
+  "drug_intact": true,
+  "drug_carrier_bonds": [],
+  "status": "OK",
+  "best_orientation_deg": 270,
+  "min_contact_A": 3.578,
+  "E_complex_Eh": -100.921361496349,
+  "E_carrier_frozen_Eh": -61.502494246276,
+  "E_drug_frozen_Eh": -39.401154902282,
+  "delta_Eint_kcal_mol": -11.115,
+  "delta_Eads_kcal_mol": -6.042,
+  "adsorption_mode": "physisorption",
+  "seconds": 202.4
+}

@@ -1,0 +1,9 @@
+{
+  "name": "Congo Red",
+  "charge": 0,
+  "E_drug_Eh": -129.118382052376,
+  "E_HOMO_eV": -9.287,
+  "E_LUMO_eV": -8.5643,
+  "alpha_au": 450.376088,
+  "xyz": "C:\\Users\\Andre\\Proyectos doctorado\\borophene-alzheimer-tau-ai\\calculations\\adsorption\\_drugs\\Congo_Red\\drug_opt.xyz"
+}

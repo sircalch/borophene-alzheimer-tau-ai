@@ -1,0 +1,9 @@
+{
+  "name": "Fisetin",
+  "charge": 0,
+  "E_drug_Eh": -61.635409478373,
+  "E_HOMO_eV": -10.0782,
+  "E_LUMO_eV": -7.7954,
+  "alpha_au": 183.831281,
+  "xyz": "C:\\Users\\Andre\\Proyectos doctorado\\borophene-alzheimer-tau-ai\\calculations\\adsorption\\_drugs\\Fisetin\\drug_opt.xyz"
+}

@@ -1,0 +1,40 @@
+{
+  "name": "Tacrine",
+  "carrier": "beta12_supported",
+  "poses": [
+    {
+      "angle": 0,
+      "E_Eh": -102.379418522476,
+      "min_contact_A": 3.339
+    },
+    {
+      "angle": 90,
+      "E_Eh": -102.37844682109,
+      "min_contact_A": 3.295
+    },
+    {
+      "angle": 180,
+      "E_Eh": -102.379422498289,
+      "min_contact_A": 3.34
+    },
+    {
+      "angle": 270,
+      "E_Eh": -102.375328398861,
+      "min_contact_A": 3.421
+    }
+  ],
+  "drug_bonds_broken": [],
+  "drug_bonds_formed": [],
+  "drug_intact": true,
+  "drug_carrier_bonds": [],
+  "status": "OK",
+  "best_orientation_deg": 180,
+  "min_contact_A": 3.34,
+  "E_complex_Eh": -102.385934599931,
+  "E_carrier_frozen_Eh": -61.499570908769,
+  "E_drug_frozen_Eh": -40.846402173869,
+  "delta_Eint_kcal_mol": -25.076,
+  "delta_Eads_kcal_mol": -17.636,
+  "adsorption_mode": "physisorption",
+  "seconds": 137.3
+}

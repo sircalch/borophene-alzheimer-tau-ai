@@ -1,0 +1,9 @@
+{
+  "name": "Azure A",
+  "charge": 1,
+  "E_drug_Eh": -48.74764562689,
+  "E_HOMO_eV": -13.3283,
+  "E_LUMO_eV": -12.0229,
+  "alpha_au": 188.731145,
+  "xyz": "C:\\Users\\Andre\\Proyectos doctorado\\borophene-alzheimer-tau-ai\\calculations\\adsorption\\_drugs\\Azure_A\\drug_opt.xyz"
+}

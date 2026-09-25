@@ -1,0 +1,40 @@
+{
+  "name": "Anle138b",
+  "carrier": "beta12_supported",
+  "poses": [
+    {
+      "angle": 0,
+      "E_Eh": -119.480598932731,
+      "min_contact_A": 3.213
+    },
+    {
+      "angle": 90,
+      "E_Eh": -119.47500922899,
+      "min_contact_A": 3.227
+    },
+    {
+      "angle": 180,
+      "E_Eh": -119.480621319084,
+      "min_contact_A": 3.211
+    },
+    {
+      "angle": 270,
+      "E_Eh": -119.475023482387,
+      "min_contact_A": 3.227
+    }
+  ],
+  "drug_bonds_broken": [],
+  "drug_bonds_formed": [],
+  "drug_intact": true,
+  "drug_carrier_bonds": [],
+  "status": "OK",
+  "best_orientation_deg": 180,
+  "min_contact_A": 3.211,
+  "E_complex_Eh": -119.486693864957,
+  "E_carrier_frozen_Eh": -61.503172685917,
+  "E_drug_frozen_Eh": -57.933228722071,
+  "delta_Eint_kcal_mol": -31.559,
+  "delta_Eads_kcal_mol": -26.356,
+  "adsorption_mode": "physisorption",
+  "seconds": 248.3
+}

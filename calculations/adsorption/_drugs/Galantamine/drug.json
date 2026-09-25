@@ -1,0 +1,9 @@
+{
+  "name": "Galantamine",
+  "charge": 0,
+  "E_drug_Eh": -62.246065627427,
+  "E_HOMO_eV": -9.5678,
+  "E_LUMO_eV": -6.1641,
+  "alpha_au": 203.528937,
+  "xyz": "C:\\Users\\Andre\\Proyectos doctorado\\borophene-alzheimer-tau-ai\\calculations\\adsorption\\_drugs\\Galantamine\\drug_opt.xyz"
+}

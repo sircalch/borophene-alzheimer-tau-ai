@@ -1,0 +1,9 @@
+{
+  "name": "Chrysamine G",
+  "charge": 0,
+  "E_drug_Eh": -100.878473912089,
+  "E_HOMO_eV": -9.2027,
+  "E_LUMO_eV": -8.563,
+  "alpha_au": 327.589818,
+  "xyz": "C:\\Users\\Andre\\Proyectos doctorado\\borophene-alzheimer-tau-ai\\calculations\\adsorption\\_drugs\\Chrysamine_G\\drug_opt.xyz"
+}

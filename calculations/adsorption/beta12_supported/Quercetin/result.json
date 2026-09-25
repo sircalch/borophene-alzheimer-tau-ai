@@ -1,0 +1,40 @@
+{
+  "name": "Quercetin",
+  "carrier": "beta12_supported",
+  "poses": [
+    {
+      "angle": 0,
+      "E_Eh": -127.303084611681,
+      "min_contact_A": 3.056
+    },
+    {
+      "angle": 90,
+      "E_Eh": -127.294547080586,
+      "min_contact_A": 3.086
+    },
+    {
+      "angle": 180,
+      "E_Eh": -127.303762125133,
+      "min_contact_A": 3.132
+    },
+    {
+      "angle": 270,
+      "E_Eh": -127.294534056919,
+      "min_contact_A": 3.085
+    }
+  ],
+  "drug_bonds_broken": [],
+  "drug_bonds_formed": [],
+  "drug_intact": true,
+  "drug_carrier_bonds": [],
+  "status": "OK",
+  "best_orientation_deg": 180,
+  "min_contact_A": 3.132,
+  "E_complex_Eh": -127.310779863415,
+  "E_carrier_frozen_Eh": -61.504499699545,
+  "E_drug_frozen_Eh": -65.714221141069,
+  "delta_Eint_kcal_mol": -57.768,
+  "delta_Eads_kcal_mol": -50.089,
+  "adsorption_mode": "physisorption",
+  "seconds": 418.3
+}

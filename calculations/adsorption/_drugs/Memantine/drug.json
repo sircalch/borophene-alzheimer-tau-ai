@@ -1,0 +1,9 @@
+{
+  "name": "Memantine",
+  "charge": 0,
+  "E_drug_Eh": -39.401207715284,
+  "E_HOMO_eV": -9.7429,
+  "E_LUMO_eV": 0.696,
+  "alpha_au": 138.433597,
+  "xyz": "C:\\Users\\Andre\\Proyectos doctorado\\borophene-alzheimer-tau-ai\\calculations\\adsorption\\_drugs\\Memantine\\drug_opt.xyz"
+}

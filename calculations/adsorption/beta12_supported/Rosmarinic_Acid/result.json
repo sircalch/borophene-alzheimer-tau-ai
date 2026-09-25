@@ -1,0 +1,40 @@
+{
+  "name": "Rosmarinic Acid",
+  "carrier": "beta12_supported",
+  "poses": [
+    {
+      "angle": 0,
+      "E_Eh": -140.818521464737,
+      "min_contact_A": 2.868
+    },
+    {
+      "angle": 90,
+      "E_Eh": -140.817266392236,
+      "min_contact_A": 2.762
+    },
+    {
+      "angle": 180,
+      "E_Eh": -140.817645256544,
+      "min_contact_A": 2.86
+    },
+    {
+      "angle": 270,
+      "E_Eh": -140.816532584081,
+      "min_contact_A": 2.78
+    }
+  ],
+  "drug_bonds_broken": [],
+  "drug_bonds_formed": [],
+  "drug_intact": true,
+  "drug_carrier_bonds": [],
+  "status": "OK",
+  "best_orientation_deg": 0,
+  "min_contact_A": 2.868,
+  "E_complex_Eh": -140.824621833167,
+  "E_carrier_frozen_Eh": -61.503036775859,
+  "E_drug_frozen_Eh": -79.233496211428,
+  "delta_Eint_kcal_mol": -55.277,
+  "delta_Eads_kcal_mol": -43.176,
+  "adsorption_mode": "physisorption",
+  "seconds": 793.2
+}

@@ -1,0 +1,40 @@
+{
+  "name": "FDDNP",
+  "carrier": "beta12_supported",
+  "poses": [
+    {
+      "angle": 0,
+      "E_Eh": -121.685509156831,
+      "min_contact_A": 3.333
+    },
+    {
+      "angle": 90,
+      "E_Eh": -121.680850302765,
+      "min_contact_A": 3.241
+    },
+    {
+      "angle": 180,
+      "E_Eh": -121.68565828331,
+      "min_contact_A": 3.329
+    },
+    {
+      "angle": 270,
+      "E_Eh": -121.680903777955,
+      "min_contact_A": 3.244
+    }
+  ],
+  "drug_bonds_broken": [],
+  "drug_bonds_formed": [],
+  "drug_intact": true,
+  "drug_carrier_bonds": [],
+  "status": "OK",
+  "best_orientation_deg": 180,
+  "min_contact_A": 3.329,
+  "E_complex_Eh": -121.692569960093,
+  "E_carrier_frozen_Eh": -61.504527710593,
+  "E_drug_frozen_Eh": -60.117018044017,
+  "delta_Eint_kcal_mol": -44.568,
+  "delta_Eads_kcal_mol": -36.696,
+  "adsorption_mode": "physisorption",
+  "seconds": 817.1
+}

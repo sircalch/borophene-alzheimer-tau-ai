@@ -1,0 +1,44 @@
+{
+  "name": "Chrysamine G",
+  "carrier": "beta12_supported",
+  "poses": [
+    {
+      "angle": 0,
+      "E_Eh": -162.472195573747,
+      "min_contact_A": 3.117
+    },
+    {
+      "angle": 90,
+      "E_Eh": -162.551906190257,
+      "min_contact_A": 1.534
+    },
+    {
+      "angle": 180,
+      "E_Eh": -162.472040053111,
+      "min_contact_A": 3.112
+    },
+    {
+      "angle": 270,
+      "E_Eh": -162.521581512296,
+      "min_contact_A": 1.535
+    }
+  ],
+  "drug_bonds_broken": [],
+  "drug_bonds_formed": [],
+  "drug_intact": true,
+  "drug_carrier_bonds": [
+    "N16-B64",
+    "N17-B66",
+    "N6-B83"
+  ],
+  "status": "OK",
+  "best_orientation_deg": 90,
+  "min_contact_A": 1.534,
+  "E_complex_Eh": -162.564549840072,
+  "E_carrier_frozen_Eh": -61.462949162842,
+  "E_drug_frozen_Eh": -100.802818342273,
+  "delta_Eint_kcal_mol": -187.489,
+  "delta_Eads_kcal_mol": -110.159,
+  "adsorption_mode": "chemisorption",
+  "seconds": 2403.3
+}

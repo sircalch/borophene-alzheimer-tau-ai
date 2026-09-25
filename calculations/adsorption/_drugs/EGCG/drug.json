@@ -1,0 +1,9 @@
+{
+  "name": "EGCG",
+  "charge": 0,
+  "E_drug_Eh": -101.088827376261,
+  "E_HOMO_eV": -10.1539,
+  "E_LUMO_eV": -7.2508,
+  "alpha_au": 281.830296,
+  "xyz": "C:\\Users\\Andre\\Proyectos doctorado\\borophene-alzheimer-tau-ai\\calculations\\adsorption\\_drugs\\EGCG\\drug_opt.xyz"
+}

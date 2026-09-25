@@ -1,0 +1,9 @@
+{
+  "name": "Baicalein",
+  "charge": 0,
+  "E_drug_Eh": -57.568620288404,
+  "E_HOMO_eV": -10.3493,
+  "E_LUMO_eV": -7.8975,
+  "alpha_au": 179.484013,
+  "xyz": "C:\\Users\\Andre\\Proyectos doctorado\\borophene-alzheimer-tau-ai\\calculations\\adsorption\\_drugs\\Baicalein\\drug_opt.xyz"
+}

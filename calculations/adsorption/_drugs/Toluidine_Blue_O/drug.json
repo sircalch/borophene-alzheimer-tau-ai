@@ -1,0 +1,9 @@
+{
+  "name": "Toluidine Blue O",
+  "charge": 1,
+  "E_drug_Eh": -51.920409233741,
+  "E_HOMO_eV": -13.1863,
+  "E_LUMO_eV": -11.9053,
+  "alpha_au": 200.181888,
+  "xyz": "C:\\Users\\Andre\\Proyectos doctorado\\borophene-alzheimer-tau-ai\\calculations\\adsorption\\_drugs\\Toluidine_Blue_O\\drug_opt.xyz"
+}

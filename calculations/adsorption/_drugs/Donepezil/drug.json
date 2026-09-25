@@ -1,0 +1,9 @@
+{
+  "name": "Donepezil",
+  "charge": 0,
+  "E_drug_Eh": -81.324903853183,
+  "E_HOMO_eV": -9.2236,
+  "E_LUMO_eV": -7.2769,
+  "alpha_au": 280.67766,
+  "xyz": "C:\\Users\\Andre\\Proyectos doctorado\\borophene-alzheimer-tau-ai\\calculations\\adsorption\\_drugs\\Donepezil\\drug_opt.xyz"
+}

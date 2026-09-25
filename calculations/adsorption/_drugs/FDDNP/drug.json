@@ -1,0 +1,9 @@
+{
+  "name": "FDDNP",
+  "charge": 0,
+  "E_drug_Eh": -60.123565186095,
+  "E_HOMO_eV": -9.9202,
+  "E_LUMO_eV": -8.145,
+  "alpha_au": 212.369853,
+  "xyz": "C:\\Users\\Andre\\Proyectos doctorado\\borophene-alzheimer-tau-ai\\calculations\\adsorption\\_drugs\\FDDNP\\drug_opt.xyz"
+}

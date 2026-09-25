@@ -1,17 +1,24 @@
 {
-  "title": "Machine Learning-Driven Nano-QSAR and Quantum Chemical Design of Functionalized 2D Borophene Nanocarriers for Alzheimer's Tau-Targeted Therapeutics",
+  "title": "Tau-directed drugs on β12 borophene: docking at the GTP-1 site of Alzheimer paired helical filaments and GFN2-xTB adsorption on a substrate-supported sheet (code and data)",
   "upload_type": "software",
   "access_right": "open",
   "license": "MIT",
   "publication_date": "2026-09-11",
-  "version": "2.0.1",
+  "version": "3.0.0-rc",
   "doi": "10.5281/zenodo.22187834",
-  "description": "<p>Fully reproducible computational pipeline and data archive for the study of pristine beta-12 borophene (B40H15) as a candidate carrier for Alzheimer's Tau-directed therapeutics. Includes: GFN2-xTB relaxed drug/borophene adsorption energetics for 29 ligands, resolving two regimes (12 chemisorb via covalent B-C/B-O bonds, Delta_E_int,SP -81 to -233 kcal/mol; 17 physisorb, -8 to -44 kcal/mol); a single seeded AutoDock Vina v1.2.7 docking run against the cryo-EM Tau paired-helical-filament core (PDB 5O3L) written directly into the master table; a leak-free nested 5x5 cross-validated RidgeCV surrogate with Y-scrambling and OECD Principle 3 applicability domain; and an end-to-end master script (run_entire_tau_study.py). The model-free chemisorption/physisorption dichotomy is the contribution; descriptor-based QSPR is weak for both endpoints. Every value in the manuscript is computed from this pipeline; no descriptor or energy is estimated from an empirical formula. v2.0.0 recomputes the adsorption set with relaxed complexes, repoints docking from 6VHL to the manuscript's 5O3L receptor with a corrected box, and seeds all stochastic steps.</p>",
+  "description": "<p>Reproducible pipeline and data: PubChem-verified structures of 28 tau-directed and Alzheimer drugs; AutoDock Vina 1.2.7 docking at the GTP-1 site of Alzheimer PHF (PDB 8FUG) with four redocking controls; a planar beta12 borophene sheet with boron restrained to the lattice (substrate-supported model); GFN2-xTB adsorption with a bond-integrity check of every complex; ridge QSPR under nested 5x5 cross-validation, Y-scrambling and applicability domain. run_entire_tau_study.py regenerates every number, table and figure.</p>",
   "keywords": [
-    "nano-QSAR", "QSPR", "borophene", "2D boron", "Alzheimer's disease", "tau protein",
-    "paired helical filaments", "amyloid", "GFN2-xTB", "chemisorption", "AutoDock Vina",
-    "molecular docking", "explainable AI", "SHAP", "OECD validation",
-    "2D nanomaterials", "drug delivery", "reproducible research"
+    "tau",
+    "paired helical filament",
+    "Alzheimer's disease",
+    "borophene",
+    "beta12 borophene",
+    "GFN2-xTB",
+    "AutoDock Vina",
+    "molecular docking",
+    "QSPR",
+    "drug delivery",
+    "reproducible research"
   ],
   "creators": [
     {

@@ -1,0 +1,40 @@
+{
+  "name": "Curcumin",
+  "carrier": "beta12_supported",
+  "poses": [
+    {
+      "angle": 0,
+      "E_Eh": -141.081560179485,
+      "min_contact_A": 3.132
+    },
+    {
+      "angle": 90,
+      "E_Eh": -141.071996148258,
+      "min_contact_A": 3.261
+    },
+    {
+      "angle": 180,
+      "E_Eh": -141.081645074883,
+      "min_contact_A": 3.143
+    },
+    {
+      "angle": 270,
+      "E_Eh": -141.062892895165,
+      "min_contact_A": 3.366
+    }
+  ],
+  "drug_bonds_broken": [],
+  "drug_bonds_formed": [],
+  "drug_intact": true,
+  "drug_carrier_bonds": [],
+  "status": "OK",
+  "best_orientation_deg": 180,
+  "min_contact_A": 3.143,
+  "E_complex_Eh": -141.088461651978,
+  "E_carrier_frozen_Eh": -61.502024093979,
+  "E_drug_frozen_Eh": -79.500098368987,
+  "delta_Eint_kcal_mol": -54.179,
+  "delta_Eads_kcal_mol": -43.301,
+  "adsorption_mode": "physisorption",
+  "seconds": 1352.1
+}

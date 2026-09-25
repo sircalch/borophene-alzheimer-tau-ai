@@ -1,0 +1,9 @@
+{
+  "name": "Myricetin",
+  "charge": 0,
+  "E_drug_Eh": -69.793377802551,
+  "E_HOMO_eV": -10.176,
+  "E_LUMO_eV": -7.8867,
+  "alpha_au": 193.107795,
+  "xyz": "C:\\Users\\Andre\\Proyectos doctorado\\borophene-alzheimer-tau-ai\\calculations\\adsorption\\_drugs\\Myricetin\\drug_opt.xyz"
+}

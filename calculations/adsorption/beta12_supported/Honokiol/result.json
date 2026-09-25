@@ -1,0 +1,40 @@
+{
+  "name": "Honokiol",
+  "carrier": "beta12_supported",
+  "poses": [
+    {
+      "angle": 0,
+      "E_Eh": -117.334866482526,
+      "min_contact_A": 3.154
+    },
+    {
+      "angle": 90,
+      "E_Eh": -117.333681458256,
+      "min_contact_A": 2.976
+    },
+    {
+      "angle": 180,
+      "E_Eh": -117.3346886218,
+      "min_contact_A": 3.102
+    },
+    {
+      "angle": 270,
+      "E_Eh": -117.334080968241,
+      "min_contact_A": 3.019
+    }
+  ],
+  "drug_bonds_broken": [],
+  "drug_bonds_formed": [],
+  "drug_intact": true,
+  "drug_carrier_bonds": [],
+  "status": "OK",
+  "best_orientation_deg": 0,
+  "min_contact_A": 3.154,
+  "E_complex_Eh": -117.341467739578,
+  "E_carrier_frozen_Eh": -61.502398558464,
+  "E_drug_frozen_Eh": -55.788277857573,
+  "delta_Eint_kcal_mol": -31.872,
+  "delta_Eads_kcal_mol": -21.449,
+  "adsorption_mode": "physisorption",
+  "seconds": 351.5
+}

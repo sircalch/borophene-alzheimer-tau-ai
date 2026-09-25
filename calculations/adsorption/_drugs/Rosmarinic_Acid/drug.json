@@ -1,0 +1,9 @@
+{
+  "name": "Rosmarinic Acid",
+  "charge": 0,
+  "E_drug_Eh": -79.245290620338,
+  "E_HOMO_eV": -10.1413,
+  "E_LUMO_eV": -7.7361,
+  "alpha_au": 230.307371,
+  "xyz": "C:\\Users\\Andre\\Proyectos doctorado\\borophene-alzheimer-tau-ai\\calculations\\adsorption\\_drugs\\Rosmarinic_Acid\\drug_opt.xyz"
+}

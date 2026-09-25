@@ -1,0 +1,29 @@
+name,carrier,drug_bonds_broken,drug_bonds_formed,drug_intact,drug_carrier_bonds,status,best_orientation_deg,min_contact_A,E_complex_Eh,E_carrier_frozen_Eh,E_drug_frozen_Eh,delta_Eint_kcal_mol,delta_Eads_kcal_mol,adsorption_mode,seconds
+Methylene Blue,beta12_borophene,[],[],True,['N7-B56'],OK,0,1.431,-111.540034613339,-56.251590026738,-55.04838258869,-150.641,-161.754,chemisorption,685.5
+Hydromethylthionine,beta12_borophene,[],[],True,[],OK,90,3.528,-112.277431392665,-56.273851780023,-55.984581012684,-11.922,-59.84,physisorption,686.5
+Azure A,beta12_borophene,[],[],True,['N7-B58'],OK,0,1.479,-105.139311176348,-56.187132071459,-48.708029344648,-153.206,-122.118,chemisorption,550.6
+Toluidine Blue O,beta12_borophene,[],[],True,['N4-B50'],OK,90,1.449,-108.326613207898,-56.172290297022,-51.882955352764,-170.286,-131.241,chemisorption,671.5
+Thioflavin-T,beta12_borophene,[],[],True,['C8-B57'],OK,90,1.63,-111.227739663112,-56.255840458995,-54.750003761825,-139.241,-122.549,chemisorption,850.8
+FDDNP,beta12_borophene,[],[],True,['N4-B54'],OK,90,1.431,-116.513405449177,-56.275764728457,-60.109381929094,-80.484,-120.973,chemisorption,401.3
+Curcumin,beta12_borophene,[],[],True,['O8-B65'],OK,0,1.377,-135.896476119868,-56.251968353198,-79.487748709791,-98.368,-119.533,chemisorption,543.2
+Resveratrol,beta12_borophene,[],[],True,['C5-B44'],OK,0,1.676,-104.529338133806,-56.173992427194,-48.226867143964,-80.622,-37.845,chemisorption,227.3
+EGCG,beta12_borophene,[],[],True,"['C25-B66', 'O27-B67']",OK,0,1.662,-157.463740410607,-56.271199845243,-101.026063500234,-104.466,-111.606,chemisorption,644.9
+Quercetin,beta12_borophene,[],[],True,['O0-B58'],OK,180,1.383,-122.005565712984,-56.145854752859,-65.690064605642,-106.455,-55.269,chemisorption,242.6
+Myricetin,beta12_borophene,[],[],True,[],OK,0,2.98,-126.0583062767,-56.194448107976,-69.790013352816,-46.338,-42.589,physisorption,312.3
+Chrysamine G,beta12_borophene,[],[],True,['N7-B72'],OK,90,1.496,-157.268435077373,-56.251797198691,-100.850860813864,-104.027,-121.048,chemisorption,960.4
+Baicalein,beta12_borophene,[],[],True,['O0-B56'],OK,180,1.372,-113.854103418004,-56.146318572275,-57.538962111671,-105.938,-55.487,chemisorption,327.6
+Apigenin,beta12_borophene,[],[],True,['O0-B56'],OK,180,1.373,-113.853479155838,-56.146835179949,-57.541619024144,-103.555,-53.619,chemisorption,273.5
+Fisetin,beta12_borophene,[],[],True,[],OK,0,2.913,-117.894261585082,-56.195109447178,-61.632336166641,-41.928,-38.776,physisorption,302.2
+Luteolin,beta12_borophene,[],[],True,['O0-B57'],OK,180,1.372,-117.928630407981,-56.146234999646,-61.614982864574,-105.053,-54.839,chemisorption,309.6
+Congo Red,beta12_borophene,[],[],True,[],OK,180,2.754,-185.516550184965,-56.276716618712,-129.104258613352,-85.075,-126.198,physisorption,1309.2
+Rosmarinic Acid,beta12_borophene,[],[],True,['O0-B57'],OK,0,1.413,-135.590833848505,-56.203102758247,-79.212278086243,-110.098,-93.176,chemisorption,645.1
+Honokiol,beta12_borophene,[],[],True,[],OK,270,3.112,-112.112133252224,-56.284312314036,-55.795680009105,-20.169,-74.244,physisorption,477.1
+Anle138b,beta12_borophene,[],[],True,[],OK,270,3.172,-114.247541251842,-56.284474551998,-57.933504206814,-18.551,-72.989,physisorption,508.6
+Tideglusib,beta12_borophene,['S2-N3'],[],False,"['O0-B54', 'S2-B53']",OK,90,1.459,-121.521699421118,-56.239759916771,-65.007699590584,-172.088,-140.608,chemisorption,631.1
+AZD1080,beta12_borophene,[],[],True,[],OK,0,3.099,-126.020439028606,-56.301249530884,-69.691056560403,-17.654,-82.489,physisorption,758.5
+Bexarotene,beta12_borophene,[],[],True,['C0-B69'],OK,90,1.642,-130.128035383297,-56.19718652342,-73.787692503695,-89.832,-59.849,chemisorption,706.9
+Memantine,beta12_borophene,[],[],True,[],OK,270,3.452,-95.719152108711,-56.304867052969,-39.401142499316,-8.247,-75.857,physisorption,1000.5
+Rivastigmine,beta12_borophene,[],[],True,[],OK,90,3.44,-111.54302331252,-56.30459850417,-55.213192126961,-15.834,-82.168,physisorption,1317.5
+Tacrine,beta12_borophene,[],[],True,[],OK,90,3.207,-97.098955927236,-56.21639085114,-40.846895416208,-22.383,-34.258,physisorption,1110.5
+Donepezil,beta12_borophene,[],[],True,['O11-B72'],OK,0,1.422,-137.620987938382,-56.195674570757,-81.309782751313,-72.497,-62.14,chemisorption,1641.2
+Galantamine,beta12_borophene,[],[],True,[],OK,0,2.768,-118.645417875987,-56.373517231358,-62.245649531427,-16.473,-126.941,physisorption,1520.5

@@ -1,0 +1,9 @@
+{
+  "name": "AZD1080",
+  "charge": 0,
+  "E_drug_Eh": -69.691925960026,
+  "E_HOMO_eV": -9.612,
+  "E_LUMO_eV": -7.2599,
+  "alpha_au": 237.437918,
+  "xyz": "C:\\Users\\Andre\\Proyectos doctorado\\borophene-alzheimer-tau-ai\\calculations\\adsorption\\_drugs\\AZD1080\\drug_opt.xyz"
+}

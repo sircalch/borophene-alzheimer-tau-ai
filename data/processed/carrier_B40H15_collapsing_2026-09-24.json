@@ -1,0 +1,11 @@
+{
+  "name": "beta12_borophene",
+  "formula": "B40H15",
+  "xyz": "calculations/tau/beta12_B40H15_doublet_optimized.xyz",
+  "E_Eh": -56.197058230379,
+  "uhf": 1,
+  "xtb_args": ["--etemp", "1500"],
+  "n_imaginary": 0,
+  "note": "135 electrons: doublet. Earlier runs used uhf 0.",
+  "exclude_drugs": ["Thioflavin-S"]
+}

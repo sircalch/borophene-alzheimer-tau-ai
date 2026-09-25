@@ -1,8 +1,0 @@
-# keep only the machine-readable results + final geometries
-*
-!.gitignore
-!results.csv
-!*/
-!*/result.json
-!*/complex_opt.xyz
-!*/drug_opt.xyz

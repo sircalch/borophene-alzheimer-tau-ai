@@ -1,0 +1,9 @@
+{
+  "name": "Bexarotene",
+  "charge": 0,
+  "E_drug_Eh": -73.835602469501,
+  "E_HOMO_eV": -10.2721,
+  "E_LUMO_eV": -7.5537,
+  "alpha_au": 270.236612,
+  "xyz": "C:\\Users\\Andre\\Proyectos doctorado\\borophene-alzheimer-tau-ai\\calculations\\adsorption\\_drugs\\Bexarotene\\drug_opt.xyz"
+}

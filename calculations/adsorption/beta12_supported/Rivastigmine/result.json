@@ -1,0 +1,40 @@
+{
+  "name": "Rivastigmine",
+  "carrier": "beta12_supported",
+  "poses": [
+    {
+      "angle": 0,
+      "E_Eh": -116.744380753111,
+      "min_contact_A": 3.338
+    },
+    {
+      "angle": 90,
+      "E_Eh": -116.741503729891,
+      "min_contact_A": 3.277
+    },
+    {
+      "angle": 180,
+      "E_Eh": -116.739213135719,
+      "min_contact_A": 3.342
+    },
+    {
+      "angle": 270,
+      "E_Eh": -116.741477437582,
+      "min_contact_A": 3.275
+    }
+  ],
+  "drug_bonds_broken": [],
+  "drug_bonds_formed": [],
+  "drug_intact": true,
+  "drug_carrier_bonds": [],
+  "status": "OK",
+  "best_orientation_deg": 0,
+  "min_contact_A": 3.338,
+  "E_complex_Eh": -116.750095865287,
+  "E_carrier_frozen_Eh": -61.503219105775,
+  "E_drug_frozen_Eh": -55.214541122508,
+  "delta_Eint_kcal_mol": -20.291,
+  "delta_Eads_kcal_mol": -15.404,
+  "adsorption_mode": "physisorption",
+  "seconds": 440.5
+}

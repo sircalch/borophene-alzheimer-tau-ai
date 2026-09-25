@@ -1,0 +1,9 @@
+{
+  "name": "Anle138b",
+  "charge": 0,
+  "E_drug_Eh": -57.934167097786,
+  "E_HOMO_eV": -10.3582,
+  "E_LUMO_eV": -7.175,
+  "alpha_au": 209.857925,
+  "xyz": "C:\\Users\\Andre\\Proyectos doctorado\\borophene-alzheimer-tau-ai\\calculations\\adsorption\\_drugs\\Anle138b\\drug_opt.xyz"
+}

@@ -1,0 +1,40 @@
+{
+  "name": "Azure A",
+  "carrier": "beta12_supported",
+  "poses": [
+    {
+      "angle": 0,
+      "E_Eh": -110.388425640914,
+      "min_contact_A": 3.27
+    },
+    {
+      "angle": 90,
+      "E_Eh": -110.378627420741,
+      "min_contact_A": 3.246
+    },
+    {
+      "angle": 180,
+      "E_Eh": -110.388846407712,
+      "min_contact_A": 3.277
+    },
+    {
+      "angle": 270,
+      "E_Eh": -110.378609410563,
+      "min_contact_A": 3.246
+    }
+  ],
+  "drug_bonds_broken": [],
+  "drug_bonds_formed": [],
+  "drug_intact": true,
+  "drug_carrier_bonds": [],
+  "status": "OK",
+  "best_orientation_deg": 180,
+  "min_contact_A": 3.277,
+  "E_complex_Eh": -110.396365708255,
+  "E_carrier_frozen_Eh": -61.503423739814,
+  "E_drug_frozen_Eh": -48.735048865954,
+  "delta_Eint_kcal_mol": -99.079,
+  "delta_Eads_kcal_mol": -86.718,
+  "adsorption_mode": "physisorption",
+  "seconds": 312.8
+}

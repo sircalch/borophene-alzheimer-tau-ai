@@ -1,0 +1,9 @@
+{
+  "name": "Hydromethylthionine",
+  "charge": 0,
+  "E_drug_Eh": -55.98501222207,
+  "E_HOMO_eV": -8.4025,
+  "E_LUMO_eV": -5.8804,
+  "alpha_au": 219.583252,
+  "xyz": "C:\\Users\\Andre\\Proyectos doctorado\\borophene-alzheimer-tau-ai\\calculations\\adsorption\\_drugs\\Hydromethylthionine\\drug_opt.xyz"
+}

@@ -1,0 +1,29 @@
+name,carrier,drug_bonds_broken,drug_bonds_formed,drug_intact,drug_carrier_bonds,status,best_orientation_deg,min_contact_A,E_complex_Eh,E_carrier_frozen_Eh,E_drug_frozen_Eh,delta_Eint_kcal_mol,delta_Eads_kcal_mol,adsorption_mode,seconds
+Azure A,beta12_supported,[],[],True,[],OK,180,3.277,-110.396365708255,-61.503423739814,-48.735048865954,-99.079,-86.718,physisorption,312.8
+Methylene Blue,beta12_supported,[],[],True,[],OK,180,3.195,-116.725558045202,-61.499614191883,-55.074528552964,-95.015,-81.468,physisorption,327.6
+Toluidine Blue O,beta12_supported,[],[],True,[],OK,0,3.307,-113.565912396189,-61.502531469973,-51.907784437548,-97.638,-84.699,physisorption,343.7
+Hydromethylthionine,beta12_supported,[],[],True,[],OK,180,3.398,-117.531479356137,-61.502085052374,-55.984268233809,-28.317,-22.553,physisorption,515.7
+Thioflavin-T,beta12_supported,[],[],True,[],OK,0,3.303,-116.441171144247,-61.502699054898,-54.827470714794,-69.654,-59.776,physisorption,989.6
+FDDNP,beta12_supported,[],[],True,[],OK,180,3.329,-121.692569960093,-61.504527710593,-60.117018044017,-44.568,-36.696,physisorption,817.1
+EGCG,beta12_supported,[],[],True,[],OK,0,2.919,-162.664123509375,-61.502094121428,-101.078126100862,-52.65,-40.644,physisorption,752.1
+Resveratrol,beta12_supported,[],[],True,[],OK,0,3.224,-109.827694033942,-61.502348766548,-48.26939325151,-35.11,-28.362,physisorption,227.0
+Curcumin,beta12_supported,[],[],True,[],OK,180,3.143,-141.088461651978,-61.502024093979,-79.500098368987,-54.179,-43.301,physisorption,1352.1
+Quercetin,beta12_supported,[],[],True,[],OK,180,3.132,-127.310779863415,-61.504499699545,-65.714221141069,-57.768,-50.089,physisorption,418.3
+Chrysamine G,beta12_supported,[],[],True,"['N16-B64', 'N17-B66', 'N6-B83']",OK,90,1.534,-162.564549840072,-61.462949162842,-100.802818342273,-187.489,-110.159,chemisorption,2403.3
+Myricetin,beta12_supported,[],[],True,[],OK,180,3.228,-131.385663430206,-61.504400244507,-69.788082699677,-58.472,-51.305,physisorption,148.2
+Baicalein,beta12_supported,[],[],True,[],OK,180,3.161,-119.149096263149,-61.502604362485,-57.562170550385,-52.912,-43.894,physisorption,275.2
+Congo Red,beta12_supported,['O21-H53'],[],False,"['H53-B71', 'O19-B70']",OK,90,1.541,-190.796360011629,-61.482413710808,-128.943439787742,-232.496,-105.078,chemisorption,2720.1
+Fisetin,beta12_supported,[],[],True,[],OK,180,3.121,-123.217530346462,-61.503317520112,-61.627727979036,-54.27,-44.926,physisorption,273.0
+Luteolin,beta12_supported,[],[],True,[],OK,0,3.12,-123.226056456097,-61.502271213294,-61.635257060586,-55.552,-44.773,physisorption,236.5
+Apigenin,beta12_supported,[],[],True,[],OK,180,3.137,-119.146923649928,-61.502547838302,-57.565337919641,-49.597,-41.054,physisorption,281.9
+Honokiol,beta12_supported,[],[],True,[],OK,0,3.154,-117.341467739578,-61.502398558464,-55.788277857573,-31.872,-21.449,physisorption,351.5
+Anle138b,beta12_supported,[],[],True,[],OK,180,3.211,-119.486693864957,-61.503172685917,-57.933228722071,-31.559,-26.356,physisorption,248.3
+Rosmarinic Acid,beta12_supported,[],[],True,[],OK,0,2.868,-140.824621833167,-61.503036775859,-79.233496211428,-55.277,-43.176,physisorption,793.2
+Tideglusib,beta12_supported,['S2-N3'],[],False,['S2-B63'],OK,180,2.151,-126.677696079671,-61.496379654785,-64.990106626664,-119.986,-41.793,chemisorption,522.3
+Bexarotene,beta12_supported,[],[],True,[],OK,90,3.127,-135.378399041051,-61.502475091218,-73.832588076516,-27.194,-20.25,physisorption,386.9
+Donepezil,beta12_supported,[],[],True,[],OK,0,3.207,-142.878598621254,-61.499370883068,-81.322758946564,-35.435,-27.089,physisorption,578.4
+Rivastigmine,beta12_supported,[],[],True,[],OK,0,3.338,-116.750095865287,-61.503219105775,-55.214541122508,-20.291,-15.404,physisorption,440.5
+Memantine,beta12_supported,[],[],True,[],OK,270,3.578,-100.921361496349,-61.502494246276,-39.401154902282,-11.115,-6.042,physisorption,202.4
+AZD1080,beta12_supported,[],[],True,[],OK,270,3.125,-131.245495327757,-61.502125396744,-69.690689749148,-33.057,-27.01,physisorption,904.5
+Galantamine,beta12_supported,[],[],True,[],OK,0,3.265,-123.790412749719,-61.502348765604,-62.245264572858,-26.857,-21.223,physisorption,440.8
+Tacrine,beta12_supported,[],[],True,[],OK,180,3.34,-102.385934599931,-61.499570908769,-40.846402173869,-25.076,-17.636,physisorption,137.3

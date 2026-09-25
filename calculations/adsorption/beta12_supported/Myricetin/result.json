@@ -1,0 +1,40 @@
+{
+  "name": "Myricetin",
+  "carrier": "beta12_supported",
+  "poses": [
+    {
+      "angle": 0,
+      "E_Eh": -131.37876984578,
+      "min_contact_A": 3.214
+    },
+    {
+      "angle": 90,
+      "E_Eh": -131.371592461035,
+      "min_contact_A": 3.092
+    },
+    {
+      "angle": 180,
+      "E_Eh": -131.378776239626,
+      "min_contact_A": 3.228
+    },
+    {
+      "angle": 270,
+      "E_Eh": -131.371546700839,
+      "min_contact_A": 3.094
+    }
+  ],
+  "drug_bonds_broken": [],
+  "drug_bonds_formed": [],
+  "drug_intact": true,
+  "drug_carrier_bonds": [],
+  "status": "OK",
+  "best_orientation_deg": 180,
+  "min_contact_A": 3.228,
+  "E_complex_Eh": -131.385663430206,
+  "E_carrier_frozen_Eh": -61.504400244507,
+  "E_drug_frozen_Eh": -69.788082699677,
+  "delta_Eint_kcal_mol": -58.472,
+  "delta_Eads_kcal_mol": -51.305,
+  "adsorption_mode": "physisorption",
+  "seconds": 148.2
+}

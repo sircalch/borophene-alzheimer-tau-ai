@@ -1,0 +1,9 @@
+{
+  "name": "Tideglusib",
+  "charge": 0,
+  "E_drug_Eh": -65.100568590226,
+  "E_HOMO_eV": -10.5191,
+  "E_LUMO_eV": -7.7068,
+  "alpha_au": 242.125972,
+  "xyz": "C:\\Users\\Andre\\Proyectos doctorado\\borophene-alzheimer-tau-ai\\calculations\\adsorption\\_drugs\\Tideglusib\\drug_opt.xyz"
+}

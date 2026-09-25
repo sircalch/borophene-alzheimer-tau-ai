@@ -1,0 +1,40 @@
+{
+  "name": "Donepezil",
+  "carrier": "beta12_supported",
+  "poses": [
+    {
+      "angle": 0,
+      "E_Eh": -142.872220674755,
+      "min_contact_A": 3.207
+    },
+    {
+      "angle": 90,
+      "E_Eh": -142.867317743232,
+      "min_contact_A": 3.304
+    },
+    {
+      "angle": 180,
+      "E_Eh": -142.872091941066,
+      "min_contact_A": 3.215
+    },
+    {
+      "angle": 270,
+      "E_Eh": -142.868027969081,
+      "min_contact_A": 3.341
+    }
+  ],
+  "drug_bonds_broken": [],
+  "drug_bonds_formed": [],
+  "drug_intact": true,
+  "drug_carrier_bonds": [],
+  "status": "OK",
+  "best_orientation_deg": 0,
+  "min_contact_A": 3.207,
+  "E_complex_Eh": -142.878598621254,
+  "E_carrier_frozen_Eh": -61.499370883068,
+  "E_drug_frozen_Eh": -81.322758946564,
+  "delta_Eint_kcal_mol": -35.435,
+  "delta_Eads_kcal_mol": -27.089,
+  "adsorption_mode": "physisorption",
+  "seconds": 578.4
+}

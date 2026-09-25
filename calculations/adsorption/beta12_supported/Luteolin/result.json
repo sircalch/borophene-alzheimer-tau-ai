@@ -1,0 +1,40 @@
+{
+  "name": "Luteolin",
+  "carrier": "beta12_supported",
+  "poses": [
+    {
+      "angle": 0,
+      "E_Eh": -123.219143641413,
+      "min_contact_A": 3.12
+    },
+    {
+      "angle": 90,
+      "E_Eh": -123.212137071589,
+      "min_contact_A": 3.261
+    },
+    {
+      "angle": 180,
+      "E_Eh": -123.219084422162,
+      "min_contact_A": 3.103
+    },
+    {
+      "angle": 270,
+      "E_Eh": -123.212156090339,
+      "min_contact_A": 3.267
+    }
+  ],
+  "drug_bonds_broken": [],
+  "drug_bonds_formed": [],
+  "drug_intact": true,
+  "drug_carrier_bonds": [],
+  "status": "OK",
+  "best_orientation_deg": 0,
+  "min_contact_A": 3.12,
+  "E_complex_Eh": -123.226056456097,
+  "E_carrier_frozen_Eh": -61.502271213294,
+  "E_drug_frozen_Eh": -61.635257060586,
+  "delta_Eint_kcal_mol": -55.552,
+  "delta_Eads_kcal_mol": -44.773,
+  "adsorption_mode": "physisorption",
+  "seconds": 236.5
+}

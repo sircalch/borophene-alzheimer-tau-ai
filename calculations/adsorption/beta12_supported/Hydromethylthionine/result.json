@@ -1,0 +1,40 @@
+{
+  "name": "Hydromethylthionine",
+  "carrier": "beta12_supported",
+  "poses": [
+    {
+      "angle": 0,
+      "E_Eh": -117.52514249592,
+      "min_contact_A": 3.388
+    },
+    {
+      "angle": 90,
+      "E_Eh": -117.518653564875,
+      "min_contact_A": 3.419
+    },
+    {
+      "angle": 180,
+      "E_Eh": -117.525235091352,
+      "min_contact_A": 3.398
+    },
+    {
+      "angle": 270,
+      "E_Eh": -117.51864834178,
+      "min_contact_A": 3.419
+    }
+  ],
+  "drug_bonds_broken": [],
+  "drug_bonds_formed": [],
+  "drug_intact": true,
+  "drug_carrier_bonds": [],
+  "status": "OK",
+  "best_orientation_deg": 180,
+  "min_contact_A": 3.398,
+  "E_complex_Eh": -117.531479356137,
+  "E_carrier_frozen_Eh": -61.502085052374,
+  "E_drug_frozen_Eh": -55.984268233809,
+  "delta_Eint_kcal_mol": -28.317,
+  "delta_Eads_kcal_mol": -22.553,
+  "adsorption_mode": "physisorption",
+  "seconds": 515.7
+}

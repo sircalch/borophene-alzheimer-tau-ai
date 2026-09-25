@@ -1,0 +1,9 @@
+{
+  "name": "Resveratrol",
+  "charge": 0,
+  "E_drug_Eh": -48.271969716065,
+  "E_HOMO_eV": -9.897,
+  "E_LUMO_eV": -7.1936,
+  "alpha_au": 166.439656,
+  "xyz": "C:\\Users\\Andre\\Proyectos doctorado\\borophene-alzheimer-tau-ai\\calculations\\adsorption\\_drugs\\Resveratrol\\drug_opt.xyz"
+}

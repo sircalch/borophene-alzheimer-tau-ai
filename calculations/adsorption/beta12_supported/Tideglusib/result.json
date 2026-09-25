@@ -1,0 +1,44 @@
+{
+  "name": "Tideglusib",
+  "carrier": "beta12_supported",
+  "poses": [
+    {
+      "angle": 0,
+      "E_Eh": -126.667153114305,
+      "min_contact_A": 2.151
+    },
+    {
+      "angle": 90,
+      "E_Eh": -126.654316874842,
+      "min_contact_A": 3.13
+    },
+    {
+      "angle": 180,
+      "E_Eh": -126.667249381783,
+      "min_contact_A": 2.151
+    },
+    {
+      "angle": 270,
+      "E_Eh": -126.654339858222,
+      "min_contact_A": 3.128
+    }
+  ],
+  "drug_bonds_broken": [
+    "S2-N3"
+  ],
+  "drug_bonds_formed": [],
+  "drug_intact": false,
+  "drug_carrier_bonds": [
+    "S2-B63"
+  ],
+  "status": "OK",
+  "best_orientation_deg": 180,
+  "min_contact_A": 2.151,
+  "E_complex_Eh": -126.677696079671,
+  "E_carrier_frozen_Eh": -61.496379654785,
+  "E_drug_frozen_Eh": -64.990106626664,
+  "delta_Eint_kcal_mol": -119.986,
+  "delta_Eads_kcal_mol": -41.793,
+  "adsorption_mode": "chemisorption",
+  "seconds": 522.3
+}

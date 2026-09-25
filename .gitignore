@@ -35,3 +35,23 @@ Thumbs.db
 *.swp
 *.swo
 figures/_pm_cache/
+# Temporary / Scratch QM calculation dirs (large scratch scratch files)
+scratch/qm_calcs_*/
+scratch/test_*.xyz
+scratch/*.tmp
+charges
+wbo
+xtbrestart
+xtbtopo.mol
+# xtb scratch written into the working directory
+*.xtbrestart
+gfnff_topo
+# optimisation trajectories and xtb restart files (large; final geometries and outputs are kept)
+calculations/**/*.xtbopt.log
+calculations/**/.xtboptok
+calculations/**/xtbrestart
+calculations/**/wbo
+calculations/**/charges
+calculations/**/*.xtbrestart
+# restrained-carrier scratch
+calculations/tau/**/*.xtbrestart

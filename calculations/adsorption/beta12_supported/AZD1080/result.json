@@ -1,0 +1,40 @@
+{
+  "name": "AZD1080",
+  "carrier": "beta12_supported",
+  "poses": [
+    {
+      "angle": 0,
+      "E_Eh": -131.237931005715,
+      "min_contact_A": 3.132
+    },
+    {
+      "angle": 90,
+      "E_Eh": -131.238501330532,
+      "min_contact_A": 3.112
+    },
+    {
+      "angle": 180,
+      "E_Eh": -131.237923327731,
+      "min_contact_A": 3.137
+    },
+    {
+      "angle": 270,
+      "E_Eh": -131.23906971771,
+      "min_contact_A": 3.125
+    }
+  ],
+  "drug_bonds_broken": [],
+  "drug_bonds_formed": [],
+  "drug_intact": true,
+  "drug_carrier_bonds": [],
+  "status": "OK",
+  "best_orientation_deg": 270,
+  "min_contact_A": 3.125,
+  "E_complex_Eh": -131.245495327757,
+  "E_carrier_frozen_Eh": -61.502125396744,
+  "E_drug_frozen_Eh": -69.690689749148,
+  "delta_Eint_kcal_mol": -33.057,
+  "delta_Eads_kcal_mol": -27.01,
+  "adsorption_mode": "physisorption",
+  "seconds": 904.5
+}

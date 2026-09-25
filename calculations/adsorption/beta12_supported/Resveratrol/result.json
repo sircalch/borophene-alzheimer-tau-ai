@@ -1,0 +1,40 @@
+{
+  "name": "Resveratrol",
+  "carrier": "beta12_supported",
+  "poses": [
+    {
+      "angle": 0,
+      "E_Eh": -109.821021425519,
+      "min_contact_A": 3.224
+    },
+    {
+      "angle": 90,
+      "E_Eh": -109.816917986077,
+      "min_contact_A": 3.31
+    },
+    {
+      "angle": 180,
+      "E_Eh": -109.820972847144,
+      "min_contact_A": 3.224
+    },
+    {
+      "angle": 270,
+      "E_Eh": -109.816987092084,
+      "min_contact_A": 3.309
+    }
+  ],
+  "drug_bonds_broken": [],
+  "drug_bonds_formed": [],
+  "drug_intact": true,
+  "drug_carrier_bonds": [],
+  "status": "OK",
+  "best_orientation_deg": 0,
+  "min_contact_A": 3.224,
+  "E_complex_Eh": -109.827694033942,
+  "E_carrier_frozen_Eh": -61.502348766548,
+  "E_drug_frozen_Eh": -48.26939325151,
+  "delta_Eint_kcal_mol": -35.11,
+  "delta_Eads_kcal_mol": -28.362,
+  "adsorption_mode": "physisorption",
+  "seconds": 227.0
+}

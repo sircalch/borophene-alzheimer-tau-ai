@@ -1,0 +1,45 @@
+{
+  "name": "Congo Red",
+  "carrier": "beta12_supported",
+  "poses": [
+    {
+      "angle": 0,
+      "E_Eh": -190.743958574707,
+      "min_contact_A": 2.765
+    },
+    {
+      "angle": 90,
+      "E_Eh": -190.786607850564,
+      "min_contact_A": 1.541
+    },
+    {
+      "angle": 180,
+      "E_Eh": -190.735071675444,
+      "min_contact_A": 2.818
+    },
+    {
+      "angle": 270,
+      "E_Eh": -190.729437252796,
+      "min_contact_A": 2.817
+    }
+  ],
+  "drug_bonds_broken": [
+    "O21-H53"
+  ],
+  "drug_bonds_formed": [],
+  "drug_intact": false,
+  "drug_carrier_bonds": [
+    "H53-B71",
+    "O19-B70"
+  ],
+  "status": "OK",
+  "best_orientation_deg": 90,
+  "min_contact_A": 1.541,
+  "E_complex_Eh": -190.796360011629,
+  "E_carrier_frozen_Eh": -61.482413710808,
+  "E_drug_frozen_Eh": -128.943439787742,
+  "delta_Eint_kcal_mol": -232.496,
+  "delta_Eads_kcal_mol": -105.078,
+  "adsorption_mode": "chemisorption",
+  "seconds": 2720.1
+}

@@ -1,0 +1,40 @@
+{
+  "name": "Bexarotene",
+  "carrier": "beta12_supported",
+  "poses": [
+    {
+      "angle": 0,
+      "E_Eh": -135.371095919737,
+      "min_contact_A": 3.275
+    },
+    {
+      "angle": 90,
+      "E_Eh": -135.371827580924,
+      "min_contact_A": 3.127
+    },
+    {
+      "angle": 180,
+      "E_Eh": -135.371099809888,
+      "min_contact_A": 3.276
+    },
+    {
+      "angle": 270,
+      "E_Eh": -135.371430209664,
+      "min_contact_A": 3.15
+    }
+  ],
+  "drug_bonds_broken": [],
+  "drug_bonds_formed": [],
+  "drug_intact": true,
+  "drug_carrier_bonds": [],
+  "status": "OK",
+  "best_orientation_deg": 90,
+  "min_contact_A": 3.127,
+  "E_complex_Eh": -135.378399041051,
+  "E_carrier_frozen_Eh": -61.502475091218,
+  "E_drug_frozen_Eh": -73.832588076516,
+  "delta_Eint_kcal_mol": -27.194,
+  "delta_Eads_kcal_mol": -20.25,
+  "adsorption_mode": "physisorption",
+  "seconds": 386.9
+}

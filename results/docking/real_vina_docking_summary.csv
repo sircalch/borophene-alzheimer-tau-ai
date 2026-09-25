@@ -1,30 +1,29 @@
-name,drug_class,drugbank_id,Real_Vina_Docking_Score_kcal_mol,Pose_File,Log_File
-Azure A,Phenothiazine Metabolite,DB_AzA,-4.488,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\Azure_A_out.pdbqt,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\Azure_A_vina.log
-Toluidine Blue O,Phenothiazine Diagnostic,DB_TBO,-4.546,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\Toluidine_Blue_O_out.pdbqt,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\Toluidine_Blue_O_vina.log
-Methylene Blue,Phenothiazine / Tau Inhibitor,DB09241,-4.611,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\Methylene_Blue_out.pdbqt,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\Methylene_Blue_vina.log
-Hydromethylthionine,Reduced Phenothiazine / LMTX,DB13952,-4.693,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\Hydromethylthionine_out.pdbqt,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\Hydromethylthionine_vina.log
-Thioflavin-S,Amyloid Diagnostic Dye,DB_ThS,-4.585,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\Thioflavin-S_out.pdbqt,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\Thioflavin-S_vina.log
-Thioflavin-T,Amyloid/Tau Diagnostic Dye,DB_ThT,-4.543,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\Thioflavin-T_out.pdbqt,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\Thioflavin-T_vina.log
-FDDNP,PET Amyloid/Tau Radiotracer,DB_FDDNP,-4.114,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\FDDNP_out.pdbqt,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\FDDNP_vina.log
-Curcumin,Natural Polyphenol,DB02741,-5.143,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\Curcumin_out.pdbqt,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\Curcumin_vina.log
-Chrysamine G,Congo Red Derivative,DB_ChG,-5.807,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\Chrysamine_G_out.pdbqt,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\Chrysamine_G_vina.log
-Resveratrol,Stilbenoid Antioxidant,DB02709,-4.289,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\Resveratrol_out.pdbqt,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\Resveratrol_vina.log
-Quercetin,Flavonol / Tau Aggregation Inhibitor,DB04216,-4.885,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\Quercetin_out.pdbqt,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\Quercetin_vina.log
-Myricetin,Hexahydroxyflavone,DB_Myr,-4.486,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\Myricetin_out.pdbqt,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\Myricetin_vina.log
-Baicalein,Flavone / Anti-Tau Fibril,DB_Bai,-4.876,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\Baicalein_out.pdbqt,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\Baicalein_vina.log
-Fisetin,Tetrahydroxyflavone,DB_Fis,-4.916,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\Fisetin_out.pdbqt,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\Fisetin_vina.log
-EGCG,Green Tea Catechin,DB03603,-4.975,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\EGCG_out.pdbqt,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\EGCG_vina.log
-Apigenin,Trihydroxyflavone,DB_Api,-4.839,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\Apigenin_out.pdbqt,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\Apigenin_vina.log
-Luteolin,Tetrahydroxyflavone,DB_Lut,-4.886,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\Luteolin_out.pdbqt,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\Luteolin_vina.log
-Anle138b,Oligomer Modulator,DB_Anle,-4.679,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\Anle138b_out.pdbqt,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\Anle138b_vina.log
-Congo Red,Histological Amyloid Stain,DB_CR,-6.749,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\Congo_Red_out.pdbqt,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\Congo_Red_vina.log
-Honokiol,Lignan / Neuroprotective Polyphenol,DB_Hon,-4.264,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\Honokiol_out.pdbqt,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\Honokiol_vina.log
-AZD1080,Selective GSK-3 Inhibitor,DB12488,-4.826,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\AZD1080_out.pdbqt,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\AZD1080_vina.log
-Tideglusib,GSK-3beta Inhibitor,DB12129,-4.52,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\Tideglusib_out.pdbqt,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\Tideglusib_vina.log
-Rosmarinic Acid,Polyphenolic Ester,DB_Ros,-4.842,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\Rosmarinic_Acid_out.pdbqt,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\Rosmarinic_Acid_vina.log
-Bexarotene,RXR Agonist / Clearance Enhancer,DB00396,-5.29,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\Bexarotene_out.pdbqt,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\Bexarotene_vina.log
-Memantine,NMDA Receptor Antagonist,DB00729,-3.861,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\Memantine_out.pdbqt,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\Memantine_vina.log
-Rivastigmine,Dual AChE/BuChE Inhibitor,DB00989,-3.87,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\Rivastigmine_out.pdbqt,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\Rivastigmine_vina.log
-Tacrine,Classical AChE Inhibitor,DB00141,-4.272,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\Tacrine_out.pdbqt,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\Tacrine_vina.log
-Galantamine,Allosteric AChE Modulator,DB00674,-3.763,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\Galantamine_out.pdbqt,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\Galantamine_vina.log
-Donepezil,AChE Inhibitor,DB00843,-5.682,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\Donepezil_out.pdbqt,C:\Users\Andre\Proyectos doctorado\borophene-alzheimer-tau-ai\results\docking\real_poses\Donepezil_vina.log
+name,class,vina_8FUG_kcal_mol,ligand_efficiency,n_ring_conformers,pose_file
+Methylene Blue,Phenothiazine / Tau Inhibitor,-7.05,0.3525,1,results/docking/real_poses/Methylene_Blue_out.pdbqt
+Hydromethylthionine,Reduced Phenothiazine / LMTX,-7.081,0.3541,1,results/docking/real_poses/Hydromethylthionine_out.pdbqt
+Azure A,Phenothiazine Metabolite,-6.932,0.3851,1,results/docking/real_poses/Azure_A_out.pdbqt
+Toluidine Blue O,Phenothiazine Diagnostic,-7.421,0.3906,1,results/docking/real_poses/Toluidine_Blue_O_out.pdbqt
+Thioflavin-T,Amyloid/Tau Diagnostic Dye,-7.403,0.3701,1,results/docking/real_poses/Thioflavin_T_out.pdbqt
+Congo Red,Histological Amyloid Stain,-8.874,0.1929,1,results/docking/real_poses/Congo_Red_out.pdbqt
+Chrysamine G,Congo Red Derivative,-9.342,0.2595,1,results/docking/real_poses/Chrysamine_G_out.pdbqt
+FDDNP,PET Amyloid/Tau Radiotracer,-6.842,0.311,1,results/docking/real_poses/FDDNP_out.pdbqt
+Curcumin,Natural Polyphenol,-7.641,0.283,1,results/docking/real_poses/Curcumin_out.pdbqt
+EGCG,Green Tea Catechin,-7.725,0.2341,2,results/docking/real_poses/EGCG_out.pdbqt
+Resveratrol,Stilbenoid Antioxidant,-6.763,0.3978,1,results/docking/real_poses/Resveratrol_out.pdbqt
+Quercetin,Flavonol / Tau Aggregation Inhibitor,-7.667,0.3485,1,results/docking/real_poses/Quercetin_out.pdbqt
+Myricetin,Hexahydroxyflavone,-7.341,0.3192,1,results/docking/real_poses/Myricetin_out.pdbqt
+Baicalein,Flavone / Anti-Tau Fibril,-7.356,0.3678,1,results/docking/real_poses/Baicalein_out.pdbqt
+Rosmarinic Acid,Polyphenolic Ester,-6.681,0.257,1,results/docking/real_poses/Rosmarinic_Acid_out.pdbqt
+Fisetin,Tetrahydroxyflavone,-7.748,0.369,1,results/docking/real_poses/Fisetin_out.pdbqt
+Apigenin,Trihydroxyflavone,-7.517,0.3759,1,results/docking/real_poses/Apigenin_out.pdbqt
+Luteolin,Tetrahydroxyflavone,-7.687,0.366,1,results/docking/real_poses/Luteolin_out.pdbqt
+Honokiol,Lignan / Neuroprotective Polyphenol,-6.2,0.31,1,results/docking/real_poses/Honokiol_out.pdbqt
+Anle138b,Oligomer Modulator,-8.38,0.399,1,results/docking/real_poses/Anle138b_out.pdbqt
+Tideglusib,GSK-3beta Inhibitor,-7.692,0.3205,1,results/docking/real_poses/Tideglusib_out.pdbqt
+AZD1080,Selective GSK-3 Inhibitor,-8.124,0.325,5,results/docking/real_poses/AZD1080_out.pdbqt
+Bexarotene,RXR Agonist / Clearance Enhancer,-7.109,0.2734,2,results/docking/real_poses/Bexarotene_out.pdbqt
+Donepezil,AChE Inhibitor,-8.211,0.2933,5,results/docking/real_poses/Donepezil_out.pdbqt
+Rivastigmine,Dual AChE/BuChE Inhibitor,-5.114,0.2841,1,results/docking/real_poses/Rivastigmine_out.pdbqt
+Galantamine,Allosteric AChE Modulator,-5.326,0.2536,5,results/docking/real_poses/Galantamine_out.pdbqt
+Memantine,NMDA Receptor Antagonist,-5.347,0.4113,2,results/docking/real_poses/Memantine_out.pdbqt
+Tacrine,Classical AChE Inhibitor,-6.28,0.4187,3,results/docking/real_poses/Tacrine_out.pdbqt

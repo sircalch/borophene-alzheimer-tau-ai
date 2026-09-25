@@ -1,0 +1,40 @@
+{
+  "name": "Apigenin",
+  "carrier": "beta12_supported",
+  "poses": [
+    {
+      "angle": 0,
+      "E_Eh": -119.139941369622,
+      "min_contact_A": 3.139
+    },
+    {
+      "angle": 90,
+      "E_Eh": -119.133880965553,
+      "min_contact_A": 3.253
+    },
+    {
+      "angle": 180,
+      "E_Eh": -119.139947314732,
+      "min_contact_A": 3.137
+    },
+    {
+      "angle": 270,
+      "E_Eh": -119.136335556936,
+      "min_contact_A": 3.233
+    }
+  ],
+  "drug_bonds_broken": [],
+  "drug_bonds_formed": [],
+  "drug_intact": true,
+  "drug_carrier_bonds": [],
+  "status": "OK",
+  "best_orientation_deg": 180,
+  "min_contact_A": 3.137,
+  "E_complex_Eh": -119.146923649928,
+  "E_carrier_frozen_Eh": -61.502547838302,
+  "E_drug_frozen_Eh": -57.565337919641,
+  "delta_Eint_kcal_mol": -49.597,
+  "delta_Eads_kcal_mol": -41.054,
+  "adsorption_mode": "physisorption",
+  "seconds": 281.9
+}

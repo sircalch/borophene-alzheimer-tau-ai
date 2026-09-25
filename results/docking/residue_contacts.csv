@@ -1,0 +1,281 @@
+name,residue,chain,min_dist_A,polar
+Methylene Blue,Ser352,I,3.52,False
+Methylene Blue,Lys353,I,3.54,False
+Methylene Blue,Gln351,K,3.53,False
+Methylene Blue,Ser352,K,3.15,True
+Methylene Blue,Lys353,K,3.69,False
+Methylene Blue,Gln351,M,3.42,False
+Methylene Blue,Ser352,M,3.5,False
+Methylene Blue,Lys353,M,3.67,False
+Methylene Blue,Lys353,O,3.7,False
+Hydromethylthionine,Ser352,I,3.36,False
+Hydromethylthionine,Lys353,I,3.68,False
+Hydromethylthionine,Gln351,K,3.47,False
+Hydromethylthionine,Ser352,K,3.09,True
+Hydromethylthionine,Lys353,K,3.54,False
+Hydromethylthionine,Gln351,M,3.42,False
+Hydromethylthionine,Ser352,M,3.53,False
+Hydromethylthionine,Lys353,M,3.55,False
+Hydromethylthionine,Lys353,O,3.73,False
+Azure A,Ser352,G,3.21,True
+Azure A,Gln351,I,3.23,True
+Azure A,Ser352,I,3.22,False
+Azure A,Lys353,I,3.67,False
+Azure A,Gln351,K,3.36,False
+Azure A,Ser352,K,3.64,False
+Azure A,Lys353,K,3.53,False
+Azure A,Gln351,M,3.75,False
+Azure A,Ser352,M,3.7,False
+Azure A,Lys353,M,3.6,False
+Toluidine Blue O,Ser352,G,3.12,True
+Toluidine Blue O,Gln351,I,3.23,True
+Toluidine Blue O,Ser352,I,3.34,False
+Toluidine Blue O,Lys353,I,3.54,False
+Toluidine Blue O,Gln351,K,3.32,False
+Toluidine Blue O,Ser352,K,3.65,False
+Toluidine Blue O,Lys353,K,3.38,False
+Toluidine Blue O,Gln351,M,3.57,False
+Toluidine Blue O,Ser352,M,3.78,False
+Toluidine Blue O,Lys353,M,3.61,False
+Thioflavin-T,Gln351,G,3.78,False
+Thioflavin-T,Ser352,G,3.32,False
+Thioflavin-T,Lys353,G,3.85,False
+Thioflavin-T,Gln351,I,3.57,False
+Thioflavin-T,Ser352,I,3.41,False
+Thioflavin-T,Lys353,I,3.58,False
+Thioflavin-T,Gln351,K,3.32,False
+Thioflavin-T,Ser352,K,3.62,False
+Thioflavin-T,Lys353,K,3.49,False
+Thioflavin-T,Gln351,M,3.65,False
+Congo Red,Lys353,G,3.15,True
+Congo Red,Asp358,G,3.61,False
+Congo Red,Ile360,G,3.31,False
+Congo Red,Lys353,I,3.15,True
+Congo Red,Lys353,K,3.56,False
+Congo Red,Ser352,M,3.18,True
+Congo Red,Lys353,M,3.16,False
+Congo Red,Gln351,O,3.6,False
+Congo Red,Ser352,O,3.32,False
+Congo Red,Lys353,O,3.15,True
+Chrysamine G,Ser352,E,3.6,False
+Chrysamine G,Gln351,G,3.27,False
+Chrysamine G,Ser352,G,3.05,True
+Chrysamine G,Lys353,G,3.53,False
+Chrysamine G,Gln351,I,3.79,False
+Chrysamine G,Ser352,I,3.26,False
+Chrysamine G,Lys353,I,3.55,False
+Chrysamine G,Gln351,K,3.62,False
+Chrysamine G,Ser352,K,3.51,False
+Chrysamine G,Lys353,K,3.48,False
+Chrysamine G,Gln351,M,3.46,False
+Chrysamine G,Ser352,M,3.41,False
+Chrysamine G,Lys353,M,3.6,False
+Chrysamine G,Gln351,O,3.88,False
+Chrysamine G,Ser352,O,3.63,False
+Chrysamine G,Lys353,O,3.3,True
+FDDNP,Gln351,G,3.62,False
+FDDNP,Ser352,G,3.67,False
+FDDNP,Lys353,G,3.74,False
+FDDNP,Gln351,I,3.53,False
+FDDNP,Ser352,I,3.3,False
+FDDNP,Lys353,I,3.49,False
+FDDNP,Gln351,K,3.3,False
+FDDNP,Ser352,K,3.4,True
+FDDNP,Lys353,K,3.65,False
+FDDNP,Gln351,M,3.22,False
+FDDNP,Ser352,M,3.22,False
+FDDNP,Lys353,M,3.49,False
+Curcumin,Gln351,G,3.59,False
+Curcumin,Ser352,G,2.73,True
+Curcumin,Lys353,G,3.65,False
+Curcumin,Gln351,I,2.7,True
+Curcumin,Ser352,I,3.71,False
+Curcumin,Lys353,I,3.33,True
+Curcumin,Ser352,K,3.32,False
+Curcumin,Lys353,K,3.0,True
+Curcumin,Gln351,M,3.47,False
+Curcumin,Ser352,M,3.0,True
+Curcumin,Lys353,M,3.66,False
+Curcumin,Gln351,O,3.94,False
+Curcumin,Lys353,O,3.68,False
+EGCG,Ser352,I,3.36,True
+EGCG,Gln351,K,3.22,True
+EGCG,Ser352,K,2.89,True
+EGCG,Lys353,K,3.1,True
+EGCG,Asp358,K,2.9,True
+EGCG,Gln351,M,3.01,True
+EGCG,Ser352,M,2.85,True
+EGCG,Lys353,M,3.1,True
+EGCG,Gln351,O,2.97,True
+EGCG,Ser352,O,3.34,True
+EGCG,Lys353,O,3.62,False
+Resveratrol,Ser352,G,3.02,True
+Resveratrol,Gln351,I,2.88,True
+Resveratrol,Ser352,I,3.27,False
+Resveratrol,Lys353,I,3.45,False
+Resveratrol,Gln351,K,3.59,False
+Resveratrol,Ser352,K,3.4,False
+Resveratrol,Lys353,K,3.67,False
+Resveratrol,Gln351,M,3.35,False
+Resveratrol,Ser352,M,3.63,False
+Resveratrol,Lys353,M,3.54,False
+Quercetin,Gln351,I,3.39,False
+Quercetin,Ser352,I,2.81,True
+Quercetin,Lys353,I,3.74,False
+Quercetin,Gln351,K,2.7,True
+Quercetin,Ser352,K,2.8,True
+Quercetin,Lys353,K,3.51,False
+Quercetin,Gln351,M,2.93,True
+Quercetin,Ser352,M,3.43,True
+Quercetin,Lys353,M,3.35,True
+Myricetin,Ser352,I,3.68,False
+Myricetin,Gln351,K,3.11,True
+Myricetin,Ser352,K,3.05,True
+Myricetin,Lys353,K,3.34,True
+Myricetin,Gln351,M,2.89,True
+Myricetin,Ser352,M,2.7,True
+Myricetin,Gln351,O,2.74,True
+Baicalein,Gln351,G,3.48,False
+Baicalein,Ser352,G,2.78,True
+Baicalein,Lys353,G,3.94,False
+Baicalein,Gln351,I,2.74,True
+Baicalein,Ser352,I,3.5,True
+Baicalein,Lys353,I,3.41,False
+Baicalein,Gln351,K,3.61,False
+Baicalein,Ser352,K,3.35,False
+Baicalein,Lys353,K,3.59,False
+Rosmarinic Acid,Gln351,K,3.23,True
+Rosmarinic Acid,Ser352,K,3.11,True
+Rosmarinic Acid,Lys353,K,3.11,True
+Rosmarinic Acid,Asp358,K,2.89,True
+Rosmarinic Acid,Gln351,M,3.0,True
+Rosmarinic Acid,Ser352,M,2.89,True
+Rosmarinic Acid,Lys353,M,3.12,True
+Rosmarinic Acid,Gln351,O,2.76,True
+Rosmarinic Acid,Ser352,O,3.41,True
+Rosmarinic Acid,Lys353,O,3.52,False
+Fisetin,Gln351,I,3.36,False
+Fisetin,Ser352,I,2.86,True
+Fisetin,Lys353,I,3.78,False
+Fisetin,Gln351,K,2.7,True
+Fisetin,Ser352,K,2.8,True
+Fisetin,Lys353,K,3.51,False
+Fisetin,Gln351,M,2.92,True
+Fisetin,Ser352,M,3.44,True
+Fisetin,Lys353,M,3.35,True
+Apigenin,Gln351,I,3.87,False
+Apigenin,Ser352,I,2.99,True
+Apigenin,Gln351,K,2.8,True
+Apigenin,Ser352,K,3.38,False
+Apigenin,Lys353,K,3.4,False
+Apigenin,Gln351,M,3.45,False
+Apigenin,Ser352,M,3.34,False
+Apigenin,Lys353,M,3.66,False
+Apigenin,Gln351,O,3.54,False
+Apigenin,Ser352,O,3.83,False
+Apigenin,Lys353,O,3.89,False
+Luteolin,Gln351,G,3.49,False
+Luteolin,Ser352,G,2.8,True
+Luteolin,Lys353,G,3.56,False
+Luteolin,Gln351,I,2.68,True
+Luteolin,Ser352,I,3.65,False
+Luteolin,Lys353,I,3.35,False
+Luteolin,Gln351,K,3.24,False
+Luteolin,Ser352,K,2.88,True
+Luteolin,Lys353,K,3.55,False
+Luteolin,Gln351,M,3.19,True
+Honokiol,Ser352,I,3.38,False
+Honokiol,Lys353,I,3.54,False
+Honokiol,Gln351,K,3.36,False
+Honokiol,Ser352,K,2.98,True
+Honokiol,Lys353,K,3.7,False
+Honokiol,Gln351,M,3.08,True
+Honokiol,Ser352,M,3.47,False
+Honokiol,Lys353,M,3.57,False
+Honokiol,Lys353,O,3.65,False
+Anle138b,Gln351,G,3.25,False
+Anle138b,Ser352,G,3.11,True
+Anle138b,Lys353,G,3.96,False
+Anle138b,Gln351,I,3.24,True
+Anle138b,Ser352,I,2.96,True
+Anle138b,Lys353,I,3.56,False
+Anle138b,Gln351,K,3.24,True
+Anle138b,Ser352,K,3.42,False
+Anle138b,Lys353,K,3.4,False
+Anle138b,Gln351,M,3.57,False
+Anle138b,Ser352,M,3.72,False
+Anle138b,Lys353,M,3.74,False
+Tideglusib,Ser352,G,3.26,False
+Tideglusib,Lys353,G,3.58,False
+Tideglusib,Gln351,I,3.46,False
+Tideglusib,Ser352,I,3.91,False
+Tideglusib,Lys353,I,3.64,False
+Tideglusib,Gln351,K,3.59,False
+Tideglusib,Ser352,K,3.35,False
+Tideglusib,Lys353,K,3.15,False
+Tideglusib,Gln351,M,3.5,False
+Tideglusib,Lys353,M,3.62,False
+AZD1080,Gln351,G,3.66,False
+AZD1080,Ser352,G,3.02,True
+AZD1080,Lys353,G,3.61,False
+AZD1080,Gln351,I,2.71,True
+AZD1080,Ser352,I,3.43,False
+AZD1080,Lys353,I,3.5,False
+AZD1080,Gln351,K,3.57,False
+AZD1080,Ser352,K,3.46,False
+AZD1080,Lys353,K,3.74,False
+AZD1080,Gln351,M,3.5,False
+AZD1080,Lys353,M,3.6,False
+Bexarotene,Gln351,I,3.89,False
+Bexarotene,Ser352,I,3.44,False
+Bexarotene,Lys353,I,3.71,False
+Bexarotene,Gln351,K,3.17,False
+Bexarotene,Ser352,K,3.85,False
+Bexarotene,Lys353,K,3.36,False
+Bexarotene,Gln351,M,3.4,False
+Bexarotene,Ser352,M,2.73,True
+Bexarotene,Lys353,M,3.38,False
+Bexarotene,Gln351,O,2.76,True
+Donepezil,Gln351,G,3.58,False
+Donepezil,Ser352,G,3.37,False
+Donepezil,Lys353,G,3.64,False
+Donepezil,Gln351,I,3.47,False
+Donepezil,Ser352,I,3.47,False
+Donepezil,Lys353,I,3.61,False
+Donepezil,Gln351,K,3.33,False
+Donepezil,Ser352,K,3.08,True
+Donepezil,Lys353,K,3.72,False
+Donepezil,Gln351,M,3.62,False
+Donepezil,Ser352,M,3.07,True
+Donepezil,Lys353,M,3.4,False
+Donepezil,Gln351,O,3.53,False
+Rivastigmine,Asp358,G,3.84,False
+Rivastigmine,Lys353,I,3.12,True
+Rivastigmine,Asp358,I,3.38,False
+Rivastigmine,Asn359,I,3.58,False
+Rivastigmine,Ile360,I,3.57,False
+Rivastigmine,Lys353,K,2.85,True
+Rivastigmine,Asp358,K,3.37,True
+Rivastigmine,Ile360,K,3.47,False
+Rivastigmine,Lys353,M,3.89,False
+Rivastigmine,Asp358,M,3.79,False
+Rivastigmine,Ile360,M,3.71,False
+Galantamine,Gln351,G,3.51,False
+Galantamine,Ser352,G,2.74,True
+Galantamine,Lys353,G,3.7,False
+Galantamine,Gln351,I,3.09,True
+Galantamine,Ser352,I,3.44,True
+Galantamine,Lys353,I,3.54,False
+Galantamine,Gln351,K,3.74,False
+Memantine,Gln351,K,3.4,False
+Memantine,Ser352,K,2.82,True
+Memantine,Lys353,K,3.29,False
+Memantine,Gln351,M,2.88,True
+Memantine,Lys353,M,3.68,False
+Tacrine,Ser352,I,3.7,False
+Tacrine,Gln351,K,3.35,False
+Tacrine,Ser352,K,3.09,True
+Tacrine,Lys353,K,3.63,False
+Tacrine,Gln351,M,3.45,False
+Tacrine,Ser352,M,3.73,False
+Tacrine,Lys353,M,3.6,False

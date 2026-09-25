@@ -1,0 +1,30 @@
+name,class,pubchem_cid,smiles,formula,formal_charge,n_heavy_atoms,inchikey,pubchem_record_formula,old_smiles,old_formula,old_matched_pubchem
+Methylene Blue,Phenothiazine / Tau Inhibitor,6099,CN(C)c1ccc2nc3ccc(=[N+](C)C)cc-3sc2c1,C16H18N3S+,1,20,RBTBFTRPCNLSDE-UHFFFAOYSA-N,C16H18ClN3S,CN(C)c1ccc2nc3ccc(N(C)C)cc3[s+]c2c1,C16H18N3S+,True
+Hydromethylthionine,Reduced Phenothiazine / LMTX,164695,CN(C)c1ccc2c(c1)Sc1cc(N(C)C)ccc1N2,C16H19N3S,0,20,QTWZICCBKBYHDM-UHFFFAOYSA-N,C16H19N3S,CN(C)C1=CC=C2NC3=CC=C(N(C)C)C=C3SC2=C1,C16H19N3S,True
+Azure A,Phenothiazine Metabolite,13735,C[N+](C)=c1ccc2nc3ccc(N)cc3sc-2c1,C14H14N3S+,1,18,HMYISFASHDWPMO-UHFFFAOYSA-O,C14H14ClN3S,CNc1ccc2nc3ccc(N(C)C)cc3[s+]c2c1,C15H16N3S+,False
+Toluidine Blue O,Phenothiazine Diagnostic,7084,Cc1cc2nc3ccc(=[N+](C)C)cc-3sc2cc1N,C15H16N3S+,1,19,KZEUBCUXBNEMSQ-UHFFFAOYSA-O,C15H16N3S+,Cc1cc2nc3ccc(N(C)C)cc3[s+]c2cc1N,C15H16N3S+,False
+Thioflavin-T,Amyloid/Tau Diagnostic Dye,16953,Cc1ccc2c(c1)sc(-c1ccc(N(C)C)cc1)[n+]2C,C17H19N2S+,1,20,FXEKRIDRIFBJOR-UHFFFAOYSA-N,C17H19ClN2S,Cc1ccc(Nc2nc3ccccc3s2)cc1,C14H12N2S,False
+Thioflavin-S,Amyloid Diagnostic Dye,155884413,Cc1ccc2c(sc(-c3ccc4c(c3)sc(-c3ccc(N(C)C)cc3)[n+]4C)[n+]2C)c1S(=O)(=O)O,C25H25N3O3S3+2,2,34,TZALECNALKOBPY-UHFFFAOYSA-O,C25H24ClN3O3S3,Cc1ccc2nc(c3ccc(N)cc3)sc2c1,C14H12N2S,False
+Congo Red,Histological Amyloid Stain,11313,Nc1c(N=Nc2ccc(-c3ccc(N=Nc4cc(S(=O)(=O)O)c5ccccc5c4N)cc3)cc2)cc(S(=O)(=O)O)c2ccccc12,C32H24N6O6S2,0,46,HFHIDKQMGIGARX-UHFFFAOYSA-N,C32H22N6Na2O6S2,OS(=O)(=O)c1cc2ccc(N=Nc3ccc(-c4ccc(N=Nc5ccc6cc(S(=O)(=O)O)c(N)cc6c5)cc4)cc3)cc2c(N)c1,C32H24N6O6S2,False
+Chrysamine G,Congo Red Derivative,160843,O=C(O)c1cc(N=Nc2ccc(-c3ccc(N=Nc4ccc(O)c(C(=O)O)c4)cc3)cc2)ccc1O,C26H18N4O6,0,36,XFFSCOOTVXBLCK-UHFFFAOYSA-N,C26H18N4O6,O=C(O)c1cc(N=Nc2ccc(-c3ccc(N=Nc4cc(C(=O)O)c(O)cc4)cc3)cc2)ccc1O,C26H18N4O6,True
+FDDNP,PET Amyloid/Tau Radiotracer,24858429,CC(=C(C#N)C#N)c1ccc2cc(N(C)CCF)ccc2c1,C18H16FN3,0,22,IAVCEBMLYVGBLA-UHFFFAOYSA-N,C18H16FN3,CCN(CC)c1ccc(/C=C/C=C(\C#N)C#N)cc1,C16H17N3,False
+Curcumin,Natural Polyphenol,969516,COc1cc(/C=C/C(=O)CC(=O)/C=C/c2ccc(O)c(OC)c2)ccc1O,C21H20O6,0,27,VFLDPWHFBUODDF-FCXRPNKRSA-N,C21H20O6,COc1cc(/C=C/C(=O)CC(=O)/C=C/c2ccc(O)c(OC)c2)ccc1O,C21H20O6,True
+EGCG,Green Tea Catechin,65064,O=C(O[C@@H]1Cc2c(O)cc(O)cc2O[C@@H]1c1cc(O)c(O)c(O)c1)c1cc(O)c(O)c(O)c1,C22H18O11,0,33,WMBWREPUVVBILR-WIYYLYMNSA-N,C22H18O11,O=C(Oc1cc(O)c(O)c(O)c1)[C@@H]1Oc2cc(O)cc(O)c2[C@@H](O)[C@H]1c1cc(O)c(O)c(O)c1,C22H18O12,False
+Resveratrol,Stilbenoid Antioxidant,445154,Oc1ccc(/C=C/c2cc(O)cc(O)c2)cc1,C14H12O3,0,17,LUKBXSAWLPMMSZ-OWOJBTEDSA-N,C14H12O3,Oc1ccc(/C=C/c2cc(O)cc(O)c2)cc1,C14H12O3,True
+Quercetin,Flavonol / Tau Aggregation Inhibitor,5280343,O=c1c(O)c(-c2ccc(O)c(O)c2)oc2cc(O)cc(O)c12,C15H10O7,0,22,REFJWTPEDVJJIY-UHFFFAOYSA-N,C15H10O7,O=C1C(O)=C(c2ccc(O)c(O)c2)Oc2cc(O)cc(O)c21,C15H10O7,True
+Myricetin,Hexahydroxyflavone,5281672,O=c1c(O)c(-c2cc(O)c(O)c(O)c2)oc2cc(O)cc(O)c12,C15H10O8,0,23,IKMDFBPHZNJCSN-UHFFFAOYSA-N,C15H10O8,O=C1C(O)=C(c2cc(O)c(O)c(O)c2)Oc2cc(O)cc(O)c21,C15H10O8,True
+Baicalein,Flavone / Anti-Tau Fibril,5281605,O=c1cc(-c2ccccc2)oc2cc(O)c(O)c(O)c12,C15H10O5,0,20,FXNFHKRTJBSTCS-UHFFFAOYSA-N,C15H10O5,O=C1C=C(c2ccccc2)Oc2cc(O)c(O)c(O)c21,C15H10O5,True
+Rosmarinic Acid,Polyphenolic Ester,5281792,O=C(/C=C/c1ccc(O)c(O)c1)O[C@H](Cc1ccc(O)c(O)c1)C(=O)O,C18H16O8,0,26,DOUMFZQKYFQNTF-WUTVXBCWSA-N,C18H16O8,O=C(O)/C=C/c1ccc(O)c(O)c1OC(=O)[C@H](Cc1ccc(O)c(O)c1)O,C18H16O9,False
+Fisetin,Tetrahydroxyflavone,5281614,O=c1c(O)c(-c2ccc(O)c(O)c2)oc2cc(O)ccc12,C15H10O6,0,21,XHEFDIBZLJXQHF-UHFFFAOYSA-N,C15H10O6,O=C1C(O)=C(c2ccc(O)c(O)c2)Oc2ccc(O)cc21,C15H10O6,False
+Apigenin,Trihydroxyflavone,5280443,O=c1cc(-c2ccc(O)cc2)oc2cc(O)cc(O)c12,C15H10O5,0,20,KZNIFHPLKGYRTM-UHFFFAOYSA-N,C15H10O5,O=C1C=C(c2ccc(O)cc2)Oc2cc(O)cc(O)c21,C15H10O5,True
+Luteolin,Tetrahydroxyflavone,5280445,O=c1cc(-c2ccc(O)c(O)c2)oc2cc(O)cc(O)c12,C15H10O6,0,21,IQPNAANSBPBGFQ-UHFFFAOYSA-N,C15H10O6,O=C1C=C(c2ccc(O)c(O)c2)Oc2cc(O)cc(O)c21,C15H10O6,True
+Honokiol,Lignan / Neuroprotective Polyphenol,72303,C=CCc1ccc(O)c(-c2ccc(O)c(CC=C)c2)c1,C18H18O2,0,20,FVYXIJYOAGAUQK-UHFFFAOYSA-N,C18H18O2,C=CCc1ccc(O)c(-c2cc(CC=C)ccc2O)c1,C18H18O2,False
+Anle138b,Oligomer Modulator,44608289,Brc1cccc(-c2cc(-c3ccc4c(c3)OCO4)[nH]n2)c1,C16H11BrN2O2,0,21,RCQIIBJSUWYYFU-UHFFFAOYSA-N,C16H11BrN2O2,BrC1=CC(=NN1C2=CC=C(C=C2)Br)C3=CC=CC=C3,C15H10Br2N2,False
+Tideglusib,GSK-3beta Inhibitor,11313622,O=c1sn(-c2cccc3ccccc23)c(=O)n1Cc1ccccc1,C19H14N2O2S,0,24,PMJIHLSCWIDGMD-UHFFFAOYSA-N,C19H14N2O2S,O=C1SC(=O)N(Cc2ccccc2)N1c1cccc2ccccc12,C19H14N2O2S,False
+AZD1080,Selective GSK-3 Inhibitor,135564570,N#Cc1ccc2[nH]c(O)c(-c3ccc(CN4CCOCC4)cn3)c2c1,C19H18N4O2,0,25,BLTVBQXJFVRPFK-UHFFFAOYSA-N,C19H18N4O2,Cc1nc(Nc2ccc(C#N)c(F)c2)c(C(F)(F)F)n1C,C13H10F4N4,False
+Bexarotene,RXR Agonist / Clearance Enhancer,82146,C=C(c1ccc(C(=O)O)cc1)c1cc2c(cc1C)C(C)(C)CCC2(C)C,C24H28O2,0,26,NAVMQTYZDKMPEU-UHFFFAOYSA-N,C24H28O2,C=C(c1ccc(C(=O)O)cc1)c1cc2c(cc1C)C(C)(C)CCC2(C)C,C24H28O2,True
+Donepezil,AChE Inhibitor,3152,COc1cc2c(cc1OC)C(=O)C(CC1CCN(Cc3ccccc3)CC1)C2,C24H29NO3,0,28,ADEBPBSSDYVVLD-UHFFFAOYSA-N,C24H29NO3,COc1cc2c(cc1OC)C(=O)C(CC1CCN(Cc3ccccc3)CC1)C2,C24H29NO3,True
+Rivastigmine,Dual AChE/BuChE Inhibitor,77991,CCN(C)C(=O)Oc1cccc([C@H](C)N(C)C)c1,C14H22N2O2,0,18,XSVMFMHYUFZWBK-NSHDSACASA-N,C14H22N2O2,CCN(C)C(=O)Oc1cccc([C@@H](C)N(C)C)c1,C14H22N2O2,True
+Galantamine,Allosteric AChE Modulator,9651,COc1ccc2c3c1O[C@H]1C[C@@H](O)C=C[C@@]31CCN(C)C2,C17H21NO3,0,21,ASUTZQLVASHGKV-JDFRZJQESA-N,C17H21NO3,COc1ccc2c3c1O[C@H]1CC(=O)C=C[C@]31CCN(C)C2,C17H19NO3,False
+Memantine,NMDA Receptor Antagonist,4054,CC12CC3CC(C)(C1)CC(N)(C3)C2,C12H21N,0,13,BUGYDGFZZOZRHP-UHFFFAOYSA-N,C12H21N,CC12CC3CC(C)(C1)CC(N)(C3)C2,C12H21N,True
+Tacrine,Classical AChE Inhibitor,1935,Nc1c2c(nc3ccccc13)CCCC2,C13H14N2,0,15,YLJREFDVOIBQDA-UHFFFAOYSA-N,C13H14N2,Nc1c2ccccc2nc2c1CCCC2,C13H14N2,True
