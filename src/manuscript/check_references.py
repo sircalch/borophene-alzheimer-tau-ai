@@ -20,6 +20,7 @@ DOI = re.compile(r"https://doi\.org/(\S+)$")
 
 
 def norm(s):
+    s = re.sub(r"<[^>]+>", "", s)                   # Crossref titles carry HTML (<sub>, <i>, <scp>)
     s = unicodedata.normalize("NFKD", re.sub(r"[_^]\{([^}]*)\}", r"\1", s))
     return re.sub(r"[^a-z0-9]+", " ", s.lower()).strip()
 
@@ -51,6 +52,8 @@ def main():
         t = (r.json()["message"].get("title") or [""])[0]
         nt = norm(t)
         sim = SequenceMatcher(None, after_year[:len(nt)], nt).ratio()
+        if sim <= 0.8 and len(nt) > 60 and nt[:60] in after_year:
+            sim = 1.0          # Crossref title = our title + appended footnote (e.g. "Part II: ...")
         flag = "ok " if sim > 0.8 else "BAD"
         bad += flag == "BAD"
         print(f"  {flag}  {key}: {sim:.2f}  {t[:90]}")
