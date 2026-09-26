@@ -405,7 +405,8 @@ def results(doc, d, c):
     k.para(doc,
            f"For the {q['n']} drugs that kept their bonding, the ridge model reaches an out-of-fold "
            f"*Q*^{{2}}_{{CV}} of {f2(q['Q2_CV'])} (RMSE {f1(q['RMSE'])}, MAE {f1(q['MAE'])} kcal mol^{{−1}}; "
-           f"Table 2, Fig. 7). Only {q['Y_scrambling']['p'] * 100:.1f}% of 1,000 permuted targets did as well, "
+           f"Table 2, Fig. 7). Only {int((d['perm'].Q2_perm >= q['Q2_CV']).sum())} of 1,000 permuted targets gave "
+           f"a *Q*^{{2}}_{{CV}} as high (*p* = {q['Y_scrambling']['p']:.3f}), "
            "so the signal is real, but it is weak and uneven: the outer-fold *Q*^{2} values range from "
            f"{f2(min(q['Q2_folds']))} to {f2(max(q['Q2_folds']))}. The largest standardised coefficient is that "
            f"of formal charge ({f2(q['coef_std']['charge'])}), which separates the four cations from the rest; "
