@@ -120,6 +120,8 @@ def stats_(d):
     o = d["old"]
     E0 = json.loads((BASE / "data" / "processed" / "carrier_B40H15_collapsing_2026-09-24.json").read_text())["E_Eh"]
     s["old_drop"] = ((o.E_carrier_frozen_Eh - E0) * 627.509).min()
+    s["old_below"] = int((((o.E_carrier_frozen_Eh - E0) * 627.509) < -1).sum())
+    s["old_n"] = len(o)
     return s
 
 
@@ -141,7 +143,7 @@ def abstract(doc, d, c):
                "GTP-1 tracer site of a PHF cryo-EM structure and computed its adsorption on β_{12} borophene. Docking into the "
                "ligand-free fibril does not reproduce the tracer pose (root-mean-square deviation "
                f"{f1(s['r_free_x'])} and {f1(s['r_free_s'])} Å); the docking scores are therefore exploratory. "
-               "An unconstrained finite borophene flake collapses into a compact boron cluster during adsorption, "
+               "An unconstrained borophene flake reconstructs into a compact cluster during adsorption, "
                "so the carrier was modelled as a planar B_{44}H_{16} sheet held at the β_{12} lattice, as it is "
                f"when grown on Ag(111). On this sheet {len(ph)} drugs physisorb and {len(ch)} chemisorb; Congo Red "
                "and tideglusib react. Physisorption is strongest for the cationic phenothiazinium and "
@@ -226,9 +228,10 @@ def methods(doc, d, c):
     k.heading(doc, "β_{12} borophene model", 2)
     k.para(doc,
            "A first model, an H-terminated B_{40}H_{15} flake relaxed without constraints, was a local minimum "
-           "(no imaginary frequencies) but not a stable carrier: in every adsorption complex it contracted into "
-           f"a more compact boron cluster, lowering its own energy by up to {f1(-s['old_drop'])} kcal mol^{{−1}} (Table S2), "
-           "so that the computed binding energies were dominated by the reconstruction of the carrier. Because "
+           f"(no imaginary frequencies) but not a stable carrier: in {s['old_below']} of {s['old_n']} adsorption "
+           "complexes its energy fell below that of the isolated flake as it contracted toward a more compact "
+           f"boron cluster, by up to {f1(-s['old_drop'])} kcal mol^{{−1}} (Table S2), so that the computed binding "
+           "energies contained the energy of the reconstruction of the carrier. Because "
            "borophene exists only on a supporting metal, which holds it planar " + c("feng2016", "kong2017") +
            ", the carrier was rebuilt as a substrate-supported sheet. A planar β_{12} lattice (triangular "
            f"lattice, B–B {car['lattice_A']['d_BB']:.2f} Å, rectangular cell *a* = {car['lattice_A']['a']:.2f} Å, "
@@ -345,8 +348,8 @@ def results(doc, d, c):
            f"{f1(ph.delta_Eint_kcal_mol.max())} to {f1(ph.delta_Eint_kcal_mol.min())} kcal mol^{{−1}} (Fig. 5, "
            "Table 1). The strongest physisorbed drugs are the four cations (methylene blue, azure A, toluidine "
            f"blue O and thioflavin T, {f1(cat.delta_Eint_kcal_mol.max())} to {f1(cat.delta_Eint_kcal_mol.min())} "
-           "kcal mol^{−1}), which bind a metallic sheet through electrostatic polarisation in addition to "
-           f"dispersion; among neutral physisorbed drugs Δ*E*_{{int}} ranged from "
+           "kcal mol^{−1}), consistent with electrostatic polarisation of the metallic sheet in addition to "
+           f"dispersion, although the energy was not decomposed; among neutral physisorbed drugs Δ*E*_{{int}} ranged from "
            f"{f1(neu.delta_Eint_kcal_mol.max())} to {f1(neu.delta_Eint_kcal_mol.min())} kcal mol^{{−1}}. Across "
            f"physisorbed drugs the energy follows the formal charge (ρ = {f2(s['rho_charge'].statistic)}) but "
            f"not size (ρ = {f2(s['rho_size'].statistic)} with heavy-atom count). The families differ "
@@ -354,8 +357,8 @@ def results(doc, d, c):
            f"{f1(s['fam_e']['Dyes and imaging probes'])} kcal mol^{{−1}} for dyes and probes, "
            f"{f1(s['fam_e']['Polyphenols'])} for polyphenols, {f1(s['fam_e']['Aggregation / kinase modulators'])} "
            f"for modulators and {f1(s['fam_e']['Symptomatic AD drugs'])} for symptomatic drugs. In the gas "
-           "phase the cation–sheet attraction is not screened; in water it would be much weaker, so the gap "
-           "between cationic and neutral drugs is an upper bound.", indent=True)
+           "phase the cation–sheet attraction is not screened; in water it would be weaker, so the gap between "
+           "cationic and neutral drugs is likely overestimated here.", indent=True)
     bonds = {n_: ", ".join(re.sub(r"\d", "", b) for b in eval(r.drug_carrier_bonds))
              for n_, r in ch.iterrows()}
     k.para(doc,
@@ -396,8 +399,8 @@ def results(doc, d, c):
     k.heading(doc, "Docking score and adsorption", 2)
     k.para(doc,
            "Drugs that score well at the GTP-1 site also bind the sheet more strongly (Spearman "
-           f"ρ = {f2(s['rho_vina'].statistic)}, *p* = {sci(s['rho_vina'].pvalue)}; Fig. 3b). The trend is carried "
-           "by the extended, planar dyes, which fit the elongated cleft and stack on the sheet, and by the "
+           f"ρ = {f2(s['rho_vina'].statistic)}, *p* = {sci(s['rho_vina'].pvalue)}; Fig. 3b). The trend appears to "
+           "come from the two ends of the cohort: the extended, planar dyes, which fit the elongated cleft and stack on the sheet, and the "
            "small aliphatic symptomatic drugs, which do neither well; it should not be read as a mechanistic "
            "link between the two endpoints.", indent=True)
 
@@ -454,7 +457,7 @@ def conclusions(doc, d, c):
            "Docking into the ligand-free PHF of PDB 8FUG places nearly every drug on Gln351, Ser352 and Lys353, "
            "but it does not reproduce the stacked GTP-1 pose, and its scores are exploratory. A finite, "
            "unconstrained borophene flake is not a usable carrier model at the GFN2-xTB level, because it "
-           "collapses during adsorption; a planar sheet held at the β_{12} lattice, as on Ag(111), is. On this "
+           "reconstructs during adsorption; a planar sheet held at the β_{12} lattice, as on Ag(111), is. On this "
            f"sheet {len(s['phys'])} of {s['n']} drugs physisorb, the cationic dyes most strongly, and "
            f"{len(s['chem'])} chemisorb, of which Congo Red and tideglusib react. The interaction energy is "
            f"partly predictable from four descriptors (*Q*^{{2}}_{{CV}} = {f2(q['Q2_CV'])}), mainly through "

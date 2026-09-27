@@ -26,7 +26,7 @@ def main():
            "paired-helical-filament cryo-EM structure and on β_{12} borophene as a candidate carrier. Two "
            "methodological findings are reported openly: docking into the ligand-free fibril does not "
            "reproduce the stacked tracer pose, so the scores are presented as exploratory, and an "
-           "unconstrained borophene flake collapses during adsorption at the GFN2-xTB level, so the carrier is "
+           "unconstrained borophene flake reconstructs during adsorption at the GFN2-xTB level, so the carrier is "
            "modelled as a planar sheet held at the lattice of Ag-supported β_{12} borophene. On this sheet "
            f"{len(s['phys'])} drugs physisorb and {len(s['chem'])} chemisorb, with every complex checked for "
            "changes in the drug's bonding. A descriptor-based QSPR model, evaluated with nested "
