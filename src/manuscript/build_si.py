@@ -13,7 +13,7 @@ import pandas as pd
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 import docx_kit as k  # noqa: E402
-from build_manuscript import AUTHOR, BASE, TITLE, load  # noqa: E402
+from build_manuscript import AFFIL, AUTHOR, BASE, EMAIL, TITLE, load  # noqa: E402
 
 OUT = BASE / "manuscript" / "submission"
 
@@ -38,9 +38,7 @@ def main():
     d = load()
     m = d["m"]
     doc = k.new_document()
-    k.para(doc, "**Supporting Information**", align="left", size=15, space_after=4)
-    k.para(doc, TITLE, align="left", size=11, space_after=4)
-    k.para(doc, AUTHOR, align="left", size=10, space_after=14)
+    k.si_header(doc, TITLE, "Journal of Molecular Modeling", AUTHOR, AFFIL, EMAIL)
 
     lib = d["lib"]
     fam = m.set_index("name").family

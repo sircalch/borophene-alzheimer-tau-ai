@@ -17,7 +17,7 @@ import re
 
 from docx import Document
 from docx.enum.table import WD_TABLE_ALIGNMENT
-from docx.enum.text import WD_ALIGN_PARAGRAPH, WD_LINE_SPACING
+from docx.enum.text import WD_ALIGN_PARAGRAPH, WD_COLOR_INDEX, WD_LINE_SPACING
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 from docx.shared import Mm, Pt, RGBColor
@@ -221,8 +221,27 @@ def figure(doc, path, number, caption, width_mm=174):
     c.paragraph_format.space_after = Pt(12)
     c.paragraph_format.line_spacing = 1.15
     rich(c, f"**Fig. {number}** ", size=10)
-    rich(c, caption, size=10)
+    rich(c, caption.rstrip().rstrip("."), size=10)   # Springer: no punctuation at the end of a caption
     return c
+
+
+def placeholder(doc, text):
+    """Highlighted paragraph that the author must replace before submission."""
+    p = doc.add_paragraph()
+    r = p.add_run(text)
+    r.bold = True
+    r.font.highlight_color = WD_COLOR_INDEX.YELLOW
+    return p
+
+
+def si_header(doc, title, journal, author, affiliation, email):
+    """Header that Springer requires in every supplementary file."""
+    para(doc, "**Supporting Information (Online Resource 1)**", align="left", size=15, space_after=4)
+    para(doc, title, align="left", size=11, space_after=4)
+    para(doc, f"*{journal}*", align="left", size=10, space_after=4)
+    para(doc, author, align="left", size=10, space_after=2)
+    para(doc, affiliation, align="left", size=10, space_after=2)
+    para(doc, f"Corresponding author: {email}", align="left", size=10, space_after=14)
 
 
 def references(doc, refs):

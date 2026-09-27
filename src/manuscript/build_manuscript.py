@@ -138,9 +138,8 @@ def abstract(doc, d, c):
     k.labelled(doc, "Context",
                "Tau aggregation inhibitors and imaging probes act on paired helical filaments (PHF) in the "
                f"Alzheimer brain. For {s['n']} tau-directed and Alzheimer drugs we docked each compound at the "
-               "GTP-1 tracer site of a PHF cryo-EM structure and computed its adsorption on β_{12} borophene, a "
-               "candidate carrier. Docking into the "
-               "ligand-free fibril does not reproduce the tracer pose (RMSD "
+               "GTP-1 tracer site of a PHF cryo-EM structure and computed its adsorption on β_{12} borophene. Docking into the "
+               "ligand-free fibril does not reproduce the tracer pose (root-mean-square deviation "
                f"{f1(s['r_free_x'])} and {f1(s['r_free_s'])} Å); the docking scores are therefore exploratory. "
                "An unconstrained finite borophene flake collapses into a compact boron cluster during adsorption, "
                "so the carrier was modelled as a planar B_{44}H_{16} sheet held at the β_{12} lattice, as it is "
@@ -156,7 +155,8 @@ def abstract(doc, d, c):
                "segment of PDB 8FUG at the GTP-1 site, with four redocking controls. The carrier and all "
                "complexes were computed with GFN2-xTB (xtb 6.7.1), with the boron atoms of the sheet restrained "
                "to the β_{12} lattice; each drug was adsorbed from four relaxed orientations and the regime was "
-               "assigned from drug–carrier bond formation. Ridge QSPR models were assessed by nested 5×5 "
+               "assigned from drug–carrier bond formation. Ridge quantitative structure–property relationship (QSPR) "
+               "models were assessed by nested 5×5 "
                "cross-validation, 1,000-fold Y-scrambling and a leverage applicability domain.")
     k.para(doc, "**Keywords** Tau · Paired helical filament · Borophene · GFN2-xTB · Molecular docking · "
                 "Drug delivery", align="left")
@@ -199,7 +199,7 @@ def methods(doc, d, c):
     fam = d["m"].family.value_counts()
     k.para(doc,
            f"The cohort comprises {s['n_lib']} compounds. Every structure was retrieved from PubChem by name "
-           + c("kim2021_pubchem") + " and its identity checked by InChIKey (Table S1). Counter-ions were removed "
+           + c("kim2021_pubchem") + " and its identity checked by InChIKey (Online Resource 1, Table S1). Counter-ions were removed "
            "and acids and bases neutralised where a neutral form exists; the phenothiazinium dyes and "
            "thioflavin T keep their permanent positive charge. Thioflavin S, a mixture of sulfonated oligomers "
            f"rather than a single compound, was excluded, leaving {s['n']} drugs in four families: "
@@ -463,7 +463,7 @@ def conclusions(doc, d, c):
 
 
 def declarations(doc):
-    k.heading(doc, "Declarations")
+    k.heading(doc, "Statements and Declarations")
     for label, text in (
         ("Author contribution", f"{AUTHOR} conceived the study, performed all calculations and analyses, "
                                 "and wrote the manuscript."),
@@ -491,10 +491,12 @@ def main():
     abstract(doc, d, c)
     introduction(doc, c)
     methods(doc, d, c)
+    k.heading(doc, "Use of AI tools", 2)
+    k.placeholder(doc, "[AUTHOR TO COMPLETE BEFORE SUBMISSION: statement on the use of AI tools in this work, as required by the journal (Springer policy: use of large language models beyond copy editing must be documented in the Methods).]")
     results(doc, d, c)
     conclusions(doc, d, c)
-    declarations(doc)
     k.references(doc, c.list())
+    declarations(doc)
     out = OUT / "Manuscript_Tau_Borophene_JMM.docx"
     doc.save(out)
     print(f"wrote {out}")
