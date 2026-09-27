@@ -30,8 +30,20 @@ def label_points(ax, x, y, labels, fontsize=5.8, color=None, offsets=None, arrow
                              ha="left", va="bottom", zorder=6,
                              path_effects=[pe.withStroke(linewidth=1.8, foreground="white")]))
     if adjust_text and texts:
-        adjust_text(texts, x=list(x), y=list(y), ax=ax, expand=(1.15, 1.3),
-                    arrowprops=dict(arrowstyle="-", color=S.MUTED, lw=0.4) if arrows else None)
+        adjust_text(texts, x=list(x), y=list(y), ax=ax, expand=(1.15, 1.3))
+    if arrows:
+        # leader lines as annotations: they are anchored to the data point and are
+        # redrawn with the final layout, so they always end at their point
+        out = []
+        for t, xi, yi in zip(texts, x, y):
+            tx, ty = t.get_position()
+            lab = ax.annotate(t.get_text(), xy=(xi, yi), xytext=(tx, ty), fontsize=t.get_fontsize(),
+                              color=t.get_color(), ha=t.get_ha(), va=t.get_va(), zorder=6,
+                              path_effects=[pe.withStroke(linewidth=1.8, foreground="white")],
+                              arrowprops=dict(arrowstyle="-", color=S.MUTED, lw=0.5, shrinkA=1.5, shrinkB=3))
+            t.remove()
+            out.append(lab)
+        texts = out
     return texts
 
 
@@ -185,7 +197,7 @@ def landscape(ax, contact, energy, chem_mask, names=None, label="chem", max_labe
     if ylog:
         ax.set_yscale("log")
         lo, hi = e.min() * 0.8, e.max() * 1.25
-        ticks = [t for t in (1, 2, 5, 10, 20, 50, 100, 200, 500) if lo <= t <= hi]
+        ticks = [t for t in (1, 2, 3, 5, 10, 20, 30, 50, 75, 100, 150, 200, 300, 500) if lo <= t <= hi]
         ax.set_ylim(lo, hi)
         ax.yaxis.set_major_locator(FixedLocator(ticks))
         ax.yaxis.set_major_formatter(FuncFormatter(lambda v, _: f"{v:g}"))

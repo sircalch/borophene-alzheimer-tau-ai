@@ -132,10 +132,10 @@ def fig1(d):
     fm.savefig(mini, dpi=400, bbox_inches="tight"); plt.close(fm)
     nchem = int((m.adsorption_mode == "chemisorption").sum())
     stages = [
-        ("Drug set", [f"{len(m)} tau-directed and", "AD drugs, 4 families", "PubChem structures"]),
-        ("Fibril docking", ["AD PHF, PDB 8FUG", "GTP-1 site, Vina 1.2.7", "two redocking controls"]),
-        ("β$_{12}$ borophene", ["B$_{44}$H$_{16}$ planar flake", "B held at β$_{12}$ lattice", "(Ag-supported model)"]),
-        ("Adsorption", ["4 relaxed poses per drug", "Δ$E_{int}$ and Δ$E_{ads}$", "bond-integrity check"]),
+        ("Drug set", [f"{len(m)} tau-directed and", "AD drugs, 4 families", "from PubChem"]),
+        ("Fibril docking", ["PDB 8FUG", "PHF, GTP-1 site", "Vina 1.2.7", "2 redock controls"]),
+        ("β$_{12}$ borophene", ["B$_{44}$H$_{16}$ planar flake", "B held at β$_{12}$ lattice", "(Ag-supported)"]),
+        ("Adsorption", ["4 poses per drug", "Δ$E_{int}$, Δ$E_{ads}$", "bond check"]),
         ("QSPR", ["4 descriptors, ridge", "nested 5×5 CV", "Y-scrambling, AD"]),
     ]
     fig = plt.figure(figsize=(S.DOUBLE, 58 * S.MM))

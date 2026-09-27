@@ -211,7 +211,9 @@ def table(doc, caption, header, rows, note=None, align=None, widths_mm=None, fon
     return t
 
 
-def figure(doc, path, number, caption, width_mm=174):
+def figure(doc, path, number, caption, width_mm=174, label="Fig.", end=""):
+    """Springer (default): 'Fig. N' and no punctuation at the end of the caption.
+    ACS: label='Figure', end='.' -> 'Figure N. caption.'"""
     p = doc.add_paragraph()
     p.alignment = WD_ALIGN_PARAGRAPH.CENTER
     p.paragraph_format.keep_with_next = True
@@ -220,8 +222,8 @@ def figure(doc, path, number, caption, width_mm=174):
     c.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
     c.paragraph_format.space_after = Pt(12)
     c.paragraph_format.line_spacing = 1.15
-    rich(c, f"**Fig. {number}** ", size=10)
-    rich(c, caption.rstrip().rstrip("."), size=10)   # Springer: no punctuation at the end of a caption
+    rich(c, f"**{label} {number}{'.' if end else ''}** ", size=10)
+    rich(c, caption.rstrip().rstrip(".") + end, size=10)   # Springer: no punctuation at the end of a caption
     return c
 
 

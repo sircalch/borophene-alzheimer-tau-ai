@@ -21,7 +21,7 @@ from matplotlib import font_manager as fm
 MM = 1 / 25.4
 SINGLE = 84 * MM
 ONEHALF = 129 * MM
-DOUBLE = 174 * MM
+DOUBLE = 174 * MM - 0.04                # Springer double column, minus the 2 x 0.02 in save padding
 
 _AVAIL = {f.name for f in fm.fontManager.ttflist}
 SANS = next((n for n in ("Arial", "Helvetica", "Liberation Sans", "DejaVu Sans")
@@ -133,8 +133,27 @@ def scatter_kw(color, size=18, lw=0.4, edge="white", alpha=1.0, zorder=3):
                 alpha=alpha, zorder=zorder)
 
 
+MIN_PT = 7.0          # Springer: lettering about 2-3 mm at final size; 7 pt = 2.5 mm
+
+
+def finish(fig):
+    """Last pass over every text of a figure: true minus signs (U+2212) for negative
+    numbers, and no lettering below MIN_PT."""
+    import re
+    from matplotlib.text import Text
+    for t in fig.findobj(Text):
+        s = t.get_text()
+        if s:
+            s2 = re.sub(r"(?<![A-Za-z0-9_$\\{])-(?=\d)", "\u2212", s)
+            if s2 != s:
+                t.set_text(s2)
+        if t.get_fontsize() < MIN_PT and s:
+            t.set_fontsize(MIN_PT)
+
+
 def save(fig, out_dir, stem, tiff=True):
     """Write <stem>.pdf (vector), <stem>.png and <stem>.tif (600 dpi)."""
+    finish(fig)
     os.makedirs(out_dir, exist_ok=True)
     base = os.path.join(out_dir, stem)
     fig.savefig(base + ".pdf")
