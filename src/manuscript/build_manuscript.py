@@ -227,7 +227,7 @@ def methods(doc, d, c):
     k.para(doc,
            "A first model, an H-terminated B_{40}H_{15} flake relaxed without constraints, was a local minimum "
            "(no imaginary frequencies) but not a stable carrier: in every adsorption complex it contracted into "
-           f"a more compact boron cluster, lowering its own energy by up to {f1(-s['old_drop'])} kcal mol^{{−1}}, "
+           f"a more compact boron cluster, lowering its own energy by up to {f1(-s['old_drop'])} kcal mol^{{−1}} (Table S2), "
            "so that the computed binding energies were dominated by the reconstruction of the carrier. Because "
            "borophene exists only on a supporting metal, which holds it planar " + c("feng2016", "kong2017") +
            ", the carrier was rebuilt as a substrate-supported sheet. A planar β_{12} lattice (triangular "
@@ -256,7 +256,7 @@ def methods(doc, d, c):
            "Within the restraints the sheet can buckle by about 0.1 Å, and it has several such minima; the "
            "reference energy is the lowest one, obtained by re-relaxing the carrier from each of the "
            f"{len(d['ref_scan'])} physisorbed complexes ({f1(s['E_shift'])} kcal mol^{{−1}} below the "
-           "initial planar geometry). A complex was classed as chemisorbed when at least one drug–carrier pair "
+           "initial planar geometry; Table S4). A complex was classed as chemisorbed when at least one drug–carrier pair "
            "was closer than 1.15 times the sum of the covalent radii. The bonding of every drug was compared "
            "before and after adsorption to detect proton transfer or bond breaking.", indent=True)
 
@@ -293,7 +293,7 @@ def results(doc, d, c):
            f"docked {f1(s['r_free_x'])} Å (cryo-EM conformation) and {f1(s['r_free_s'])} Å (from SMILES) away "
            "from its observed pose, both outside the usual 2 Å criterion. With the neighbouring GTP-1 copies of "
            f"the stack kept, the cryo-EM conformation was recovered at {f2(s['r_stack_x'])} Å, whereas the "
-           f"ligand rebuilt from SMILES reached {f2(s['r_stack_s'])} Å (Fig. 2a). The observed pose therefore "
+           f"ligand rebuilt from SMILES reached {f2(s['r_stack_s'])} Å (Fig. 2a; Table S5). The observed pose therefore "
            "depends on stacking against the ligands above and below it, which a single-ligand docking into the "
            "empty cleft does not reproduce " + c("merz2023") + ". The cohort scores reported below were "
            "obtained on the ligand-free fibril and are an exploratory ranking of how well each drug fits the "
@@ -391,7 +391,7 @@ def results(doc, d, c):
     k.table(doc, (1, "Docking and adsorption by drug family."),
             ["Family", "*n*", "Phys. / chem.", "Vina", "Δ*E*_{int}", "Δ*E*_{ads}"], rows, align="lccccc",
             font=8.5, note="Energies in kcal mol^{−1}; Vina, median score in PDB 8FUG; Δ*E*_{int}, median (range); "
-                           "Δ*E*_{ads}, median. Per-drug values are in Table S2.")
+                           "Δ*E*_{ads}, median. Per-drug values are in Table S6.")
 
     k.heading(doc, "Docking score and adsorption", 2)
     k.para(doc,
