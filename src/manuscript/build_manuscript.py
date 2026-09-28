@@ -173,7 +173,7 @@ def introduction(doc, c):
            "identical across patients " + c("fitzpatrick2017", "shi2021") + ". Small molecules that bind these "
            "filaments include imaging probes and aggregation inhibitors: phenothiazines such as methylene blue "
            "and its reduced form hydromethylthionine " + c("wischik1996", "baddeley2015", "gauthier2016") +
-           ", polyphenols such as curcumin and EGCG " + c("rane2017", "seidler2018") + ", and oligomer "
+           ", polyphenols such as curcumin and EGCG " + c("rane2017", "wobst2015") + ", and oligomer "
            "modulators such as anle138b " + c("wagner2013") + ". The PET tracer GTP-1 has been resolved bound "
            "to PHF at 2.7 Å, stacked along the fibril axis in a cleft of each protofilament (PDB 8FUG) " +
            c("merz2023") + ", which provides a structurally defined site for docking.", indent=True)
