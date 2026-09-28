@@ -34,8 +34,8 @@ def main():
     k.para(doc,
            "Related work. Supporting files of an earlier version of this study were deposited on Zenodo "
            "(https://doi.org/10.5281/zenodo.22700723); that version was superseded when the study was rebuilt from its raw "
-           "inputs, and the results reported here replace it. A methods paper by the author, in preparation for "
-           "the Journal of Chemical Information and Modeling, uses this study as one of four case studies of "
+           "inputs, and the results reported here replace it. A methods paper by the author, in preparation, "
+           "uses this study as one of four case studies of "
            "errors found and corrected during such rebuilds, and cites some of its summary numbers; the study "
            "is reported in full only in this manuscript.")
     k.para(doc,
